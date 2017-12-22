@@ -1,0 +1,12 @@
+<view class='contentW'>
+  <text class="jobTitle">招聘岗位</text>
+  <text class="aboutInfo noindent">直升机飞行员</text>
+  <text class="jobTitle">招聘人数</text>
+  <text class="aboutInfo noindent">6名</text>
+  <text class="jobTitle">工作地点</text>
+  <text class="aboutInfo noindent">烟台、济宁、济南、青岛、潍坊、临沂驻地</text>
+  <text class="jobTitle">岗位职责</text>
+  <text class="aboutInfo noindent">根据公司的飞行计划，能够独立完成飞行任务；</text>
+  <text class="jobTitle">任职要求</text>
+  <text class="aboutInfo noindent">持有中国民航局颁发的商用飞行员执照、体检合格证，无不良飞行记录，机长不低于2000小时飞行时间，副驾驶要求英语熟练。</text>
+</view>

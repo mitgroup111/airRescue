@@ -1,0 +1,16 @@
+<view class='contentW'>
+  <image class="about-img" src="http://www.hems999.com/jsp/images/z1.jpg" mode='widthFix'/>
+  <text class="aboutInfo"><text class="nameGreen">冯正霖</text>，现任交通运输部党组副书记、副部长，中国民用航空局党组书记、局长；先后在交通运输部公路局、工程管理司工作，曾任交通部公路管理司助理巡视员、西藏自治区交通厅副厅长、交通部综合规划司副司长、交通部公路司司长等职务。</text>
+  <image class="about-img" src="http://www.hems999.com/jsp/images/zz2.jpg" mode='widthFix'/>
+  <text class="aboutInfo noindent"><text class="nameBlack">宋家慧</text>九九九空中救护首席项目总顾问</text>
+  <text class="aboutInfo noindent">职责：对项目整体运营方向和运营环境给予指导支持。
+简介：原交通运输部安全总监，曾担任交通部安全监督局副局长、交通部环境保护办公室主任、交通运输部救助打捞局局长、党委委员，是交通运输部海上搜救中心创始人，现任中国潜水打捞行业协会理事长，全国政协委员。</text>
+  <image class="about-img" src="http://www.hems999.com/jsp/images/zz3.jpg" mode='widthFix'/>
+  <text class="aboutInfo noindent"><text class="nameBlack">潘伟</text>九九九空中救护首席飞行顾问</text>
+  <text class='aboutInfo noindent'>职责：对项目飞行安全和机务保障资源给予指导支持。
+简介：现交通运输部救助打捞局副局长，海上搜救中心总飞行师。曾担任交通运输部北海第一救助队副队长，队长，救助机长。1979年到2003年在沈阳军区空军服役，2003年转业至交通部救助打捞局，曾荣获"海上特别勇敢奖"、"全国五一劳动奖章"、"交通运输系统先进工作者"、"救捞功臣"等荣誉称号。</text>
+  <image class="about-img" src="http://www.hems999.com/jsp/images/zz4.jpg" mode='widthFix'/>
+  <text class="aboutInfo noindent"><text class="nameBlack">毕耀明</text>九九九空中救护首席运营顾问</text>
+  <text class='aboutInfo noindent'>职责：对项目运营和直升机救护技能给与指导。
+简介：现任北京泛美国际航空学校校长，前香港政府飞行服务队总监，前香港航空青年团总监；曾获"中国救捞功臣"等荣誉称号；先后于皇家香港辅助空军担任高级机师、总机师、全职直升机机师，是部队唯一的华人机师，拥有固定翼机及直升机驾驶执照、直升机飞行教练资格；出任香港政府飞行服务队总监时，年仅42岁，成为当时最年轻的华人总监。</text>
+</view>

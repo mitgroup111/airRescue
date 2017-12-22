@@ -1,0 +1,35 @@
+<view class='contentW'>
+  <view class="table noborder">
+    <view class="tr">
+      <view class="th textL">职位名称</view>
+      <view class="th textL">招聘人数</view>
+      <view class="th textL">工作地点</view>
+    </view>
+    <view class="tr">
+      <view class="td textL"><navigator url="../join/job_pilot" hover-class="menu-navigator-hover">直升机飞行员</navigator></view>
+      <view class="td textL">6名</view>
+      <view class="td textL">山东省内</view>
+    </view>
+    <view class="tr">
+      <view class="td textL"><navigator url="../join/job_jiwu" hover-class="menu-navigator-hover">机务（机械ME/电子AV）</navigator></view>
+      <view class="td textL">10名</view>
+      <view class="td textL">山东省内</view>
+    </view>
+    <view class="tr">
+      <view class="td textL"><navigator url="../join/job_dispatch" hover-class="menu-navigator-hover">签派</navigator></view>
+      <view class="td textL">2名</view>
+      <view class="td textL">山东省内</view>
+    </view>
+    <view class="tr">
+      <view class="td textL"><navigator url="../join/job_doctor" hover-class="menu-navigator-hover">急救医生/护士</navigator></view>
+      <view class="td textL">12名</view>
+      <view class="td textL">山东省内</view>
+    </view>
+  </view>
+  <text class='aboutInfo  noindent'>其他福利：公司提供餐补、各种节假日福利补贴等，签订劳动合同，缴纳五险一金。 
+面试地址：山东省烟台市开发区五指山路1号麦特集团 
+联系电话：0535-6105319
+招聘邮箱：hr@mitgroup.com.cn 
+联系人：孙女士
+  </text>
+</view>

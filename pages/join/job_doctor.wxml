@@ -1,0 +1,13 @@
+<view class='contentW'>
+  <text class="jobTitle">招聘岗位</text>
+  <text class="aboutInfo noindent">急救医生/护士</text>
+  <text class="jobTitle">招聘人数</text>
+  <text class="aboutInfo noindent">12名</text>
+  <text class="jobTitle">工作地点</text>
+  <text class="aboutInfo noindent">烟台、济宁、济南、青岛、潍坊、临沂驻地</text>
+  <text class="jobTitle">岗位职责</text>
+  <text class="aboutInfo noindent">跟随机组执行急救工作。</text>
+  <text class="jobTitle">任职要求</text>
+  <text class="aboutInfo noindent">专科以上学历，持执业资格证书，3年以上急救科工作经验。
+  </text>
+</view>

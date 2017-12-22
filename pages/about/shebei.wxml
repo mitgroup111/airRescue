@@ -1,0 +1,166 @@
+<view class="tab"> 
+<view class="tab-left clearfix" bindtap="tabFun"> 
+ <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="tab-hd01" data-id="0">空客H130 T2直升机</view> 
+ <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="tab-hd02" data-id="1">医疗设备</view> 
+</view> 
+<view class="tab-right"> 
+ <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+  <view class='contentW'>
+  <view class="aboutTitle"><text class="aboutTitleSpan">EC130T2</text></view>
+  <image class="about-img" src="http://www.hems999.com/jsp/images/h130-01.jpg" mode='widthFix'/>
+  <text class="aboutInfo">EC130T2是松鼠EC130系列直升机的最新型号，安装有全新的透博梅卡Arriel 2D发动机，整机超过70%的机身进行了改进。这些变化令EC130T2直升机更加多功能化，更加符合通用航空作业和高温高原地区的运行需要。由于该直升机较低的维护与运行成本，出众的安全性，使其成单发多用 途直升机的绝佳选择。</text>
+    <view class="aboutTitle"><text class="aboutTitleSpan">机身展示</text></view>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/1.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/2.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/3.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/4.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/5.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/6.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/jishen/7.jpg" mode='widthFix'/>
+    <view class="aboutTitle"><text class="aboutTitleSpan">内部特写</text></view>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/1.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/2.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/3.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/4.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/5.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/6.jpg" mode='widthFix'/>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/neibu/7.jpg" mode='widthFix'/>
+    <view class='h130Feature'>
+      <view class="h130FeatureT"><text>舒适性</text></view>
+      <text class="h130FeatureH">新型空调系统</text>
+      <text class="h130FeatureInfo">-出色的客舱分隔\n-高效并可靠\n-简易维护</text>
+      <text class="h130FeatureH">新型主动振动控制系统（AVCS）</text>
+      <text class="h130FeatureInfo">－使飞机更平稳更尽兴</text>
+      <text class="h130FeatureH">改进的重心设计</text>
+      <text class="h130FeatureInfo">－乘客在客舱内的位置更加随意</text>
+      <view class="h130FeatureT"><text>客舱门</text></view>
+      <text class="h130FeatureH">新型金属拉门和右侧滑动门</text>
+      <text class="h130FeatureInfo">-操作简便\n-重量、质量和可靠性的改进</text>
+      <view class="h130FeatureT"><text>安全性</text></view>
+      <text class="h130FeatureH">抗坠毁吸能燃油箱最优化的人机交互系统</text>
+      <text class="h130FeatureInfo">-飞行员工作量大大减低\n-新型驾驶舱的设计\n-新型控制与保险开关面板</text>
+      <view class="h130FeatureT"><text>更大的商载和更低的维护使用成本</text></view>
+      <text class="h130FeatureH">全新Arriel 2D发动机</text>
+      <text class="h130FeatureInfo">-大修间隔增加\n-更低的燃油消耗\n-更具计划性的维护\n-适合高温高原地区的运行</text>
+      <text class="h130FeatureH">新式双通道FADEC</text>
+      <text class="h130FeatureInfo">-发动机健康状态监控</text>
+      <view class="h130FeatureT"><text>多功能与多任务</text></view>
+      <text class="h130FeatureH">大型平整客舱地板更强的货物吊挂能力快速可转换内饰</text>
+      <text class="h130FeatureInfo">-乘客布局与货物运输布局之间的转换</text>
+    </view>
+    <view class="aboutTitle"><text class="aboutTitleSpan">规格参数</text></view>
+    <view class="table noborder">
+          <view class="tr">
+              <view class="th textL">重量</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">空机重量</view>
+              <view class="td textL">1443kg</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大起飞重量（内载）</view>
+              <view class="td textL">	2427kg</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">有效载荷</view>
+              <view class="td textL">	1057kg</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大起飞重量（外吊挂）</view>
+              <view class="td textL">	3050kg</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大外吊挂载荷</view>
+              <view class="td textL">		1500kg</view>
+          </view>
+      </view>
+      <view class="table noborder">
+          <view class="tr">
+              <view class="th textL">操作限制</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大操作高度</view>
+              <view class="td textL">	7010米</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最低温度</view>
+              <view class="td textL">	-20℃</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最高温度</view>
+              <view class="td textL">国际标准大气+35℃，C限制为+50℃</view>
+          </view>
+      </view>
+      <view class="table noborder">
+          <view class="tr">
+              <view class="th textL">性能数据</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">极限速度（VNE）</view>
+              <view class="td textL">	287km/h</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大巡航速度</view>
+              <view class="td textL">	237km/h</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大续航时间</view>
+              <view class="td textL">	4:00h</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">最大航程</view>
+              <view class="td textL">	617km</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">实用升限</view>
+              <view class="td textL">		5517m</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">有地效悬停升限</view>
+              <view class="td textL">3429m</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">无地效悬停升限</view>
+              <view class="td textL">	2957m</view>
+          </view>
+      </view>
+      <view class="table noborder">
+          <view class="tr">
+              <view class="th textL">空间配置</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">装载载客量</view>
+              <view class="td textL">	1+6</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">标准燃油量</view>
+              <view class="td textL">	426公斤</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">动力装置</view>
+              <view class="td textL">	1台透博梅卡阿吕斯 2B1涡轴发动机</view>
+          </view>
+          <view class="tr">
+              <view class="td textL">起飞功率</view>
+              <view class="td textL">632千瓦</view>
+          </view>
+      </view>
+  </view>
+ </view> 
+ <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+ <view class='contentW'>
+    <text class="aboutInfo">九九九空中救护H130直升机不单是简单的运输工具，机上配备了专业呼吸机、除颤仪、注射泵、氧气站等全套的医疗救援设备，相当于空中的ICU。</text>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/eq1.jpg" mode='widthFix'/>
+    <text class="aboutInfo">几乎每一位用直升机或飞机转运的病人病情都非常严重，必须持续综合地监控--但由于时间紧，空间小，噪音大等因素， 极大地增加了工作人员的压力。除颤/监护仪可以确保对危重病人的不间断监护，确保病人生命体征。</text>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/eq2.jpg" mode='widthFix'/>
+    <view class="eqName textC">除颤仪</view>
+    <text class="aboutInfo">注射泵能精确控制输送药液的流速和流量，并能对输液过程中出现的异常情况进行报警，同时及时自动切除输液通路。 输液泵的应用有助于减轻医护工作强度，提高安全性、准确性和工作效率，并提高护理水平。</text>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/eq3.jpg" mode='widthFix'/>
+    <view class="eqName textC">注射泵</view>
+    <text class="aboutInfo">在急救现场插管是非常难的。吵闹的周围环境，如在直升机和救护车上，临床监测也非常困难。 呼吸机是一种能够起到预防和治疗呼吸衰竭，减少并发症，挽救及延长病人生命的至关重要的医疗设备，是当今危重症患者常用的治疗手段。</text>
+    <image class="about-img" src="http://www.hems999.com/jsp/images/eq4.jpg" mode='widthFix'/>
+    <view class="eqName textC">呼吸机</view>
+ </view> 
+  </view> 
+</view> 
+</view>

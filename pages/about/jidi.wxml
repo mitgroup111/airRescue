@@ -1,0 +1,7 @@
+<view class='contentW'>
+  <text class="aboutInfo">前期在全省建立6个救援基地，分布在烟台、潍坊、济南、青岛、临沂、济宁周边区域。每个基地覆盖范围在周边半径100-200公里处，确保救援直升机在30-60分钟黄金救援时间内到达出事现场。 后期，再根据需要补充发展。救援基地优选高速公路附近。</text>
+<image class="about-img" src="http://www.hems999.com/jsp/images/xm3.jpg" mode='widthFix'/>
+<text class='aboutInfo'>每个救援基地，前期配置1架空客H130T2医疗救护直升机，后期会根据需要，确保每个基地配置1-2架以上救护直升机。同时，在潍坊中心基地，会配置2架H130T2，即首期6个救援基地，配置七架H130T2直升机，备用救援直升机。</text>
+<image class="about-img" src="http://www.hems999.com/jsp/images/jd1.jpg" mode='widthFix'/>
+<image class="about-img" src="http://www.hems999.com/jsp/images/jd2.jpg" mode='widthFix'/>
+</view>
