@@ -63,7 +63,7 @@ Page({
       success: function (res) {
         console.log("从app.js请求服务器test.php获取数据")
 
-
+        console.log("test");
         console.log(res.data);
       }
     });
