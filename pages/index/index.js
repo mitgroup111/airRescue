@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    new_list:"",
     slider: [
       { picUrl: '../../images/banner01.jpg' },
       { picUrl: '../../images/banner02.jpg' },
@@ -62,8 +63,10 @@ Page({
       },
       success: function (res) {
         console.log("从app.js请求服务器test.php获取数据")
-
-
+        
+        that.setData({
+          new_list: res.data,
+        })
         console.log(res.data);
       }
     });
