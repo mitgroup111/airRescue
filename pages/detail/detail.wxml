@@ -1,8 +1,8 @@
+<import src="../wxParse/wxParse.wxml"/>
 <!--detail.wxml-->
 <view class="art-header">
-    <view class="art-title">{{news.title}}</view>
-    <view class="art-source">{{news.hits}}</view>
+    <view class="art-title">{{news[0].title}}</view>
 </view>
 <view class="art-content">
-  {{news.content}}
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view> 

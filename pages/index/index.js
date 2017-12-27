@@ -62,11 +62,11 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log("从app.js请求服务器test.php获取数据")
+        console.log("从app.js请求服务器test.php获取数据");
         
         that.setData({
           new_list: res.data,
-        })
+        });
         console.log(res.data);
       }
     });
