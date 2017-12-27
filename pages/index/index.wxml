@@ -40,9 +40,11 @@
 <view class='blank'></view>
 <view  class="news-wrp" >
   <view class="news-list clearfix"  wx:for="{{new_list}}" >
+    <navigator url="../detail/detail?newsId={{item.newsId}}" hover-class="menu-navigator-hover">
     <image class="news-img" src="http://www.hems999.com/{{item.path}}"/>
     <view  class="news-title" >{{item.title}}</view>
     <view  class="news-desc" >{{item.description}}</view>
+    </navigator>
   </view>
 </view>
 <view class="btn-area">

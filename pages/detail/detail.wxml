@@ -1,8 +1,8 @@
 <!--detail.wxml-->
 <view class="art-header">
-    <view class="art-title">{{art.title}}</view>
-    <view class="art-source">{{art.image_source}}</view>
+    <view class="art-title">{{news.title}}</view>
+    <view class="art-source">{{news.hits}}</view>
 </view>
 <view class="art-content">
-  {{art.body}}
+  {{news.content}}
 </view> 

@@ -1,6 +1,6 @@
 Page({
   data: {
-    art: {},
+    news: "",
   },
   onReady () {
     wx.setNavigationBarTitle({
@@ -8,40 +8,22 @@ Page({
     })
   },
   onLoad (options) {
-    var that = this
+    console.log('newsDetail-onLoad')
+    var that = this;
     wx.request({
-      url: 'http://news-at.zhihu.com/api/4/news/' + options.id,
-      headers: {
+      url: 'https://www.hems999.com/newsDetail_winxin?newIdParam='+options.newsId, //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
         'Content-Type': 'application/json'
       },
-      success (res) {
-        if (res.data.body) {
-          var body = res.data.body;
-          body = body.match( /<p>.*?<\/p>/g );
-          var ss = [];
-          if (body) {
-            for( var i = 0, len = body.length; i < len;i++ ) {
-            ss[ i ] = /<img.*?>/.test( body[ i ] );
-            if( ss[ i ] ) {
-              body[ i ] = body[ i ].match( /(http:|https:).*?\.(jpg|jpeg|gif|png)/ );
-            } else {
-              body[ i ] = body[ i ].replace( /<p>/g, '' )
-              .replace( /<\/p>/g, '' )
-              .replace( /<strong>/g, '' )
-              .replace( /<\/strong>/g, '' )
-              .replace( /<a.*?\/a>/g, '' )
-              .replace( /&nbsp;/g, ' ' )
-              .replace( /&ldquo;/g, '"' )
-              .replace( /&rdquo;/g, '"' );
-            }
-          }
-          }
-          res.data.body = body
-        }
-         that.setData({
-           art: res.data
-         })
+      success: function (res) {
+        console.log("从app.js请求服务器test.php获取数据")
+
+        that.setData({
+          news: res.data,
+        })
+        console.log(res.data);
       }
-    })
+    });
   }
 })
