@@ -1,29 +1,35 @@
-
 scroll-view {
   width: 100%;
 }
 
 .item {
-  width: 90%;
-  height: 300rpx;
-  margin: 20rpx auto;
-  background: brown;
+  text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.item .img {
-  width: 430rpx;
-  margin-right: 20rpx;
-  float: left;
+  white-space: nowrap;
+  height: 34rpx;
+  line-height: 34rpx;
+  border-bottom: 1px dotted #ddd;
+  padding: 26rpx 0;
 }
 
 .title {
-  font-size: 30rpx;
-  display: block;
-  margin: 30rpx auto;
+  font-size: 32rpx;
+  
 }
 
-.description {
-  font-size: 26rpx;
-  line-height: 15rpx;
+.date {
+  font-size: 30rpx; 
+  color: #888;
+}
+.line{
+  font-size: 30rpx;
+  color: #888;
+  margin:0 5px;
+}
+.page navigator {
+    background: #ececec none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    display: inline-block;
+    margin:0 10rpx;
 }

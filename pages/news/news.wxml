@@ -1,18 +1,19 @@
-<view class="container" style="padding:0rpx">
+<view class="contentW">
   <!--垂直滚动，这里必须设置高度-->
-  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
-    class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad"  bindscroll="scroll">
-    <view class="item" wx:for="{{list}}">
-      <image class="img" src="{{item.pic_url}}"></image>
-      <view class="text">
-        <text class="title">{{item.name}}</text>
-        <text class="description">{{item.short_description}}</text>
-      </view>
+  <scroll-view  class="list">
+    <view class="item">
+      <text class="date">2017.09.09</text>
+      <text class="line">|</text>
+      <text class="title">模压模压模压模压模压模压模压模压模压模压模压模压</text>
+    </view>
+    <view class="item">
+      <text class="date">2017.09.09</text>
+      <text class="line">|</text>
+      <text class="title">模压模压模压模压模压模压模压模压模压模压模压模压</text>
     </view>
   </scroll-view>
-  <view class="body-view">
-    <loading hidden="{{hidden}}" bindchange="loadingChange">
-      加载中...
-    </loading>
-   </view>
+</view>
+<view class="page">
+   <navigator hover-class="menu-navigator-hover">上一页</navigator>
+   <navigator url="../about/jieshao" hover-class="menu-navigator-hover">下一页</navigator>
 </view>
