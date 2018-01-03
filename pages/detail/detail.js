@@ -5,7 +5,7 @@ Page({
   },
   onReady () {
     wx.setNavigationBarTitle({
-      title: '详情页面'
+      title: '新闻速递'
     })
   },
   onLoad (options) {

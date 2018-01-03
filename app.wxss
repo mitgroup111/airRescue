@@ -108,7 +108,7 @@ table {
 .contentW{
   width: 95%;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 20rpx;
 }
 .aboutTitle{
     margin: 20rpx 0 30rpx 0;

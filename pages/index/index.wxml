@@ -48,5 +48,5 @@
   </view>
 </view>
 <view class="btn-area">
-  <navigator url="../news/news" open-type="switchTab" class='more' hover-class="other-navigator-hover">查看更多</navigator>
+  <navigator url="../news/news" open-type="navigate" class='more' hover-class="other-navigator-hover">查看更多</navigator>
 </view>
