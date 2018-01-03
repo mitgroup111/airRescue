@@ -63,9 +63,10 @@ Page({
       },
       success: function (res) {
         console.log("从app.js请求服务器test.php获取数据");
-        
+        var query_clone = JSON.parse(decodeURIComponent(JSON.stringify(res.data)));
+         console.log(query_clone);
         that.setData({
-          new_list: res.data,
+          new_list: query_clone,
         });
         console.log(res.data);
       }
