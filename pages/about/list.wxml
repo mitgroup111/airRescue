@@ -57,7 +57,7 @@
     </navigator>
   </view>
   <view class="list-list">
-    <navigator url="../news/news" >
+    <navigator url="../news/news?pageNo=1" >
         <image class="list-img" src="http://www.hems999.com/mobile//images/list08.png"/>
         <view  class="list-title" >新闻速递  </view>
     </navigator>

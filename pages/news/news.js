@@ -9,6 +9,7 @@ Page({
     pageTotal:""
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -16,17 +17,18 @@ Page({
     console.log('newsList-onLoad')
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/list_weixin?pageNo=1', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/list_weixin?pageNo=' + options.pageNo, //仅为示例，并非真实的接口地址
       data: {},
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json;charset=utf-8',
+        'CharacterEncoding':"UTF-8"
       },
       success: function (res) {
         that.setData({
           new_list: res.data.content,
           pageNo: res.data.pageNo,
           pageTotal: res.data.pageTotal
-        });
+        })
         console.log(res.data.pageNo   );
         console.log(res.data.pageTotal);
       }

@@ -3,7 +3,7 @@
 <view class="contentW">
   <view class="art-header">
       <view class="art-title">{{news[0].title}}</view>
-      <view class="art-date">2017.12.18</view>
+      <view class="art-date">{{news[0].createTimeStr}}</view>
   </view>
   <view class="art-content">
   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>

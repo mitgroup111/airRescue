@@ -3,7 +3,7 @@
   <scroll-view  class="list">
   <view class="item"  wx:for="{{new_list}}" >
     <navigator url="../detail/detail?newsId={{item.newsId}}" hover-class="menu-navigator-hover">
-  <text class="date">2017.09.09</text>
+  <text class="date">{{item.createTimeStr}}</text>
       <text class="line">|</text>
     <text  class="title" >{{item.title}}</text>
     </navigator>
@@ -12,10 +12,16 @@
   </scroll-view>
 </view>
 <view class="page">
-<view wx:if="{{pageNo > 1}}"> 
+<block wx:if="{{pageNo > 1}}"> 
+   <navigator url="../news/news?pageNo={{pageNo -1}}"   hover-class="menu-navigator-hover">上一页</navigator>
+</block>
+<block wx:if="{{pageNo == 1}}"> 
    <navigator class="disabled" hover-class="menu-navigator-hover">上一页</navigator>
-</view>
-<view wx:if="{{pageTotal > pageNo}}">
-   <navigator url="../about/jieshao"  hover-class="menu-navigator-hover">下一页</navigator>
-</view>
+</block>
+<block wx:if="{{pageTotal > pageNo}}">
+   <navigator url="../news/news?pageNo={{pageNo*1 +1}}"  hover-class="menu-navigator-hover">下一页</navigator>
+</block>
+<block wx:if="{{pageTotal == pageNo}}">
+   <navigator class="disabled" hover-class="menu-navigator-hover">下一页</navigator>
+</block>
 </view>
