@@ -4,7 +4,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    new_list: ""
+    new_list: "",
+    pageNo:"",
+    pageTotal:""
   },
 
   /**
@@ -22,8 +24,11 @@ Page({
       success: function (res) {
         that.setData({
           new_list: res.data.content,
+          pageNo: res.data.pageNo,
+          pageTotal: res.data.pageTotal
         });
-        console.log(res.data   );
+        console.log(res.data.pageNo   );
+        console.log(res.data.pageTotal);
       }
     });
   },

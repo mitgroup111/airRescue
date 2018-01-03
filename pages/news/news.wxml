@@ -12,6 +12,11 @@
   </scroll-view>
 </view>
 <view class="page">
+<view wx:if="{{pageNo > 1}}"> 
    <navigator hover-class="menu-navigator-hover">上一页</navigator>
-   <navigator url="../about/jieshao" hover-class="menu-navigator-hover">下一页</navigator>
+</view>
+<view wx:if="{{pageTotal > pageNo}}">
+   <navigator url="../about/jieshao" hover-class="menu-navigator-hover">下一页
+   </navigator>
+</view>
 </view>
