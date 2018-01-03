@@ -21,9 +21,9 @@ Page({
       },
       success: function (res) {
         that.setData({
-          new_list: res.data,
+          new_list: res.data.content,
         });
-        console.log(res.data);
+        console.log(res.data   );
       }
     });
   },
