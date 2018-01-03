@@ -5,7 +5,7 @@
     <navigator url="../detail/detail?newsId={{item.newsId}}" hover-class="menu-navigator-hover">
   <text class="date">2017.09.09</text>
       <text class="line">|</text>
-    <view  class="title" >{{item.title}}</view>
+    <text  class="title" >{{item.title}}</text>
     </navigator>
   </view>
    
@@ -13,10 +13,9 @@
 </view>
 <view class="page">
 <view wx:if="{{pageNo > 1}}"> 
-   <navigator hover-class="menu-navigator-hover">上一页</navigator>
+   <navigator class="disabled" hover-class="menu-navigator-hover">上一页</navigator>
 </view>
 <view wx:if="{{pageTotal > pageNo}}">
-   <navigator url="../about/jieshao" hover-class="menu-navigator-hover">下一页
-   </navigator>
+   <navigator url="../about/jieshao"  hover-class="menu-navigator-hover">下一页</navigator>
 </view>
 </view>

@@ -11,7 +11,9 @@ scroll-view {
   border-bottom: 1px dotted #ddd;
   padding: 26rpx 0;
 }
-
+.item navigator{
+  display: inline;
+}
 .title {
   font-size: 32rpx;
   
@@ -26,10 +28,18 @@ scroll-view {
   color: #888;
   margin:0 5px;
 }
+.page{
+  width:380rpx;
+  margin: 0 auto;
+}
 .page navigator {
     background: #ececec none repeat scroll 0 0;
     border: 1px solid #ccc;
     padding: 5px 10px;
     display: inline-block;
     margin:0 10rpx;
+    font-size: 32rpx;
+}
+.page navigator.disabled{
+  color: #999;
 }
