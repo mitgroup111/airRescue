@@ -1,16 +1,14 @@
 <view class="contentW">
   <!--垂直滚动，这里必须设置高度-->
   <scroll-view  class="list">
-    <view class="item">
-      <text class="date">2017.09.09</text>
+  <view class="item"  wx:for="{{new_list}}" >
+    <navigator url="../detail/detail?newsId={{item.newsId}}" hover-class="menu-navigator-hover">
+  <text class="date">2017.09.09</text>
       <text class="line">|</text>
-      <text class="title">模压模压模压模压模压模压模压模压模压模压模压模压</text>
-    </view>
-    <view class="item">
-      <text class="date">2017.09.09</text>
-      <text class="line">|</text>
-      <text class="title">模压模压模压模压模压模压模压模压模压模压模压模压</text>
-    </view>
+    <view  class="title" >{{item.title}}</view>
+    </navigator>
+  </view>
+   
   </scroll-view>
 </view>
 <view class="page">
