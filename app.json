@@ -41,12 +41,6 @@
         "pagePath": "pages/about/list",
         "iconPath": "images/nav02.png",
         "selectedIconPath": "images/nav02A.png"
-      },
-      {
-        "text": "我的",
-        "pagePath": "pages/index/index",
-        "iconPath": "images/nav03.png",
-        "selectedIconPath": "images/nav03A.png"
       }
     ]
   }

@@ -109,6 +109,8 @@ table {
   width: 95%;
   margin: 0 auto;
   margin-bottom: 20rpx;
+  border-top:1px solid #ddd;
+  padding-top:20rpx;
 }
 .aboutTitle{
     margin: 20rpx 0 30rpx 0;

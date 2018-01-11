@@ -18,7 +18,7 @@ Page({
   loadNext(e) {
     if (this.data.new_list.length === 0) return
     var that = this
-    that.setData({ loading: true })
+ 
     console.log("下一页" + (Number(this.data.pageNo) + 1));
     wx.request({
       url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) + 1),
@@ -27,7 +27,7 @@ Page({
       },
       success(res) {
         that.setData({
-          loading: false,
+
           new_list: res.data.content,
           pageNo: res.data.pageNo,
           pageTotal: res.data.pageTotal
@@ -39,7 +39,7 @@ Page({
   loadPre(e) {
     if (this.data.new_list.length === 0) return
     var that = this
-    that.setData({ loading: true })
+ 
     console.log("下一页" + (Number(this.data.pageNo) - 1));
     wx.request({
       url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) - 1),
@@ -48,7 +48,7 @@ Page({
       },
       success(res) {
         that.setData({
-          loading: false,
+
           new_list: res.data.content,
           pageNo: res.data.pageNo,
           pageTotal: res.data.pageTotal

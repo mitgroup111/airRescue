@@ -31,16 +31,29 @@ scroll-view {
 .page{
   width:380rpx;
   margin: 0 auto;
+  height: 100rpx;
+  overflow: hidden;
 }
 .page button[type="primary"] {
-    background: #ececec none repeat scroll 0 0;
-    padding: 0px 10px;
-    display: inline-block;
-    margin:0 10rpx;
+    background: #ddd none repeat scroll 0 0;
+    display: block;
+    margin:10rpx;
     font-size: 32rpx;
-    border-radius: 0;
+    border-radius: 3px;
     color:#666;
+    float: left;
+    width:160rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    text-align: center;
 }
 .page button[type="primary"].disabled{
-  color:#999;
+  color:#aaa;
+  background: #eee;
+}
+.page button::after{
+  border: 1px solid rgba(187, 187, 187, 1);
+  -webkit-transform:scale(0);
+  transform:scale(0);
+
 }

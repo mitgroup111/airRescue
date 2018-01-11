@@ -11,15 +11,15 @@
    
   </scroll-view>
 </view>
-<view class="page">
+<view class="page clearfix">
   <block wx:if="{{pageNo == 1}}">
     <button type="primary" class="disabled" disabled="true">上一页</button> 
    </block>
     <block wx:if="{{pageNo > 1}}">
-    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadPre">上一页</button>
+    <button type="primary" class="load-btn"  bindtap="loadPre">上一页</button>
    </block>
  <block wx:if="{{pageTotal > pageNo}}">
-    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadNext">下一页</button>
+    <button type="primary" class="load-btn"  bindtap="loadNext">下一页</button>
   </block>
    <block wx:if="{{pageTotal == pageNo }}">
     <button type="primary" class="disabled" disabled="true">下一页</button>
