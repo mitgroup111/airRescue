@@ -22,9 +22,7 @@ Page({
           news: res.data,
         })
         WxParse.wxParse('article', 'html', res.data[0].content, that, 5);
-        console.log(res.data);
         console.log(res.data[0].newsId);
-        console.log(res.data[0].content);
       }
     });
   }
