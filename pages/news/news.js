@@ -6,9 +6,56 @@ Page({
   data: {
     new_list: "",
     pageNo:"",
-    pageTotal:""
+    pageTotal:"",
+    duration: 2000,
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    loading: false,
+    plain: false
   },
-
+  /**下一页 */
+  loadNext(e) {
+    if (this.data.new_list.length === 0) return
+    var that = this
+    that.setData({ loading: true })
+    console.log("下一页" + (Number(this.data.pageNo) + 1));
+    wx.request({
+      url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) + 1),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        that.setData({
+          loading: false,
+          new_list: res.data.content,
+          pageNo: res.data.pageNo,
+          pageTotal: res.data.pageTotal
+        })
+      }
+    })
+  },
+  /**上一页 */
+  loadPre(e) {
+    if (this.data.new_list.length === 0) return
+    var that = this
+    that.setData({ loading: true })
+    console.log("下一页" + (Number(this.data.pageNo) - 1));
+    wx.request({
+      url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) - 1),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        that.setData({
+          loading: false,
+          new_list: res.data.content,
+          pageNo: res.data.pageNo,
+          pageTotal: res.data.pageTotal
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

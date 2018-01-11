@@ -12,10 +12,16 @@
   </scroll-view>
 </view>
 <view class="page">
-<block wx:if="{{pageNo > 1}}"> 
-   <navigator url="../news/news?pageNo={{pageNo -1}}"   hover-class="menu-navigator-hover" >上一页</navigator>
-</block>
-<block wx:if="{{pageTotal > pageNo && pageNo < 6}}">
-   <navigator url="../news/news?pageNo={{pageNo*1 +1}}"  hover-class="menu-navigator-hover">下一页</navigator>
-</block>
+  <block wx:if="{{pageNo == 1}}">
+    <button type="primary" class="disabled" disabled="true">上一页</button> 
+    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadNext">下一页</button>
+  </block>
+  <block wx:if="{{pageNo >1 && pageTotal > pageNo}}">
+    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadPre">上一页</button>
+    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadNext">下一页</button>
+  </block>
+  <block wx:if="{{pageTotal == pageNo }}">
+    <button type="primary" class="load-btn"  loading="{{loading}}"  bindtap="loadPre">上一页</button>
+    <button type="primary" class="disabled" disabled="true">下一页</button>
+  </block>
 </view>
