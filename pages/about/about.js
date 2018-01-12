@@ -25,7 +25,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showNavigationBarLoading();
     wx.setNavigationBarTitle({
       title: '关于空中救护'
     })
