@@ -31,7 +31,7 @@
   </view>
   <view class="menu-list" style='margin-right:0;'>
   <navigator url="../about/jieshao" hover-class="menu-navigator-hover">
-    <view  class="menu-title" style='color:#54a8f8;' >覆盖山东全省</view>
+    <view  class="menu-title" style='color:#54a8f8;' >快速到达现场</view>
     <text  class="menu-desc" >30-60分钟到达\n现场</text>
     <image class="menu-img" src="http://www.hems999.com/mobile//images/index03.png"/>
     </navigator>
