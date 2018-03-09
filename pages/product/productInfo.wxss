@@ -1,0 +1,22 @@
+/* pages/product/productInfo.wxss */
+.product_money{
+  margin-bottom:10px;
+  font-size: 34rpx;
+}
+.table{
+  width: 98%;
+}
+.table .td{
+  width: 70%
+}
+.table .td.productTdTitle{
+  background: #eee;
+  width: 30%;
+  font-weight: bold;
+}
+.table .td.productTdName{
+  color: #026a19;
+  font-weight: bold;
+  font-size: 36rpx;
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+.news-list{
+  margin-bottom: 5px;
+}
+.news-img {
+  height:112rpx;
+  margin:0px 20rpx 0px 20rpx;
+  width:200rpx;
+  border:none;
+  padding:0rpx;
+}
+.pro-buy{
+  position: absolute;
+  right: 0;
+  top: 3px;
+  background: #e9480c;
+  border-radius: 2px;
+  padding: 3px 10px;
+  font-size: 32rpx;
+  color: #fff;
+}

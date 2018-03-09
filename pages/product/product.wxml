@@ -1,0 +1,20 @@
+<view class='contentW'>
+  <view  class="news-wrp" >
+    <view class="news-list clearfix">
+      <navigator url="productInfo" hover-class="menu-navigator-hover">
+      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-title" >个人版 1年卡</view>
+      <view class="news-desc" >1个年度内，免费空中救护服务，不限次数</view>
+      </navigator>
+      <navigator class="pro-buy">立即购买</navigator>
+    </view>
+    <view class="news-list clearfix">
+      <navigator url="" hover-class="menu-navigator-hover">
+      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-title" >个人版 1年卡</view>
+      <view class="news-desc" >1个年度内，免费空中救护服务，不限次数</view>
+      </navigator>
+      <navigator class="pro-buy">立即购买</navigator>
+    </view>
+  </view>
+</view>

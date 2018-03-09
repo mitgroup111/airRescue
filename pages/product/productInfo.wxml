@@ -1,0 +1,26 @@
+<view class='contentW'>
+  <image class="about-img" src="../../images/card01-2.jpg" mode='widthFix'/>
+  <view class="product_money">会费：￥399元</view>
+  <view class="table">
+      <view class="tr">
+          <view class="td textC productTdName">个人版（1年卡）会员专享权益</view>
+      </view>
+      <view class="tr">
+          <view class="td textL productTdTitle">免费服务</view>
+          <view class="td textL">1个年度内，免费空中救护服务，不限次数</view>
+      </view>
+      <view class="tr">
+          <view class="td textL productTdTitle">会员服务说明</view>
+          <view class="td textL">	①道路交通事故直升机紧急医疗救援以山东省内高速公路为主，兼顾国道、省道及城镇公路;
+②最长60分钟到达事发现场进行专业医疗急救;
+③按照就近、就急、就医院能力原则，安排对接的合作医院;
+④只限在昼间提供应急救护服务;</view>
+      </view>
+      <view class="tr">
+          <view class="td textL productTdTitle">非会员服务说明</view>
+          <view class="td textL">①非会员空中救护服务费用按3.5万元/小时计价;
+②飞行时间=直升机发动机启动离开基地到现场+现场救助及飞到医院+医院交接及回到基地直升机发动机关车的时间;</view>
+      </view>
+
+  </view>
+</view>

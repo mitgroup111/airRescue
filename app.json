@@ -1,6 +1,7 @@
 {
   "pages":[
     
+   
     
     "pages/index/index",
     "pages/about/list",
@@ -21,7 +22,11 @@
     "pages/join/job_dispatch",
     "pages/join/job_doctor",
     "pages/login/login",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/product/product",
+    "pages/product/productInfo"
+    
+    
     
   ],
   "window":{
@@ -47,6 +52,12 @@
         "pagePath": "pages/about/list",
         "iconPath": "images/nav02.png",
         "selectedIconPath": "images/nav02A.png"
+      },
+      {
+        "text": "服务",
+        "pagePath": "pages/product/product",
+        "iconPath": "images/nav04.png",
+        "selectedIconPath": "images/nav04A.png"
       },
       {
         "text": "会员",
