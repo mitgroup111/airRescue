@@ -114,7 +114,7 @@ Page({
         }, 1000)
       } 
       wx.request({
-        url: 'https://www.didu86.com/Clothes-manager-web/codenum',
+        url: 'https://www.hems999.com/reglog!getMobileCode',
         data: {
           tel: phoneNum,
         },
