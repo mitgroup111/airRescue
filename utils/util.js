@@ -28,3 +28,23 @@ module.exports = {
   formatTime: formatTime,
   formatDate: formatDate
 }
+// 去前后空格  
+function trim(str) {
+  return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+// 提示错误信息  
+function isError(msg, that) {
+  that.setData({
+    showTopTips: true,
+    errorMsg: msg
+  })
+}
+
+// 清空错误信息  
+function clearError(that) {
+  that.setData({
+    showTopTips: false,
+    errorMsg: ""
+  })
+}  

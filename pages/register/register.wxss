@@ -1,0 +1,32 @@
+/* pages/register/register.wxss */
+.back_img{  
+  background: #fff;  
+  background-size:cover;  
+  -webkit-filter: blur(10px); /* Chrome, Opera */  
+  -moz-filter: blur(10px);  
+  -ms-filter: blur(10px);      
+  filter: blur(10px);   
+  z-index:0;  
+  position:relative;  
+} 
+.loginLab{
+  margin-left: 15px;
+} 
+.yzInput{
+  float:left;
+  margin-left: 15px;
+  margin-right: 0;
+}
+.btn_getMobileCode{
+  float:right;
+  margin: 8px 10px 0 0;
+}
+.xieyiTips{
+  margin-top: 10px;
+  font-size: 32rpx;
+  color: #666;
+}
+.xieyiTips navigator{
+  color: #c20c0c;
+  text-decoration: underline;
+}

@@ -65,15 +65,21 @@ table {
     border-spacing: 0;
 	  width:100%;
 }
+page{  
+  height: 100%;  
+}   
+ 
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding:0;
   box-sizing: border-box;
+  background-color: #f2f2f2 
 } 
+
 /*图片切换banner*/
 .swiper-container{
  position: relative;
@@ -114,6 +120,7 @@ table {
 }
 .aboutTitle{
     margin: 20rpx 0 30rpx 0;
+    height:32px;
 }
 .aboutTitleSpan{
     border-bottom: 6rpx solid #026a19;
@@ -211,4 +218,103 @@ table {
 .table .td navigator{
   text-decoration: underline;
   color: #026a19;
+}
+.contactInfo{
+  color:#555;
+  line-height: 24px;
+  font-size: 32rpx;
+}
+ 
+/*登录图片*/  
+.login-icon{  
+  flex: none;  
+}  
+.login-img{  
+  width: 750rpx;  
+}  
+  
+/*表单内容*/  
+.login-from {  
+  margin-top: 20px;  
+  flex: auto;  
+  height:100%;  
+  width: 94%;
+}  
+  
+.inputView {  
+  background-color: #fff;  
+  line-height: 42px;  
+  height: 44px;
+}  
+/*输入框*/  
+.nameImage, .keyImage {  
+  margin-left: 22px;  
+  width: 16px;  
+  height: 16px;  
+  vertical-align: middle;
+  margin-top:-3px;
+}  
+  
+.loginLab {  
+  margin: 0px 15px 15px 10px;  
+  color: #545454;  
+  font-size: 32rpx  
+}  
+.inputText {  
+  flex: block;  
+  float: right;  
+  text-align: left;  
+  margin-right: 22px;  
+  margin-top: 11px;  
+  color: #cccccc;  
+  font-size: 32rpx;
+}  
+  
+.line {  
+  width: 100%;  
+  height: 1px;  
+  background-color: #eee;  
+  font-size:0px; 
+}  
+/*按钮*/  
+.loginBtnView {  
+  width: 100%;  
+  height: auto;  
+  background-color: #f2f2f2;  
+  margin-top: 0px;  
+  margin-bottom: 0px;  
+  padding-bottom: 0px;  
+}  
+  
+.loginBtn {  
+  width: 100%;  
+  margin-top: 15px;  
+  height:40px;
+  line-height:40px;
+  font-size:36rpx;
+  letter-spacing: 2px;
+}  
+.cancleBtn{
+  width: 100%;  
+  margin-top: 15px;  
+  height:40px;
+  line-height:40px;
+  font-size:36rpx;
+  letter-spacing: 2px;
+  background: #999;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+}
+.linka{
+  float: right;
+  font-size: 32rpx;
+  margin-left: 10px;
+  text-decoration: underline;
+  margin-top:10px;
+  color:#555;
+}
+.strong{
+  font-weight: bold;
+  font-size: 36rpx;
 }

@@ -1,0 +1,32 @@
+<view class="container">  
+    <view class="login-from"> 
+      <form bindsubmit="formSubmit" bindreset="formReset"> 
+        <!--账号-->  
+        <view class="inputView">   
+          <label class="loginLab">手机号</label>   
+          <input class="inputText" id="input_phoneNum"  placeholder="请输入手机号" maxlength="20" value="{{username}}" focus="true" name="username" bindchange="input_phoneNum"/> 
+        </view>
+        <view class="line"></view> 
+        <view class="inputView">   
+          <input class="inputText yzInput" placeholder="手机验证码" maxlength="20" value="{{valiCode}}" focus="true" name="valiCode"  bindchange="input_identifyCode"/> 
+          <button class='btn_getMobileCode {{sendmsg}}' bindtap="reSendPhoneNum" size="mini" >{{getmsg}}</button>  
+        </view> 
+        <view class="line"></view> 
+        <view class="inputView">   
+          <label class="loginLab">密码</label>  
+          <input class="inputText" placeholder="请输入密码" password="true" maxlength="10" value="{{password}}" name="password" bindchange="input_password"/> 
+          
+        </view>  
+        <view class="line"></view>   
+        <view class="inputView">   
+          <label class="loginLab">确认密码</label>   
+           <input bindchange="input_rePassword" class="inputText" placeholder="请再次输入密码" password/>  
+        </view>   
+        <!--按钮-->  
+        <view class="loginBtnView">  
+          <button class="loginBtn" type="primary" size="default" bindtap="register">立即注册</button>  
+        </view>  
+    </form> 
+    <view class="xieyiTips">点击“立即注册”，即表示您同意并愿意遵守 <navigator url="../about/xieyi" hover-class="text-navigator-hover">九九九空中救护会员服务协议</navigator></view>
+  </view>  
+</view> 

@@ -1,0 +1,20 @@
+<view class='contentW'>
+  <view class="aboutTitle"><text class="aboutTitleSpan">九九九空中救护有限公司</text></view>
+  <text class="contactInfo">HEMS999 COMPANY LIMITED
+筹建地址：中国·烟台经济技术开发区广州路17号
+基地航点：济南/潍坊/青岛/烟台/临沂/济宁
+邮编：264006 
+办公电话：0535-6105082 
+咨询电话：400-658-9999 
+传真：0535-6105112 
+</text>
+<view class="aboutTitle"><text class="aboutTitleSpan">媒体合作</text></view>
+  <text class="contactInfo">电话：0535-6105082
+邮箱：999@hems999.com（媒体合作联系邮箱）
+</text>
+<view class="aboutTitle"><text class="aboutTitleSpan">人力资源部</text></view>
+  <text class="contactInfo">电话：0535-6105319 孙女士 
+邮箱：hr@mitgroup.com.cn（应聘专用邮箱）
+QQ：2636653599
+</text>
+</view>

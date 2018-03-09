@@ -1,6 +1,7 @@
 {
   "pages":[
     
+    
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -10,13 +11,18 @@
     "pages/about/yiyuan",
     "pages/about/lingdao",
     "pages/about/liucheng",
+    "pages/about/contact",
+    "pages/about/xieyi",
     "pages/news/news",
     "pages/detail/detail",
     "pages/join/join",
     "pages/join/job_pilot",
     "pages/join/job_jiwu",
     "pages/join/job_dispatch",
-    "pages/join/job_doctor"
+    "pages/join/job_doctor",
+    "pages/login/login",
+    "pages/register/register"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -41,6 +47,12 @@
         "pagePath": "pages/about/list",
         "iconPath": "images/nav02.png",
         "selectedIconPath": "images/nav02A.png"
+      },
+      {
+        "text": "会员",
+        "pagePath": "pages/login/login",
+        "iconPath": "images/nav03.png",
+        "selectedIconPath": "images/nav03A.png"
       }
     ]
   }
