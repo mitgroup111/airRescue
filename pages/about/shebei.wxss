@@ -16,7 +16,7 @@
   color: #026a19; 
   border-bottom: solid 4rpx #026a19; 
 } 
-.tab-right{ 
+.tab-right{  
  line-height: 160%; 
 } 
 .tab-right .right-item{ 
