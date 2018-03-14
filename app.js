@@ -1,26 +1,25 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+
+    wx.request({
+      
+      //获取openid接口
+      url: 'https://www.hems999.com/weixinSmall!getWeiXinSession',
+      data: "",
+      method: 'GET',
+      success: function (res) {
+        
+        wx.setStorageSync('sessionId', res.data[0].sessionId);
+        //getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+      }
+    })
 
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.request({
-          //获取openid接口
-          url: 'https://www.hems999.com/weixinSmall!getWeiXinSession',
-          data: "",
-          method: 'GET',
-          success: function (res) {
-            console.log(res)
-            //wx.setStorageSync('sessionId', res.data.sessionId)
-            getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
-          }
-        })
+      
       }
     })
     // 获取用户信息
@@ -45,7 +44,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    header: { 'Cookie': '', 'Content-Type': 'application/json'} 
+    userInfo: null
   }
 })

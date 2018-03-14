@@ -34,13 +34,18 @@ Page({
       })
     } else {
       // 这里修改成跳转的页面  
-      var header = getApp().globalData.header; //获取app.js中的请求头
+      var value = wx.getStorageSync('sessionId');
       wx.request({
         url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
-        data: {},
-        header: header,
+        data: {
+          "sessionId": value,
+        "userName": this.data.phone,
+         "password": this.data.password},
+        header: {
+          'Content-Type': 'application/json'
+        },
         success: function (res) {
-          var query_clone = res.data;
+          var query_clone = res.data[0];
           console.log(query_clone);
           if (query_clone.flg == '0') {
               wx.showToast({
@@ -50,7 +55,11 @@ Page({
               })
             } else{
               //登陆成功跳转
-
+              wx.showToast({
+                title: query_clone.message,
+                icon: 'loading',
+                duration: 2000
+              })
             }
         }
       });
