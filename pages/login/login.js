@@ -11,7 +11,7 @@ Page({
       phone: e.detail.value
     })
   },
-
+  
   // 获取输入密码  
   passwordInput: function (e) {
     this.setData({
@@ -57,12 +57,15 @@ Page({
     }else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
+      console.log("value:" + value);
+      console.log("userName:" + e.detail.value.mobile);
+      console.log("password:" + e.detail.value.password);
       wx.request({
         url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
-          "userName": this.data.phone,
-          "password": this.data.password},
+          "userName": e.detail.value.mobile,
+          "password": e.detail.value.password},
         header: {
           'Content-Type': 'application/json'
         },

@@ -91,9 +91,6 @@ Page({
   },
   onUnload: function () {
     currentTime = 60
-    if (interval != null) {
-      clearInterval(interval)
-    }
   },
   
   //手机验证码
@@ -187,58 +184,5 @@ Page({
       })
     }
     
-  },
- 
-  yanzhengBtn: function () {
-    // console.log(app.globalData.userId);
-    var getChange = this.data.getChange
-    var n = 59;
-    var that = this;
-    var phone = this.data.linPhone;
-    console.log(phone)
-    var user = wx.getStorageSync('user');
-    if (!(/^1[34578]\d{9}$/.test(phone))) {
-      wx.showToast({
-        title: '手机号有误',
-        icon: 'success',
-        duration: 2000
-      })
-    } else {
-      if (getChange) {
-        this.setData({
-          getChange: false
-        })
-        var time = setInterval(function () {
-          var str = '(' + n + ')' + '重新获取'
-          that.setData({
-            getText: str
-          })
-          if (n <= 0) {
-            that.setData({
-              getChange: true,
-              getText: '重新获取'
-            })
-            clearInterval(time);
-          }
-          n--;
-        }, 1000);
-        wx.request({
-          url: 'https://www.didu86.com/Clothes-manager-web/codenum',
-          data: {
-            tel: phone,
-          },
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            var result = res.data.code;
-            console.log(result)
-            that.setData({
-              huozheng: result,
-            })
-          }
-        })
-      }
-    }
   }
 })
