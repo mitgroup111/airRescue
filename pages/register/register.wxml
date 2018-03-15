@@ -4,29 +4,29 @@
         <!--账号-->  
         <view class="inputView">   
           <label class="loginLab">手机号</label>   
-          <input class="inputText" id="input_phoneNum"  placeholder="请输入手机号" maxlength="20" value="{{username}}" focus="true" name="username" bindchange="input_phoneNum"/> 
+          <input name="mobile" class="{{whoClass=='mobile'?'placeholderClass':'inputText'}}" type="number" maxlength="11" placeholder="请输入手机号" bindblur="mobileBlurFocus" focus="{{whoFocus=='mobile'?true:false}}" />
         </view>
         <view class="line"></view> 
         <view class="inputView">   
-          <input class="inputText yzInput" placeholder="手机验证码" maxlength="20" value="{{valiCode}}" focus="true" name="valiCode"  bindchange="input_identifyCode"/> 
+          <input name="valiCode" class="{{whoClass=='valiCode'?'placeholderClass':'inputText yzInput'}}" type="number" maxlength="6" placeholder="手机验证码" bindblur="valiCodeBlurFocus" focus="{{whoFocus=='valiCode'?true:false}}" />
           <button class='btn_getMobileCode {{sendmsg}}' bindtap="reSendPhoneNum" size="mini" >{{getmsg}}</button>  
         </view> 
         <view class="line"></view> 
         <view class="inputView">   
-          <label class="loginLab">密码</label>  
-          <input class="inputText" placeholder="请输入密码" password="true" maxlength="10" value="{{password}}" name="password" bindchange="input_password"/> 
-          
+          <label class="loginLab">密码</label>   
+          <input name="password" class="{{whoClass=='password'?'placeholderClass':'inputText'}}" type="password" maxlength="20" placeholder="请输入密码" bindblur="passwordBlurFocus" focus="{{whoFocus=='password'?true:false}}" />
         </view>  
         <view class="line"></view>   
         <view class="inputView">   
-          <label class="loginLab">确认密码</label>   
-           <input bindchange="input_rePassword" class="inputText" placeholder="请再次输入密码" password/>  
+           <label class="loginLab">确认密码</label>   
+           <input name="repassword" class="{{whoClass=='repassword'?'placeholderClass':'inputText'}}" type="password" maxlength="20" placeholder="请输入确认密码" bindblur="repasswordBlurFocus" focus="{{whoFocus=='repassword'?true:false}}" />
         </view>   
         <!--按钮-->  
         <view class="loginBtnView">  
-          <button class="loginBtn" type="primary" size="default" bindtap="register">立即注册</button>  
+          <button class="loginBtn" type="primary" formType="submit">立即注册</button>
         </view>  
     </form> 
+    <!--<loading hidden="{{submitHidden}}">正在提交...</loading>-->
     <view class="xieyiTips">点击“立即注册”，即表示您同意并愿意遵守 <navigator url="../about/xieyi" hover-class="text-navigator-hover">九九九空中救护会员服务协议</navigator></view>
   </view>  
 </view> 

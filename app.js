@@ -1,5 +1,7 @@
 //app.js
+import wxValidate from 'utils/wxValidate.js'
 App({
+  
   onLaunch: function () {
 
     wx.request({
@@ -45,5 +47,7 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  //表单验证
+  wxValidate: (rules, messages) => new wxValidate(rules, messages)
 })

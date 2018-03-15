@@ -1,8 +1,7 @@
 var appInstance = getApp();
 Page({
   data: {
-    phone: '',
-    password: ''
+    phone: ''
   },
 
   // 获取输入手机号  
@@ -11,35 +10,19 @@ Page({
       phone: e.detail.value
     })
   },
-
-  // 获取输入密码  
-  passwordInput: function (e) {
-    this.setData({
-      password: e.detail.value
-    })
-  },
   onLoad: function () {
+    var sessionId = wx.getStorageSync('sessionId');
     this.WxValidate = appInstance.wxValidate(
       {
         mobile: {
           required: true,
           tel: true,
-        },
-        password: {
-          required: true,
-          minlength: 6,
-          maxlength: 20,
         }
       },
       {
         mobile: {
           required: '请输入手机号',
           tel: '请输入正确的手机号'
-        },
-        password: {
-          required: '请输入密码',
-          minlength: '密码至少为6位',
-          maxlength: '密码至多为20位',
         }
       }
     )
@@ -54,15 +37,15 @@ Page({
         duration: 2000
       })
       return false
-    }else {
+    } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       wx.request({
         url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
-          "userName": this.data.phone,
-          "password": this.data.password},
+          "userName": this.data.phone
+        },
         header: {
           'Content-Type': 'application/json'
         },
@@ -71,16 +54,16 @@ Page({
           console.log(query_clone);
           if (query_clone.flg == '0') {
             wx.showModal({
-                content: query_clone.message,
-                duration: 2000
-              })
-            } else{
-              //登陆成功跳转
+              content: query_clone.message,
+              duration: 2000
+            })
+          } else {
+            //修改密码成功
             wx.showModal({
               content: query_clone.message,
-                duration: 2000
-              })
-            }
+              duration: 2000
+            })
+          }
         }
       });
     }

@@ -1,58 +1,112 @@
-var app = getApp()
-// var step = 1 // 当前操作的step  
-var maxTime = 60
-var currentTime = maxTime //倒计时的事件（单位：s）  
-var interval = null
-var hintMsg = null // 提示  
-var timer=1;
-var check = require("../../utils/check.js")
-var webUtils = require("../../utils/registerWebUtil.js")
-var step_g = 1
-
-var phoneNum = null, identifyCode = null, password = null, rePassword = null;
-
+var appInstance = getApp();
+var currentTime = 60; //倒计时的事件（单位：s） 
+var timer = 1;
+var mobile,identifyCode;
 Page({
   data: {
-    windowWidth: 0,
-    windoeHeight: 0,
-    nextButtonWidth: 0,
-    step: step_g,
     time: currentTime,
     getmsg: "获取验证码"
   },
   onLoad: function () {
-    step_g = 1
+    this.WxValidate = appInstance.wxValidate(
+      {
+        mobile: {
+          required: true,
+          tel: true,
+        },
+        valiCode:{
+          required: true
+        },
+        password: {
+          required: true,
+          minlength: 6,
+          maxlength: 20,
+        },
+        repassword: {
+          required: true,
+          minlength: 6,
+          maxlength: 20,
+          equalTo: "password"
+        }
+      }, 
+      {
+        mobile: {
+          required: '请输入手机号',
+          tel:'请输入正确的手机号'
+        },
+        valiCode: {
+          required: '请输入手机验证码'
+        },
+        password: {
+          required: '请输入密码',
+          minlength:'密码至少为6位',
+          maxlength: '密码至多为20位',
+        },
+        repassword: {
+          required: '请输入确认密码',
+          equalTo:'请输入相同的密码'
+        }
+      }
+    )
+  },
+  //表单提交
+  formSubmit: function (e) {
+    const params=e.detail.value;
+    console.log("每个值"+params);
+    //提交错误描述
+    if (!this.WxValidate.checkForm(e)) {
+      const error = this.WxValidate.errorList[0]
+      // `${error.param} : ${error.msg} `
+      wx.showModal({
+        content: `${error.msg} `,
+        duration: 2000
+      })
+      return false
+    }
+    this.setData({ submitHidden: false })
     var that = this
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          windowWidth: res.windowWidth,
-          windowHeight: res.windowHeight,
-          nextButtonWidth: res.windowWidth - 20
+
+    //提交
+    wx.request({
+      url: '',
+      data: {
+        Mobile: e.detail.value.mobile,
+        valiCode: e.detail.value.valiCode,
+        password: e.detail.value.password,
+        repassword: e.detail.value.repassword
+      },
+      method: 'POST',
+      success: function (requestRes) {
+        that.setData({ submitHidden: true })
+        appInstance.userState.status = 0
+        wx.navigateBack({
+          delta: 1
         })
+      },
+      fail: function () {
+      },
+      complete: function () {
       }
     })
   },
   onUnload: function () {
-    currentTime = maxTime
+    currentTime = 60
     if (interval != null) {
       clearInterval(interval)
     }
   },
-  input_phoneNum: function (e) {
-    phoneNum = e.detail.value
-  },
+  
   //手机验证码
-  input_identifyCode: function (e) {
+  valiCodeBlurFocus: function (e) {
     identifyCode = e.detail.value;
     var that = this;
     var huozheng = this.data.huozheng
-    console.log(e.detail.value)
+    console.log("验证码"+identifyCode)
     that.setData({
       identifyCode: identifyCode,
       zhengTrue: false,
     })
-    if (identifyCode.length >= 4) {
+    if (identifyCode.length >= 6) {
       if (identifyCode == huozheng) {
         that.setData({
           zhengTrue: true,
@@ -70,20 +124,22 @@ Page({
       }
     }
   },
-  input_password: function (e) {
-    password = e.detail.value
+  //获取手机号
+  mobileBlurFocus: function (e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+    console.info("手机号" + this.data.mobile);
   },
-  input_rePassword: function (e) {
-    rePassword = e.detail.value
-  },
-  reSendPhoneNum: function () {
+  reSendPhoneNum: function (e) {
     var getChange = this.data.getChange
     var n = 59;
     var that = this;
     var user = wx.getStorageSync('user');
-    if (!(/^1[34578]\d{9}$/.test(phoneNum))) {
+    var mobile = this.data.mobile;
+    if (!(/^1[34578]\d{9}$/.test(mobile))) {
       wx.showModal({
-        content: '手机号有误',
+        content: '请输入正确的手机号',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -112,11 +168,11 @@ Page({
             })
           }
         }, 1000)
-      } 
+      }
       wx.request({
         url: 'https://www.hems999.com/reglog!getMobileCode',
         data: {
-          tel: phoneNum,
+          mobile: this.data.mobile,
         },
         header: {
           'content-type': 'application/json'
@@ -132,41 +188,7 @@ Page({
     }
     
   },
-  register: function () {
-    if (!check.checkPhoneNum(phoneNum)) {
-      hintMsg = "请输入正确的电话号码!"
-    } else if (!check.checkIsNotNull(password)) {
-      hintMsg = "请输入密码"
-    } else if (!check.checkIsNotNull(password)) {
-      hintMsg = "请输入密码"
-    } else if (!check.checkIsNotNull(rePassword)) {
-      hintMsg = "请输入确认密码"
-    } else if (password.length<6) {
-      hintMsg = "密码长度最少为6位"
-    } else if (!check.isContentEqual(password, rePassword)) {
-      hintMsg = "两次密码不一致！"
-    } else if (webUtils.submitPassword(password)) {
-      hintMsg = "注册成功"
-      wx.navigateTo({
-        url: '../index/index'
-      })
-    }
-    if (hintMsg != null) {
-      /*wx.showToast({
-        title: hintMsg,
-        icon: 'loading',
-        duration: 1000
-      })*/
-      wx.showModal({
-        content: hintMsg,
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          }
-        }
-      })
-    }
-  },
+ 
   yanzhengBtn: function () {
     // console.log(app.globalData.userId);
     var getChange = this.data.getChange
@@ -220,48 +242,3 @@ Page({
     }
   }
 })
-
-function firstStep() { // 提交电话号码，获取［验证码］  
-  if (!check.checkPhoneNum(phoneNum)) {
-    hintMsg = "请输入正确的电话号码!"
-    return false
-  }
-
-  if (webUtils.submitPhoneNum(phoneNum)) {
-    hintMsg = null
-    return true
-  }
-  hintMsg = "提交错误，请稍后重试!"
-  return false
-}
-
-function secondStep() { // 提交［验证码］  
-  if (!check.checkIsNotNull(identifyCode)) {
-    hintMsg = "请输入验证码!"
-    return false
-  }
-
-  if (webUtils.submitIdentifyCode(identifyCode)) {
-    hintMsg = null
-    return true
-  }
-  hintMsg = "提交错误，请稍后重试!"
-  return false
-}
-
-function thirdStep() { // 提交［密码］和［重新密码］  
-
-  console.log(password + "===" + rePassword)
-
-  if (!check.isContentEqual(password, rePassword)) {
-    hintMsg = "两次密码不一致！"
-    return false
-  }
-
-  if (webUtils.submitPassword(password)) {
-    hintMsg = "注册成功"
-    return true
-  }
-  hintMsg = "提交错误，请稍后重试!"
-  return false
-}  

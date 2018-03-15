@@ -1,8 +1,6 @@
 {
   "pages":[
     
-   
-    
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -21,8 +19,9 @@
     "pages/join/job_jiwu",
     "pages/join/job_dispatch",
     "pages/join/job_doctor",
-    "pages/login/login",
     "pages/register/register",
+    "pages/login/login",
+    "pages/password/password",
     "pages/product/product",
     "pages/product/productInfo"
     

@@ -41,7 +41,7 @@ textarea{
 	border-radius:6rpx; 
 	border:2prx solid #e0e0e0;
 	font-family:Microsoft YaHei;
-	font-size:28rpx;
+	font-size:32rpx;
 }
 span{
 	font-weight:normal;
@@ -267,7 +267,6 @@ page{
   margin-right: 22px;  
   margin-top: 11px;  
   color: #cccccc;  
-  font-size: 32rpx;
 }  
   
 .line {  
