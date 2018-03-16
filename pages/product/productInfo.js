@@ -5,14 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    product:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    wx.request({
+      url: 'https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4/weixin/weixinSmall!toProductInfo?productId' + options.productId, //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("从app.js请求服务器test.php获取数据");
+        var query_clone = res.data[0];
+        console.log(query_clone.product);
+        that.setData({
+          product: query_clone.product,
+        });
+      
+      }
+    });
   },
 
   /**

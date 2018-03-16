@@ -13,6 +13,7 @@ Page({
         mobile: {
           required: true,
           tel: true,
+          userUniq:true,
         },
         valiCode:{
           required: true
@@ -32,7 +33,8 @@ Page({
       {
         mobile: {
           required: '请输入手机号',
-          tel:'请输入正确的手机号'
+          tel:'请输入正确的手机号',
+          userUniq:"用户的手机号码已经存在",
         },
         valiCode: {
           required: '请输入手机验证码'

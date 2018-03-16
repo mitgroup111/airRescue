@@ -1,13 +1,13 @@
 <view class='contentW'>
   <image class="about-img" src="../../images/card01-2.jpg" mode='widthFix'/>
-  <view class="product_money">会费：￥399元</view>
+  <view class="product_money">会费：￥{{product.price}}元</view>
   <view class="table">
       <view class="tr">
-          <view class="td textC productTdName">个人版（1年卡）会员专享权益</view>
+          <view class="td textC productTdName">{{product.typeName}}（{{product.productName}}）会员专享权益</view>
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">免费服务</view>
-          <view class="td textL">1个年度内，免费空中救护服务，不限次数</view>
+          <view class="td textL">{{product.freeService}}</view>
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">会员服务说明</view>
