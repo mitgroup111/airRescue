@@ -79,7 +79,9 @@ page{
   box-sizing: border-box;
   background-color: #f2f2f2 
 } 
-
+.marginBottom{
+  margin-bottom: 10px;
+}
 /*图片切换banner*/
 .swiper-container{
  position: relative;
@@ -372,4 +374,5 @@ page{
 .menu-navigator-hover{
     background: #fff;
 }
+
 

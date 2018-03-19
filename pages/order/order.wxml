@@ -1,0 +1,20 @@
+<view class="contentW">
+<scroll-view>
+  <view class="orderItem">
+    <view class="orderID">订单编号：0001803191350621</view>
+    <view class="orderDate">订单金额：<text>￥399</text></view>
+    <view class="orderDate">下单时间：<text>2018/03/19</text></view>
+    <view>
+      <navigator url="" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
+    </view>
+    <view class="marginBottom">
+      <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+    </view>
+    <view class="orderInfo">
+      <navigator url="product/productInfo" hover-class="menu-navigator-hover">
+        <text>查看品详情</text>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>
+</view>

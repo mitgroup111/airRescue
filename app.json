@@ -1,6 +1,7 @@
 {
   "pages":[
-    
+    "pages/user/user",
+    "pages/order/order",
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -24,6 +25,8 @@
     "pages/password/password",
     "pages/product/product",
     "pages/product/productInfo"
+    
+    
     
     
     

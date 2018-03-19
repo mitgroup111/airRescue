@@ -1,0 +1,20 @@
+
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">13668658882</text>
+    </block>
+  </view>
+  <scroll-view>
+  <view class="userItem">
+    <navigator url="../order/order" hover-class="menu-navigator-hover">
+    <text><image class="menu-img" src="http://www.hems999.com/mobile/images/myuser03.jpg"/>我的订单</text>
+    </navigator>
+  </view>
+  <view class="userItem">
+    <navigator url="" hover-class="menu-navigator-hover">
+    <text><image class="menu-img" src="http://www.hems999.com/mobile/images/myuser04.jpg"/>我的奖励</text>
+    </navigator>
+  </view>
+  </scroll-view>

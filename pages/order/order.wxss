@@ -1,0 +1,41 @@
+.orderID{
+  color: #026a19;
+}
+.orderItem {
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px #e0e0e0;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    line-height: 30px;
+}
+.orderDate text{
+  color:#888;
+}
+.addOrderBtn{
+  background: #e9480c none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #fff;
+  padding: 2px 8px;
+  display: inline-block;
+}
+.orderpay{
+  background: #89bc39 none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #fff;
+  padding: 2px 8px;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+}
+.orderInfo{
+    background: url(http://www.hems999.com/mobile/images/jiantou.png) no-repeat right center;
+    line-height: 30px;
+    height: 30px;
+    background-size: 18px 18px;
+    border-top: 1px solid #dddddd;
+    color: #888;
+}
