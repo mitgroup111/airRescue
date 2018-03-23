@@ -58,10 +58,10 @@ Page({
             })
           } else {
             //修改密码成功
-            // wx.showModal({
-            //   content: query_clone.message,
-            //   duration: 2000
-            // })
+            wx.showModal({
+              content: query_clone.message,
+              duration: 2000
+            })
             wx.navigateTo({
               url: '../login/login'
             })

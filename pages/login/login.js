@@ -88,6 +88,10 @@ Page({
               content: query_clone.message,
                 duration: 2000
               })
+
+            wx.navigateTo({
+              url: '../user/user'
+            })
             }
         }
       });
