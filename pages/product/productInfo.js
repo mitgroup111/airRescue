@@ -13,15 +13,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log("options.productId:" + options.productId);
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4/weixin/weixinSmall!toProductInfo?productId' + options.productId, //仅为示例，并非真实的接口地址
-      data: {},
+      url: 'https://www.hems999.com/weixinSmall!toProductInfo', //仅为示例，并非真实的接口地址
+      data: { productId: options.productId},
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log("从app.js请求服务器test.php获取数据");
+        console.log("获取产品详细信息");
         var query_clone = res.data[0];
+        console.log(res.data[0]);
         console.log(query_clone.product);
         that.setData({
           product: query_clone.product,
