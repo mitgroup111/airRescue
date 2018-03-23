@@ -13,7 +13,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com//weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ Page({
       success: function (res) {
         console.log("获取订单列表");
         var query_clone = res.data[0];
-        console.log(query_clone.orderInfoList);
+        console.log(res.data[0]);
         that.setData({
           order_list: query_clone.orderInfoList
         });
