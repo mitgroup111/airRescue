@@ -46,7 +46,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    websetUrl:"https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4"
   },
   //表单验证
   wxValidate: (rules, messages) => new wxValidate(rules, messages)

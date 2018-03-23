@@ -1,18 +1,33 @@
 <view class="contentW">
 <scroll-view>
-  <view class="orderItem">
-    <view class="orderID">订单编号：0001803191350621</view>
-    <view class="orderDate">订单金额：<text>￥399</text></view>
-    <view class="orderDate">下单时间：<text>2018/03/19</text></view>
-    <view>
-      <navigator url="" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
+  <view class="orderItem" wx:for="{{order_list}}">
+    <view class="orderID">订单编号：{{item.orderid}}</view>
+    <view class="orderDate">订单金额：<text>￥{{item.totalMoney}}</text></view>
+    <view class="orderDate">下单时间：<text>{{item.createTime}}</text></view>
+    <view wx:if="{{item.status=='0' && item.orderType=='3'}}"  class="marginBottom">
+        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
-    <view class="marginBottom">
-      <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+    <view wx:if="{{item.status=='0' && item.orderType!='3'}}" >
+        <navigator url="" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
+    </view>
+    <view wx:if="{{item.status=='1'}}" >
+        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+    </view>
+    <view wx:if="{{item.status=='2'}}" >
+        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加健康信息</navigator>
+    </view>
+    <view wx:if="{{item.status=='6'}}" >
+        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加家人信息</navigator>
+    </view>
+    <view wx:if="{{item.status=='5' || order.status=='4'}}" >
+        <navigator url="../orderDetail/orderDetail?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">查看详情</navigator>
+    </view>
+    <view wx:if="{{item.status=='3'}}" >
+        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加车辆信息</navigator>
     </view>
     <view class="orderInfo">
-      <navigator url="product/productInfo" hover-class="menu-navigator-hover">
-        <text>查看品详情</text>
+      <navigator url="../product/productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
+        <text>查看产品详情</text>
       </navigator>
     </view>
   </view>

@@ -1,0 +1,18 @@
+
+.radio-group{
+  margin: 10px 0;
+}
+.radio-group .radio{
+  display: inline-block;
+  font-size: 34rpx;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.tui-picker-detail{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  font-size: 35rpx;
+  padding: 0 10px;
+  overflow: hidden;
+}

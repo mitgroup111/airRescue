@@ -6,8 +6,8 @@
       <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
       <view class="news-desc" >{{item.freeService}} </view>
       </navigator>
-     <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator> -->
-     <navigator class="pro-buy" url="">立即购买</navigator>
+     <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
+     <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
     </view>
   </view>
 </view>

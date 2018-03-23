@@ -1,0 +1,20 @@
+/* pages/orderDetail/orderDetail.wxss */
+.detailTitle{
+    color: #026a19;
+    height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+.tui-hide{
+  display: none;
+}
+.carImg{
+  width: 100%;
+  height:150px;
+}
+.usertips{
+  color: #c20c0c;
+  font-size: 36rpx;
+  margin-bottom: 10px;
+}

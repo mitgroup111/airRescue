@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="login-from"> 
+    <text class="add_tips">为了更方便快捷的为您提供服务，请完善服务使用人信息(如需转赠服务，请填写受赠人信息)：</text>
+    <form bindsubmit="formSubmit" bindreset="formReset">    
+        <input name="name" class="{{whoClass=='name'?'placeholderClass':'input_block'}}" type="text" maxlength="20" placeholder="请输入姓名" bindblur="nameBlurFocus" focus="{{whoFocus=='name'?true:false}}" />
+        <view class="line"></view> 
+        <input name="userName" class="{{whoClass=='userName'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入手机号" bindblur="userNameBlurFocus" focus="{{whoFocus=='userName'?true:false}}" />
+        <view class="line"></view> 
+        <input name="idcard" class="{{whoClass=='idcard'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入身份证号码" bindblur="idcardBlurFocus" focus="{{whoFocus=='idcard'?true:false}}" />
+        <view class="line"></view> 
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" mode = "selector">  
+          <view class="picker">  
+            所在城市：{{objectArray[index]}}  
+          </view>  
+        </picker>
+        <view class="line"></view>
+         <radio-group class="radio-group clearfix" bindchange="radioChange">
+          性别：<label class="radio" wx:for="{{items}}">
+            <view class="tui-menu-list"><radio color="#007aff" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
+          </label>
+        </radio-group>
+        <view class="tui-show-name" hidden="true">{{radioStr}}</view>
+        <input name="address" class="{{whoClass=='address'?'placeholderClass':'input_block'}}" type="text"  placeholder="请输入通讯地址" bindblur="addressBlurFocus" focus="{{whoFocus=='address'?true:false}}" />
+        <view class="line"></view> 
+        <input name="emergencyName" class="{{whoClass=='emergencyName'?'placeholderClass':'input_block'}}" type="text"  placeholder="请输入紧急联系人姓名" bindblur="emergencyBlurFocus" focus="{{whoFocus=='emergencyName'?true:false}}" />
+        <view class="line"></view> 
+        <input name="emergencyTel" class="{{whoClass=='emergencyTel'?'placeholderClass':'input_block'}}" type="text"  placeholder="请输入紧急联系人电话" bindblur="emergencyTelBlurFocus" focus="{{whoFocus=='emergencyTel'?true:false}}" />
+        <view class="line"></view> 
+        <input name="emergencyName" class="{{whoClass=='emergencyName'?'placeholderClass':'input_block'}}" type="text"  placeholder="请输入紧急联系人姓名" bindblur="emergencyNameBlurFocus" focus="{{whoFocus=='emergencyName'?true:false}}" />
+        <view class="line"></view> 
+        <view class="tui-picker-content">
+          <picker mode="date" value="{{date}}" start="{{nowDate}}" end="{{endYear}}" bindchange="changeDate">
+            <view class="tui-picker-detail">
+              服务生效时间： {{date}}
+            </view>
+          </picker>
+        </view>
+    </form>
+  </view>
+</view>
+
+
+
+

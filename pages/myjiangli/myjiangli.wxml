@@ -1,0 +1,27 @@
+<!--pages/myjiangli/myjiangli.wxml-->
+<view class="contentW">
+  <view class='stamp stamp03'>
+    <view class='par'>
+      <text class="parName">分享获取的免费救护天数：</text>
+      <text class="parDay"><text class='parDayText'>3</text>天</text>
+    </view>
+    <view class='copy'>
+      <text class="copyName">副券</text>
+      <view class="copyBtn"><navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">立即使用</navigator></view>
+      <text class="copyState">待使用</text>
+    </view>
+    <text class="parI"></text>
+  </view>
+  <view class='stamp stamp04'>
+    <view class='par'>
+      <text class="parName">分享获取的免费救护天数：</text>
+      <text class="parDay"><text class='parDayText'>3</text>天</text>
+    </view>
+    <view class='copy'>
+      <text class="copyName">副券</text>
+      <view class="copyBtn"></view>
+      <text class="copyState">已使用</text>
+    </view>
+    <text class="parI"></text>
+  </view>
+</view>

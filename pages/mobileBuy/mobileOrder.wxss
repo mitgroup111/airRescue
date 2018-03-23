@@ -1,0 +1,7 @@
+.orderId{
+  color: #c20c0c;
+  line-height: 28px;
+  font-size: 34rpx;
+  margin-top: 10px;
+  display: block;
+}

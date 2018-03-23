@@ -14,13 +14,7 @@
 .orderDate text{
   color:#888;
 }
-.addOrderBtn{
-  background: #e9480c none repeat scroll 0 0;
-  border-radius: 3px;
-  color: #fff;
-  padding: 2px 8px;
-  display: inline-block;
-}
+
 .orderpay{
   background: #89bc39 none repeat scroll 0 0;
   border-radius: 3px;

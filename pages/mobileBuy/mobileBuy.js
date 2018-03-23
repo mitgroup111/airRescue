@@ -2,7 +2,12 @@ var appInstance = getApp();
 Page({
   data: {
     phone: '',
-    password: ''
+    xieyibox:'',
+    flag: true,
+    xieyi: [
+      { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
+    ],
+    disabled:false
   },
 
   // 获取输入手机号  
@@ -11,29 +16,39 @@ Page({
       phone: e.detail.value
     })
   },
-  
-  // 获取输入密码  
-  passwordInput: function (e) {
-    this.setData({
-      password: e.detail.value
-    })
-  },
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '登录'
-    })
+      title: '我要购买'
+    }),
+    this.setData({ disabled: false})
+  },
+  //弹出服务协议
+  checkboxChange: function (e) {  
+    var xieyi = this.data.xieyi;
+    console.log(xieyi);
+    var checkArr = e.detail.value;
+    for (var i = 0; i < xieyi.length; i++) {
+      if (checkArr.indexOf(xieyi[i].name) != -1) {
+        xieyi[i].checked = true;
+      } else {
+        xieyi[i].checked = false;
+      }
+    }
+    this.setData({ flag: !xieyi[0].checked})
+  },
+  //关闭服务协议
+  hide: function () {
+    this.setData({ flag: true })
   },
   onLoad: function () {
     this.WxValidate = appInstance.wxValidate(
       {
         mobile: {
           required: true,
-          tel: true,
+          tel: true
         },
-        password: {
-          required: true,
-          minlength: 6,
-          maxlength: 20,
+        xieyibox: {
+          required: true
         }
       },
       {
@@ -41,10 +56,8 @@ Page({
           required: '请输入手机号',
           tel: '请输入正确的手机号'
         },
-        password: {
-          required: '请输入密码',
-          minlength: '密码至少为6位',
-          maxlength: '密码至多为20位',
+        xieyibox: {
+          required: '请确认您已阅读并同意《九九九空中救护会员服务协议》'
         }
       }
     )
@@ -59,36 +72,37 @@ Page({
         duration: 2000
       })
       return false
-    }else {
+    } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       console.log("value:" + value);
       console.log("userName:" + e.detail.value.mobile);
-      console.log("password:" + e.detail.value.password);
       wx.request({
         url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile,
-          "password": e.detail.value.password},
+          "xieyibox": e.detail.value.xieyibox
+        },
         header: {
           'Content-Type': 'application/json'
         },
         success: function (res) {
           var query_clone = res.data[0];
           console.log(query_clone);
-          if (query_clone.flg == '0') {
-            wx.showModal({
-                content: query_clone.message,
-                duration: 2000
-              })
-            } else{
-              //登陆成功跳转
+          if (query_clone.flg == '1') {
+            this.setData({ disabled: true })
             wx.showModal({
               content: query_clone.message,
-                duration: 2000
-              })
-            }
+              duration: 2000
+            })
+          } else {
+            //登陆成功跳转
+            wx.showModal({
+              content: query_clone.message,
+              duration: 2000
+            })
+          }
         }
       });
     }

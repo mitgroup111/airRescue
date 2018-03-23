@@ -14,8 +14,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log(getApp().globalData.websetUrl)
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4/weixin/index_weixin!buy', //仅为示例，并非真实的接口地址
+      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!buy', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'

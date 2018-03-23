@@ -4,30 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order_list:""
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
-      data: {},
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log("获取订单列表");
-        var query_clone = res.data[0];
-        console.log(query_clone.orderInfoList);
-        that.setData({
-          order_list: query_clone.orderInfoList
-        });
-              
-      }
-    });
+
   },
 
   /**
@@ -42,7 +26,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '我的订单'
+      title: '产品购买'
     })
   },
 

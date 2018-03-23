@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "/pages/wxParse/wxParse.wxss";
+@import "icon.wxss";
 ul,li{
 	list-style:none; 
 	padding:0; 
@@ -294,7 +295,7 @@ page{
   line-height:40px;
   font-size:36rpx;
   letter-spacing: 2px;
-}  
+} 
 .cancleBtn{
   width: 100%;  
   margin-top: 15px;  
@@ -306,6 +307,21 @@ page{
   text-align: center;
   color: #fff;
   border-radius: 3px;
+}
+.greenBtn,.orangeBtn{
+  width: 100%;  
+  margin-bottom: 10px;  
+  height:40px;
+  line-height:40px;
+  font-size:36rpx;
+  letter-spacing: 1px;
+  background-color: #1AAD19;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+}
+.orangeBtn{
+  background-color: #e9480c;
 }
 .linka{
   float: right;
@@ -374,5 +390,115 @@ page{
 .menu-navigator-hover{
     background: #fff;
 }
-
+.orderInfo{
+    background: url(http://www.hems999.com/mobile/images/jiantou.png) no-repeat right center;
+    line-height: 30px;
+    height: 30px;
+    background-size: 18px 18px;
+    border-top: 1px solid #dddddd;
+    color: #888;
+}
+.detailItem {
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px #e0e0e0;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 36rpx;
+}
+.detailItemList{
+  margin-bottom: 8px;
+}
+.detailItemL{
+    width: 87px;
+    text-align: left;
+}
+.detailItemR{
+    width: 65%;
+    color: #888;
+    text-align: right;
+    font-size: 32rpx;
+}
+.order-menu-list{
+  color: #555;
+  font-size: 35rpx;
+  position: relative;
+}
+.order-menu-list-name{
+ line-height: 80rpx;
+ border-top: 1px solid #ddd;
+ color: #888;
+}
+.order-menu-list:before{
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #c8c7cc;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+/*下箭头*/
+.xiajiantou:after{
+  font-family:"iconfont" !important;
+  content: '\e733';
+  font-size: 40rpx;
+  position: absolute;
+  top:15px;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+  right: 10rpx;
+}
+/*上箭头*/
+.shangjiantou:after{
+  font-family:"iconfont" !important;
+  content: '\e734';
+  font-size: 40rpx;
+  position: absolute;
+  top: 15px;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+  right: 10rpx;
+}
+/*右箭头*/
+.youjiantou:after{
+  font-family:"iconfont" !important;
+  content: '\e735';
+  font-size: 40rpx;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+  right: 10rpx;
+}
+.addOrderBtn{
+  background: #e9480c none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #fff;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.add_tips{
+  color: #026a19;
+  line-height: 24px;
+  margin-bottom: 10px;
+  font-size: 32rpx;
+  display: block;
+}
+.input_block{
+  line-height: 44px;
+  background: #fff;
+  height:44px;
+  display: block;
+  padding-left: 10px;
+  border-radius: 0;
+}
 

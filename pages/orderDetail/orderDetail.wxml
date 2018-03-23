@@ -1,0 +1,230 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="contentW">  
+  <!--产品信息开始--> 
+  <view class="detailTitle">产品信息</view>
+  <view class="detailItem">
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">会员类别</view>
+      <view class="detailItemR fr">{{prodProductInfo.typeName}}</view>
+    </view>
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">免费服务</view>
+      <view class="detailItemR fr">{{prodProductInfo.freeService}}</view>
+    </view>
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">生效时间</view>
+      <view class="detailItemR fr">{{vipMember.beginDate}}</view>
+    </view>
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">结束时间</view>
+      <view class="detailItemR fr">{{vipMember.endDate}}</view>
+    </view>
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">姓名</view>
+      <view class="detailItemR fr">{{vipMember.name}}</view>
+    </view>
+    <view class="detailItemList clearfix">
+      <view class="detailItemL fl">手机号</view>
+      <view class="detailItemR fr">{{vipMember.userName}}</view>
+    </view>
+    <!--查看产品详情-->
+    <view class="order-menu-list {{isShowFrom1 ? 'shangjiantou' : 'xiajiantou'}}">
+      <view bindtap="showFrom" data-param="1" class="order-menu-list-name">查看产品详情</view>
+      <view class="{{isShowFrom1 ? '' : 'tui-hide'}}">
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">会费</view>
+          <view class="detailItemR fr">{{prodProductInfo.price}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">优惠服务</view>
+          <view class="detailItemR fr">{{prodProductInfo.discountService}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">优先救护</view>
+          <view class="detailItemR fr">享受</view>
+        </view>
+      </view>
+    </view>
+    <!--查看个人详情-->
+    <view class="order-menu-list {{isShowFrom2 ? 'shangjiantou' : 'xiajiantou'}}">
+      <view bindtap="showFrom" data-param="2" class="order-menu-list-name">查看个人详情</view>
+      <view class="{{isShowFrom2 ? '' : 'tui-hide'}}">
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">身份证号</view>
+          <view class="detailItemR fr">{{vipMember.idcard}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">所在城市</view>
+          <view class="detailItemR fr">{{vipMember.city}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">性别</view>
+          <view class="detailItemR fr">{{vipMember.sex=="0"?"男":"女"}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">通讯地址</view>
+          <view class="detailItemR fr">{{vipMember.address}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">紧急人姓名</view>
+          <view class="detailItemR fr">{{vipMember.emergencyName}}</view>
+        </view>
+        <view class="detailItemList clearfix">
+          <view class="detailItemL fl">紧急人电话</view>
+          <view class="detailItemR fr">{{vipMember.emergencyTel}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--产品信息结束-->
+  <!--健康信息开始-->
+  <view class="detailTitle">健康信息</view>
+  <view wx:if="{{jianKang==''||jianKang==null}}" >
+    <navigator url="../about/xieyi" class="greenBtn">添加健康信息</navigator>
+  </view>
+  <view wx:else>
+    <view class="detailItem">
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">血型</view>
+        <view class="detailItemR fr">{{jianKang.xuexing}}  RH阴性：{{jianKang.rhYinxing}}</view>
+      </view>
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">药物过敏史</view>
+        <view class="detailItemR fr">
+          <text wx:if="{{jianKang.yaowuGuominYouwu == '有'}}">
+          {{jianKang.yaowuGuomin}}  {{jianKang.yaowuGuominBak}}</text>
+          <text wx:else>{{jianKang.yaowuGuominYouwu}}</text>
+        </view>
+      </view>
+      <!--查看详情-->
+      <view class="order-menu-list {{isShowFrom3 ? 'shangjiantou' : 'xiajiantou'}}">
+        <view bindtap="showFrom" data-param="3" class="order-menu-list-name">查看详情</view>
+        <view class="{{isShowFrom3 ? '' : 'tui-hide'}}">
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">身高(cm)</view>
+            <view class="detailItemR fr">{{jianKang.shengao}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">体重(kg)</view>
+            <view class="detailItemR fr">{{jianKang.tizhong}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl"><text>医疗费用\n支付方式</text></view>
+            <view class="detailItemR fr">{{jianKang.yiliaoFangshi}} {{jianKang.yiliaoFangshiBak}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">疾病</view>
+            <view class="detailItemR fr">
+              <text wx:if="{{jianKang.jibingYouwu == '有'}}">
+              {{jianKang.jibing}}  {{jianKang.jibingQita}}</text>
+              <text wx:else>{{jianKang.jibingYouwu}}</text>
+            </view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">外伤</view>
+            <view class="detailItemR fr">
+              <text wx:if="{{jianKang.waishangYouwu == '有'}}">{{jianKang.waishang}}</text>
+              <text wx:else>{{jianKang.waishangYouwu}}</text>
+            </view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">手术</view>
+            <view class="detailItemR fr">
+              <text wx:if="{{jianKang.shoushuYouwu == '有'}}">{{jianKang.shoushu}}</text>
+              <text wx:else>{{jianKang.shoushuYouwu}}</text>
+            </view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">输血</view>
+            <view class="detailItemR fr">
+              <text wx:if="{{jianKang.shuxueYouwu == '有'}}">{{jianKang.shuxue}}</text>
+              <text wx:else>{{jianKang.shuxueYouwu}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>  
+  
+  <!--健康信息结束-->
+  <!--车辆信息开始-->
+  <view class="detailTitle">车辆信息</view>
+  <view wx:if="{{caru==''||caru==null}}" >
+    <navigator url="../about/xieyi" class="greenBtn">添加车辆信息</navigator>
+  </view>
+  <view wx:else>
+    <view class="detailItem">
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">品牌</view>
+        <view class="detailItemR fr">{{caru.carBrand}}</view>
+      </view>
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">车牌号</view>
+        <view class="detailItemR fr">{{caru.card}}</view>
+      </view>
+      <!--查看详情-->
+      <view class="order-menu-list {{isShowFrom4 ? 'shangjiantou' : 'xiajiantou'}}">
+        <view bindtap="showFrom" data-param="4" class="order-menu-list-name">查看详情</view>
+        <view class="{{isShowFrom4 ? '' : 'tui-hide'}}">
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">车系</view>
+            <view class="detailItemR fr">{{caru.carSeries}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">车型</view>
+            <view class="detailItemR fr">{{caru.carModel}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">颜色</view>
+            <view class="detailItemR fr">{{caru.color}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">出厂日期</view>
+            <view class="detailItemR fr">{{caru.carYear}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">上牌时间</view>
+            <view class="detailItemR fr">{{caru.shangpaiTime}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">VIN码</view>
+            <view class="detailItemR fr">{{caru.vin}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">里程</view>
+            <view class="detailItemR fr">{{caru.meleage}}公里</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">车辆照片</view>
+            <view class="detailItemR fr"><image class="carImg" src="{{caru.pic}}"/></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!--车辆信息结束-->
+  <!--家人信息开始-->
+  <view wx:if="{{jiaren}}" >
+    <view class="detailTitle">家人信息</view>
+    <view class="detailItem" wx:for="{{jiaren}}">
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">名字</view>
+        <view class="detailItemR fr">{{item.name}}</view>
+      </view>
+      <view class="detailItemList clearfix">
+        <view class="detailItemL fl">身份证</view>
+        <view class="detailItemR fr">{{item.idcard}}</view>
+      </view>
+    </view>
+  </view>
+  <!--家人信息结束-->
+  <!--服务协议开始-->
+  <view class="detailTitle">服务协议</view>
+  <view class="detailItem">
+   <view class="order-menu-list youjiantou">
+      <view><navigator url="../about/xieyi" hover-class="menu-navigator-hover">查看服务协议</navigator></view>
+   </view>
+  </view>
+  <!--服务协议结束-->
+</view>
