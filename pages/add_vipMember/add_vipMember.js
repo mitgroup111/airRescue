@@ -1,18 +1,23 @@
 // pages/add_vipMember/add_vipMember.js
+var appInstance = getApp();
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 var timestamp = Date.parse(new Date());
 timestamp = timestamp / 1000;
 console.log("当前时间戳为：" + timestamp);  
 var n = timestamp * 1000;
-var date = new Date(n);
+var date1 = new Date(n);
 //年  
-var Y = date.getFullYear();
+var Y = date1.getFullYear();
 //月  
-var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+var M = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMonth() + 1);
 //日  
-var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+var D = date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate();
 var nowDate = Y + "-" + M + "-" + D;
 console.log("当前时间：" + Y + "-" + M + "-"+ D );  
+var serviceYear;//服务年限
+var couponNum;//赠送天数
+var beginDate, serviceEndTime;
+var testData;
 Page({
 
   /**
@@ -28,15 +33,27 @@ Page({
       { name: 'girl', value: '女'}
     ],
     radioStr: '男',
-    date: nowDate,
+    stratTime:nowDate,
+    beginDate: '',
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
     dateTimeArray1: null,
     dateTime1: null,
     startYear: 2000,
-    endYear: 2500
+    endYear: 2500,
+    endTime:'2500-01-01',
+    memberInfo:'',
+    serviceYear:"",
+    flag: true,//协议
+    serviceTimeFlag:true,//服务时间
+    xieyi: [
+      { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
+    ],
+    disabled: false,
+    testData: { name:name} 
   },
+  //性别
   radioChange: function (e) {
     var str = null;
     for (var value of this.data.items) {
@@ -47,6 +64,7 @@ Page({
     }
     this.setData({ radioStr: str });
   },
+  //城市
   bindPickerChange: function (e) {
     console.log(e.detail.value)
     this.setData({
@@ -71,9 +89,206 @@ Page({
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
+    var that = this;
+    wx.request({
+      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember', //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取服务时间");
+        var query_clone = res.data[0];
+        console.log(query_clone.couponNum);
+        serviceYear = query_clone.serviceYear;
+        couponNum = query_clone.couponNum;
+      }
+    });
+
+    this.WxValidate = appInstance.wxValidate(
+      {
+        name: {
+          required: true,
+          rangelength: [2, 8]
+        },
+        userName: {
+          required: true,
+          digits: true,
+          rangelength: [11, 11],
+          tel: true
+        },
+        idcard: {
+          required: true,
+          idcard: true
+        },
+        address: {
+          required: true,
+          rangelength: [2, 30]
+        },
+        emergencyName: {
+          required: true,
+          rangelength: [2, 8]
+        },
+        emergencyTel: {
+          required: true,
+          digits: true,
+          rangelength: [11, 11],
+          compareTel: true
+        },
+        beginDate: {
+          required: true
+        },
+        xieyibox: {
+          required: true
+        }
+      },
+      {
+        name: {
+          required: "请输入姓名",
+          rangelength: "姓名为2-8个字"
+        },
+        userName: {
+          required: "请输入手机号码",
+          digits: "手机号码请输入数字",
+          rangelength: "手机号码为11位",
+          tel: "请输入正确的手机号"
+        },
+        idcard: {
+          required: "请输入您的身份证号码",
+          idcard: "身份证号码不合法"
+        },
+        sex: {
+          required: "请选择性别"
+        },
+        address: {
+          required: "请输入地址",
+          rangelength: "地址为2-30个字"
+        },
+        emergencyName: {
+          required: "请输入紧急联系姓名",
+          rangelength: "姓名为2-8个字"
+        },
+        emergencyTel: {
+          required: "请输入紧急联系人的手机号码",
+          digits: "手机号码请输入数字",
+          rangelength: "手机号码为11位",
+          compareTel: "请输入正确的手机号码"
+        },
+        beginDate: {
+          required: "请选择服务开通时间"
+        },
+        xieyibox: {
+          required: "请确认您已阅读并同意《九九九空中救护会员服务协议》"
+        }
+      }
+    )
   },
+  // 提交 
+  formSubmit: function (e) {
+    var that = this;
+    var formData = e.detail.value;
+    console.log(formData);
+    var that = this;
+    if (!this.WxValidate.checkForm(e)) {
+      const error = this.WxValidate.errorList[0]
+      // `${error.param} : ${error.msg} `
+      wx.showModal({
+        content: `${error.msg} `,
+        duration: 2000
+      })
+      return false
+    } else {
+      // 这里修改成跳转的页面  
+      var value = wx.getStorageSync('sessionId');
+      var testData={ name: "11" };
+      console.log("value:" + value);
+      console.log("userName:" + e.detail.value.name);
+      wx.request({
+        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember', //仅为示例，并非真实的接口地址
+        data: {
+          "sessionId": value,
+          name: e.detail.value.name
+          
+        },
+        
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          var query_clone = res.data[0];
+          console.log(query_clone);
+          if (query_clone.flg == '0') {
+            that.setData({ disabled: true })
+            wx.showModal({
+              content: query_clone.message,
+              duration: 2000
+            })
+          } else {
+            //登陆成功跳转
+            wx.showModal({
+              content: query_clone.message,
+              duration: 2000
+            }),
+            wx.navigateTo({
+              url: '/pages/about/about?extra=' + JSON.stringify(formData)  
+            })  
+          }
+        }
+      });
+    }
+  },
+  //服务生效时间
   changeDate(e) {
-    this.setData({ date: e.detail.value });
+    beginDate = e.detail.value;
+    this.setData({ 
+      beginDate: e.detail.value,
+      serviceTimeFlag:false
+    });
+    
+    if (serviceYear == "0") {
+      //微信赠送天数计算
+      beginDate = beginDate.replace(/-/g, "/");
+      beginDate = new Date(beginDate.valueOf());
+      
+      var newDate = new Date(beginDate.getFullYear(), beginDate.getMonth(), beginDate.getDate() + parseInt(couponNum) - 1);
+      
+      var year2 = newDate.getFullYear();
+      var month2 = newDate.getMonth() + 1;
+      var day2 = newDate.getDate();
+      console.log(year2)
+      if (month2 < 10) {
+        month2 = "0" + month2;
+      }
+      if (day2 < 10) {
+        day2 = "0" + day2;
+      }
+      serviceEndTime = year2 + '-' + month2 + '-' + day2;
+      this.setData({
+        serviceEndTime: serviceEndTime
+      });
+    }else{
+      ////产品保障时间计算
+      beginDate = beginDate.replace(/-/g, "/");
+      beginDate = new Date(beginDate.valueOf());
+      var startYear = beginDate.getFullYear();
+      var startMonth = beginDate.getMonth();
+      var startDay = beginDate.getDate();
+      var endDate = beginDate;
+      endDate.setFullYear(endDate.getFullYear() + parseInt(serviceYear));
+      endDate.setDate(endDate.getDate() - 1);
+      var month = endDate.getMonth() + 1;
+      if (endDate.getMonth() < 9) {
+        month = "0" + (endDate.getMonth() + 1);
+      }
+      var date = endDate.getDate()
+      if (endDate.getDate() < 10) {
+        date = "0" + endDate.getDate();
+      }
+      serviceEndTime = endDate.getFullYear() + '-' + month + '-' + date;
+      this.setData({
+        serviceEndTime: serviceEndTime
+      });
+    }
   },
 
   /**
@@ -88,21 +303,32 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '服务使用人信息'
-    })
+      title: '个人信息'
+    }),
+    this.setData({ disabled: false })
   },
-
+  //弹出服务协议
+  checkboxChange: function (e) {
+    var xieyi = this.data.xieyi;
+    console.log(xieyi);
+    var checkArr = e.detail.value;
+    for (var i = 0; i < xieyi.length; i++) {
+      if (checkArr.indexOf(xieyi[i].name) != -1) {
+        xieyi[i].checked = true;
+      } else {
+        xieyi[i].checked = false;
+      }
+    }
+    this.setData({ flag: !xieyi[0].checked })
+  },
+  //关闭服务协议
+  hide: function () {
+    this.setData({ flag: true })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
   
   },
 

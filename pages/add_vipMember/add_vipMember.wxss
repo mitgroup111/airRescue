@@ -8,11 +8,22 @@
   margin-right: 5px;
   vertical-align: middle;
 }
-.tui-picker-detail{
+.city{
   height: 80rpx;
   line-height: 80rpx;
   background-color: #fff;
   font-size: 35rpx;
   padding: 0 10px;
   overflow: hidden;
+}
+.supportTime{
+  background: #026a19;
+  padding: 5px 0;
+  text-align: center;
+  color: #fff;
+  display: block;
+  font-size: 34rpx;
+}
+.loginBtnView {
+  margin-bottom:10px;
 }
