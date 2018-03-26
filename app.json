@@ -29,7 +29,8 @@
     "pages/mobileBuy/mobileBuy",
     "pages/mobileBuy/mobileOrder",
     "pages/add_vipMember/add_vipMember",
-    "pages/myjiangli/myjiangli"
+    "pages/myjiangli/myjiangli",
+    "pages/user_transfer/user_transfer"
 
   ],
   "window":{
@@ -64,7 +65,7 @@
       },
       {
         "text": "会员",
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/user_transfer/user_transfer",
         "iconPath": "images/nav03.png",
         "selectedIconPath": "images/nav03A.png"
       }

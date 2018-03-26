@@ -32,4 +32,5 @@
     background-size: 18px 18px;
     border-top: 1px solid #dddddd;
     color: #888;
+    font-size: 34rpx;
 }

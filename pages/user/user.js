@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+var flg;
 const app = getApp()
 
 Page({
@@ -48,6 +49,14 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  /**
+  * 生命周期函数--监听页面卸载
+  */
+  onUnload: function () {
+    wx.switchTab({
+      url: '/pages/index/index'
     })
   }
 })
