@@ -3,7 +3,7 @@
   <view class="orderItem" wx:for="{{order_list}}">
     <view class="orderID">订单编号：{{item.orderid}}</view>
     <view class="orderDate">订单金额：<text>￥{{item.totalMoney}}</text></view>
-    <view class="orderDate">下单时间：<text>{{item.createTime}}</text></view>
+    <view class="orderDate">下单时间：<text>{{item.createTimeStr}}</text></view>
     <view wx:if="{{item.status=='0' && item.orderType=='3'}}"  class="marginBottom">
         <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
