@@ -39,10 +39,11 @@ Page({
       return false
     } else {
       // 这里修改成跳转的页面  
-      //var value = wx.getStorageSync('sessionId');
+      var value = wx.getStorageSync('sessionId');
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinFindPwdMobile', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
+          "sessionId": value,
           "userName": this.data.phone
         },
         header: {
@@ -61,9 +62,6 @@ Page({
             wx.showModal({
               content: query_clone.message,
               duration: 2000
-            })
-            wx.navigateTo({
-              url: '../login/login'
             })
           }
         }

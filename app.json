@@ -1,10 +1,5 @@
 {
   "pages":[
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> ca535e99c0875325100a8c7fc84080ee76dfde1d
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -35,10 +30,6 @@
     "pages/mobileBuy/mobileOrder",
     "pages/add_vipMember/add_vipMember",
     "pages/myjiangli/myjiangli"
-<<<<<<< HEAD
-    
-=======
->>>>>>> ca535e99c0875325100a8c7fc84080ee76dfde1d
 
   ],
   "window":{
