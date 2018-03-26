@@ -89,9 +89,9 @@ Page({
                 duration: 2000
               })
 
-            wx.redirectTo({
-              url: '../user/user'
-            })
+            wx.switchTab({
+              url: '/pages/user/user'
+            })  
             }
         }
       });

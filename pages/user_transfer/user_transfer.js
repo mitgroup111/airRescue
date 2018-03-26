@@ -41,11 +41,11 @@ Page({
             icon: 'loading',
             duration: 5000
           })
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../login/login'
           })
         } else {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../user/user'
           })
         }

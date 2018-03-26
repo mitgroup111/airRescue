@@ -65,7 +65,7 @@
       },
       {
         "text": "会员",
-        "pagePath": "pages/user_transfer/user_transfer",
+        "pagePath": "pages/user/user",
         "iconPath": "images/nav03.png",
         "selectedIconPath": "images/nav03A.png"
       }
