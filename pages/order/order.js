@@ -12,20 +12,27 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var sessionId = wx.getStorageSync("sessionId"); 
+    console.log("sessionId:" + sessionId);
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
-      data: {},
+      url: 'https://www.hems999.com/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
+      data: { sessionId: sessionId },
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         console.log("获取订单列表");
         var query_clone = res.data[0];
-        console.log(query_clone.orderInfoList);
+
+        if (query_clone.flg == 0) {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        }
         that.setData({
+          flg: res.data[0].flg,
           order_list: query_clone.orderInfoList
         });
-              
       }
     });
   },

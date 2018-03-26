@@ -16,7 +16,7 @@ Page({
     var that = this;
     console.log(getApp().globalData.websetUrl)
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!buy', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!buy', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
@@ -24,7 +24,6 @@ Page({
       success: function (res) {
         console.log("获取产品信息");
         var query_clone = res.data[0];
-        console.log(query_clone);
         that.setData({
           peaple_list: query_clone.people,
           test_list: query_clone.test

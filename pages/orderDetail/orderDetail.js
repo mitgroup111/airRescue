@@ -28,8 +28,8 @@ Page({
     var that = this;
     //订单信息，个人信息，健康信息，车辆信息,家人信息
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!viewOrderDetail', //仅为示例，并非真实的接口地址
-      data: {},
+      url: 'https://www.hems999.com/weixinSmall!viewOrderDetail', //仅为示例，并非真实的接口地址
+      data: { orderId: options.orderId},
       header: {
         'Content-Type': 'application/json'
       },
@@ -37,6 +37,11 @@ Page({
         console.log("获取订单详情");
         var query_clone = res.data[0];
         console.log(query_clone.jiaren);
+        if (query_clone.flg == 0) {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        }
         that.setData({
           prodProductInfo: query_clone.prodProductInfo,
           order: query_clone.order,
