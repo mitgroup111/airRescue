@@ -37,6 +37,11 @@ Page({
         console.log("获取订单详情");
         var query_clone = res.data[0];
         console.log(query_clone.jiaren);
+        if (query_clone.flg == 0) {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        }
         that.setData({
           prodProductInfo: query_clone.prodProductInfo,
           order: query_clone.order,

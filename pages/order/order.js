@@ -16,18 +16,23 @@ Page({
     console.log("sessionId:" + sessionId);
     wx.request({
       url: 'https://www.hems999.com/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
-      data: { sessionId: sessionId},
+      data: { sessionId: sessionId },
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         console.log("获取订单列表");
         var query_clone = res.data[0];
-        console.log(res.data[0]);
+
+        if (query_clone.flg == 0) {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        }
         that.setData({
+          flg: res.data[0].flg,
           order_list: query_clone.orderInfoList
         });
-              
       }
     });
   },
