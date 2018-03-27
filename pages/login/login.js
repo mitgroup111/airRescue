@@ -89,9 +89,9 @@ Page({
                 duration: 2000
               })
 
-            wx.navigateTo({
-              url: '../user/user'
-            })
+            wx.switchTab({
+              url: '/pages/user/user'
+            })  
             }
         }
       });
@@ -101,9 +101,6 @@ Page({
   * 生命周期函数--监听页面卸载
   */
   onUnload: function () {
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
   }
 
 })  
