@@ -10,15 +10,18 @@
         <view class="line"></view> 
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" mode = "selector">  
           <view class="city picker">  
-            所在城市：{{objectArray[index]}}  
+            所在城市：
+            {{objectArray[index]}}  
           </view>  
         </picker>
+        <input name="city" hidden="false" value='{{objectArray[index]}}' />
         <view class="line"></view>
          <radio-group class="radio-group clearfix" bindchange="radioChange">
           性别：<label class="radio" wx:for="{{items}}">
             <view class="tui-menu-list"><radio color="#007aff" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
           </label>
         </radio-group>
+        <input name="sex" hidden="false" value='{{radioStr}}' />
         <view class="tui-show-name" hidden="true">{{radioStr}}</view>
         <input name="address" class="{{whoClass=='address'?'placeholderClass':'input_block'}}" type="text"  placeholder="请输入通讯地址" bindblur="addressBlurFocus" focus="{{whoFocus=='address'?true:false}}" />
         <view class="line"></view> 
@@ -37,6 +40,7 @@
            <text class="supportTime">您获得九九九空中救护保障时间为：
             {{beginDate}}-{{serviceEndTime}}</text>
         </view>
+        <input name="endDate" hidden="false"  value='{{endDate}}' />
         <view class="checkbox"> 
           <checkbox-group bindchange="checkboxChange" name="xieyibox">
             <checkbox value="我已阅读并同意《九九九空中救护会员服务协议》" checked="{{checked}}"/>
