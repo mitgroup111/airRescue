@@ -15,7 +15,7 @@
     </navigator>
   </view>
   <view class="userItem">
-    <navigator url="" hover-class="menu-navigator-hover">
+    <navigator url="../myjiangli/myjiangli" hover-class="menu-navigator-hover">
     <text><image class="menu-img" src="http://www.hems999.com/mobile/images/myuser04.jpg"/>我的奖励</text>
     </navigator>
   </view>
