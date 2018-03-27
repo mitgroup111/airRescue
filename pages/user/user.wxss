@@ -36,3 +36,16 @@ page{
   vertical-align: middle;
   margin: -3px 8px 0 0;
 }
+.user_login{
+  background: #e9480c;
+  border-radius: 3px;
+  display:block;
+  width:60px;
+  height:25px;
+  line-height: 25px;
+  font-size: 32rpx;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+}

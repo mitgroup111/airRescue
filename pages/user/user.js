@@ -5,27 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    flg:''
-  },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    haslogin: false,
   },
   onLoad: function (options) {
   },
@@ -37,6 +17,7 @@ Page({
     */
   onShow: function () {
     var sessionId = wx.getStorageSync("sessionId");
+    var that=this;
     console.log("sessionId_transfer:" + sessionId);
     wx.request({
       url: 'https://www.hems999.com/weixinSmall!weixinOrderList', //仅为示例，并非真实的接口地址
@@ -46,16 +27,24 @@ Page({
       },
       success: function (res) {
         var query_clone = res.data[0];
-        if (sessionId == "" || query_clone.flg == 0) {
-          wx.showToast({
-            title: '加载中',
-            icon: 'loading',
-            duration: 5000
+        console.log(query_clone.flg);
+        if (sessionId == "") {
+          that.setData({ 
+            haslogin: true
           })
-          wx.redirectTo({
-            url: '../login/login'
+        } else if (query_clone.flg == 0){
+          that.setData({
+            haslogin: true
           })
-        } 
+        }else{
+          that.setData({
+            haslogin: false
+          })
+        }
+        that.setData({
+          basicUser: query_clone.basicUser
+        })
+        
       }
     });
   },

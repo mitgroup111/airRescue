@@ -1,9 +1,11 @@
 
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">13668658882</text>
+    <block>
+      <image class="userinfo-avatar" src="http://www.hems999.com/mobile/images/myuser01.png" background-size="cover"></image>
+      <view wx:if="{{haslogin}}">
+        <navigator url="../login/login" class='user_login' hover-class="menu-navigator-hover">登录</navigator>
+      </view>
+      <text wx:else class="userinfo-nickname">{{basicUser.username}}</text>
     </block>
   </view>
   <scroll-view>
