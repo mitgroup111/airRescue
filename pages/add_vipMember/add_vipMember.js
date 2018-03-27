@@ -92,7 +92,7 @@ Page({
     var that = this;
     wx.request({
       url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember', //仅为示例，并非真实的接口地址
-      data: {},
+      data: { orderId: options.orderId},
       header: {
         'Content-Type': 'application/json'
       },
@@ -201,40 +201,7 @@ Page({
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       var testData={ name: "11" };
-      console.log("value:" + value);
-      console.log("userName:" + e.detail.value.name);
-      wx.request({
-        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember', //仅为示例，并非真实的接口地址
-        data: {
-          "sessionId": value,
-          name: e.detail.value.name
-          
-        },
-        
-        header: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          var query_clone = res.data[0];
-          console.log(query_clone);
-          if (query_clone.flg == '0') {
-            that.setData({ disabled: true })
-            wx.showModal({
-              content: query_clone.message,
-              duration: 2000
-            })
-          } else {
-            //登陆成功跳转
-            wx.showModal({
-              content: query_clone.message,
-              duration: 2000
-            }),
-            wx.navigateTo({
-              url: '/pages/about/about?extra=' + JSON.stringify(formData)  
-            })  
-          }
-        }
-      });
+      console.log("formData:" + JSON.stringify(formData));
     }
   },
   //服务生效时间

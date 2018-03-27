@@ -5,18 +5,18 @@
     <view class="orderDate">订单金额：<text>￥{{item.totalMoney}}</text></view>
     <view class="orderDate">下单时间：<text>{{item.createTimeStr}}</text></view>
     <view wx:if="{{item.status=='0' && item.orderType=='3'}}"  class="marginBottom">
-        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+        <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
     <view wx:if="{{item.status=='0' && item.orderType!='3'}}" >
         <navigator url="" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
     </view>
     <view wx:if="{{item.status=='1'}}" >
-        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+        <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
     <view wx:if="{{item.status=='2'}}" >
         <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加健康信息</navigator>
     </view>
-    <view wx:if="{{item.status=='6'}}" >
+    <view wx:if="{{item.status=='6'}}" >  
         <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加家人信息</navigator>
     </view>
     <view wx:if="{{item.status=='5' || order.status=='4'}}" >
