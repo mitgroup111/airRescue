@@ -18,6 +18,7 @@ var serviceYear;//服务年限
 var couponNum;//赠送天数
 var beginDate, serviceEndTime;
 var testData;
+var orderId;
 Page({
 
   /**
@@ -82,16 +83,18 @@ Page({
     // 精确到分的处理，将数组的秒去掉
     var lastArray = obj1.dateTimeArray.pop();
     var lastTime = obj1.dateTime.pop();
-
+    console.log("options.orderId：" + options.orderId);
+    orderId=options.orderId
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
+     
     });
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!toMember', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId},
       header: {
         'Content-Type': 'application/json'
@@ -200,8 +203,23 @@ Page({
     } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
-      var testData={ name: "11" };
-      console.log("formData:" + JSON.stringify(formData));
+      var that = this;
+      console.log("保存个人信息orderId:" + orderId);
+      wx.request({
+        url: 'https://www.hems999.com/weixinSmall!addMember', //仅为示例，并非真实的接口地址
+        data: {
+          formData: JSON.stringify(formData),
+          orderId: orderId,
+          sessionId:value
+        },
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log("保存个人信息成功");
+         
+        }
+      });
     }
   },
   //服务生效时间
