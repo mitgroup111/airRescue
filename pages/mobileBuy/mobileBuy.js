@@ -1,4 +1,5 @@
 var appInstance = getApp();
+var productId = '';
 Page({
   data: {
     phone: '',
@@ -40,7 +41,8 @@ Page({
   hide: function () {
     this.setData({ flag: true })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    productId = options.productId;
     this.WxValidate = appInstance.wxValidate(
       {
         mobile: {
@@ -78,11 +80,11 @@ Page({
       console.log("value:" + value);
       console.log("userName:" + e.detail.value.mobile);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!makeOrder', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile,
-          "xieyibox": e.detail.value.xieyibox
+          "productId": productId
         },
         header: {
           'Content-Type': 'application/json'
@@ -90,17 +92,17 @@ Page({
         success: function (res) {
           var query_clone = res.data[0];
           console.log(query_clone);
-          if (query_clone.flg == '1') {
+          if (query_clone.flg == 0) {
             this.setData({ disabled: true })
             wx.showModal({
               content: query_clone.message,
               duration: 2000
             })
           } else {
-            //登陆成功跳转
-            wx.showModal({
-              content: query_clone.message,
-              duration: 2000
+           // var order = query_clone.order;
+            wx.redirectTo({
+              // url: '../mobileBuy/mobileOrder?orderId='+order.orderId+'&orderMoney=' + order.orderMoney,
+              url: '../mobileBuy/mobileOrder'
             })
           }
         }

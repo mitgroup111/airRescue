@@ -20,8 +20,19 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      
+        console.log("code:" + res.code);
+        wx.request({
+
+          //获取openid接口
+          url: 'https://www.hems999.com/weixinSmall!getOpenId',
+          data: { code: res.code},
+          method: 'GET',
+          success: function (res) {
+            console.log("openId:" + res.data[0]);
+            wx.setStorageSync('openId', res.data[0].openId);
+            //getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+          }
+        })
       }
     })
     // 获取用户信息
@@ -47,7 +58,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    websetUrl:"https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4"
+    websetUrl:"https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4",
+    openId:null
   },
   //表单验证
   wxValidate: (rules, messages) => new wxValidate(rules, messages)

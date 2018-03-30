@@ -4,14 +4,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderId:'',
+    orderMoney:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log("options.orderId:" + options.orderId);
+    // orderId=options.orderId;
+    // orderMoney = options.orderMoney;
   },
 
   /**
@@ -63,5 +66,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  unifiedorder: function (req, res) {
+    var body = "测试支付"
+    var openid = wx.getStorageSync("openId"); 
+    var total_fee = 1
+    var notify_url = "http://www.hems999.com/weixinNotify"
+    var mch_id ="1321397101"
+    var attach = "测试"
+    wxpay.order(attach, body, mch_id, openid, total_fee, notify_url)
+      .then(function (data) {
+        console.log('data--->', data, 123123)
+        res.json(data)
+      })
   }
+
 })
