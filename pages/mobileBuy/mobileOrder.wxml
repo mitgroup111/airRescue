@@ -2,7 +2,7 @@
   <text class="orderId">订单编号：<text class='strong'>0001803201428622</text>
   订单金额：<text class='strong'>￥399 元</text>
   </text>
-  <view>  
-    <navigator bindtap="{{unifiedorder}}" class="greenBtn" hover-class="greenBtn-hover">立即支付</navigator>
+  <view bindtap="unifiedorder" >  立即支付
+    <!-- <navigator class="greenBtn" hover-class="greenBtn-hover">立即支付</navigator> -->
   </view> 
 </view>

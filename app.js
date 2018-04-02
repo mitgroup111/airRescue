@@ -17,24 +17,6 @@ App({
       }
     })
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log("code:" + res.code);
-        wx.request({
-
-          //获取openid接口
-          url: 'https://www.hems999.com/weixinSmall!getOpenId',
-          data: { code: res.code},
-          method: 'GET',
-          success: function (res) {
-            console.log("openId:" + res.data[0]);
-            wx.setStorageSync('openId', res.data[0].openId);
-            //getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
-          }
-        })
-      }
-    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
