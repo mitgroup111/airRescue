@@ -1,4 +1,3 @@
-var wxpay = require('../../utils/wxPay.js');
 Page({
 
   /**
@@ -13,9 +12,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log("options.orderId:" + options.orderId);
-    // orderId=options.orderId;
-    // orderMoney = options.orderMoney;
+    // 登录
+    wx.login({
+      success: res => {
+        console.log("code:" + res.code);
+        // wx.request({
+
+        //   //获取openid接口
+        //   url: 'https://www.hems999.com/weixinSmall!weixinGetOpenId',
+        //   data: { code: res.code },
+        //   method: 'GET',
+        //   success: function (res) {
+        //     console.log("openId:" + res.openid);
+        //     wx.setStorageSync('openId', res.openid);
+
+
+        //   }
+        // })
+      }
+    })
   },
 
   /**
@@ -71,36 +86,7 @@ Page({
   
   unifiedorder: function () {
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log("code:" + res.code);
-        wx.request({
-
-          //获取openid接口
-          url: 'https://www.hems999.com/weixinSmall!weixinGetOpenId',
-          data: { code: res.code },
-          method: 'GET',
-          success: function (res) {
-            console.log("openId:" + res.data[0]);
-            wx.setStorageSync('openId', res.data[0].openId);
-            //getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
-
-            var body = "测试支付"
-            var openid = wx.getStorageSync("openId");
-            var total_fee = 1
-            var notify_url = "http://www.hems999.com/weixinNotify"
-            var mch_id = "1321397101"
-            var attach = "测试"
-            wxpay.order(attach, body, mch_id, openid, total_fee, notify_url)
-              .then(function (data) {
-                console.log('data--->', data, 123123)
-                res.json(data)
-              })
-          }
-        })
-      }
-    })
+   
 
    
   }

@@ -216,8 +216,16 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log("保存个人信息成功");
          
+          var query_clone = res.data[0];
+          if (query_clone.flg == 1) {
+            console.log("保存个人信息成功");
+            wx.navigateTo({
+              url: '../add_jiankang/add_jiankang?orderId=' + orderId
+            })
+          } else{
+            console.log("保存个人信息失败");
+          }
         }
       });
     }

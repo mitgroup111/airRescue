@@ -14,7 +14,7 @@
         <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
     <view wx:if="{{item.status=='2'}}" >
-        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加健康信息</navigator>
+        <navigator url="../add_jiankang/add_jiankang?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加健康信息</navigator>
     </view>
     <view wx:if="{{item.status=='6'}}" >  
         <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加家人信息</navigator>
