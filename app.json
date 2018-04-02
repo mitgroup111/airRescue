@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/add_carInfo/add_carInfo",
+    
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -31,7 +31,8 @@
     "pages/mobileBuy/mobileOrder",
     "pages/add_vipMember/add_vipMember",
     "pages/myjiangli/myjiangli",
-    "pages/add_jiankang/add_jiankang"
+    "pages/add_jiankang/add_jiankang",
+    "pages/add_carInfo/add_carInfo"
 
   ],
   "window":{
