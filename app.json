@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/add_jiankang/add_jiankang",
+    
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",
@@ -31,8 +31,8 @@
     "pages/mobileBuy/mobileOrder",
     "pages/add_vipMember/add_vipMember",
     "pages/myjiangli/myjiangli",
-    "pages/user_transfer/user_transfer"
-
+    "pages/user_transfer/user_transfer",
+    "pages/add_jiankang/add_jiankang"
   ],
   "window":{
     "backgroundTextStyle":"light",
