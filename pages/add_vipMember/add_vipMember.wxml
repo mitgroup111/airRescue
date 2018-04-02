@@ -18,7 +18,7 @@
         <view class="line"></view>
          <radio-group class="radio-group clearfix" bindchange="radioChange">
           性别：<label class="radio" wx:for="{{items}}">
-            <view class="tui-menu-list"><radio color="#007aff" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
+            <view class="tui-menu-list"><radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
           </label>
         </radio-group>
         <input name="sex" hidden="false" value='{{radioStr}}' />

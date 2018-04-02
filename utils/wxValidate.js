@@ -194,6 +194,41 @@ class wxValidate {
         });
        
       },
+      /**
+			 * 验证选中复选框“其他”后，验证其属性
+			 */
+      equalToCheckbox(value, param) {
+        //console.log("str11111++++" + that.scope.detail.value[param]);
+        //console.log("str++++"+that.scope.detail.value[param].lastIndexOf("其他"));
+        if (that.scope.detail.value[param].split(",").lastIndexOf("其他") == -1){
+          console.log(1111);
+          return true;
+        }else{
+          if (typeof value === 'number') {
+            value = value.toString()
+          } else if (typeof value === 'boolean') {
+            return !0
+          }
+          return value.length > 0
+        }
+       
+      },
+      /**
+			 * 验证选中单选按钮“是”后，验证其属性
+			 */
+      equalToRadio(value, param) {
+        console.log(that.scope.detail.value[param]);
+        if (that.scope.detail.value[param].indexOf("是") == -1) {
+          return true;
+        } else {
+          if (typeof value === 'number') {
+            value = value.toString()
+          } else if (typeof value === 'boolean') {
+            return !0
+          }
+          return value.length > 0
+        }
+      },
 		}
 	}
 

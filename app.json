@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/add_jiankang/add_jiankang",
     "pages/index/index",
     "pages/about/list",
     "pages/about/jieshao",

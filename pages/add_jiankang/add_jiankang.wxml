@@ -1,0 +1,106 @@
+<view class="container">
+  <view class="login-from"> 
+    <text class="add_tips">为了更方便快捷的为您提供服务，请完善您的健康档案：</text>
+    <form bindsubmit="formSubmit" bindreset="formReset">    
+        <radio-group class="radio-group clearfix" bindchange="bloodChange">
+          血型：<label class="radio" wx:for="{{blood_items}}">
+            <view><radio value="{{item.value}}"/>{{item.value}}</view>
+          </label>
+        </radio-group>
+        <input name="blood" hidden="false" value='{{blood}}' />
+
+        <radio-group class="radio-group clearfix" bindchange="bloodRHChange">
+          RH阴性：<label class="radio" wx:for="{{bloodRH_items}}">
+            <view><radio value="{{item.value}}"/>{{item.value}}</view>
+          </label>
+        </radio-group>
+        <input name="bloodRH" hidden="false" value='{{bloodRH}}' />
+
+        <input name="userheight" class="{{whoClass=='userheight'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入身高" focus="{{whoFocus=='userheight'?true:false}}" />
+        <view class="line"></view>
+        <input name="userweight" class="{{whoClass=='userweight'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入体重" focus="{{whoFocus=='userweight'?true:false}}" />
+        
+        <checkbox-group class="checkbox-group clearfix" bindchange="medicalChange">
+          医疗费用支付方式：<label class="checkbox" wx:for-items="{{medical_items}}">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </checkbox-group>
+        <input name="medical" hidden="false" value='{{medical}}' />
+        <view hidden="{{qitamedicalFlag}}">
+           <input name="qitamedical" class="{{whoClass=='qitamedical'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他支付方式" focus="{{whoFocus=='qitamedical'?true:false}}" value='{{qita}}' />
+        </view>
+
+        <radio-group class="radio-group clearfix" bindchange="allergyChange">
+          药物过敏史：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <input name="allergy" hidden="false" value='{{allergy}}' />
+        <view hidden="{{allergyFlag}}">
+          <checkbox-group class="checkbox-group clearfix" bindchange="allergyCheckChange">
+            <label class="checkbox"><checkbox value="青霉素"/>青霉素</label>
+            <label class="checkbox"><checkbox value="磺胺"/>磺胺</label>
+            <label class="checkbox"><checkbox value="链霉素"/>链霉素</label>
+            <label class="checkbox"><checkbox value="其他"/>其他</label>
+          </checkbox-group>
+          <input name="allergyCheck" hidden="false" value='{{allergyCheck}}' />
+        </view>
+        <view hidden="{{qitaallergyFlag}}">
+           <input name="qitaallergyCheck" class="{{whoClass=='qitaallergyCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他药物过敏史" focus="{{whoFocus=='qitaallergyCheck'?true:false}}" value='{{allergyCheckText}}' />
+        </view>
+
+        <radio-group class="radio-group clearfix" bindchange="diseaseChange">
+          疾病：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <input name="disease" hidden="false" value='{{disease}}' />
+        <view hidden="{{diseaseFlag}}">
+          <checkbox-group class="checkbox-group clearfix" bindchange="diseaseCheckChange">
+            <label class="checkbox"><checkbox value="高血压"/>高血压</label>
+            <label class="checkbox"><checkbox value="糖尿病"/>糖尿病</label>
+            <label class="checkbox"><checkbox value="冠心病"/>冠心病</label>
+            <label class="checkbox"><checkbox value="慢性阻塞性肺疾病"/>慢性阻塞性肺疾病</label>
+            <label class="checkbox"><checkbox value="肝炎"/>肝炎</label>
+            <label class="checkbox"><checkbox value="其他法定传染病 "/>其他法定传染病 </label>
+            <label class="checkbox"><checkbox value="其他"/>其他</label>
+          </checkbox-group>
+          <input name="diseaseCheck" hidden="false" value='{{diseaseCheck}}' />
+        </view>
+        <view hidden="{{qitadiseaseFlag}}">
+           <input name="qitadiseaseCheck" class="{{whoClass=='qitadiseaseCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他疾病" focus="{{whoFocus=='qitadiseaseCheck'?true:false}}" value='{{diseaseCheckText}}' />
+        </view>
+
+        <radio-group class="radio-group clearfix" bindchange="operationChange">
+          手术：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <view hidden="{{operationFlag}}">
+          <input name="operationName" class="{{whoClass=='operationName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入手术名称" focus="{{whoFocus=='operationName'?true:false}}" value='{{operationText}}'/>
+        </view>
+        <input name="operation" hidden="false" value='{{operation}}' />
+        <radio-group class="radio-group clearfix" bindchange="traumaChange">
+          外伤：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <view hidden="{{traumaFlag}}">
+          <input name="traumaName" class="{{whoClass=='traumaName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入外伤名称" focus="{{whoFocus=='traumaName'?true:false}}" value='{{traumaText}}' />
+        </view>
+        <input name="trauma" hidden="false" value='{{trauma}}' />
+        <radio-group class="radio-group clearfix" bindchange="transfusionChange">
+          输血：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <view hidden="{{transfusionFlag}}">
+          <input name="transfusionName" class="{{whoClass=='transfusionName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入输血原因" focus="{{whoFocus=='transfusionName'?true:false}}" value='{{transfusionText}}' />
+        </view>
+        <input name="transfusion" hidden="false" value='{{transfusion}}' />
+        <!--按钮-->  
+        <view class="loginBtnView">  
+          <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
+        </view> 
+    </form>
+  </view>
+</view>
+
+
+
+
