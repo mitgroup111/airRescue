@@ -36,7 +36,7 @@
         </radio-group>
         <input name="allergy" hidden="false" value='{{allergy}}' />
         <view hidden="{{allergyFlag}}">
-          <checkbox-group class="checkbox-group clearfix" bindchange="allergyCheckChange">
+          <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="allergyCheckChange">
             <label class="checkbox"><checkbox value="青霉素"/>青霉素</label>
             <label class="checkbox"><checkbox value="磺胺"/>磺胺</label>
             <label class="checkbox"><checkbox value="链霉素"/>链霉素</label>
@@ -54,7 +54,7 @@
         </radio-group>
         <input name="disease" hidden="false" value='{{disease}}' />
         <view hidden="{{diseaseFlag}}">
-          <checkbox-group class="checkbox-group clearfix" bindchange="diseaseCheckChange">
+          <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="diseaseCheckChange">
             <label class="checkbox"><checkbox value="高血压"/>高血压</label>
             <label class="checkbox"><checkbox value="糖尿病"/>糖尿病</label>
             <label class="checkbox"><checkbox value="冠心病"/>冠心病</label>
@@ -97,6 +97,18 @@
         <view class="loginBtnView">  
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
         </view> 
+        <view>
+        <text class='aboutInfo'>
+填表说明：
+1、血型：先选择前面的ABO血型；再选择后面是否为RH阴性。
+2、药物过敏史：表中药物过敏主要列出青霉素、磺胺或者链霉素过敏，如有其他药物过敏，请在其他栏中写明名称，可以多选。
+3、既往史：包括疾病史、手术史、外伤史和输血史。
+（1）疾病 填写现在和过去曾经患过的某种疾病，包括建档时还未治愈的慢性病或某些反复发作的疾病。
+（2）手术 填写曾经接受过的手术治疗。如有，应填写具体手术名称。
+（3）外伤 填写曾经发生的后果比较严重的外伤经历。如有，应填写具体外伤名称。
+（4）输血 填写曾经接受过的输血情况。如有，应填写具体输血原因。
+</text>
+        </view>
     </form>
   </view>
 </view>

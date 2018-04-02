@@ -138,8 +138,8 @@ page{
   color:#555;
 }
 .aboutInfo{
-    font-size: 30rpx;
-    line-height: 50rpx;
+    font-size: 34rpx;
+    line-height: 60rpx;
     margin-bottom: 10rpx;
     text-indent: 52rpx;
     display: block;

@@ -33,6 +33,7 @@
     "pages/myjiangli/myjiangli",
     "pages/user_transfer/user_transfer",
     "pages/add_jiankang/add_jiankang"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

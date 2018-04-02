@@ -1,9 +1,15 @@
 .radio-group,.checkbox-group{
-  margin: 10px 0;
+  margin: 8px 0;
+  font-size: 34rpx;
+  line-height: 60rpx;
 }
 .radio-group .radio,.checkbox-group .radio{
   display: inline-block;
   font-size: 34rpx;
   margin-right: 5px;
   vertical-align: middle;
+
+}
+.nomarginTop{
+  margin:0;
 }
