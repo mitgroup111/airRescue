@@ -13,6 +13,7 @@ var M = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMon
 //日  
 var D = date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate();
 var nowDate = Y + "-" + M + "-" + D;
+var orderId
 Page({
 
   /**
@@ -20,8 +21,10 @@ Page({
    */
   data: {
     selectPerson: true,
-    objectArray: ['烟台', '青岛', '济南', '菏泽', '淄博', '枣庄', '东营', '潍坊', '济宁', '泰安', '威海', '日照', '滨洲', '德州', '聊城', '临沂', '莱芜'],
-    index: 0,
+    brandArray:'',
+    colorArray: ['黑色', '白色', '红色', '蓝色', '黄色', '银色', '紫色', '金色', '其他'],
+    brand: 0,
+    color:0,
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
@@ -30,112 +33,134 @@ Page({
     startYear: 2000,
     endYear: 2500,
     endTime: '2500-01-01',
+    tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg'  
   },
-  //城市
-  bindPickerChange: function (e) {
-    console.log(e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     var that = this;
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getbrand.do?jsonpCallback=', //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getbrand.do', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log("获取服务时间111");
-        var query_clone = res.data;
-        console.log(query_clone);
+        console.log("获取品牌");
+        var brandArray = res.data;
+        console.log(res.data);
+        that.setData({ brandArray: brandArray});
       }
     });
-    
+    //将图片上传到服务器
+    /*wx.chooseImage({
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'http://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址  
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success: function (res) {
+            var data = res.data
+            //do something  
+          }
+        })
+      }
+    }) */
     this.WxValidate = appInstance.wxValidate(
       {
-        name: {
-          required: true,
-          rangelength: [2, 8]
+        card: {
+          isCarCard: true,
+          rangelength: [7, 7]
         },
-        userName: {
-          required: true,
-          digits: true,
-          rangelength: [11, 11],
-          tel: true
+        meleage: {
+          isNum: true,
+          rangelength: [1, 7]
         },
-        idcard: {
-          required: true,
-          idcard: true
-        },
-        address: {
-          required: true,
-          rangelength: [2, 30]
-        },
-        emergencyName: {
-          required: true,
-          rangelength: [2, 8]
-        },
-        emergencyTel: {
-          required: true,
-          digits: true,
-          rangelength: [11, 11],
-          compareTel: true
-        },
-        beginDate: {
-          required: true
-        },
-        xieyibox: {
-          required: true
+        vin: {
+          isVIN: true,
+          rangelength: [17, 17]
         }
       },
       {
-        name: {
-          required: "请输入姓名",
-          rangelength: "姓名为2-8个字"
+        card: {
+          isCarCard: "请输入正确的车牌号",
+          rangelength: "车牌号长度为7位"
         },
-        userName: {
-          required: "请输入手机号码",
-          digits: "手机号码请输入数字",
-          rangelength: "手机号码为11位",
-          tel: "请输入正确的手机号"
+        meleage: {
+          isNum: "请输入正确的里程数（整数）",
+          rangelength: "里程数长度最多为7个字符"
         },
-        idcard: {
-          required: "请输入您的身份证号码",
-          idcard: "身份证号码不合法"
-        },
-        sex: {
-          required: "请选择性别"
-        },
-        address: {
-          required: "请输入地址",
-          rangelength: "地址为2-30个字"
-        },
-        emergencyName: {
-          required: "请输入紧急联系姓名",
-          rangelength: "姓名为2-8个字"
-        },
-        emergencyTel: {
-          required: "请输入紧急联系人的手机号码",
-          digits: "手机号码请输入数字",
-          rangelength: "手机号码为11位",
-          compareTel: "请输入正确的手机号码"
-        },
-        beginDate: {
-          required: "请选择服务开通时间"
-        },
-        xieyibox: {
-          required: "请确认您已阅读并同意《九九九空中救护会员服务协议》"
+        vin: {
+          isVIN: "请输入正确的VIN码",
+          rangelength: "输入的VIN码位数不正确"
         }
+
       }
     )
   },
+  //车辆颜色
+  bindColorChange: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      color: e.detail.value
+    })
+  },
+  //品牌
+  bindBrandChange: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      brand: e.detail.value
+    })
+    wx.request({
+      url: 'https://www.arsauto.com.cn/car/getseries.do?car_brand=encodeURI(奥迪（一汽）)', //仅为示例，并非真实的接口地址
+      data: { brand: "奥迪（一汽）" },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        //console.log("---" + brandArray[brand]);
+        var carSeriesArray = res.data;
+        console.log(res.data);
+        //this.setData({ carSeriesArray: carSeriesArray });
+      }
+    });
+  },
+  //车系
+  bindcarSeriesChange: function (e) {
+    
+    console.log(e.detail.value)
+    this.setData({
+      brand: e.detail.value
+    })
+  },
+  //  点击日期组件确定事件  
+  changeDate: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      shangpaiTime: e.detail.value
+    })
+  },
+  //选择照片
+  chooseimage: function () {
+    var _this = this;
+    wx.chooseImage({
+      count: 1, // 默认9  
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
+        _this.setData({
+          tempFilePaths: res.tempFilePaths
+        })
+      }
+    })
+  },
+  
   // 提交 
   formSubmit: function (e) {
     var that = this;
@@ -154,9 +179,9 @@ Page({
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       var that = this;
-      console.log("保存个人信息orderId:" + orderId);
+      //console.log("保存个人信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!addMember', //仅为示例，并非真实的接口地址
+        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toCar', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,

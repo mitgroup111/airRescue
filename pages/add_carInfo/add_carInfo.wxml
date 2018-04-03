@@ -2,21 +2,46 @@
   <view class="login-from"> 
     <text class="add_tips">为了更方便快捷的为您提供服务，请完善服务使用人信息(如需转赠服务，请填写受赠人信息)：</text>
     <form bindsubmit="formSubmit" bindreset="formReset">    
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" mode = "selector">  
-          <view class="city picker">  
-            所在城市：
-            {{objectArray[index]}}  
+        <picker bindchange="bindBrandChange" value="{{brand}}" range="{{brandArray}}" mode = "selector">  
+          <view class="select picker">  
+            品牌：
+            {{brandArray[brand]}}  
           </view>  
         </picker>
-        <input name="city" hidden="false" value='{{objectArray[index]}}' />
+        <input name="carBrand" hidden="false" value='{{brandArray[brand]}}' />
+        <view class="line"></view>
+        <picker bindchange="bindcarSeriesChange" value="{{carSeries}}" range="{{carSeriesArray}}" mode = "selector">  
+          <view class="select picker">  
+            车系：
+            {{carSeriesArray[series]}}  
+          </view>  
+        </picker>
+        <input name="carBrand" hidden="false" value='{{carSeriesArray[series]}}' />
+        <view class="line"></view>
+        <picker bindchange="bindColorChange" value="{{color}}" range="{{colorArray}}" mode = "selector">  
+          <view class="select picker">  
+            颜色：
+            {{colorArray[color]}}  
+          </view>  
+        </picker>
+        <input name="color" hidden="false" value='{{colorArray[color]}}' />
         <view class="line"></view>
         <view class="tui-picker-content">
-          <picker mode="date" value="{{beginDate}}" start="{{stratTime}}" end="{{endTime}}" bindchange="changeDate">
+          <picker mode="date" value="{{beginDate}}" start="" end="{{endTime}}" bindchange="changeDate">
             <view class="tui-picker-detail">
-              <input name="beginDate" class="{{whoClass=='beginDate'?'placeholderClass':'input_block'}}" type="text"  placeholder="请选择服务生效时间" bindblur="beginDateBlurFocus" focus="{{whoFocus=='beginDate'?true:false}}" value='{{beginDate}}' />
+              <input name="shangpaiTime" class="input_block" type="text"  placeholder="请选择上牌时间" value='{{shangpaiTime}}' />
             </view>
           </picker>
         </view>
+        <view class="line"></view> 
+        <input name="vin" class='input_block' type="text" maxlength="50" placeholder="请输入车辆VIN码"/>
+        <view class="line"></view> 
+        <input name="card" class='input_block' type="text" maxlength="50" placeholder="请输入车牌号"/>
+        <view class="line"></view> 
+        <input name="meleage" class='input_block' type="text" maxlength="50" placeholder="请输入里程数（公里）"/>
+        <view class="line"></view> 
+        <image src="{{tempFilePaths }}" mode="aspecFill" style="width: 100%; height: 450rpx"/>  
+        <button style="margin:20rpx 0;" bindtap="chooseimage">上传图片</button>
         <view class="loginBtnView">  
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
         </view> 

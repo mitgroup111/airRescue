@@ -535,4 +535,11 @@ page{
   line-height: 21px;
   margin-top: 10px;
 }
-
+.select{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  font-size: 35rpx;
+  padding: 0 10px;
+  overflow: hidden;
+}

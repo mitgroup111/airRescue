@@ -229,6 +229,24 @@ class wxValidate {
           return value.length > 0
         }
       },
+      /**
+			 * 车牌号
+			 */
+      isCarCard(value) {
+        return that.optional(value) || /^[\u4E00-\u9FA5]{1}[A-Z]{1}[A-Z0-9]+$/.test(value)
+      },
+      /**
+			 * VIN码验证方法
+			 */
+      isVIN(value) {
+        return that.optional(value) || /^[A-Za-z0-9]+$/.test(value)
+      },
+      /**
+			 * 不以0开始的整数
+			 */
+      isNum(value) {
+        return that.optional(value) || /^(0|[1-9][0-9]*)$/.test(value)
+      }
 		}
 	}
 
