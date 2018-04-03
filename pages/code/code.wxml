@@ -1,0 +1,10 @@
+<view class='contentW codeSuccess'>
+  <text class="successInfo">您的产品购买已经成功，有效期{{beginDate}}至{{endDate}}，可以在会员中心查看会员凭证。</text>
+  <image class="code_img" src="http://www.hems999.com/mobile/images/dingyuehao.jpg" mode='widthFix'/>
+  <text>保存图片长按识别二维码关注九九九空中救护订阅号</text>
+  <image class="code_img" src="http://www.hems999.com/jsp/images/android.png" mode='widthFix'/>
+  <text>扫码下载 九九九空中救护 服务APP（android版）</text>
+  <text>（推荐使用浏览器扫描二维码）</text>
+  <image class="code_img" src="http://www.hems999.com/jsp/images/iPhone.png" mode='widthFix'/>
+  <text>扫码下载 九九九空中救护 服务APP（iPhone版）</text>
+</view>

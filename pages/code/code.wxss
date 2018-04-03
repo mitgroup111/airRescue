@@ -1,0 +1,17 @@
+.codeSuccess text{
+  font-size: 32rpx;
+  line-height: 50rpx;
+  text-align: center;
+  display: block;
+}
+.codeSuccess text.successInfo{
+  color:#026a19;
+  font-size: 36rpx;
+  line-height: 56rpx;
+  text-align: left;
+}
+.code_img{
+  width: 70%;
+  display: block;
+  margin: 5px auto;
+}

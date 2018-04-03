@@ -32,8 +32,8 @@
     "pages/myjiangli/myjiangli",
     "pages/add_jiankang/add_jiankang",
     "pages/add_jiaren/add_jiaren",
-    "pages/add_carInfo/add_carInfo"
-    
+    "pages/add_carInfo/add_carInfo",
+    "pages/code/code"
 
   ],
   "window":{
