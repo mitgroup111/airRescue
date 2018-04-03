@@ -14,14 +14,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log("options.orderId:" + options.orderId);
-    console.log("options.orderMoney:" + options.orderMoney);
     that.setData({
       orderId : options.orderId,
       orderMoney : options.orderMoney
     })
    
-
     // 登录
     wx.login({
       success: res => {
