@@ -98,11 +98,10 @@ Page({
               content: query_clone.message,
               duration: 2000
             })
-          } else {
-           // var order = query_clone.order;
+          } else if (query_clone.flg == 1){
+            var order = query_clone.order;
             wx.redirectTo({
-              // url: '../mobileBuy/mobileOrder?orderId='+order.orderId+'&orderMoney=' + order.orderMoney,
-              url: '../mobileBuy/mobileOrder'
+              url: '../mobileBuy/mobileOrder?orderId='+order.orderId+'&orderMoney=' + order.orderMoney
             })
           }
         }

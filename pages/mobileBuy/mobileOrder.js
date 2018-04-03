@@ -1,3 +1,4 @@
+
 Page({
 
   /**
@@ -12,10 +13,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    console.log("options.orderId:" + options.orderId);
+    console.log("options.orderMoney:" + options.orderMoney);
+    that.setData({
+      orderId : options.orderId,
+      orderMoney : options.orderMoney
+    })
+   
+
     // 登录
     wx.login({
       success: res => {
         console.log("code:" + res.code);
+
         // wx.request({
 
         //   //获取openid接口
@@ -84,11 +95,5 @@ Page({
 
   },
   
-  unifiedorder: function () {
-
-   
-
-   
-  }
 
 })

@@ -8,7 +8,7 @@
         <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
     <view wx:if="{{item.status=='0' && item.orderType!='3'}}" >
-        <navigator url="../mobileBuy/mobileOrder?orderId={{item.orderid}}" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
+        <navigator url="../mobileBuy/mobileOrder?orderId={{item.orderid}}&orderMoney={{item.totalMoney}}" class="orderpay" hover-class="menu-navigator-hover">去支付</navigator>
     </view>
     <view wx:if="{{item.status=='1'}}" >
         <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加个人信息</navigator>
