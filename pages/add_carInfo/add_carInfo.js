@@ -13,18 +13,19 @@ var M = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMon
 //日  
 var D = date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate();
 var nowDate = Y + "-" + M + "-" + D;
-var orderId
+var orderId;
+var brandArray,brandName,brand=-1;
+var seriesArray, seriesName, series;
+var modelArray, modelName, model;
+var yearArray, yearName,year;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    selectPerson: true,
-    brandArray:'',
     colorArray: ['黑色', '白色', '红色', '蓝色', '黄色', '银色', '紫色', '金色', '其他'],
-    brand: 0,
-    color:0,
+    color:-1,
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
@@ -48,7 +49,7 @@ Page({
       },
       success: function (res) {
         console.log("获取品牌");
-        var brandArray = res.data;
+        brandArray = res.data;
         console.log(res.data);
         that.setData({ brandArray: brandArray});
       }
@@ -110,32 +111,71 @@ Page({
       color: e.detail.value
     })
   },
-  //品牌
+  //根据品牌加载车系
   bindBrandChange: function (e) {
-    console.log(e.detail.value)
+    var that=this;
     this.setData({
       brand: e.detail.value
     })
+    brandName = brandArray[e.detail.value];
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getseries.do?car_brand=encodeURI(奥迪（一汽）)', //仅为示例，并非真实的接口地址
-      data: { brand: "奥迪（一汽）" },
+      url: 'https://www.arsauto.com.cn/car/getseries.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
+      data: {},
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        //console.log("---" + brandArray[brand]);
-        var carSeriesArray = res.data;
-        console.log(res.data);
-        //this.setData({ carSeriesArray: carSeriesArray });
+        seriesArray = res.data;
+        console.log("车系："+res.data);
+        that.setData({ seriesArray: seriesArray });
       }
     });
   },
-  //车系
-  bindcarSeriesChange: function (e) {
-    
-    console.log(e.detail.value)
+  //根据品牌和车系加载车型
+  bindSeriesChange: function (e) {
+    var that = this;
     this.setData({
-      brand: e.detail.value
+      series: e.detail.value
+    })
+    seriesName = seriesArray[e.detail.value];
+    wx.request({
+      url: 'https://www.arsauto.com.cn/car/getmodel.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName), //仅为示例，并非真实的接口地址
+      data: { },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        modelArray = res.data;
+        console.log("车型："+res.data);
+        that.setData({ modelArray: modelArray });
+      }
+    });
+  },
+  //根据品牌、车系、车型加载出厂日期
+  bindModelChange: function (e) {
+    var that = this;
+    this.setData({
+      model: e.detail.value
+    })
+    yearName = modelArray[e.detail.value];
+    wx.request({
+      url: 'https://www.arsauto.com.cn/car/getyear.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName) + '&car_model=' + escape(yearName), //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        yearArray = res.data;
+        console.log("出厂日期：" + res.data);
+        that.setData({ yearArray: yearArray });
+      }
+    });
+  },
+  //选择出厂日期
+  bindYearChange: function (e) {
+    var that = this;
+    this.setData({
+      year: e.detail.value
     })
   },
   //  点击日期组件确定事件  

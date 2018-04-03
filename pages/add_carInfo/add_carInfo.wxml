@@ -10,14 +10,34 @@
         </picker>
         <input name="carBrand" hidden="false" value='{{brandArray[brand]}}' />
         <view class="line"></view>
-        <picker bindchange="bindcarSeriesChange" value="{{carSeries}}" range="{{carSeriesArray}}" mode = "selector">  
+
+        <picker bindchange="bindSeriesChange" value="{{series}}" range="{{seriesArray}}" mode = "selector">  
           <view class="select picker">  
             车系：
-            {{carSeriesArray[series]}}  
+            {{seriesArray[series]}}  
           </view>  
         </picker>
-        <input name="carBrand" hidden="false" value='{{carSeriesArray[series]}}' />
+        <input name="carSeries" hidden="false" value='{{seriesArray[series]}}' />
         <view class="line"></view>
+
+        <picker bindchange="bindModelChange" value="{{model}}" range="{{modelArray}}" mode = "selector">  
+          <view class="select picker">  
+            车型：
+            {{modelArray[model]}}  
+          </view>  
+        </picker>
+        <input name="carModel" hidden="false" value='{{modelArray[model]}}' />
+        <view class="line"></view>
+
+        <picker bindchange="bindYearChange" value="{{year}}" range="{{yearArray}}" mode = "selector">  
+          <view class="select picker">  
+            出厂日期：
+            {{yearArray[year]}}  
+          </view>  
+        </picker>
+        <input name="carYear" hidden="false" value='{{yearArray[year]}}' />
+        <view class="line"></view>
+
         <picker bindchange="bindColorChange" value="{{color}}" range="{{colorArray}}" mode = "selector">  
           <view class="select picker">  
             颜色：
