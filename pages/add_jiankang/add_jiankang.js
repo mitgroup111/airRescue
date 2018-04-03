@@ -307,7 +307,7 @@ Page({
       var that = this;
       console.log("保存健康信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toJiankang', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!saveJiankang', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,
