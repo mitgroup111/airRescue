@@ -1,6 +1,6 @@
 var appInstance = getApp();
 var testData;
-var vipNumJilu,vipNum, vipMemberId;
+var vipNumJilu, vipNum, vipMemberId,orderId;
 Page({
 
   /**
@@ -29,14 +29,14 @@ Page({
       { value: "全自费" },
       { value: "其他" }
     ],
-    qitamedicalFlag:true,
+    qitamedicalFlag: true,
     allergyFlag: true, //药物过敏史
     qitaallergyFlag: true,
     diseaseFlag: true,
     qitadiseaseFlag: true,
-    operationFlag:true,
-    traumaFlag:true,
-    transfusionFlag:true,
+    operationFlag: true,
+    traumaFlag: true,
+    transfusionFlag: true,
     memberInfo: '',
     disabled: false,
     testData: { name: name }
@@ -54,10 +54,10 @@ Page({
   medicalChange: function (e) {
     this.setData({ medical: e.detail.value });
     if (e.detail.value.indexOf("其他") != -1) {
-      this.setData({ qitamedicalFlag: false });   
+      this.setData({ qitamedicalFlag: false });
     } else {
       this.setData({ qitamedicalFlag: true });
-      this.setData({ qita: "" });    
+      this.setData({ qita: "" });
     }
   },
   //是否有药物过敏史
@@ -75,7 +75,7 @@ Page({
       this.setData({ qitaallergyFlag: false });
     } else {
       this.setData({ qitaallergyFlag: true });
-      this.setData({ allergyCheckText: "" }); 
+      this.setData({ allergyCheckText: "" });
     }
   },
   //是否有疾病
@@ -91,9 +91,9 @@ Page({
     //console.log(e.detail.value);
     //console.log(e.detail.value.indexOf("其他"));
     this.setData({ diseaseCheck: e.detail.value });
-    if (e.detail.value.indexOf("其他") != -1) {     
+    if (e.detail.value.indexOf("其他") != -1) {
       this.setData({ qitadiseaseFlag: false });
-    } else { 
+    } else {
       this.setData({ qitadiseaseFlag: true });
       this.setData({ diseaseCheckText: "" });
     }
@@ -112,9 +112,9 @@ Page({
   traumaChange: function (e) {
     this.setData({ trauma: e.detail.value });
     if (e.detail.value == "是") {
-      this.setData({traumaFlag: false });
+      this.setData({ traumaFlag: false });
     } else {
-      this.setData({traumaFlag: true });
+      this.setData({ traumaFlag: true });
       this.setData({ traumaText: "" });
     }
   },
@@ -141,8 +141,9 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    orderId = options.orderId;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toJiaren', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!toJiaren', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
@@ -154,7 +155,7 @@ Page({
         vipNumJilu = query_clone.vipNumJilu;
         vipNum = query_clone.vipNum;
         vipMemberId = query_clone.vipMemberId;
-        that.setData({ 
+        that.setData({
           vipNumJilu: vipNumJilu,
           vipNum: vipNum,
         });
@@ -176,7 +177,7 @@ Page({
         bloodRH: {
           required: true
         },
-        userheight:{
+        userheight: {
           required: true,
           digits: true
         },
@@ -188,10 +189,10 @@ Page({
           required: true
         },
         qitamedical: {
-          equalToCheckbox:"medical",
+          equalToCheckbox: "medical",
           maxlength: 100
         },
-        allergy:{
+        allergy: {
           required: true
         },
         allergyCheck: {
@@ -248,7 +249,7 @@ Page({
         bloodRH: {
           required: "请选择是否为RH阴性"
         },
-        userheight:{
+        userheight: {
           required: "请输入身高",
           digits: "身高请输入数字"
         },
@@ -327,10 +328,11 @@ Page({
       var that = this;
       console.log("保存健康信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toJiaren', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!saveJiaren', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,
+          vipMemberId: vipMemberId,
           sessionId: value
         },
         header: {
