@@ -200,8 +200,8 @@ class wxValidate {
       equalToCheckbox(value, param) {
         //console.log("str11111++++" + that.scope.detail.value[param]);
         //console.log("str++++"+that.scope.detail.value[param].lastIndexOf("其他"));
-        if (that.scope.detail.value[param].split(",").lastIndexOf("其他") == -1){
-          console.log(1111);
+        var paramValue = that.scope.detail.value[param];
+        if (paramValue.split(",").lastIndexOf("其他") == -1){
           return true;
         }else{
           if (typeof value === 'number') {

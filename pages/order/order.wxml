@@ -20,7 +20,7 @@
         <navigator url="../add_jiaren/add_jiaren?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加家人信息</navigator>
     </view>
     <view wx:if="{{item.status=='5' || order.status=='4'}}" >
-        <navigator url="../orderDetail/orderDetail?orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">查看详情</navigator>
+        <navigator url="../orderDetail/orderDetail?sessionId={{sessionId}}&orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">查看详情</navigator>
     </view>
     <view wx:if="{{item.status=='3'}}" >
         <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加车辆信息</navigator>

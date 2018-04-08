@@ -3,12 +3,12 @@ var productId = '';
 Page({
   data: {
     phone: '',
-    xieyibox:'',
+    xieyibox: '',
     flag: true,
     xieyi: [
       { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
     ],
-    disabled:false
+    disabled: false
   },
 
   // 获取输入手机号  
@@ -21,10 +21,10 @@ Page({
     wx.setNavigationBarTitle({
       title: '我要购买'
     }),
-    this.setData({ disabled: false})
+      this.setData({ disabled: false })
   },
   //弹出服务协议
-  checkboxChange: function (e) {  
+  checkboxChange: function (e) {
     var xieyi = this.data.xieyi;
     console.log(xieyi);
     var checkArr = e.detail.value;
@@ -35,7 +35,7 @@ Page({
         xieyi[i].checked = false;
       }
     }
-    this.setData({ flag: !xieyi[0].checked})
+    this.setData({ flag: !xieyi[0].checked })
   },
   //关闭服务协议
   hide: function () {
@@ -98,10 +98,10 @@ Page({
               content: query_clone.message,
               duration: 2000
             })
-          } else if (query_clone.flg == 1){
+          } else if (query_clone.flg == 1) {
             var order = query_clone.order;
             wx.redirectTo({
-              url: '../mobileBuy/mobileOrder?orderId='+order.orderId+'&orderMoney=' + order.orderMoney
+              url: '../mobileBuy/mobileOrder?orderId=' + order.orderId + '&orderMoney=' + order.orderMoney
             })
           }
         }

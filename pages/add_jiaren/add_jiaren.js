@@ -17,7 +17,7 @@ Page({
     bloodRH_items: [
       { name: '否', value: '否' },
       { name: '是', value: '是' },
-      { name: 'NO', value: '不详' }
+      { name: 'NO', value: '不详' } 
     ],
     medical_items: [
       { value: '城镇职工基本医疗保险' },
@@ -185,31 +185,31 @@ Page({
           required: true,
           digits: true
         },
-        medical: {
+        medicalHid: {
           required: true
         },
         qitamedical: {
-          equalToCheckbox: "medical",
+          equalToCheckbox: "medicalHid",
           maxlength: 100
         },
         allergy: {
           required: true
         },
-        allergyCheck: {
+        allergyCheckHid: {
           equalToRadio: "allergy"
         },
         qitaallergyCheck: {
-          equalToCheckbox: "allergyCheck",
+          equalToCheckbox: "allergyCheckHid",
           maxlength: 100
         },
         disease: {
           required: true
         },
-        diseaseCheck: {
+        diseaseCheckHid: {
           equalToRadio: "disease"
         },
         qitadiseaseCheck: {
-          equalToCheckbox: "diseaseCheck",
+          equalToCheckbox: "diseaseCheckHid",
           maxlength: 100
         },
         operation: {
@@ -339,7 +339,28 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log("保存家人信息成功");
+          
+          var query_clone = res.data[0];
+          console.log("query_clone:" + res);  
+          if (query_clone.flg == 1) {
+            if (query_clone.to == 'tocode'){
+                console.log("跳转code页面");
+                wx.navigateTo({
+                  url: '../code/code?orderId=' + orderId
+                })
+             }
+            if (query_clone.to == 'toJiaren') {
+              console.log("跳转code页面");
+              wx.navigateTo({
+                url: '../add_jiaren/add_jiaren?orderId=' + orderId
+              })
+            }
+            
+           
+          } else {
+            console.log("保存个人信息失败");
+          }
+
 
         }
       });

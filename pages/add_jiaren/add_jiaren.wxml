@@ -29,7 +29,7 @@
               <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
           </label>
         </checkbox-group>
-        <input name="medical" hidden="false" value='{{medical}}' />
+        <input name="medicalHid" hidden="false" value='{{medical}}' />
         <view hidden="{{qitamedicalFlag}}">
            <input name="qitamedical" class="{{whoClass=='qitamedical'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他支付方式" focus="{{whoFocus=='qitamedical'?true:false}}" value='{{qita}}' />
         </view>
@@ -46,7 +46,7 @@
             <label class="checkbox"><checkbox value="链霉素"/>链霉素</label>
             <label class="checkbox"><checkbox value="其他"/>其他</label>
           </checkbox-group>
-          <input name="allergyCheck" hidden="false" value='{{allergyCheck}}' />
+          <input name="allergyCheckHid" hidden="false" value='{{allergyCheck}}' />
         </view>
         <view hidden="{{qitaallergyFlag}}">
            <input name="qitaallergyCheck" class="{{whoClass=='qitaallergyCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他药物过敏史" focus="{{whoFocus=='qitaallergyCheck'?true:false}}" value='{{allergyCheckText}}' />
@@ -67,7 +67,7 @@
             <label class="checkbox"><checkbox value="其他法定传染病 "/>其他法定传染病 </label>
             <label class="checkbox"><checkbox value="其他"/>其他</label>
           </checkbox-group>
-          <input name="diseaseCheck" hidden="false" value='{{diseaseCheck}}' />
+          <input name="diseaseCheckHid" hidden="false" value='{{diseaseCheck}}' />
         </view>
         <view hidden="{{qitadiseaseFlag}}">
            <input name="qitadiseaseCheck" class="{{whoClass=='qitadiseaseCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他疾病" focus="{{whoFocus=='qitadiseaseCheck'?true:false}}" value='{{diseaseCheckText}}' />
