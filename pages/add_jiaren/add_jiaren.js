@@ -340,7 +340,7 @@ Page({
         },
         success: function (res) {
           
-          var query_clone = res.data[0];
+          var query_clone = res.data;
           console.log("query_clone:" + res);  
           if (query_clone.flg == 1) {
             if (query_clone.to == 'tocode'){

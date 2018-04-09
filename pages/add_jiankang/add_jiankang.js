@@ -142,6 +142,7 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    orderId = options.orderId;
     wx.request({
       url: 'https://www.hems999.com/weixinSmall!toJiankang', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
@@ -172,31 +173,31 @@ Page({
           required: true,
           digits: true
         },
-        medical: {
+        medicalHid: {
           required: true
         },
         qitamedical: {
-          equalToCheckbox:"medical",
+          equalToCheckbox:"medicalHid",
           maxlength: 100
         },
         allergy:{
           required: true
         },
-        allergyCheck: {
+        allergyCheckHid: {
           equalToRadio: "allergy"
         },
         qitaallergyCheck: {
-          equalToCheckbox: "allergyCheck",
+          equalToCheckbox: "allergyCheckHid",
           maxlength: 100
         },
         disease: {
           required: true
         },
-        diseaseCheck: {
+        diseaseCheckHid: {
           equalToRadio: "disease"
         },
-        qitadiseaseCheck: {
-          equalToCheckbox: "diseaseCheck",
+        qitadisease: {
+          equalToCheckbox: "diseaseCheckHid",
           maxlength: 100
         },
         operation: {
@@ -236,7 +237,7 @@ Page({
           required: "请输入体重",
           digits: "体重请输入数字"
         },
-        medical: {
+        medicalHid: {
           required: "请选择医疗费用支付方式"
         },
         qitamedical: {
@@ -246,7 +247,7 @@ Page({
         allergy: {
           required: "请选择是否有药物过敏史"
         },
-        allergyCheck: {
+        allergyCheckHid: {
           equalToRadio: "请选择药物过敏史"
         },
         qitaallergyCheck: {
@@ -256,10 +257,10 @@ Page({
         disease: {
           required: "请选择有无疾病"
         },
-        diseaseCheck: {
+        diseaseCheckHid: {
           equalToRadio: "请选择疾病"
         },
-        qitadiseaseCheck: {
+        qitadisease: {
           equalToCheckbox: "请输入其他疾病",
           maxlength: "输入长度最多为100个字符"
         },
@@ -317,8 +318,16 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log("保存健康信息成功");
+          var query_clone = res.data[0]; console.log("query_clone:" + query_clone);
+          if (query_clone.flg == 1) {
+            console.log("保存健康信息成功");
+            wx.navigateTo({
+              url: '../add_jiankang/add_jiankang?orderId=' + orderId
+            })
+          } else {
+            console.log("保存健康信息失败");
 
+          }
         }
       });
     }

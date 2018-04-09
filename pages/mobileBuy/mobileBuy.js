@@ -77,7 +77,7 @@ Page({
     } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
-      console.log("value:" + value);
+      console.log("sessionId:" + value);
       console.log("userName:" + e.detail.value.mobile);
       wx.request({
         url: 'https://www.hems999.com/weixinSmall!makeOrder', //仅为示例，并非真实的接口地址
@@ -92,13 +92,13 @@ Page({
         success: function (res) {
           var query_clone = res.data[0];
           console.log(query_clone);
-          if (query_clone.flg == 0) {
+          if (query_clone.flg == '0') {
             this.setData({ disabled: true })
             wx.showModal({
               content: query_clone.message,
               duration: 2000
             })
-          } else if (query_clone.flg == 1) {
+          } else if (query_clone.flg == '1') {
             var order = query_clone.order;
             wx.redirectTo({
               url: '../mobileBuy/mobileOrder?orderId=' + order.orderId + '&orderMoney=' + order.orderMoney

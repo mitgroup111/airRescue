@@ -221,7 +221,7 @@ Page({
           if (query_clone.flg == 1) {
             console.log("保存个人信息成功");
             wx.navigateTo({
-              url: '../add_jiankang/add_jiankang?orderId=' + orderId
+              url: '../add_jiankang/add_jiankang?orderId=' + orderId + '&vipNumberId=' + query_clone.vipMemberId
             })
           } else{
             console.log("保存个人信息失败");
