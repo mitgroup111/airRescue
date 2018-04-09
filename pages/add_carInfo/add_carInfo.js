@@ -41,6 +41,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    orderId= options.orderId; 
     wx.request({
       url: 'https://www.arsauto.com.cn/car/getbrand.do', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
@@ -219,9 +220,9 @@ Page({
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       var that = this;
-      //console.log("保存个人信息orderId:" + orderId);
+      console.log("保存个人信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toCar', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!saveCar', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,

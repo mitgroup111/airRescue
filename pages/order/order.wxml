@@ -23,7 +23,7 @@
         <navigator url="../orderDetail/orderDetail?sessionId={{sessionId}}&orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">查看详情</navigator>
     </view>
     <view wx:if="{{item.status=='3'}}" >
-        <navigator url="" class="addOrderBtn" hover-class="menu-navigator-hover">追加车辆信息</navigator>
+        <navigator url="../add_carInfo/add_carInfo?sessionId={{sessionId}}&orderId={{item.orderid}}" class="addOrderBtn" hover-class="menu-navigator-hover">追加车辆信息</navigator>
     </view>
     <view class="orderInfo">
       <navigator url="../product/productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">

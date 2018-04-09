@@ -321,9 +321,25 @@ Page({
           var query_clone = res.data[0]; console.log("query_clone:" + query_clone);
           if (query_clone.flg == 1) {
             console.log("保存健康信息成功");
-            wx.navigateTo({
-              url: '../add_jiankang/add_jiankang?orderId=' + orderId
-            })
+            console.log("query_clone.to:" + query_clone.to);
+            if (query_clone.to =='toCode'){
+              wx.navigateTo({
+                url: '../code/code?orderId=' + orderId
+              })
+            }
+
+            if (query_clone.to == 'toJiaren') {
+              wx.navigateTo({
+                url: '../add_jarRen/add_jarRen?orderId=' + orderId
+              })
+            }
+
+            if (query_clone.to == 'toCar') {
+              wx.navigateTo({
+                url: '../add_carInfo/add_carInfo?orderId=' + orderId
+              })
+            }
+          
           } else {
             console.log("保存健康信息失败");
 
