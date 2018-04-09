@@ -277,7 +277,7 @@ Page({
         disease: {
           required: "请选择有无疾病"
         },
-        diseaseCheck: {
+        diseaseCheckHid: {
           equalToRadio: "请选择疾病"
         },
         qitadiseaseCheck: {
@@ -351,8 +351,9 @@ Page({
              }
             if (query_clone.to == 'toJiaren') {
               console.log("跳转code页面");
+              var vipNemberHid = query_clone.vipMemberId;
               wx.navigateTo({
-                url: '../add_jiaren/add_jiaren?orderId=' + orderId
+                url: '../add_jiaren/add_jiaren?orderId=' + orderId + '&vipMemberId' + vipNemberHid
               })
             }
             
