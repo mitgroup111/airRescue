@@ -14,10 +14,10 @@ var M = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMon
 var D = date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate();
 var nowDate = Y + "-" + M + "-" + D;
 var orderId;
-var brandArray,brandName,brand=-1;
+var brandArray, brandName, brand = -1;
 var seriesArray, seriesName, series;
 var modelArray, modelName, model;
-var yearArray, yearName,year;
+var yearArray, yearName, year;
 Page({
 
   /**
@@ -25,7 +25,7 @@ Page({
    */
   data: {
     colorArray: ['黑色', '白色', '红色', '蓝色', '黄色', '银色', '紫色', '金色', '其他'],
-    color:-1,
+    color: -1,
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
@@ -34,14 +34,14 @@ Page({
     startYear: 2000,
     endYear: 2500,
     endTime: '2500-01-01',
-    tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg'  
+    tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg'
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    orderId= options.orderId; 
+    orderId = options.orderId;
     wx.request({
       url: 'https://www.arsauto.com.cn/car/getbrand.do', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
@@ -52,7 +52,7 @@ Page({
         console.log("获取品牌");
         brandArray = res.data;
         console.log(res.data);
-        that.setData({ brandArray: brandArray});
+        that.setData({ brandArray: brandArray });
       }
     });
     //将图片上传到服务器
@@ -114,7 +114,7 @@ Page({
   },
   //根据品牌加载车系
   bindBrandChange: function (e) {
-    var that=this;
+    var that = this;
     this.setData({
       brand: e.detail.value
     })
@@ -127,7 +127,7 @@ Page({
       },
       success: function (res) {
         seriesArray = res.data;
-        console.log("车系："+res.data);
+        console.log("车系：" + res.data);
         that.setData({ seriesArray: seriesArray });
       }
     });
@@ -141,13 +141,13 @@ Page({
     seriesName = seriesArray[e.detail.value];
     wx.request({
       url: 'https://www.arsauto.com.cn/car/getmodel.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName), //仅为示例，并非真实的接口地址
-      data: { },
+      data: {},
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         modelArray = res.data;
-        console.log("车型："+res.data);
+        console.log("车型：" + res.data);
         that.setData({ modelArray: modelArray });
       }
     });
@@ -201,7 +201,7 @@ Page({
       }
     })
   },
-  
+
   // 提交 
   formSubmit: function (e) {
     var that = this;
@@ -232,8 +232,16 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log("保存个人信息成功");
-
+          var query_clone = res.data[0];
+         
+          if (query_clone.flg==1){
+            console.log("保存个人信息成功");
+          if (query_clone.to == 'toCode') {
+            wx.navigateTo({
+              url: '../code/code?orderId=' + orderId
+            })
+          }
+          }
         }
       });
     }
