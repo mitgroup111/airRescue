@@ -222,7 +222,7 @@ Page({
       var that = this;
       console.log("保存个人信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!saveCar', //仅为示例，并非真实的接口地址
+        url: 'https://teach.hems999.com/weixinSmall!saveCar', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,

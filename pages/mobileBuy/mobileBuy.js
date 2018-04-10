@@ -80,7 +80,7 @@ Page({
       console.log("sessionId:" + value);
       console.log("userName:" + e.detail.value.mobile);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!makeOrder', //仅为示例，并非真实的接口地址
+        url: 'https://teach.hems999.com/weixinSmall!makeOrder', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile,

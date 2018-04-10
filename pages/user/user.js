@@ -20,7 +20,7 @@ Page({
     var that=this;
     console.log("sessionId_transfer:" + sessionId);
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!weixinOrderList', //仅为示例，并非真实的接口地址
+      url: 'https://teach.hems999.com/weixinSmall!weixinOrderList', //仅为示例，并非真实的接口地址
       data: { sessionId: sessionId },
       header: {
         'Content-Type': 'application/json'

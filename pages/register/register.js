@@ -169,7 +169,7 @@ Page({
         }, 1000)
       }
       wx.request({
-        url: 'https://www.hems999.com/reglog!getMobileCode',
+        url: 'https://teach.hems999.com/reglog!getMobileCode',
         data: {
           mobile: this.data.mobile,
         },
