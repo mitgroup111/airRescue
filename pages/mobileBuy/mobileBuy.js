@@ -77,6 +77,7 @@ Page({
     } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
+      var openIdValue = wx.getStorageSync('openId');
       console.log("sessionId:" + value);
       console.log("userName:" + e.detail.value.mobile);
       wx.request({
@@ -84,7 +85,8 @@ Page({
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile,
-          "productId": productId
+          "productId": productId,
+          "openId": openIdValue
         },
         header: {
           'Content-Type': 'application/json'
@@ -101,7 +103,7 @@ Page({
           } else if (query_clone.flg == '1') {
             var order = query_clone.order;
             wx.redirectTo({
-              url: '../mobileBuy/mobileOrder?orderId=' + order.orderId + '&orderMoney=' + order.orderMoney
+              url: '../mobileBuy/mobileOrder?orderId=' + order.orderid + '&orderMoney=' + order.totalMoney
             })
           }
         }

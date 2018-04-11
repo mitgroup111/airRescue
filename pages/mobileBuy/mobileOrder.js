@@ -15,6 +15,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log("oderId:" + options.orderId );
+    console.log("orderMoney:" + options.orderMoney);
     oderId = options.orderId;
     orderMoney = options.orderMoney;
     that.setData({
