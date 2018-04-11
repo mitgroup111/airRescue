@@ -2,7 +2,7 @@
   <text class="orderId">订单编号：<text class='strong'>{{orderId}}</text>
   订单金额：<text class='strong'>￥{{orderMoney}} 元</text>
   </text>
-  <view bindtap="unifiedorder" >  立即支付
+  <view bindtap="toPay" >  立即支付
     <!-- <navigator class="greenBtn" hover-class="greenBtn-hover">立即支付</navigator> -->
   </view> 
 </view>

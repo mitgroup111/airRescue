@@ -1,4 +1,5 @@
-
+var oderId="";
+var orderMoney="";
 Page({
 
   /**
@@ -14,14 +15,33 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    oderId = options.orderId;
+    orderMoney = options.orderMoney;
     that.setData({
       orderId : options.orderId,
       orderMoney : options.orderMoney
     })
-   
-   
+
   },
 
+ toPay:function(){
+  var that = this;  
+  var value = wx.getStorageSync('openId');
+  wx.request({
+    url: 'https://teach.hems999.com/weixinSmall!weixinPay2',
+    data: { 
+      openid: value,
+      orderNo: oderId,
+      orderMoney: "1"
+    },
+    method: 'GET',
+    success: function (res) {
+      console.log(res);
+      that.doWxPay(res.data);
+    }
+  });  
+
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
