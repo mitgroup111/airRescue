@@ -323,19 +323,19 @@ Page({
             console.log("保存健康信息成功");
             console.log("query_clone.to:" + query_clone.to);
             if (query_clone.to =='toCode'){
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '../code/code?orderId=' + orderId
               })
             }
 
             if (query_clone.to == 'toJiaren') {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '../add_jarRen/add_jarRen?orderId=' + orderId
               })
             }
 
             if (query_clone.to == 'toCar') {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '../add_carInfo/add_carInfo?orderId=' + orderId
               })
             }

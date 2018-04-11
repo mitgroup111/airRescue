@@ -345,14 +345,14 @@ Page({
           if (query_clone.flg == 1) {
             if (query_clone.to == 'toCode'){
                 console.log("跳转code页面");
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '../code/code?orderId=' + orderId
                 })
              }
             if (query_clone.to == 'toJiaren') {
               console.log("跳转code页面");
               var vipNemberHid = query_clone.vipMemberId;
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '../add_jiaren/add_jiaren?orderId=' + orderId + '&vipMemberId' + vipNemberHid
               })
             }

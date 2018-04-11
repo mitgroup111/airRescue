@@ -220,7 +220,7 @@ Page({
           var query_clone = res.data[0];
           if (query_clone.flg == 1) {
             console.log("保存个人信息成功");
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../add_jiankang/add_jiankang?orderId=' + orderId + '&vipNumberId=' + query_clone.vipMemberId
             })
           } else{

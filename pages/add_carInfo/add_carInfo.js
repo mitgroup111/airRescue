@@ -237,7 +237,7 @@ Page({
           if (query_clone.flg==1){
             console.log("保存个人信息成功");
           if (query_clone.to == 'toCode') {
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../code/code?orderId=' + orderId
             })
           }
