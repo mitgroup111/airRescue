@@ -84,7 +84,7 @@ Page({
         url: 'https://teach.hems999.com/weixinSmall!makeOrder', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
-          "userName": e.detail.value.mobile,
+          "username": e.detail.value.mobile,
           "productId": productId,
           "openId": openIdValue
         },

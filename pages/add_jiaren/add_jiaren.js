@@ -353,7 +353,7 @@ Page({
               console.log("跳转code页面");
               var vipNemberHid = query_clone.vipMemberId;
               wx.redirectTo({
-                url: '../add_jiaren/add_jiaren?orderId=' + orderId + '&vipMemberId' + vipNemberHid
+                url: '../add_jiaren/add_jiaren?orderId=' + orderId 
               })
             }
             
