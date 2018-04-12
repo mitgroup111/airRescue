@@ -6,7 +6,8 @@ Page({
    */
   data: {
     beginDate:'',
-    endDate:''
+    endDate:'',
+    orderId:''
   },
 
   /**
@@ -15,18 +16,22 @@ Page({
   onLoad: function (options) {
     wx.request({
       url: 'https://teach.hems999.com/weixinSmall!toCode', //仅为示例，并非真实的接口地址
-      data: {},
+      data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log("获取产品生效日期");
-        var proDate = res.data;
-        console.log(res.data);
-        that.setData({ 
-          beginDate: proDate,
-          endDate: proDate,
-        });
+       
+        var proDate = res.data[0];
+        console.log(res.data[0]);
+
+        if (proDate.flg == 1) {
+          console.log("获取产品生效日期");
+          that.setData({ 
+            beginDate: proDate.vipMember.beginDate,
+            endDate: proDate.vipMember.endDate
+          });
+        }
       }
     });
   },
