@@ -40,7 +40,7 @@
            <text class="supportTime">您获得九九九空中救护保障时间为：
             {{beginDate}}-{{serviceEndTime}}</text>
         </view>
-        <input name="endDate" hidden="false"  value='{{endDate}}' />
+        <input name="endDate" hidden="false"  value='{{serviceEndTime}}' />
         <view class="checkbox"> 
           <checkbox-group bindchange="checkboxChange" name="xieyibox">
             <checkbox value="我已阅读并同意《九九九空中救护会员服务协议》" checked="{{checked}}"/>

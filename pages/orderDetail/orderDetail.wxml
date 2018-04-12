@@ -80,7 +80,7 @@
   <!--健康信息开始-->
   <view class="detailTitle">健康信息</view>
   <view wx:if="{{jianKang==''||jianKang==null}}" >
-    <navigator url="../about/xieyi" class="greenBtn">添加健康信息</navigator>
+    <navigator url="../add_jiankang/add_jiankang?orderId={{order.orderid}}&vipMemberId={{order.memberid}}" class="greenBtn">添加健康信息</navigator>
   </view>
   <view wx:else>
     <view class="detailItem">
@@ -150,7 +150,7 @@
   <!--车辆信息开始-->
   <view class="detailTitle">车辆信息</view>
   <view wx:if="{{caru==''||caru==null}}" >
-    <navigator url="../about/xieyi" class="greenBtn">添加车辆信息</navigator>
+    <navigator url="../add_carInfo/add_carInfo?sessionId={{sessionId}}&orderId={{order.orderid}}" class="greenBtn">添加车辆信息</navigator>
   </view>
   <view wx:else>
     <view class="detailItem">

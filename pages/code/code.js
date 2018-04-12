@@ -14,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     wx.request({
       url: 'https://teach.hems999.com/weixinSmall!toCode', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
@@ -28,8 +29,8 @@ Page({
         if (proDate.flg == 1) {
           console.log("获取产品生效日期");
           that.setData({ 
-            beginDate: proDate.vipMember.beginDate,
-            endDate: proDate.vipMember.endDate
+            beginDate: proDate.beginDate,
+            endDate: proDate.endDate
           });
         }
       }
