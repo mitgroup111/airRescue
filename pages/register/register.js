@@ -12,8 +12,7 @@ Page({
       {
         mobile: {
           required: true,
-          tel: true,
-          userUniq:true,
+          tel: true
         },
         valiCode:{
           required: true
@@ -33,8 +32,7 @@ Page({
       {
         mobile: {
           required: '请输入手机号',
-          tel:'请输入正确的手机号',
-          userUniq:"用户的手机号码已经存在",
+          tel:'请输入正确的手机号'
         },
         valiCode: {
           required: '请输入手机验证码'
@@ -67,23 +65,36 @@ Page({
     }
     this.setData({ submitHidden: false })
     var that = this
-
+    var value = wx.getStorageSync('sessionId');
     //提交
     wx.request({
-      url: '',
+      url: 'https://teach.hems999.com/weixinSmall!weixinRegisterMobile',
       data: {
         Mobile: e.detail.value.mobile,
-        valiCode: e.detail.value.valiCode,
         password: e.detail.value.password,
-        repassword: e.detail.value.repassword
+        sessionId: value
       },
-      method: 'POST',
-      success: function (requestRes) {
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
         that.setData({ submitHidden: true })
-        appInstance.userState.status = 0
-        wx.navigateBack({
-          delta: 1
-        })
+        // appInstance.userState.status = 0
+        // wx.navigateBack({
+        //   delta: 1
+        // })
+        var query_clone = res.data[0];
+        console.log("query_clone:" + query_clone.message);
+        if (query_clone.flg == 1) {
+          wx.showToast({
+            title: query_clone.message,
+            icon: 'success',
+            duration: 2000
+          })
+          wx.switchTab({
+            url: '../index/index',
+          })
+        }
       },
       fail: function () {
       },
@@ -169,7 +180,7 @@ Page({
         }, 1000)
       }
       wx.request({
-        url: 'https://teach.hems999.com/reglog!getMobileCode',
+        url: 'https://teach.hems999.com/weixinSmall!getMobileCode',
         data: {
           mobile: this.data.mobile,
         },
@@ -177,8 +188,9 @@ Page({
           'content-type': 'application/json'
         },
         success: function (res) {
-          var result = res.data.code;
-          console.log(result)
+          var result = res.data[0].code;
+          console.log(" res.data:" + res.data);
+          console.log(result);
           that.setData({
             huozheng: result,
           })

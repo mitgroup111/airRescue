@@ -1,4 +1,5 @@
 var appInstance = getApp();
+var phone;
 Page({
   data: {
     phone: ''
@@ -29,6 +30,7 @@ Page({
   },
   // 登录  
   formSubmit: function (e) {
+    var formData = e.detail.value;
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       // `${error.param} : ${error.msg} `
@@ -40,11 +42,13 @@ Page({
     } else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
+      var userName = e.detail.value.mobile;
+      console.log("userName:" + userName);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
+        url: 'https://teach.hems999.com/weixinSmall!findPwdMobile', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
-          "userName": this.data.phone
+          "userName": userName
         },
         header: {
           'Content-Type': 'application/json'
@@ -63,6 +67,11 @@ Page({
               content: query_clone.message,
               duration: 2000
             })
+         
+              wx.navigateTo({
+                url: '../login/login'
+              })
+          
           }
         }
       });
