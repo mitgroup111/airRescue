@@ -221,6 +221,7 @@ Page({
       var value = wx.getStorageSync('sessionId');
       var that = this;
       console.log("保存个人信息orderId:" + orderId);
+      console.log("JSON.stringify(formData):" + JSON.stringify(formData));
       wx.request({
         url: 'https://teach.hems999.com/weixinSmall!saveCar', //仅为示例，并非真实的接口地址
         data: {
@@ -237,7 +238,7 @@ Page({
           if (query_clone.flg==1){
             console.log("保存个人信息成功");
           if (query_clone.to == 'toCode') {
-            wx.redirectTo({
+            wx.navigateTo({
               url: '../code/code?orderId=' + orderId
             })
           }

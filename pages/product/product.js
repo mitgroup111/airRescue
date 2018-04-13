@@ -6,7 +6,8 @@ Page({
    */
   data: {
     peaple_list: "",
-    test_list: ""
+    test_list: "",
+    family_lsit:""
   },
 
   /**
@@ -16,7 +17,7 @@ Page({
     var that = this;
     console.log(getApp().globalData.websetUrl)
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!buy', //仅为示例，并非真实的接口地址
+      url: 'https://teach.hems999.com/weixinSmall!buy', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
@@ -24,9 +25,11 @@ Page({
       success: function (res) {
         console.log("获取产品信息");
         var query_clone = res.data[0];
+        console.log("query_clone:" + query_clone.f);
         that.setData({
           peaple_list: query_clone.people,
-          test_list: query_clone.test
+          test_list: query_clone.test,
+          family_lsit: query_clone.f
         });
       }
     });

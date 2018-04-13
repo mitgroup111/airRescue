@@ -9,5 +9,23 @@
      <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
      <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
     </view>
+    <view class="news-list clearfix" wx:for="{{family_lsit}}">
+      <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
+      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
+      <view class="news-desc" >{{item.freeService}} </view>
+      </navigator>
+     <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
+     <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
+    </view>
+    <view class="news-list clearfix" wx:for="{{test_list}}">
+      <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
+      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
+      <view class="news-desc" >{{item.freeService}} </view>
+      </navigator>
+     <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
+     <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
+    </view>
   </view>
 </view>

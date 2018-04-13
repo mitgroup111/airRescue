@@ -233,7 +233,7 @@ class wxValidate {
 			 * 车牌号
 			 */
       isCarCard(value) {
-        return that.optional(value) || /^[\u4E00-\u9FA5]{1}[A-Z]{1}[A-Z0-9]+$/.test(value)
+        return that.optional(value) || /^[\u4E00-\u9FA5]{1}[A-Za-z]{1}[A-Za-z0-9]+$/.test(value)
       },
       /**
 			 * VIN码验证方法
