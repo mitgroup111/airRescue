@@ -42,8 +42,39 @@ Page({
       that.doWxPay(res.data);
     }
   });  
-
  },
+
+
+ doWxPay: function (param) {
+   //小程序发起微信支付  
+   wx.requestPayment({
+     timeStamp: param.data.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了  
+     nonceStr: param.data.nonceStr,
+     package: param.data.package,
+     signType: 'MD5',
+     paySign: param.data.paySign,
+     success: function (event) {
+       // success     
+       console.log(event);
+
+       wx.showToast({
+         title: '支付成功',
+         icon: 'success',
+         duration: 2000
+       });
+     },
+     fail: function (error) {
+       // fail     
+       console.log("支付失败")
+       console.log(error)
+     },
+     complete: function () {
+       // complete     
+       console.log("pay complete")
+     }
+   });
+ } ,
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

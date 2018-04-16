@@ -36,6 +36,39 @@ Page({
     endTime: '2500-01-01',
     tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg'
   },
+
+  //将图片上传到服务器
+  test: function () {
+    var that = this;
+    wx.chooseImage({
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        console.info("tempFilePaths:" + tempFilePaths[0]);
+        that.setData({
+          src: tempFilePaths[0]
+        })
+        wx.uploadFile({
+          url: 'https://teach.hems999.com/weixinSmallUpload', //仅为示例，非真实的接口地址  
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          header: {
+            'content-type': 'multipart/form-data'
+          },
+          success: function (res) {
+            var query_clone = res.data;
+            console.info("res:" + query_clone);
+            that.setData({
+              src: query_clone
+            })
+
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -55,24 +88,7 @@ Page({
         that.setData({ brandArray: brandArray });
       }
     });
-    //将图片上传到服务器
-    /*wx.chooseImage({
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        wx.uploadFile({
-          url: 'http://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址  
-          filePath: tempFilePaths[0],
-          name: 'file',
-          formData: {
-            'user': 'test'
-          },
-          success: function (res) {
-            var data = res.data
-            //do something  
-          }
-        })
-      }
-    }) */
+   
     this.WxValidate = appInstance.wxValidate(
       {
         card: {
@@ -186,21 +202,7 @@ Page({
       shangpaiTime: e.detail.value
     })
   },
-  //选择照片
-  chooseimage: function () {
-    var _this = this;
-    wx.chooseImage({
-      count: 1, // 默认9  
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-        _this.setData({
-          tempFilePaths: res.tempFilePaths
-        })
-      }
-    })
-  },
+
 
   // 提交 
   formSubmit: function (e) {
