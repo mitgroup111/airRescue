@@ -9,6 +9,24 @@ Page({
   },
   onLoad: function (options) {
   },
+
+  quit: function () {
+    var that = this;
+    var sessionId = wx.getStorageSync('sessionId');
+    wx.request({
+      url: 'https://teach.hems999.com/weixinSmall!exit',
+      data: {
+        sessionId: sessionId
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(1);
+        that.setData({
+          haslogin: true
+        })
+      }
+    });
+  },
   /**
   * 生命周期函数--监听页面卸载
   */

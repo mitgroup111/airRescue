@@ -1,14 +1,21 @@
-
-  <view class="userinfo">
+<view wx:if="{{haslogin}}">
+ <view class="userinfo" >
     <block>
       <image class="userinfo-avatar" src="http://www.hems999.com/mobile/images/myuser01.png" background-size="cover"></image>
-      <view wx:if="{{haslogin}}">
+      <view>
         <navigator url="../login/login" class='user_login' hover-class="menu-navigator-hover">登录</navigator>
       </view>
-      <text wx:else class="userinfo-nickname">{{basicUser.username}}</text>
     </block>
   </view>
-  <scroll-view>
+</view>
+<view wx:else>
+  <view class="userinfo"  >
+    <block>
+      <image class="userinfo-avatar" src="http://www.hems999.com/mobile/images/myuser01.png" background-size="cover"></image>
+      <text  class="userinfo-nickname">{{basicUser.username}}</text>
+    </block>
+    </view>
+    <scroll-view >
   <view class="userItem">
     <navigator url="../order/order" hover-class="menu-navigator-hover">
     <image class="menu-img" src="http://www.hems999.com/mobile/images/myuser03.jpg"/><text>我的订单</text>
@@ -20,6 +27,9 @@
     </navigator>
   </view>
   </scroll-view>
-  <view class="quit">
-    <navigator url="../myjiangli/myjiangli" hover-class="menu-navigator-hover">退出</navigator>
+  <view class="quit" bindtap="quit">
+    退出
   </view>
+  </view>
+
+  
