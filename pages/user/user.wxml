@@ -11,12 +11,15 @@
   <scroll-view>
   <view class="userItem">
     <navigator url="../order/order" hover-class="menu-navigator-hover">
-    <text><image class="menu-img" src="http://www.hems999.com/mobile/images/myuser03.jpg"/>我的订单</text>
+    <image class="menu-img" src="http://www.hems999.com/mobile/images/myuser03.jpg"/><text>我的订单</text>
     </navigator>
   </view>
   <view class="userItem">
     <navigator url="../myjiangli/myjiangli" hover-class="menu-navigator-hover">
-    <text><image class="menu-img" src="http://www.hems999.com/mobile/images/myuser04.jpg"/>我的奖励</text>
+    <image class="menu-img" src="http://www.hems999.com/mobile/images/myuser04.jpg"/><text>我的奖励</text>
     </navigator>
   </view>
   </scroll-view>
+  <view class="quit">
+    <navigator url="../myjiangli/myjiangli" hover-class="menu-navigator-hover">退出</navigator>
+  </view>

@@ -49,3 +49,22 @@ page{
   color: #fff;
   letter-spacing: 1px;
 }
+.userItem image{
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top:-3px;
+  margin-right:5px;
+}
+.quit{
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  color: #e9480c;
+  bottom: 0px;
+  left:0;
+  text-align: center;
+}
