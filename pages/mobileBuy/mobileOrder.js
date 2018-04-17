@@ -38,8 +38,8 @@ Page({
     },
     method: 'GET',
     success: function (res) {
-      console.log(res);
-      that.doWxPay(res.data);
+      console.log(res.data[0]);
+      that.doWxPay(res.data[0].script);
     }
   });  
  },
@@ -48,20 +48,44 @@ Page({
  doWxPay: function (param) {
    //小程序发起微信支付  
    wx.requestPayment({
-     timeStamp: param.data.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了  
-     nonceStr: param.data.nonceStr,
-     package: param.data.package,
+     timeStamp: param.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错，我这边在java后端包装成了字符串类型了  
+     nonceStr: param.nonceStr,
+     package: param.package,
      signType: 'MD5',
-     paySign: param.data.paySign,
+     paySign: param.paySign,
      success: function (event) {
        // success     
        console.log(event);
+       console.log("oderId:" + oderId);
+       wx.request({
+         url: 'https://teach.hems999.com/weixinSmall!updateOrder',
+         data: {
+           orderNo: oderId
+         },
+         method: 'GET',
+         success: function (res) {
+           var query_clone = res.data[0];
+           if (query_clone.flg == 1) {
+             console.log("保存个人信息成功");
+             wx.showToast({
+               title: '支付成功',
+               icon: 'success',
+               duration: 2000
+             });
+             wx.redirectTo({
+               url: '../add_vipMember/add_vipMember?orderId=' + oderId
+             })
+           } else {
 
-       wx.showToast({
-         title: '支付成功',
-         icon: 'success',
-         duration: 2000
-       });
+             wx.showToast({
+               title: '订单更新失败,请联系客服',
+               icon: 'fail',
+               duration: 2000
+             })
+           }
+         }
+       });  
+      
      },
      fail: function (error) {
        // fail     
@@ -69,8 +93,7 @@ Page({
        console.log(error)
      },
      complete: function () {
-       // complete     
-       console.log("pay complete")
+       
      }
    });
  } ,
