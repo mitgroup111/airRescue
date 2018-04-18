@@ -1,13 +1,31 @@
-<view wx:if="{{haslogin}}">
- <view class="userinfo" >
-    <block>
-      <image class="userinfo-avatar" src="http://www.hems999.com/mobile/images/myuser01.png" background-size="cover"></image>
-      <view>
-        <navigator url="../login/login" class='user_login' hover-class="menu-navigator-hover">登录</navigator>
-      </view>
-    </block>
-  </view>
-</view>
+<view class="container" wx:if="{{haslogin}}">   
+  <view class="login-from"> 
+    <form bindsubmit="formSubmit" bindreset="formReset">  
+    <!--账号-->  
+    <view class="inputView">  
+      <image class="nameImage" src="../../images/user.png"></image>  
+      <label class="loginLab">手机号</label>   
+      <input name="mobile" class="{{whoClass=='mobile'?'placeholderClass':'inputText'}}" type="number" maxlength="11" placeholder="请输入手机号" bindblur="mobileBlurFocus" focus="{{whoFocus=='mobile'?true:false}}" />
+    </view>  
+    <view class="line"></view>  
+  
+    <!--密码-->  
+    <view class="inputView">  
+      <image class="keyImage" src="../../images/password.png"></image>  
+      <label class="loginLab">密码</label>  
+      <input name="password" class="{{whoClass=='password'?'placeholderClass':'inputText'}}" type="password" maxlength="20" placeholder="请输入密码" bindblur="passwordBlurFocus" focus="{{whoFocus=='password'?true:false}}" />
+    </view>  
+  
+    <!--按钮-->  
+    <view class="loginBtnView">  
+      <button class="loginBtn" type="primary" formType="submit">登录</button>
+    </view> 
+    </form>
+    <navigator url="../register/register" class='cancleBtn' hover-class="register-navigator-hover">注册</navigator> 
+    <navigator url="../about/contact" class='linka' hover-class="login-navigator-hover">联系我们</navigator>
+    <navigator url="../password/password" class='linka' hover-class="login-navigator-hover">找回密码？</navigator>
+  </view>  
+</view>  
 <view wx:else>
   <view class="userinfo"  >
     <block>
