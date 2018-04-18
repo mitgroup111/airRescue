@@ -8,7 +8,7 @@
   font-size: 32rpx;
   border-bottom: 1px dotted #eee;
   text-align: center;
-  padding: 0 0 10rpx 0;
+  padding: 0 0 6px 0;
 }
 .art-content{
   font-size: 34rpx;
@@ -18,7 +18,7 @@
 }
 .art-content view{
   font-size: 34rpx;
-   line-height: 32rpx;
+   line-height: 62rpx;
    color: #555;
 }
 .art-content image{

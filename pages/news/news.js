@@ -93,7 +93,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    wx.setNavigationBarTitle({
+      title: '新闻速递'
+    })
   },
 
   /**
@@ -107,9 +109,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    wx.switchTab({
+    /*wx.switchTab({
       url: '/pages/about/list'
-    })  
+    }) */
+    wx.redirectTo({
+      url: '/pages/about/list'
+    }) 
   },
 
   /**

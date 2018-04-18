@@ -3,11 +3,6 @@ scroll-view {
 }
 
 .item {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 34rpx;
-  line-height: 34rpx;
   border-bottom: 1px dotted #ddd;
   padding: 26rpx 0;
 }
@@ -16,17 +11,19 @@ scroll-view {
 }
 .title {
   font-size: 32rpx;
-  
+  width:70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  float: left;
 }
 
 .date {
   font-size: 30rpx; 
   color: #888;
-}
-.line{
-  font-size: 30rpx;
-  color: #888;
-  margin:0 5px;
+  display: block;
+  float: right;
 }
 .page{
   width:380rpx;

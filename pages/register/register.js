@@ -6,7 +6,7 @@ Page({
   data: {
     time: currentTime,
     getmsg: "获取验证码",
-    mobileMsg: "false"
+    mobileMsg:"false"
   },
   onLoad: function () {
     this.WxValidate = appInstance.wxValidate(
@@ -53,8 +53,8 @@ Page({
   //表单提交
   formSubmit: function (e) {
     var that = this
-    const params = e.detail.value;
-    console.log("每个值" + params);
+    const params=e.detail.value;
+    console.log("每个值"+params);
     //提交错误描述
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
@@ -67,7 +67,6 @@ Page({
       return false
     }
     that.setData({ submitHidden: false })
-
     var value = wx.getStorageSync('sessionId');
     //提交
     wx.request({
@@ -225,6 +224,5 @@ Page({
     this.setData({
       mobileMsg: false
     })
-
   },
 })
