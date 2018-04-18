@@ -57,14 +57,18 @@ page{
   margin-top:-3px;
   margin-right:5px;
 }
-.quit{
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  background: #fff;
-  color: #e9480c;
-  bottom: 0px;
+.quit {
+  width:100%;
+  height:50px;
+  line-height:50px;
+  background:#fff;
+  color:#2e992d;
+  bottom:0px;
   left:0;
-  text-align: center;
+  text-align:center;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  letter-spacing:3px;
+  position: fixed;
+
 }

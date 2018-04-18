@@ -30,7 +30,7 @@
   <view class="userinfo"  >
     <block>
       <image class="userinfo-avatar" src="http://www.hems999.com/mobile/images/myuser01.png" background-size="cover"></image>
-      <text  class="userinfo-nickname">{{basicUser.username}}</text>
+      <text  class="userinfo-nickname">{{userName}}</text>
     </block>
     </view>
     <scroll-view >

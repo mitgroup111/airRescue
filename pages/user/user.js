@@ -90,7 +90,8 @@ Page({
               duration: 2000
             })
             that.setData({
-              haslogin: false
+              haslogin: false,
+              userName: e.detail.value.mobile
             })
             wx.setNavigationBarTitle({
               title: '会员中心'
@@ -165,9 +166,9 @@ Page({
             title: '会员中心'
           })
         }
-        that.setData({
+        /*that.setData({
           basicUser: query_clone.basicUser
-        })
+        })*/
         
       }
     });
