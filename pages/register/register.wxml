@@ -8,8 +8,8 @@
         </view>
         <view class="line"></view> 
         <view class="inputView">   
-          <input name="valiCode" class="{{whoClass=='valiCode'?'placeholderClass':'inputText yzInput'}}" type="number" maxlength="6" placeholder="手机验证码" bindblur="valiCodeBlurFocus" focus="{{whoFocus=='valiCode'?true:false}}" />
-          <button class='btn_getMobileCode {{sendmsg}}' bindtap="reSendPhoneNum" size="mini" >{{getmsg}}</button>  
+          <input name="valiCode" class="inputText yzInput" type="number" maxlength="6" placeholder="手机验证码" bindblur="valiCodeBlurFocus"/>
+          <button class='btn_getMobileCode {{sendmsg}}' bindtap="reSendPhoneNum" size="mini" disabled='{{mobileMsg}}' >{{getmsg}}</button>  
         </view> 
         <view class="line"></view> 
         <view class="inputView">   
@@ -23,7 +23,7 @@
         </view>   
         <!--按钮-->  
         <view class="loginBtnView">  
-          <button class="loginBtn" type="primary" formType="submit">立即注册</button>
+          <button class="loginBtn" type="primary" formType="submit" disabled='{{submitHidden}}'>立即注册</button>
         </view>  
     </form> 
     <!--<loading hidden="{{submitHidden}}">正在提交...</loading>-->

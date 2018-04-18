@@ -5,7 +5,8 @@ var mobile,identifyCode;
 Page({
   data: {
     time: currentTime,
-    getmsg: "获取验证码"
+    getmsg: "获取验证码",
+    mobileMsg:"false"
   },
   onLoad: function () {
     this.WxValidate = appInstance.wxValidate(
@@ -51,20 +52,22 @@ Page({
   },
   //表单提交
   formSubmit: function (e) {
+    var that = this
     const params=e.detail.value;
     console.log("每个值"+params);
     //提交错误描述
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       // `${error.param} : ${error.msg} `
+      that.valiCodeBlurFocus();
       wx.showModal({
         content: `${error.msg} `,
         duration: 2000
       })
       return false
     }
-    this.setData({ submitHidden: false })
-    var that = this
+    that.setData({ submitHidden: false })
+    
     var value = wx.getStorageSync('sessionId');
     //提交
     wx.request({
@@ -167,6 +170,7 @@ Page({
         var inter = setInterval(function () {
           that.setData({
             getmsg: time + "s后重新发送",
+            mobileMsg:true
           })
           time--
           if (time < 0) {
@@ -175,6 +179,7 @@ Page({
             that.setData({
               sendmsg: "sendmsg",
               getmsg: "获取验证码",
+              mobileMsg: false
             })
           }
         }, 1000)
@@ -189,7 +194,7 @@ Page({
         },
         success: function (res) {
           var result = res.data[0].code;
-          console.log(" res.data:" + res.data);
+          console.log(" res.data:" + res.data[0].flag);
           console.log(result);
           that.setData({
             huozheng: result,
@@ -198,5 +203,17 @@ Page({
       })
     }
     
-  }
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '注册'
+    })
+    this.setData({ 
+      mobileMsg: false 
+    })
+    
+  },
 })

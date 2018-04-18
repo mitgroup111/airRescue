@@ -3,11 +3,6 @@ Page({
   data: {
     news: "",
   },
-  onReady () {
-    wx.setNavigationBarTitle({
-      title: '新闻速递'
-    })
-  },
   onLoad (options) {
     console.log('newsDetail-onLoad')
     var that = this;
@@ -25,5 +20,13 @@ Page({
         console.log(res.data[0].newsId);
       }
     });
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '新闻速递'
+    })
   }
 })

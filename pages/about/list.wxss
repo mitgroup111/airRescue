@@ -16,3 +16,6 @@
     font-size: 30rpx;
     color:#777;
 }
+.hoverClass{
+  background: none;
+}
