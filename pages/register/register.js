@@ -1,11 +1,12 @@
 var appInstance = getApp();
 var currentTime = 60; //倒计时的事件（单位：s） 
 var timer = 1;
-var mobile,identifyCode;
+var mobile, identifyCode;
 Page({
   data: {
     time: currentTime,
-    getmsg: "获取验证码"
+    getmsg: "获取验证码",
+    mobileMsg: "false"
   },
   onLoad: function () {
     this.WxValidate = appInstance.wxValidate(
@@ -14,7 +15,7 @@ Page({
           required: true,
           tel: true
         },
-        valiCode:{
+        valiCode: {
           required: true
         },
         password: {
@@ -28,43 +29,45 @@ Page({
           maxlength: 20,
           equalTo: "password"
         }
-      }, 
+      },
       {
         mobile: {
           required: '请输入手机号',
-          tel:'请输入正确的手机号'
+          tel: '请输入正确的手机号'
         },
         valiCode: {
           required: '请输入手机验证码'
         },
         password: {
           required: '请输入密码',
-          minlength:'密码至少为6位',
+          minlength: '密码至少为6位',
           maxlength: '密码至多为20位',
         },
         repassword: {
           required: '请输入确认密码',
-          equalTo:'请输入相同的密码'
+          equalTo: '请输入相同的密码'
         }
       }
     )
   },
   //表单提交
   formSubmit: function (e) {
-    const params=e.detail.value;
-    console.log("每个值"+params);
+    var that = this
+    const params = e.detail.value;
+    console.log("每个值" + params);
     //提交错误描述
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       // `${error.param} : ${error.msg} `
+      that.valiCodeBlurFocus();
       wx.showModal({
         content: `${error.msg} `,
         duration: 2000
       })
       return false
     }
-    this.setData({ submitHidden: false })
-    var that = this
+    that.setData({ submitHidden: false })
+
     var value = wx.getStorageSync('sessionId');
     //提交
     wx.request({
@@ -105,13 +108,13 @@ Page({
   onUnload: function () {
     currentTime = 60
   },
-  
+
   //手机验证码
   valiCodeBlurFocus: function (e) {
     identifyCode = e.detail.value;
     var that = this;
     var huozheng = this.data.huozheng
-    console.log("验证码"+identifyCode)
+    console.log("验证码" + identifyCode)
     that.setData({
       identifyCode: identifyCode,
       zhengTrue: false,
@@ -167,6 +170,7 @@ Page({
         var inter = setInterval(function () {
           that.setData({
             getmsg: time + "s后重新发送",
+            mobileMsg: true
           })
           time--
           if (time < 0) {
@@ -175,6 +179,7 @@ Page({
             that.setData({
               sendmsg: "sendmsg",
               getmsg: "获取验证码",
+              mobileMsg: false
             })
           }
         }, 1000)
@@ -188,15 +193,38 @@ Page({
           'content-type': 'application/json'
         },
         success: function (res) {
-          var result = res.data[0].code;
-          console.log(" res.data:" + res.data);
-          console.log(result);
-          that.setData({
-            huozheng: result,
-          })
+          var result = res.data[0];
+          console.log(" res.data:" + res.data[0].flg);
+          if (result.flg == 1){
+            that.setData({
+              huozheng: result.code,
+            })
+          }
+
+          if (result.flg == 0) {
+            wx.showModal({
+              content: result.message,
+              showCancel: false,
+              success: function (res) {
+              }
+            })
+          }
+         
         }
       })
     }
-    
-  }
+
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '注册'
+    })
+    this.setData({
+      mobileMsg: false
+    })
+
+  },
 })
