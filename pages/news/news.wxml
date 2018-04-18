@@ -3,7 +3,7 @@
   <scroll-view  class="list">
   <view class="item"  wx:for="{{new_list}}" >
     <navigator url="../detail/detail?newsId={{item.newsId}}" hover-class="menu-navigator-hover">
-  <text class="date">{{item.createTime}}</text>
+  <text class="date">{{item.createTimeStr}}</text>
       <text class="line">|</text>
     <text  class="title" >{{item.title}}</text>
     </navigator>
