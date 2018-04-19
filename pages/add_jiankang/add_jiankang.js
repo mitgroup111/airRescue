@@ -10,7 +10,7 @@ Page({
    */
   data: {
     blood_items: [
-      { name: 'A', value
+      { name: 'A', value: 'A型'},
       { name: 'B', value: 'B型' },
       { name: 'O', value: 'O型' },
       { name: 'AB', value: 'AB型' },
