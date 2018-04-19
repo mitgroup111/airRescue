@@ -44,9 +44,6 @@ Page({
       success: function (res) {
         var tempFilePaths = res.tempFilePaths
         console.info("tempFilePaths:" + tempFilePaths[0]);
-        that.setData({
-          src: tempFilePaths[0]
-        })
         wx.uploadFile({
           url: 'https://teach.hems999.com/weixinSmallUpload', //仅为示例，非真实的接口地址  
           filePath: tempFilePaths[0],

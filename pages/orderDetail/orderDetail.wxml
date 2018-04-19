@@ -196,7 +196,7 @@
           </view>
           <view class="detailItemList clearfix">
             <view class="detailItemL fl">车辆照片</view>
-            <view class="detailItemR fr"><image class="carImg" src="{{caru.pic}}"/></view>
+            <view class="detailItemR fr"><image class="carImg" src="{{caruPic}}"/></view>
           </view>
         </view>
       </view>
