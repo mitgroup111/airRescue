@@ -4,7 +4,7 @@
         <!--账号-->  
         <view class="inputView">   
           <label class="loginLab">手机号</label>   
-          <input name="mobile" class="{{whoClass=='mobile'?'placeholderClass':'inputText'}}" type="number" maxlength="11" placeholder="请输入手机号" bindblur="mobileBlurFocus" focus="{{whoFocus=='mobile'?true:false}}" />
+          <input name="mobile" class="inputText" type="number" maxlength="11" placeholder="请输入手机号" bindblur="mobileBlurFocus" focus="{{whoFocus=='mobile'?true:false}}" />
         </view>
         <view class="line"></view> 
         <view class="inputView">   

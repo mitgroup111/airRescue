@@ -171,11 +171,13 @@ Page({
         },
         userheight:{
           required: true,
-          digits: true
+          isNum: true,
+          maxlength: 6
         },
         userweight: {
           required: true,
-          digits: true
+          isNum: true,
+          maxlength: 6
         },
         medicalHid: {
           required: true
@@ -235,11 +237,13 @@ Page({
         },
         userheight:{
           required: "请输入身高",
-          digits: "身高请输入数字"
+          isNum: "请输入正确的身高",
+          maxlength: "输入长度最多为6个字符"
         },
         userweight: {
           required: "请输入体重",
-          digits: "体重请输入数字"
+          isNum: "请输入正确的体重",
+          maxlength: "输入长度最多为6个字符"
         },
         medicalHid: {
           required: "请选择医疗费用支付方式"

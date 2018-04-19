@@ -1,3 +1,6 @@
 <view class='contentW codeSuccess'>
   <text class="successInfo">您的产品购买已经成功，有效期{{beginDate}}至{{endDate}}，可以在会员中心查看会员凭证。</text>
+   <view> 
+    <navigator url="../user/user" class="greenBtn">会员中心</navigator>
+  </view>
 </view>

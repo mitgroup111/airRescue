@@ -195,6 +195,12 @@ class wxValidate {
        
       },
       /**
+			 * 验证输入的是否为数字
+			 */
+      isNum(value) {
+        return that.optional(value) || /^\d+(?=\.{0,1}\d+$|$)/.test(value)
+      },
+      /**
 			 * 验证选中复选框“其他”后，验证其属性
 			 */
       equalToCheckbox(value, param) {

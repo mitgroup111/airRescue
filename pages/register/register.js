@@ -1,7 +1,7 @@
 var appInstance = getApp();
 var currentTime = 60; //倒计时的事件（单位：s） 
 var timer = 1;
-var mobile, identifyCode;
+var mobile, identifyCode,flag;
 Page({
   data: {
     time: currentTime,
@@ -55,85 +55,93 @@ Page({
     var that = this
     const params=e.detail.value;
     console.log("每个值"+params);
+    identifyCode = e.detail.value.valiCode;
+    var huozheng = this.data.huozheng
     //提交错误描述
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       // `${error.param} : ${error.msg} `
-      that.valiCodeBlurFocus();
+      //that.valiCodeBlurFocus();
       wx.showModal({
         content: `${error.msg} `,
         duration: 2000
       })
-      return false
-    }
-    that.setData({ submitHidden: false })
-    var value = wx.getStorageSync('sessionId');
-    //提交
-    wx.request({
-      url: 'https://teach.hems999.com/weixinSmall!weixinRegisterMobile',
-      data: {
-        Mobile: e.detail.value.mobile,
-        password: e.detail.value.password,
-        sessionId: value
-      },
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        that.setData({ submitHidden: true })
-        // appInstance.userState.status = 0
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-        var query_clone = res.data[0];
-        console.log("query_clone:" + query_clone.message);
-        if (query_clone.flg == 1) {
-          wx.showToast({
-            title: query_clone.message,
-            icon: 'success',
-            duration: 2000
-          })
-          wx.switchTab({
-            url: '../index/index',
-          })
-        }
-      },
-      fail: function () {
-      },
-      complete: function () {
-      }
-    })
-  },
-  onUnload: function () {
-    currentTime = 60
-  },
-
-  //手机验证码
-  valiCodeBlurFocus: function (e) {
-    identifyCode = e.detail.value;
-    var that = this;
-    var huozheng = this.data.huozheng
-    console.log("验证码" + identifyCode)
-    that.setData({
-      identifyCode: identifyCode,
-      zhengTrue: false,
-    })
-    if (identifyCode.length >= 6) {
-      if (identifyCode == huozheng) {
-        that.setData({
-          zhengTrue: true,
-        })
-      } else {
-        that.setData({
-          zhengTrue: false,
-        })
+    } else if (identifyCode != huozheng){
         wx.showModal({
           content: '输入验证码有误',
           showCancel: false,
           success: function (res) {
           }
         })
-      }
+    }
+    else{
+      that.setData({ submitHidden: false })
+      var value = wx.getStorageSync('sessionId');
+      //提交
+      wx.request({
+        url: 'https://teach.hems999.com/weixinSmall!weixinRegisterMobile',
+        data: {
+          Mobile: e.detail.value.mobile,
+          password: e.detail.value.password,
+          sessionId: value
+        },
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          that.setData({ submitHidden: true })
+          // appInstance.userState.status = 0
+          // wx.navigateBack({
+          //   delta: 1
+          // })
+          var query_clone = res.data[0];
+          console.log("query_clone:" + query_clone.message);
+          if (query_clone.flg == 1) {
+            wx.showToast({
+              title: query_clone.message,
+              icon: 'success',
+              duration: 2000
+            })
+            wx.switchTab({
+              url: '../index/index',
+            })
+          }
+        },
+        fail: function () {
+        },
+        complete: function () {
+        }
+      })
+    }
+    
+  },
+  onUnload: function () {
+    currentTime = 60
+  },
+  //手机验证码
+  valiCodeBlurFocus: function (e) {
+    identifyCode = e.detail.value;
+    var that = this;
+    var huozheng = this.data.huozheng
+    console.log("验证码---" + huozheng)
+    that.setData({
+      identifyCode: identifyCode,
+      zhengTrue: false,
+    })
+    if (identifyCode == huozheng) {
+      that.setData({
+        zhengTrue: true,
+      })
+    } else {
+      that.setData({
+        zhengTrue: false,
+      })
+      wx.showModal({
+        content: '输入验证码有误',
+        showCancel: false,
+        success: function (res) {
+        }
+      })
     }
   },
   //获取手机号
@@ -143,75 +151,82 @@ Page({
     })
     console.info("手机号" + this.data.mobile);
   },
+  //获取验证码按钮
   reSendPhoneNum: function (e) {
-    var getChange = this.data.getChange
-    var n = 59;
     var that = this;
+    var n = 59;
     var user = wx.getStorageSync('user');
     var mobile = this.data.mobile;
-    if (!(/^1[34578]\d{9}$/.test(mobile))) {
-      wx.showModal({
-        content: '请输入正确的手机号',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          }
-        }
-      })
-    } else {
-      if (timer == 1) {
-        timer = 0
-        var that = this
-        var time = 60
-        that.setData({
-          sendmsg: "sendmsgafter",
-        })
-        var inter = setInterval(function () {
+    wx.request({
+      url: 'https://teach.hems999.com/weixinSmall!getMobileCode',
+      data: {
+        mobile: this.data.mobile,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var result = res.data[0];
+        console.log(" res.data---:" + res.data[0].code);
+        
+        flag = result.flg;  //判断是否已经注册flag为1时没注册
+        if (result.flg == 1) {
           that.setData({
-            getmsg: time + "s后重新发送",
-            mobileMsg: true
+            huozheng: result.code
           })
-          time--
-          if (time < 0) {
-            timer = 1
-            clearInterval(inter)
-            that.setData({
-              sendmsg: "sendmsg",
-              getmsg: "获取验证码",
-              mobileMsg: false
-            })
-          }
-        }, 1000)
-      }
-      wx.request({
-        url: 'https://teach.hems999.com/weixinSmall!getMobileCode',
-        data: {
-          mobile: this.data.mobile,
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          var result = res.data[0];
-          console.log(" res.data:" + res.data[0].flg);
-          if (result.flg == 1){
-            that.setData({
-              huozheng: result.code,
-            })
+        }
+
+        if (result.flg == 0) {
+          wx.showModal({
+            content: result.message,
+            showCancel: false,
+            success: function (res) {
+            }
+          })
+        }
+        console.log(" res.flg---:" + result.flg);
+        if (!(/^1[34578]\d{9}$/.test(mobile))) {
+          wx.showModal({
+            content: '请输入正确的手机号',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          })
+        } else {
+          console.log(" ------:" + flag);
+          if (flag == 1) { //判断是否已经注册flag为1时没注册
+            if (timer == 1) {
+              timer = 0
+              var time = 60
+              that.setData({
+                sendmsg: "sendmsgafter",
+                mobileMsg: true
+              })
+              var inter = setInterval(function () {
+                that.setData({
+                  getmsg: time + "s后重新发送"
+                })
+                time--
+                if (time < 0) {
+                  timer = 1
+                  clearInterval(inter)
+                  that.setData({
+                    sendmsg: "sendmsg",
+                    getmsg: "获取验证码",
+                    mobileMsg: false
+                  })
+                }
+              }, 1000)
+            }
           }
 
-          if (result.flg == 0) {
-            wx.showModal({
-              content: result.message,
-              showCancel: false,
-              success: function (res) {
-              }
-            })
-          }
-         
         }
-      })
-    }
+      }
+    })
+    
+    
 
   },
   /**

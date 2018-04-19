@@ -136,7 +136,7 @@ Page({
           required: true,
           digits: true,
           rangelength: [11, 11],
-          compareTel: true
+          tel: true
         },
         beginDate: {
           required: true
@@ -175,7 +175,7 @@ Page({
           required: "请输入紧急联系人的手机号码",
           digits: "手机号码请输入数字",
           rangelength: "手机号码为11位",
-          compareTel: "请输入正确的手机号码"
+          tel: "请输入正确的手机号码"
         },
         beginDate: {
           required: "请选择服务开通时间"

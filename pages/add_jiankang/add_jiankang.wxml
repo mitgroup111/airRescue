@@ -95,7 +95,7 @@
         <input name="transfusion" hidden="false" value='{{transfusion}}' />
         <!--按钮-->  
         <view class="loginBtnView">  
-          <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
+          <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>保存</button>
         </view> 
         <view>
         <text class='aboutInfo'>
