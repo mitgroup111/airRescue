@@ -13,11 +13,11 @@
     </view>
     <view class="detailItemList clearfix">
       <view class="detailItemL fl">生效时间</view>
-      <view class="detailItemR fr">{{vipMember.beginDateStr}}</view>
+      <view class="detailItemR fr">{{beginDateStr}}</view>
     </view>
     <view class="detailItemList clearfix">
       <view class="detailItemL fl">结束时间</view>
-      <view class="detailItemR fr">{{vipMember.endDateStr}}</view>
+      <view class="detailItemR fr">{{endDateStr}}</view>
     </view>
     <view class="detailItemList clearfix">
       <view class="detailItemL fl">姓名</view>

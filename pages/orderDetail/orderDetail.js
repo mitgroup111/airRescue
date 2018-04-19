@@ -53,6 +53,8 @@ Page({
           vipMember: query_clone.vipMember,
           caru: query_clone.caru,
           caruPic: query_clone.caruPic,
+          beginDateStr: query_clone.beginDateStr,
+          endDateStr: query_clone.endDateStr,
           jiaren: query_clone.jiaren,
           sessionId:value
         });

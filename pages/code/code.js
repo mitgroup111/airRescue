@@ -1,4 +1,4 @@
-// pages/code/code.js
+  // pages/code/code.js
 Page({
 
   /**
