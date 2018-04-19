@@ -57,7 +57,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    websetUrl:"https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4",
     openId:null
   },
   //表单验证

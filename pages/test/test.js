@@ -71,7 +71,7 @@ Page({
     var formData = e.detail.value;
     console.log(formData);
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5aaf72f00aef8a4466633f5c/weixinSmall!toMember',
+      url: 'https://teach.hems999.com/weixinSmall!toMember',
       data: formData,
       header: {
         'Content-Type': 'application/json'

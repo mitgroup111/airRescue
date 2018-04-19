@@ -53,8 +53,7 @@ class wxValidate {
 				rangelength: this.formatTpl('请输入长度在 {0} 到 {1} 之间的字符。'),
 				min: this.formatTpl('请输入不小于 {0} 的数值。'),
 				max: this.formatTpl('请输入不大于 {0} 的数值。'),
-				range: this.formatTpl('请输入范围在 {0} 到 {1} 之间的数值。'),
-        userUniq: this.formatTpl('用户的手机号码已经存在。'),
+				range: this.formatTpl('请输入范围在 {0} 到 {1} 之间的数值。')
 			}
 		}
 	}
@@ -175,25 +174,6 @@ class wxValidate {
 			range(value, param) {
 				return that.optional(value) || (value >= param[0] && value <= param[1])
 			},
-      /**
-			 * 验证用户的唯一性
-			 */
-      userUniq(value) {
-        var result = false;
-        wx.request({
-          url: 'https://www.easy-mock.com/mock/5aa77b542b0894377fc765e4/weixin/weixinSmall!mobileUnique?userName=' + value , //仅为示例，并非真实的接口地址
-          data: {},
-          header: {
-            'Content-Type': 'application/json'
-          },
-          success: function (res) {
-            var query_clone = res.data[0];
-            result = query_clone.result
-            return result
-          }
-        });
-       
-      },
       /**
 			 * 验证输入的是否为数字
 			 */
