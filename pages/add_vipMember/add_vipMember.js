@@ -17,6 +17,7 @@ console.log("当前时间：" + Y + "-" + M + "-"+ D );
 var serviceYear;//服务年限
 var couponNum;//赠送天数
 var beginDate, serviceEndTime;
+var orderType;//订单类型
 var testData;
 var orderId;
 Page({
@@ -105,6 +106,7 @@ Page({
         console.log(query_clone.couponNum);
         serviceYear = query_clone.serviceYear;
         couponNum = query_clone.couponNum;
+        orderType = query_clone.orderType;
       }
     });
 

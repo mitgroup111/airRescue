@@ -25,7 +25,7 @@ Page({
    */
   data: {
     colorArray: ['黑色', '白色', '红色', '蓝色', '黄色', '银色', '紫色', '金色', '其他'],
-    color: -1,
+    color: 0,
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
