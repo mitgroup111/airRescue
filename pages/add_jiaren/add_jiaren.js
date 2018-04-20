@@ -66,7 +66,9 @@ Page({
     if (e.detail.value == "有") {
       this.setData({ allergyFlag: false });
     } else {
-      this.setData({ allergyFlag: true });
+      this.setData({ 
+        allergyFlag: true
+      });
     }
   },
   allergyCheckChange: function (e) {
@@ -74,8 +76,10 @@ Page({
     if (e.detail.value.indexOf("其他") != -1) {
       this.setData({ qitaallergyFlag: false });
     } else {
-      this.setData({ qitaallergyFlag: true });
-      this.setData({ allergyCheckText: "" });
+      this.setData({ 
+        qitaallergyFlag: true,
+        allergyCheckText: ""
+      });
     }
   },
   //是否有疾病
@@ -84,7 +88,9 @@ Page({
     if (e.detail.value == "有") {
       this.setData({ diseaseFlag: false });
     } else {
-      this.setData({ diseaseFlag: true });
+      this.setData({ 
+        diseaseFlag: true
+      });
     }
   },
   diseaseCheckChange: function (e) {
@@ -179,11 +185,13 @@ Page({
         },
         userheight: {
           required: true,
-          digits: true
+          isNum: true,
+          maxlength: 6
         },
         userweight: {
           required: true,
-          digits: true
+          isNum: true,
+          maxlength: 6
         },
         medicalHid: {
           required: true
@@ -250,19 +258,21 @@ Page({
           required: "请选择是否为RH阴性"
         },
         userheight: {
-          required: "请输入身高",
-          digits: "身高请输入数字"
+          required: "请输入身高（cm）",
+          isNum: "请输入正确的身高（整数）",
+          maxlength: "身高最多为6位"
         },
         userweight: {
-          required: "请输入体重",
-          digits: "体重请输入数字"
+          required: "请输入体重（kg）",
+          isNum: "请输入正确的体重（整数）",
+          maxlength: "体重最多为6位"
         },
         medical: {
           required: "请选择医疗费用支付方式"
         },
         qitamedical: {
           equalToCheckbox: "请输入其他支付方式",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "支付方式最多为100个字符"
         },
         allergy: {
           required: "请选择是否有药物过敏史"
@@ -272,7 +282,7 @@ Page({
         },
         qitaallergyCheck: {
           equalToCheckbox: "请输入其他药物过敏史",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "其他药物过敏史最多为100个字符"
         },
         disease: {
           required: "请选择有无疾病"
@@ -282,28 +292,28 @@ Page({
         },
         qitadiseaseCheck: {
           equalToCheckbox: "请输入其他疾病",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "其他疾病最多为100个字符"
         },
         operation: {
           required: "请选择有无做过手术"
         },
         operationName: {
           equalToRadio: "请输入手术名称",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "手术名称最多为100个字符"
         },
         trauma: {
           required: "请选择有无外伤"
         },
         traumaName: {
           equalToRadio: "请输入外伤名称",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "外伤名称最多为100个字符"
         },
         transfusion: {
           required: "请选择有无输血"
         },
         transfusionName: {
           equalToRadio: "请输入输血原因",
-          maxlength: "输入长度最多为100个字符"
+          maxlength: "输血原因最多为100个字符"
         }
       }
     )
@@ -360,6 +370,12 @@ Page({
            
           } else {
             console.log("保存个人信息失败");
+            wx.showToast({
+              title: '保存失败',
+              icon: 'loading',
+              image: '../../images/close.png',
+              duration: 2000
+            })
           }
 
 
