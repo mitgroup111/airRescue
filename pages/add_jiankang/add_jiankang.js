@@ -33,8 +33,10 @@ Page({
     ],
     qitamedicalFlag:true,
     allergyFlag: true, //药物过敏史
+    guomingshi:false,
     qitaallergyFlag: true,
     diseaseFlag: true,
+    jibing:false,
     qitadiseaseFlag: true,
     operationFlag:true,
     traumaFlag:true,
@@ -69,7 +71,10 @@ Page({
       this.setData({ allergyFlag: false });
     } else {
       this.setData({
-        allergyFlag: true
+        allergyFlag: true,
+        allergyCheck:"",
+        allergyCheckText:"",
+        guomingshi: false
       });
     }
   },
@@ -89,7 +94,10 @@ Page({
       this.setData({ diseaseFlag: false });
     } else {
       this.setData({
-        diseaseFlag: true
+        diseaseFlag: true,
+        diseaseCheck:"",
+        diseaseCheckText: "",
+        jibing:false
       });
     }
   },

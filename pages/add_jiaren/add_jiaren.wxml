@@ -41,10 +41,10 @@
         <input name="allergy" hidden="false" value='{{allergy}}' />
         <view hidden="{{allergyFlag}}">
           <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="allergyCheckChange">
-            <label class="checkbox"><checkbox value="青霉素"/>青霉素</label>
-            <label class="checkbox"><checkbox value="磺胺"/>磺胺</label>
-            <label class="checkbox"><checkbox value="链霉素"/>链霉素</label>
-            <label class="checkbox"><checkbox value="其他"/>其他</label>
+            <label class="checkbox"><checkbox value="青霉素" checked='{{guominshi}}'/>青霉素</label>
+            <label class="checkbox"><checkbox value="磺胺" checked='{{guominshi}}'/>磺胺</label>
+            <label class="checkbox"><checkbox value="链霉素" checked='{{guominshi}}'/>链霉素</label>
+            <label class="checkbox"><checkbox value="其他" checked='{{guominshi}}'/>其他</label>
           </checkbox-group>
           <input name="allergyCheckHid" hidden="false" value='{{allergyCheck}}' />
           <view hidden="{{qitaallergyFlag}}" style="margin-top:8px;">
@@ -60,13 +60,13 @@
         <input name="disease" hidden="false" value='{{disease}}' />
         <view hidden="{{diseaseFlag}}">
           <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="diseaseCheckChange">
-            <label class="checkbox"><checkbox value="高血压"/>高血压</label>
-            <label class="checkbox"><checkbox value="糖尿病"/>糖尿病</label>
-            <label class="checkbox"><checkbox value="冠心病"/>冠心病</label>
-            <label class="checkbox"><checkbox value="慢性阻塞性肺疾病"/>慢性阻塞性肺疾病</label>
-            <label class="checkbox"><checkbox value="肝炎"/>肝炎</label>
-            <label class="checkbox"><checkbox value="其他法定传染病 "/>其他法定传染病 </label>
-            <label class="checkbox"><checkbox value="其他"/>其他</label>
+            <label class="checkbox"><checkbox value="高血压" checked='{{jibing}}'/>高血压</label>
+            <label class="checkbox"><checkbox value="糖尿病" checked='{{jibing}}'/>糖尿病</label>
+            <label class="checkbox"><checkbox value="冠心病" checked='{{jibing}}'/>冠心病</label>
+            <label class="checkbox"><checkbox value="慢性阻塞性肺疾病" checked='{{jibing}}'/>慢性阻塞性肺疾病</label>
+            <label class="checkbox"><checkbox value="肝炎" checked='{{jibing}}'/>肝炎</label>
+            <label class="checkbox"><checkbox value="其他法定传染病 " checked='{{jibing}}'/>其他法定传染病 </label>
+            <label class="checkbox"><checkbox value="其他" checked='{{jibing}}'/>其他</label>
           </checkbox-group>
           <input name="diseaseCheckHid" hidden="false" value='{{diseaseCheck}}' />
           <view hidden="{{qitadiseaseFlag}}" style="margin-top:8px;">
