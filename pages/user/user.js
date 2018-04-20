@@ -65,6 +65,7 @@ Page({
       console.log("value:" + value);
       console.log("userName:" + e.detail.value.mobile);
       console.log("password:" + e.detail.value.password);
+      
       wx.request({
         url: 'https://teach.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
@@ -84,9 +85,15 @@ Page({
               duration: 2000
             })
           } else {
+            wx.setStorageSync('mobile', e.detail.value.mobile);  //存手机号
             //登陆成功跳转
-            wx.showModal({
+            /*wx.showModal({
               content: query_clone.message,
+              duration: 2000
+            })*/
+            wx.showToast({
+              title: "登录成功",
+              icon: 'success',
               duration: 2000
             })
             that.setData({
@@ -121,6 +128,7 @@ Page({
         wx.setNavigationBarTitle({
           title: '登录'
         })
+        wx.setStorageSync('mobile',"")
       }
     });
   },
@@ -149,6 +157,7 @@ Page({
           that.setData({
             userName: query_clone.basicUser.username
           });
+          wx.setStorageSync('mobile', query_clone.basicUser.username);//存手机号
         }
         
         if (sessionId == "") {

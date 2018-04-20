@@ -42,6 +42,7 @@ Page({
     this.setData({ flag: true })
   },
   onLoad: function (options) {
+    this.setData({ mobile: wx.getStorageSync('mobile') })
     productId = options.productId;
     this.WxValidate = appInstance.wxValidate(
       {

@@ -16,9 +16,9 @@
         </radio-group>
         <input name="bloodRH" hidden="false" value='{{bloodRH}}' />
 
-        <input name="userheight" class="{{whoClass=='userheight'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入身高" focus="{{whoFocus=='userheight'?true:false}}" />
+        <input name="userheight" class="input_block" type="number" maxlength="11" placeholder="请输入身高（cm）" />
         <view class="line"></view>
-        <input name="userweight" class="{{whoClass=='userweight'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入体重" focus="{{whoFocus=='userweight'?true:false}}" />
+        <input name="userweight" class="input_block" type="number" maxlength="11" placeholder="请输入体重（kg）"/>
         
         <checkbox-group class="checkbox-group clearfix" bindchange="medicalChange">
           医疗费用支付方式：<label class="checkbox" wx:for-items="{{medical_items}}">
@@ -27,7 +27,7 @@
         </checkbox-group>
         <input name="medicalHid" hidden="false" value='{{medical}}' />
         <view hidden="{{qitamedicalFlag}}">
-           <input name="qitamedical" class="{{whoClass=='qitamedical'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他支付方式" focus="{{whoFocus=='qitamedical'?true:false}}" value='{{qita}}' />
+           <input name="qitamedical" class="input_block" type="text" placeholder="请输入其他支付方式" value='{{qita}}' />
         </view>
 
         <radio-group class="radio-group clearfix" bindchange="allergyChange">
@@ -37,16 +37,17 @@
         <input name="allergy" hidden="false" value='{{allergy}}' />
         <view hidden="{{allergyFlag}}">
           <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="allergyCheckChange">
-            <label class="checkbox"><checkbox value="青霉素"/>青霉素</label>
-            <label class="checkbox"><checkbox value="磺胺"/>磺胺</label>
-            <label class="checkbox"><checkbox value="链霉素"/>链霉素</label>
-            <label class="checkbox"><checkbox value="其他"/>其他</label>
+            <label class="checkbox"><checkbox value="青霉素" checked='{{guomingshi}}'/>青霉素</label>
+            <label class="checkbox"><checkbox value="磺胺" checked='{{guomingshi}}'/>磺胺</label>
+            <label class="checkbox"><checkbox value="链霉素" checked='{{guomingshi}}'/>链霉素</label>
+            <label class="checkbox"><checkbox value="其他" checked='{{guomingshi}}'/>其他</label>
           </checkbox-group>
           <input name="allergyCheckHid" hidden="false" value='{{allergyCheck}}' />
+          <view hidden="{{qitaallergyFlag}}" style="margin-top:8px;">
+           <input name="qitaallergyCheck" class="input_block" type="text" placeholder="请输入其他药物过敏史" value='{{allergyCheckText}}' />
+          </view>
         </view>
-        <view hidden="{{qitaallergyFlag}}">
-           <input name="qitaallergyCheck" class="{{whoClass=='qitaallergyCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他药物过敏史" focus="{{whoFocus=='qitaallergyCheck'?true:false}}" value='{{allergyCheckText}}' />
-        </view>
+        
 
         <radio-group class="radio-group clearfix" bindchange="diseaseChange">
           疾病：<label class="radio"><view><radio value="无"/>无</view></label>
@@ -55,26 +56,27 @@
         <input name="disease" hidden="false" value='{{disease}}' />
         <view hidden="{{diseaseFlag}}">
           <checkbox-group class="checkbox-group nomarginTop clearfix" bindchange="diseaseCheckChange">
-            <label class="checkbox"><checkbox value="高血压"/>高血压</label>
-            <label class="checkbox"><checkbox value="糖尿病"/>糖尿病</label>
-            <label class="checkbox"><checkbox value="冠心病"/>冠心病</label>
-            <label class="checkbox"><checkbox value="慢性阻塞性肺疾病"/>慢性阻塞性肺疾病</label>
-            <label class="checkbox"><checkbox value="肝炎"/>肝炎</label>
-            <label class="checkbox"><checkbox value="其他法定传染病 "/>其他法定传染病 </label>
-            <label class="checkbox"><checkbox value="其他"/>其他</label>
+            <label class="checkbox"><checkbox value="高血压" checked='{{jibing}}'/>高血压</label>
+            <label class="checkbox"><checkbox value="糖尿病" checked='{{jibing}}'/>糖尿病</label>
+            <label class="checkbox"><checkbox value="冠心病" checked='{{jibing}}'/>冠心病</label>
+            <label class="checkbox"><checkbox value="慢性阻塞性肺疾病" checked='{{jibing}}'/>慢性阻塞性肺疾病</label>
+            <label class="checkbox"><checkbox value="肝炎" checked='{{jibing}}'/>肝炎</label>
+            <label class="checkbox"><checkbox value="其他法定传染病 " checked='{{jibing}}'/>其他法定传染病 </label>
+            <label class="checkbox"><checkbox value="其他" checked='{{jibing}}'/>其他</label>
           </checkbox-group>
           <input name="diseaseCheckHid" hidden="false" value='{{diseaseCheck}}' />
+          <view hidden="{{qitadiseaseFlag}}" style="margin-top:8px;">
+           <input name="qitadisease" class="input_block" type="text" placeholder="请输入其他疾病" value='{{diseaseCheckText}}' />
         </view>
-        <view hidden="{{qitadiseaseFlag}}">
-           <input name="qitadisease" class="{{whoClass=='qitadiseaseCheck'?'placeholderClass':'input_block'}}" type="text" maxlength="100" placeholder="请输入其他疾病" focus="{{whoFocus=='qitadiseaseCheck'?true:false}}" value='{{diseaseCheckText}}' />
         </view>
+        
 
         <radio-group class="radio-group clearfix" bindchange="operationChange">
           手术：<label class="radio"><view><radio value="无"/>无</view></label>
           <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{operationFlag}}">
-          <input name="operationName" class="{{whoClass=='operationName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入手术名称" focus="{{whoFocus=='operationName'?true:false}}" value='{{operationText}}'/>
+          <input name="operationName" class="input_block" type="text" placeholder="请输入手术名称" value='{{operationText}}'/>
         </view>
         <input name="operation" hidden="false" value='{{operation}}' />
         <radio-group class="radio-group clearfix" bindchange="traumaChange">
@@ -82,7 +84,7 @@
           <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{traumaFlag}}">
-          <input name="traumaName" class="{{whoClass=='traumaName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入外伤名称" focus="{{whoFocus=='traumaName'?true:false}}" value='{{traumaText}}' />
+          <input name="traumaName" class="input_block" type="text" placeholder="请输入外伤名称" value='{{traumaText}}' />
         </view>
         <input name="trauma" hidden="false" value='{{trauma}}' />
         <radio-group class="radio-group clearfix" bindchange="transfusionChange">
@@ -90,16 +92,11 @@
           <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{transfusionFlag}}">
-          <input name="transfusionName" class="{{whoClass=='transfusionName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入输血原因" focus="{{whoFocus=='transfusionName'?true:false}}" value='{{transfusionText}}' />
+          <input name="transfusionName" class="input_block" type="text" placeholder="请输入输血原因" value='{{transfusionText}}' />
         </view>
         <input name="transfusion" hidden="false" value='{{transfusion}}' />
-        <!--按钮-->  
-        <view class="loginBtnView">  
-          <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>保存</button>
-        </view> 
         <view>
-        <text class='aboutInfo'>
-填表说明：
+        <text class='aboutInfo' style="text-indent:0">填表说明：
 1、血型：先选择前面的ABO血型；再选择后面是否为RH阴性。
 2、药物过敏史：表中药物过敏主要列出青霉素、磺胺或者链霉素过敏，如有其他药物过敏，请在其他栏中写明名称，可以多选。
 3、既往史：包括疾病史、手术史、外伤史和输血史。
@@ -109,6 +106,11 @@
 （4）输血 填写曾经接受过的输血情况。如有，应填写具体输血原因。
 </text>
         </view>
+        <!--按钮-->  
+        <view class="loginBtnView">  
+          <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>保存</button>
+        </view> 
+        
     </form>
   </view>
 </view>
