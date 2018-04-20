@@ -331,6 +331,10 @@ Page({
           if (query_clone.flg == 1) {
             console.log("保存健康信息成功");
             console.log("query_clone.to:" + query_clone.to);
+            wx.showModal({
+              content: "保存健康信息成功",
+              duration: 2000
+            })
             if (query_clone.to =='toCode'){
               wx.navigateTo({
                 url: '../code/code?orderId=' + orderId
@@ -351,7 +355,10 @@ Page({
           
           } else {
             console.log("保存健康信息失败");
-
+            wx.showModal({
+              content: "保存健康信息失败",
+              duration: 2000
+            })
           }
         }
       });
