@@ -76,5 +76,15 @@ Page({
         }
       });
     }
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '找回密码'
+    }),
+      this.setData({ disabled: false })
   }
 })  

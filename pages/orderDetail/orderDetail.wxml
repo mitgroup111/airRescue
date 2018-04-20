@@ -91,8 +91,7 @@
       <view class="detailItemList clearfix">
         <view class="detailItemL fl">药物过敏史</view>
         <view class="detailItemR fr">
-          <text wx:if="{{jianKang.yaowuGuominYouwu == '有'}}">
-          {{jianKang.yaowuGuomin}}  {{jianKang.yaowuGuominBak}}</text>
+          <text wx:if="{{jianKang.yaowuGuominYouwu == '有'}}">{{jianKang.yaowuGuomin}}  {{jianKang.yaowuGuominBak}}</text>
           <text wx:else>{{jianKang.yaowuGuominYouwu}}</text>
         </view>
       </view>
