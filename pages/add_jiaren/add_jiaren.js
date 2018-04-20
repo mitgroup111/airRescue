@@ -63,7 +63,7 @@ Page({
   //是否有药物过敏史
   allergyChange: function (e) {
     this.setData({ allergy: e.detail.value });
-    if (e.detail.value == "是") {
+    if (e.detail.value == "有") {
       this.setData({ allergyFlag: false });
     } else {
       this.setData({ allergyFlag: true });
@@ -81,7 +81,7 @@ Page({
   //是否有疾病
   diseaseChange: function (e) {
     this.setData({ disease: e.detail.value });
-    if (e.detail.value == "是") {
+    if (e.detail.value == "有") {
       this.setData({ diseaseFlag: false });
     } else {
       this.setData({ diseaseFlag: true });
@@ -101,7 +101,7 @@ Page({
   //是否有手术
   operationChange: function (e) {
     this.setData({ operation: e.detail.value });
-    if (e.detail.value == "是") {
+    if (e.detail.value == "有") {
       this.setData({ operationFlag: false });
     } else {
       this.setData({ operationFlag: true });
@@ -111,7 +111,7 @@ Page({
   //是否有外伤
   traumaChange: function (e) {
     this.setData({ trauma: e.detail.value });
-    if (e.detail.value == "是") {
+    if (e.detail.value == "有") {
       this.setData({ traumaFlag: false });
     } else {
       this.setData({ traumaFlag: true });
@@ -121,7 +121,7 @@ Page({
   //是否有输血
   transfusionChange: function (e) {
     this.setData({ transfusion: e.detail.value });
-    if (e.detail.value == "是") {
+    if (e.detail.value == "有") {
       this.setData({ transfusionFlag: false });
     } else {
       this.setData({ transfusionFlag: true });

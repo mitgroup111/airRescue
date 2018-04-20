@@ -20,6 +20,7 @@ var beginDate, serviceEndTime;
 var orderType;//订单类型
 var testData;
 var orderId;
+var xieyiFlag=true;
 Page({
 
   /**
@@ -107,6 +108,18 @@ Page({
         serviceYear = query_clone.serviceYear;
         couponNum = query_clone.couponNum;
         orderType = query_clone.orderType;
+        console.log("orderType"+orderType);
+        if (orderType == 2 || orderType == 3){
+          that.setData({
+            
+            xieyiFlag: trfalseue
+          });
+        }else{
+          that.setData({
+            checked: true,
+            xieyiFlag: true
+          });
+        }
       }
     });
 

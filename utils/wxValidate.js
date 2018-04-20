@@ -200,11 +200,11 @@ class wxValidate {
        
       },
       /**
-			 * 验证选中单选按钮“是”后，验证其属性
+			 * 验证选中单选按钮“有”后，验证其属性
 			 */
       equalToRadio(value, param) {
         console.log(that.scope.detail.value[param]);
-        if (that.scope.detail.value[param].indexOf("是") == -1) {
+        if (that.scope.detail.value[param].indexOf("有") == -1) {
           return true;
         } else {
           if (typeof value === 'number') {
