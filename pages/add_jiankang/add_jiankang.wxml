@@ -31,8 +31,8 @@
         </view>
 
         <radio-group class="radio-group clearfix" bindchange="allergyChange">
-          药物过敏史：<label class="radio"><view><radio value="否"/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          药物过敏史：<label class="radio"><view><radio value="无"/>无</view></label>
+          <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <input name="allergy" hidden="false" value='{{allergy}}' />
         <view hidden="{{allergyFlag}}">
@@ -49,8 +49,8 @@
         </view>
 
         <radio-group class="radio-group clearfix" bindchange="diseaseChange">
-          疾病：<label class="radio"><view><radio value="否"/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          疾病：<label class="radio"><view><radio value="无"/>无</view></label>
+          <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <input name="disease" hidden="false" value='{{disease}}' />
         <view hidden="{{diseaseFlag}}">
@@ -70,24 +70,24 @@
         </view>
 
         <radio-group class="radio-group clearfix" bindchange="operationChange">
-          手术：<label class="radio"><view><radio value="否"/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          手术：<label class="radio"><view><radio value="无"/>无</view></label>
+          <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{operationFlag}}">
           <input name="operationName" class="{{whoClass=='operationName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入手术名称" focus="{{whoFocus=='operationName'?true:false}}" value='{{operationText}}'/>
         </view>
         <input name="operation" hidden="false" value='{{operation}}' />
         <radio-group class="radio-group clearfix" bindchange="traumaChange">
-          外伤：<label class="radio"><view><radio value="否"/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          外伤：<label class="radio"><view><radio value="无"/>无</view></label>
+          <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{traumaFlag}}">
           <input name="traumaName" class="{{whoClass=='traumaName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入外伤名称" focus="{{whoFocus=='traumaName'?true:false}}" value='{{traumaText}}' />
         </view>
         <input name="trauma" hidden="false" value='{{trauma}}' />
         <radio-group class="radio-group clearfix" bindchange="transfusionChange">
-          输血：<label class="radio"><view><radio value="否"/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          输血：<label class="radio"><view><radio value="无"/>无</view></label>
+          <label class="radio"><view><radio value="有"/>有</view></label>
         </radio-group>
         <view hidden="{{transfusionFlag}}">
           <input name="transfusionName" class="{{whoClass=='transfusionName'?'placeholderClass':'input_block'}}" type="text" maxlength="50" placeholder="请输入输血原因" focus="{{whoFocus=='transfusionName'?true:false}}" value='{{transfusionText}}' />

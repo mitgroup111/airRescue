@@ -143,7 +143,14 @@ Page({
       },
       success: function (res) {
         var query_clone = res.data[0];
-        console.log(query_clone.flg);
+        console.log("----"+res);
+        //console.log(query_clone.basicUser.username);
+        if (res==true){
+          that.setData({
+            userName: query_clone.basicUser.username
+          });
+        }
+        
         if (sessionId == "") {
           that.setData({ 
             haslogin: true
