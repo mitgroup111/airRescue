@@ -3,7 +3,7 @@ var appInstance = getApp();
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 var timestamp = Date.parse(new Date());
 timestamp = timestamp / 1000;
-console.log("当前时间戳为：" + timestamp);  
+console.log("当前时间戳为：" + timestamp);
 var n = timestamp * 1000;
 var date1 = new Date(n);
 //年  
@@ -13,14 +13,13 @@ var M = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMon
 //日  
 var D = date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate();
 var nowDate = Y + "-" + M + "-" + D;
-console.log("当前时间：" + Y + "-" + M + "-"+ D );  
+console.log("当前时间：" + Y + "-" + M + "-" + D);
 var serviceYear;//服务年限
 var couponNum;//赠送天数
 var beginDate, serviceEndTime;
 var orderType;//订单类型
-var testData;
 var orderId;
-var xieyiFlag=true;
+var xieyiFlag = true;
 Page({
 
   /**
@@ -32,11 +31,11 @@ Page({
     index: 0,
     selectArea: false,
     items: [
-      { name: 'boy', value: '男', checked: 'true'  },
-      { name: 'girl', value: '女'}
+      { name: 'boy', value: '男', checked: 'true' },
+      { name: 'girl', value: '女' }
     ],
     radioStr: '男',
-    stratTime:nowDate,
+    stratTime: nowDate,
     beginDate: '',
     time: '12:00',
     dateTimeArray: null,
@@ -45,16 +44,15 @@ Page({
     dateTime1: null,
     startYear: 2000,
     endYear: 2500,
-    endTime:'2500-01-01',
-    memberInfo:'',
-    serviceYear:"",
+    endTime: '2500-01-01',
+    memberInfo: '',
+    serviceYear: "",
     flag: true,//协议
-    serviceTimeFlag:true,//服务时间
+    serviceTimeFlag: true,//服务时间
     xieyi: [
       { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
     ],
-    disabled: false,
-    testData: { name:name} 
+    disabled: false
   },
   //性别
   radioChange: function (e) {
@@ -79,6 +77,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     // 获取完整的年月日 时分秒，以及默认显示的数组
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -86,18 +85,18 @@ Page({
     var lastArray = obj1.dateTimeArray.pop();
     var lastTime = obj1.dateTime.pop();
     console.log("options.orderId：" + options.orderId);
-    orderId=options.orderId
+    orderId = options.orderId
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
-     
+
     });
     var that = this;
     wx.request({
       url: 'https://teach.hems999.com/weixinSmall!toMember', //仅为示例，并非真实的接口地址
-      data: { orderId: options.orderId},
+      data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
       },
@@ -108,13 +107,13 @@ Page({
         serviceYear = query_clone.serviceYear;
         couponNum = query_clone.couponNum;
         orderType = query_clone.orderType;
-        console.log("orderType"+orderType);
-        if (orderType == 2 || orderType == 3){
+        console.log("orderType" + orderType);
+        if (orderType == 2 || orderType == 3) {
           that.setData({
-            
+
             xieyiFlag: trfalseue
           });
-        }else{
+        } else {
           that.setData({
             checked: true,
             xieyiFlag: true
@@ -215,7 +214,8 @@ Page({
         duration: 2000
       })
       return false
-    } else {
+    } 
+    else {
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       var that = this;
@@ -225,20 +225,20 @@ Page({
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,
-          sessionId:value
+          sessionId: value
         },
         header: {
           'Content-Type': 'application/json'
         },
         success: function (res) {
-         
+
           var query_clone = res.data[0];
           if (query_clone.flg == 1) {
             console.log("保存个人信息成功");
             wx.redirectTo({
               url: '../add_jiankang/add_jiankang?orderId=' + orderId + '&vipNumberId=' + query_clone.vipMemberId
             })
-          } else{
+          } else {
             console.log("保存个人信息失败");
           }
         }
@@ -248,18 +248,18 @@ Page({
   //服务生效时间
   changeDate(e) {
     beginDate = e.detail.value;
-    this.setData({ 
+    this.setData({
       beginDate: e.detail.value,
-      serviceTimeFlag:false
+      serviceTimeFlag: false
     });
-    
+
     if (serviceYear == "0") {
       //微信赠送天数计算
       beginDate = beginDate.replace(/-/g, "/");
       beginDate = new Date(beginDate.valueOf());
-      
+
       var newDate = new Date(beginDate.getFullYear(), beginDate.getMonth(), beginDate.getDate() + parseInt(couponNum) - 1);
-      
+
       var year2 = newDate.getFullYear();
       var month2 = newDate.getMonth() + 1;
       var day2 = newDate.getDate();
@@ -274,7 +274,7 @@ Page({
       this.setData({
         serviceEndTime: serviceEndTime
       });
-    }else{
+    } else {
       ////产品保障时间计算
       beginDate = beginDate.replace(/-/g, "/");
       beginDate = new Date(beginDate.valueOf());
@@ -303,17 +303,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
     wx.setNavigationBarTitle({
       title: '个人信息'
     }),
-    this.setData({ disabled: false })
+      this.setData({ disabled: false })
   },
   //弹出服务协议
   checkboxChange: function (e) {
@@ -328,6 +329,7 @@ Page({
       }
     }
     this.setData({ flag: !xieyi[0].checked })
+
   },
   //关闭服务协议
   hide: function () {
@@ -337,27 +339,27 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

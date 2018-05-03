@@ -1,6 +1,6 @@
 <view class="container">
   <view class="login-from"> 
-    <text class="add_tips">你可以添加{{vipNum}}个家庭成员，目前已经添加了{{vipNumJilu}}个家庭成员,为了更方便快捷的为您提供服务，请完善家人信息：</text>
+    <text class="add_tips">你可以添加{{vipNum}}个家庭成员，目前已经添加了{{vipNumJilu}}个家庭成员，为了更方便快捷的为您提供服务，请完善家人信息：</text>
     <form bindsubmit="formSubmit" bindreset="formReset">  
         <input name="name" class="input_block" type="text" maxlength="20" placeholder="请输入姓名"/>
         <view class="line"></view> 
@@ -115,6 +115,7 @@
         <view class="loginBtnView">  
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>保存</button>
         </view> 
+        <view class="blank"></view>
     </form>
   </view>
 </view>

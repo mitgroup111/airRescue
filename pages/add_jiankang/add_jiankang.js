@@ -1,6 +1,5 @@
 // pages/add_vipMember/add_vipMember.js
 var appInstance = getApp();
-var testData;
 var orderId="";
 var vipMemberId ="";
 Page({
@@ -42,8 +41,7 @@ Page({
     traumaFlag:true,
     transfusionFlag:true,
     memberInfo: '',
-    disabled: false,
-    testData: { name: name }
+    disabled: false
   },
   //血型
   bloodChange: function (e) {

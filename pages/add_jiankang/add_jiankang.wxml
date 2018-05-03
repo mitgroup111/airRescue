@@ -110,7 +110,7 @@
         <view class="loginBtnView">  
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>保存</button>
         </view> 
-        
+        <view class="blank"></view>
     </form>
   </view>
 </view>
