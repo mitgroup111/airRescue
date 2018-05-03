@@ -73,7 +73,7 @@ Page({
     var that = this;
     orderId = options.orderId;
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getbrand.do', //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getBrandWeiSmall.do', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ Page({
     })
     brandName = brandArray[e.detail.value];
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getseries.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getSeriesWeiSmall.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ Page({
     })
     seriesName = seriesArray[e.detail.value];
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getmodel.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName), //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getModelWeiSmall.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName), //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
@@ -173,7 +173,7 @@ Page({
     })
     yearName = modelArray[e.detail.value];
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getyear.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName) + '&car_model=' + escape(yearName), //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getYearWeiSmall.do?car_brand=' + escape(brandName) + '&car_series=' + escape(seriesName) + '&car_model=' + escape(yearName), //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
