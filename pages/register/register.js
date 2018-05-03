@@ -149,57 +149,46 @@ Page({
     this.setData({
       mobile: e.detail.value
     })
-    console.info("手机号" + this.data.mobile);
+    console.info("手机号----" + this.data.mobile);
   },
   //获取验证码按钮
   reSendPhoneNum: function (e) {
     var that = this;
     var n = 59;
     var user = wx.getStorageSync('user');
-    var mobile = this.data.mobile;
+    var mobile = that.data.mobile;
+    console.log("mobile:" + mobile);
     wx.request({
       url: 'https://teach.hems999.com/weixinSmall!getMobileCode',
       data: {
-        mobile: this.data.mobile,
+        mobile: mobile,
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         var result = res.data[0];
-        console.log(" res.data---:" + res.data[0].code);
+        console.log(" 验证码:" + res.data[0].code);
         
         flag = result.flg;  //判断是否已经注册flag为1时没注册
+        console.log("手机号和res.flg值:" + mobile+"-----"+result.flg);
         if (result.flg == 1) {
           that.setData({
             huozheng: result.code
           })
-        }
-
-        if (result.flg == 0) {
-          wx.showModal({
-            content: result.message,
-            showCancel: false,
-            success: function (res) {
-            }
-          })
-        }
-        console.log(" res.flg---:" + result.flg);
-        if (!(/^1[34578]\d{9}$/.test(mobile))) {
-          wx.showModal({
-            content: '请输入正确的手机号',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
+          if (!(/^1[34578]\d{9}$/.test(mobile))) {
+            wx.showModal({
+              content: '请输入正确的手机号',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('请输入正确的手机号')
+                }
               }
-            }
-          })
-        } else {
-          console.log(" ------:" + flag);
-          if (flag == 1) { //判断是否已经注册flag为1时没注册
+            })
+          } else {
             if (timer == 1) {
-              timer = 0
-              var time = 60
+              timer = 0;
+              var time = 5;
               that.setData({
                 sendmsg: "sendmsgafter",
                 mobileMsg: true
@@ -208,7 +197,7 @@ Page({
                 that.setData({
                   getmsg: time + "s后重新发送"
                 })
-                time--
+                time--;
                 if (time < 0) {
                   timer = 1
                   clearInterval(inter)
@@ -221,8 +210,16 @@ Page({
               }, 1000)
             }
           }
-
+        }else {
+          wx.showModal({
+            content: result.message,
+            showCancel: false,
+            success: function (res) {
+              console.log('flg为0时已注册')
+            }
+          })
         }
+        
       }
     })
     

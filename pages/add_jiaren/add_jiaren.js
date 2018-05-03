@@ -1,5 +1,4 @@
 var appInstance = getApp();
-var testData;
 var vipNumJilu, vipNum, vipMemberId,orderId;
 Page({
 
@@ -40,8 +39,7 @@ Page({
     traumaFlag: true,
     transfusionFlag: true,
     memberInfo: '',
-    disabled: false,
-    testData: { name: name }
+    disabled: false
   },
   //血型
   bloodChange: function (e) {

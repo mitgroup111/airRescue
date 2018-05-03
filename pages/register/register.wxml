@@ -4,22 +4,22 @@
         <!--账号-->  
         <view class="inputView">   
           <label class="loginLab">手机号</label>   
-          <input name="mobile" class="inputText" type="number" maxlength="11" placeholder="请输入手机号" bindblur="mobileBlurFocus" focus="{{whoFocus=='mobile'?true:false}}" />
+          <input name="mobile" class="inputText" type="number" maxlength="11" placeholder="请输入手机号" bindinput="mobileBlurFocus" />
         </view>
         <view class="line"></view> 
         <view class="inputView">   
-          <input name="valiCode" class="inputText yzInput" type="number" maxlength="6" placeholder="手机验证码" bindblur="valiCodeBlurFocus"/>
+          <input name="valiCode" class="inputText yzInput" type="number" maxlength="6" placeholder="手机验证码" bindinput="valiCodeBlurFocus"/>
           <button class='btn_getMobileCode {{sendmsg}}' bindtap="reSendPhoneNum" size="mini" disabled='{{mobileMsg}}' >{{getmsg}}</button>  
         </view> 
         <view class="line"></view> 
         <view class="inputView">   
           <label class="loginLab">密码</label>   
-          <input name="password" class="{{whoClass=='password'?'placeholderClass':'inputText'}}" type="password" maxlength="20" placeholder="请输入密码" bindblur="passwordBlurFocus" focus="{{whoFocus=='password'?true:false}}" />
+          <input name="password" class="inputText" type="password" maxlength="20" placeholder="请输入密码"/>
         </view>  
         <view class="line"></view>   
         <view class="inputView">   
            <label class="loginLab">确认密码</label>   
-           <input name="repassword" class="{{whoClass=='repassword'?'placeholderClass':'inputText'}}" type="password" maxlength="20" placeholder="请输入确认密码" bindblur="repasswordBlurFocus" focus="{{whoFocus=='repassword'?true:false}}" />
+           <input name="repassword" class="inputText" type="password" maxlength="20" placeholder="请输入确认密码"/>
         </view>   
         <!--按钮-->  
         <view class="loginBtnView">  
