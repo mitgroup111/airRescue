@@ -151,9 +151,9 @@ Page({
       },
       success: function (res) {
         var query_clone = res.data[0];
-        console.log("----"+res);
+        console.log("query_clone----" + query_clone.flg);
         //console.log(query_clone.basicUser.username);
-        if (res==true){
+        if (query_clone.flg==1){
           that.setData({
             userName: query_clone.basicUser.username
           });
