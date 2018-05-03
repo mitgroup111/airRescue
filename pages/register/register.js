@@ -95,7 +95,8 @@ Page({
           //   delta: 1
           // })
           var query_clone = res.data[0];
-          console.log("query_clone:" + query_clone.message);
+          console.log("query_clone:" + query_clone);
+          wx.setStorageSync('mobile', query_clone.username);//存手机号
           if (query_clone.flg == 1) {
             wx.showToast({
               title: query_clone.message,
@@ -188,7 +189,7 @@ Page({
           } else {
             if (timer == 1) {
               timer = 0;
-              var time = 5;
+              var time = 59;
               that.setData({
                 sendmsg: "sendmsgafter",
                 mobileMsg: true
