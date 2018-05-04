@@ -132,8 +132,9 @@ Page({
       brand: e.detail.value
     })
     brandName = brandArray[e.detail.value];
+    console.log("brandName:" + brandName);
     wx.request({
-      url: 'https://www.arsauto.com.cn/car/getSeriesWeiSmall.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
+      url: 'https://www.arsauto.com.cn/car/getseriesWeiSmall.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'
