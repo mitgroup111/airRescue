@@ -49,7 +49,7 @@
         <view class="tui-picker-content">
           <picker mode="date" value="{{beginDate}}" start="" end="{{endTime}}" bindchange="changeDate">
             <view class="tui-picker-detail">
-              <input name="shangpaiTime" class="input_block" type="text"  placeholder="请选择上牌时间" value='{{shangpaiTime}}' />
+              <input name="shangpaiTime" class="input_block" type="text" disabled='disabled' placeholder="请选择上牌时间" value='{{shangpaiTime}}' />
             </view>
           </picker>
         </view>
