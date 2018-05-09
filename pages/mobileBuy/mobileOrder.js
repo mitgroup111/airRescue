@@ -34,7 +34,7 @@ Page({
     data: { 
       openid: value,
       orderNo: oderId,
-      orderMoney: "1"
+      orderMoney: orderMoney
     },
     method: 'GET',
     success: function (res) {
