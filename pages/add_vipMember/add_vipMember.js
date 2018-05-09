@@ -95,7 +95,7 @@ Page({
     });
     var that = this;
     wx.request({
-      url: 'https://teach.hems999.com/weixinSmall!toMember', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!toMember', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
@@ -221,7 +221,7 @@ Page({
       var that = this;
       console.log("保存个人信息orderId:" + orderId);
       wx.request({
-        url: 'https://teach.hems999.com/weixinSmall!addMember', //仅为示例，并非真实的接口地址
+        url: 'https://www.hems999.com/weixinSmall!addMember', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,

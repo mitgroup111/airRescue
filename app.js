@@ -7,7 +7,7 @@ App({
     wx.request({
       
       //获取openid接口
-      url: 'https://teach.hems999.com/weixinSmall!getWeiXinSession',
+      url: 'https://www.hems999.com/weixinSmall!getWeiXinSession',
       data: "",
       method: 'GET',
       success: function (res) {
@@ -21,7 +21,7 @@ App({
             wx.request({
 
               //获取openid接口
-              url: 'https://teach.hems999.com/weixinSmall!weixinGetOpenId',
+              url: 'https://www.hems999.com/weixinSmall!weixinGetOpenId',
               data: { code: res.code },
               method: 'GET',
               success: function (res) {

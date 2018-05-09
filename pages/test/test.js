@@ -71,7 +71,7 @@ Page({
     var formData = e.detail.value;
     console.log(formData);
     wx.request({
-      url: 'https://teach.hems999.com/weixinSmall!toMember',
+      url: 'https://www.hems999.com/weixinSmall!toMember',
       data: formData,
       header: {
         'Content-Type': 'application/json'

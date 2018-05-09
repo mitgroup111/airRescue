@@ -31,7 +31,7 @@ Page({
     var value = wx.getStorageSync('sessionId');
     //订单信息，个人信息，健康信息，车辆信息,家人信息
     wx.request({
-      url: 'https://teach.hems999.com/weixinSmall!viewOrderDetail', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!viewOrderDetail', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId,
         sessionId: sessionId},
       header: {

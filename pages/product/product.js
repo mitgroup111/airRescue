@@ -17,7 +17,7 @@ Page({
     var that = this;
     console.log(getApp().globalData.websetUrl)
     wx.request({
-      url: 'https://teach.hems999.com/weixinSmall!buy', //仅为示例，并非真实的接口地址
+      url: 'https://www.hems999.com/weixinSmall!buy', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'

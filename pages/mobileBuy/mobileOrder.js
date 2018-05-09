@@ -30,7 +30,7 @@ Page({
   var that = this;  
   var value = wx.getStorageSync('openId');
   wx.request({
-    url: 'https://teach.hems999.com/weixinSmall!weixinPay2',
+    url: 'https://www.hems999.com/weixinSmall!weixinPay2',
     data: { 
       openid: value,
       orderNo: oderId,
@@ -58,7 +58,7 @@ Page({
        console.log(event);
        console.log("oderId:" + oderId);
        wx.request({
-         url: 'https://teach.hems999.com/weixinSmall!updateOrder',
+         url: 'https://www.hems999.com/weixinSmall!updateOrder',
          data: {
            orderNo: oderId
          },
