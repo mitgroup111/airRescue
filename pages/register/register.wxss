@@ -25,6 +25,7 @@
   margin-top: 10px;
   font-size: 32rpx;
   color: #666;
+  line-height:52rpx;
 }
 .xieyiTips navigator{
   color: #c20c0c;

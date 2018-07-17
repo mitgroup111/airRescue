@@ -259,7 +259,7 @@ page{
 }  
   
 .loginLab {  
-  margin: 0px 15px 15px 10px;  
+  margin: 0px 0px 15px 10px;  
   color: #545454;  
   font-size: 32rpx  
 }  
@@ -270,6 +270,7 @@ page{
   margin-right: 22px;  
   margin-top: 11px;  
   color: #cccccc;  
+  width:55%;
 }  
 /*按钮*/  
 .loginBtnView {  
