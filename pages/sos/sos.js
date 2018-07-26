@@ -1,5 +1,3 @@
-var flag = "true";
-var a_more;
 Page({
   /**
    * 页面的初始数据
@@ -19,11 +17,23 @@ Page({
       swiperCurrent: e.detail.current
     })
   },
+  //创伤反馈
+  fankui: function (e) {
+    wx.navigateTo({
+      url: '../chuangshangfankui/chuangshangfankui'
+    });
+  },
+  //直升机实时追踪
+  zhishengji: function (e) {
+    wx.navigateTo({
+      url: '../about/about'
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -37,7 +47,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.setNavigationBarTitle({
+      title: '九九九空中救护'
+    })
   },
 
   /**

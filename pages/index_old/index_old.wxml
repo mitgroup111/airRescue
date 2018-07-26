@@ -1,0 +1,52 @@
+<view class="swiper-container">
+ <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+  <block wx:for="{{slider}}" wx:key="unique">
+   <swiper-item>
+    <image src="{{item.picUrl}}" class="img"></image>
+   </swiper-item>
+  </block>
+ </swiper>
+  
+<view class="dots">
+  <block wx:for="{{slider}}" wx:key="unique">
+   <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+  </block>
+ </view>
+</view>
+
+<view  class="menu-wrp">
+  <view class="menu-list">
+    <navigator url="../about/jieshao" hover-class="menu-navigator-hover">
+    <view  class="menu-title" style='color:#89bc39;' >覆盖山东全省</view>
+    <text  class="menu-desc" >保障山东全省\n高速公路安全</text>
+    <image class="menu-img" src="http://www.hems999.com/mobile//images/index01.png"/>
+    </navigator>
+  </view>
+  <view class="menu-list">
+  <navigator url="../about/shebei" hover-class="menu-navigator-hover">
+    <view  class="menu-title" style='color:#e9480c;' >专业的医疗设备</view>
+    <text  class="menu-desc">直升机配备专业\n的急救医疗设备</text>
+    <image class="menu-img" src="http://www.hems999.com/mobile//images/index02.png"/>
+    </navigator>
+  </view>
+  <view class="menu-list" style='margin-right:0;'>
+  <navigator url="../about/jieshao" hover-class="menu-navigator-hover">
+    <view  class="menu-title" style='color:#54a8f8;' >快速到达现场</view>
+    <text  class="menu-desc" >30-60分钟到达\n现场</text>
+    <image class="menu-img" src="http://www.hems999.com/mobile//images/index03.png"/>
+    </navigator>
+  </view>
+</view>
+<view class='blank'></view>
+<view  class="news-wrp" >
+  <view class="news-list clearfix"  wx:for="{{new_list}}" >
+    <navigator url="../detail/detail?newsId={{item.newsId}}"  hover-class="menu-navigator-hover">
+    <image class="news-img" src="http://www.hems999.com/{{item.path}}"/>
+    <view  class="news-title" >{{item.title}}</view>
+    <view  class="news-desc" >{{item.description}}</view>
+    </navigator>
+  </view>
+</view>
+<view class="btn-area">
+  <navigator url="../news/news?pageNo=1" open-type="navigate" class='more' hover-class="other-navigator-hover">查看更多</navigator>
+</view>

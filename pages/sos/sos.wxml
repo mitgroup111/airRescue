@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="swiper-container">
+ <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+  <block wx:for="{{slider}}" wx:key="unique">
+   <swiper-item>
+    <image src="{{item.picUrl}}" class="img"></image>
+   </swiper-item>
+  </block>
+ </swiper> 
+<view class="dots">
+  <block wx:for="{{slider}}" wx:key="unique">
+   <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+  </block>
+ </view>
+</view>
+<view class="modal-list">
+  <view class="zhishengji" bindtap='zhishengji'>
+    <image src="../../images/sos01.png" class="modal-img"></image>
+    <view>直升机实时追踪</view>
+  </view>
+  <view class="fankui" bindtap='fankui'>
+    <image src="../../images/sos02.png" class="modal-img"></image>
+    <view>创伤反馈</view>
+  </view>
+</view>
+<view class="index-tel">
+  <image src="../../images/indexTel.png"></image>一键呼救
+</view>
+

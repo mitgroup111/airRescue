@@ -1,0 +1,38 @@
+<view class="container">  
+  <view class="login-from">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="chuangshang-name">请上传创伤反馈图片：</view>
+    <view class='img_box'>
+        <block wx:for="{{add_img}}" wx:key="{{index}}">
+          <view class='have_img'>
+            <image src='{{item}}' class='sug_picture' data-num="{{index}}" catchtap='preview_img'></image>
+            <image src='../../images/delete_img.png' data-num="{{index}}" class='delete_img' catchtap='delete_image'></image>
+          </view> 
+        </block>
+        <view class='no_img' bindtap="addImage">
+          <view><image src="../../images/cam_photo.png"  class="upload-pic"/></view>
+        </view>
+      </view>
+    <view class="loginBtnView">  
+      <button class="button" type="primary" formType="submit" disabled='{{disabled}}'>上传图片</button>
+    </view> 
+  </form>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="chuangshang-name">请上传创伤反馈视频：</view>
+    <view class='img_box'>
+        <block wx:for="{{add_video}}" wx:key="{{index}}">
+          <view class='have_video'>
+            <video  src='{{item}}'  data-num="{{index}}"></video >
+            <image src='../../images/delete_img.png' data-num="{{index}}" class='delete_img' catchtap='delete_video'></image>
+          </view> 
+        </block>
+        <view class='no_img' bindtap="addVideo">
+          <view><image src="../../images/cam_video.png"  class="upload-pic"/></view>
+        </view>
+      </view>
+    <view class="loginBtnView">  
+      <button class="button" type="primary" formType="submit" disabled='{{disabled}}'>上传视频</button>
+    </view> 
+  </form>
+  </view>
+</view>

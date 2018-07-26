@@ -2,7 +2,8 @@
   "pages":[
     
     "pages/index/index",
-    "pages/about/list",
+    "pages/sos/sos",
+    "pages/chuangshangfankui/chuangshangfankui",
     "pages/about/jieshao",
     "pages/about/about",
     "pages/about/shebei",
@@ -56,16 +57,16 @@
         "selectedIconPath": "images/nav01A.png"
       },
       {
-        "text": "分类",
-        "pagePath": "pages/about/list",
-        "iconPath": "images/nav02.png",
-        "selectedIconPath": "images/nav02A.png"
-      },
-      {
-        "text": "服务",
+        "text": "产品",
         "pagePath": "pages/product/product",
         "iconPath": "images/nav04.png",
         "selectedIconPath": "images/nav04A.png"
+      },
+      {
+        "text": "SOS",
+        "pagePath": "pages/sos/sos",
+        "iconPath": "images/nav02.png",
+        "selectedIconPath": "images/nav02A.png"
       },
       {
         "text": "会员",

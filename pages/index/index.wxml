@@ -13,40 +13,59 @@
   </block>
  </view>
 </view>
-
-<view  class="menu-wrp">
-  <view class="menu-list">
-    <navigator url="../about/jieshao" hover-class="menu-navigator-hover">
-    <view  class="menu-title" style='color:#89bc39;' >覆盖山东全省</view>
-    <text  class="menu-desc" >保障山东全省\n高速公路安全</text>
-    <image class="menu-img" src="http://www.hems999.com/mobile//images/index01.png"/>
+<view  class="list-wrp" >
+  <view class="list-list">
+    <navigator url="../about/jieshao"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list01.png"/>
+        <view  class="list-title" >项目介绍</view>
     </navigator>
   </view>
-  <view class="menu-list">
-  <navigator url="../about/shebei" hover-class="menu-navigator-hover">
-    <view  class="menu-title" style='color:#e9480c;' >专业的医疗设备</view>
-    <text  class="menu-desc">直升机配备专业\n的急救医疗设备</text>
-    <image class="menu-img" src="http://www.hems999.com/mobile//images/index02.png"/>
+  <view class="list-list">
+    <navigator url="../about/about"   hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list02.png"/>
+        <view  class="list-title" >关于空中救护</view>
     </navigator>
   </view>
-  <view class="menu-list" style='margin-right:0;'>
-  <navigator url="../about/jieshao" hover-class="menu-navigator-hover">
-    <view  class="menu-title" style='color:#54a8f8;' >快速到达现场</view>
-    <text  class="menu-desc" >30-60分钟到达\n现场</text>
-    <image class="menu-img" src="http://www.hems999.com/mobile//images/index03.png"/>
+  <view class="list-list">
+    <navigator url="../about/shebei"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list03.png"/>
+        <view  class="list-title" >空中救护设备</view>
     </navigator>
   </view>
-</view>
-<view class='blank'></view>
-<view  class="news-wrp" >
-  <view class="news-list clearfix"  wx:for="{{new_list}}" >
-    <navigator url="../detail/detail?newsId={{item.newsId}}"  hover-class="menu-navigator-hover">
-    <image class="news-img" src="http://www.hems999.com/{{item.path}}"/>
-    <view  class="news-title" >{{item.title}}</view>
-    <view  class="news-desc" >{{item.description}}</view>
+  <view class="list-list">
+    <navigator url="../about/jidi"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list04.png"/>
+        <view  class="list-title" >  救援基地  </view>
     </navigator>
   </view>
-</view>
-<view class="btn-area">
-  <navigator url="../news/news?pageNo=1" open-type="navigate" class='more' hover-class="other-navigator-hover">查看更多</navigator>
+  <view class="list-list">
+    <navigator url="../about/yiyuan"   hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list05.png"/>
+        <view  class="list-title" >  合作医院  </view>
+    </navigator>
+  </view>
+  <view class="list-list">
+    <navigator url="../about/lingdao"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list06.png"/>
+        <view  class="list-title" >领导专家支持</view>
+    </navigator>
+  </view>
+  <view class="list-list">
+    <navigator url="../about/liucheng"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list07.png"/>
+        <view  class="list-title" >服务流程</view>
+    </navigator>
+  </view>
+  <view class="list-list">
+    <navigator url="../news/news?pageNo=1"   hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list08.png"/>
+        <view  class="list-title" >新闻速递  </view>
+    </navigator>
+  </view>
+  <view class="list-list">
+    <navigator url="../join/join"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list09.png"/>
+        <view  class="list-title" >加入我们</view>
+    </navigator>
+  </view>
 </view>

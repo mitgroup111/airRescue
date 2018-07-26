@@ -1,0 +1,48 @@
+/**index.wxss**/
+.modal-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  width:100%;
+  color: #fff;
+}
+.modal-img{
+  width: 66px;
+  height: 66px;
+  margin-top: 20rpx;
+}
+.modal-list view{
+  text-align: center;
+}
+.zhishengji,.fankui,.jieshao,.huiyuan{
+  background: #8e76e8;
+  width: 280rpx;
+  height: 280rpx;
+  border-radius: 280rpx;
+  margin-top: 60rpx;
+}
+.zhishengji{
+  margin-right: 40rpx;
+}
+.fankui{
+  background: #5bc7ee;
+}
+.index-tel{
+  background: #39d689;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 40rpx;
+  width: 80%;
+  border-radius: 43rpx;
+  margin:60rpx auto;
+}
+.index-tel image{
+  width: 60rpx;
+  height: 70rpx;
+  vertical-align: middle;
+  margin:-6rpx 10rpx 0 0;
+}
+
