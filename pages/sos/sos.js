@@ -34,7 +34,7 @@ Page({
   //一键呼救
   callme: function (e) {
     wx.makePhoneCall({
-      phoneNumber: '408591999' //仅为示例，并非真实的电话号码
+      phoneNumber: '4008591999' //仅为示例，并非真实的电话号码
     })
   },
   /**
