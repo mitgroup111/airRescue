@@ -1,3 +1,4 @@
+var qqmap = require('../../utils/qqmap-wx-jssdk.min.js');
 Page({
   /**
    * 页面的初始数据
@@ -29,11 +30,30 @@ Page({
       url: '../about/about'
     });
   },
+
+  //一键呼救
+  callme: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: '408591999' //仅为示例，并非真实的电话号码
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    // 实例化腾讯地图API核心类
+    var qqmapsdk = new qqmap({
+      key: 'QK5BZ-D7LLO-MKOWG-SKJBE-Q6TD6-4NBTO' // 必填
+    });
+    //1、获取当前位置坐标
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log("latitude:" + res.latitude);
+        console.log("longitude:" + res.longitude);
+      }
+    })
   },
 
   /**

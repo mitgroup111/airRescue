@@ -23,7 +23,7 @@
     <view>创伤反馈</view>
   </view>
 </view>
-<view class="index-tel">
+<view class="index-tel" bindtap='callme'>
   <image src="../../images/indexTel.png"></image>一键呼救
 </view>
 
