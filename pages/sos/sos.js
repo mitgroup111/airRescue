@@ -56,18 +56,60 @@ Page({
       wx.makePhoneCall({
         phoneNumber: '4008591999' //仅为示例，并非真实的电话号码
       })
-
+      var latitude = "";
+      var longitude = "";
+      var session_key = wx.getStorageSync("session_key");
+      var encryptedData = e.detail.encryptedData;
+      var iv = e.detail.iv;
       //1、获取当前位置坐标
       wx.getLocation({
         type: 'wgs84',
         success: function (res) {
-          console.log("latitude:" + res.latitude);
-          console.log("longitude:" + res.longitude);
+          latitude = res.latitude;
+          longitude = res.longitude;
+          console.log("latitude:" + latitude);
+          console.log("longitude:" + longitude);
+          console.log("encryptedData:" + encryptedData);
+          console.log("iv:" + iv);
+
+          wx.request({
+            url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+            data: {
+              session_key: session_key,
+              encryptedData: encryptedData,
+              iv: iv,
+              latitude: latitude,
+              longitude: longitude
+            },
+            header: {
+              'Content-Type': 'application/json'
+            },
+            success: function (res) {
+              console.log("一键呼救");
+              var query_clone = res.data[0];
+              console.log(query_clone);
+              if (query_clone.flg == 1) {
+                wx.setStorageSync('emergency_tel', query_clone.tel);
+                wx.showToast({
+                  title: "一键呼救成功!",
+                  icon: 'none',
+                  duration: 2000
+                })
+              } else {
+                wx.showToast({
+                  title: query_clone.msg,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            }
+          });
         }
       })
 
-      console.log(e.detail.iv)
-      console.log(e.detail.encryptedData)
+     
+
+    
     } else{
 
       wx.showToast({
