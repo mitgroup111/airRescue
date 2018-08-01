@@ -24,6 +24,7 @@
   </view>
 </view>
 <view class="index-tel" bindtap='callme'>
-  <image src="../../images/indexTel.png"></image>一键呼救
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键呼救 </button>
+  <image src="../../images/indexTel.png"></image>
 </view>
 
