@@ -27,7 +27,7 @@ Page({
   //直升机实时追踪
   zhishengji: function (e) {
     wx.navigateTo({
-      url: '../about/about'
+      url: '../genzong/genzong'
     });
   },
 
@@ -40,14 +40,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    // 实例化腾讯地图API核心类
-    var qqmapsdk = new qqmap({
-      key: 'QK5BZ-D7LLO-MKOWG-SKJBE-Q6TD6-4NBTO' // 必填
-    });
+    // // 实例化腾讯地图API核心类
+    // var qqmapsdk = new qqmap({
+    //   key: 'QK5BZ-D7LLO-MKOWG-SKJBE-Q6TD6-4NBTO' // 必填
+    // });
    
   },
 
   getPhoneNumber: function (e) {
+    var that  = this;
     console.log(e.detail.errMsg);
     var errStr = e.detail.errMsg;
     //同意获取用户信息进行呼叫
@@ -70,7 +71,9 @@ Page({
           console.log("latitude:" + latitude);
           console.log("longitude:" + longitude);
           console.log("encryptedData:" + encryptedData);
-          console.log("iv:" + iv);
+          console.log("iv:" + iv);        
+          wx.setStorageSync('latitude', latitude);
+          wx.setStorageSync('longitude', longitude);
 
           wx.request({
             url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
