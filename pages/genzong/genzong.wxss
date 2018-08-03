@@ -1,0 +1,60 @@
+.upload-pic{
+  width: 98px;
+  height: 100px;
+  margin: 3px 0 2px 2px;
+}
+/*画廊*/
+.img_box {
+    display: flex;    
+    justify-content: flex-start;    
+    flex-wrap: wrap;
+}
+.have_img {    
+  position: relative;    
+  margin: 2px;
+  width: 32%;
+  height: 100px;
+}
+.have_video {    
+  position: relative;    
+  margin: 2px;
+  width: 48%;
+  height: 260rpx;
+}
+.have_img image{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+}
+.have_video video{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+}
+.have_img image.delete_img,
+.have_video image.delete_img {    
+  position: absolute;    
+  width: 24px;    
+  height: 24px;
+  right: -2px;  
+  top: -2px;  
+  border: none;
+}
+.input-box{
+  position: relative;
+}
+.fiel-select{
+  position: absolute;
+  right: 40px;
+  top: 8px;
+  width: 25px;
+  height: 25px;
+}
+.loginBtnView{
+  margin:40rpx 0;
+}
+.chuangshang-name{
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+  line-height: 60rpx;
+}
