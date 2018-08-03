@@ -23,8 +23,10 @@
     <view>创伤反馈</view>
   </view>
 </view>
-<view class="index-tel" bindtap='callme'>
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键呼救 </button>
-  <image src="../../images/indexTel.png"></image>
+<view bindtap='callme'>
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="index-tel" >
+  <image src="../../images/indexTel.png"></image>一键呼救 
+</button>
+  
 </view>
 

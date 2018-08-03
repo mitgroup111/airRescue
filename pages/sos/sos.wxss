@@ -38,6 +38,7 @@
   width: 80%;
   border-radius: 43rpx;
   margin:60rpx auto;
+  letter-spacing: 1px;
 }
 .index-tel image{
   width: 60rpx;
