@@ -50,6 +50,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+
+    //页面初始时候 如果sosId有值 判断过期时间 到了清空sosId的值
+    var sosId = wx.getStorageSync("sosId");
+    if (sosId) {
+      var timestap = Date.parse(new Date());
+      var expiration = wx.getStorageSync('sos_expiration');
+      if (expiration>timestap){
+        wx.setStorageSync(sosId, '');
+      }
+    }
+
     // // 实例化腾讯地图API核心类
     // var qqmapsdk = new qqmap({
     //   key: 'QK5BZ-D7LLO-MKOWG-SKJBE-Q6TD6-4NBTO' // 必填
@@ -70,58 +81,66 @@ Page({
       var latitude = "";
       var longitude = "";
       var session_key = wx.getStorageSync("session_key");
-      var encryptedData = e.detail.encryptedData;
-      var iv = e.detail.iv;
-      //1、获取当前位置坐标
-      wx.getLocation({
-        type: 'wgs84',
-        success: function (res) {
-          latitude = res.latitude;
-          longitude = res.longitude;
-          console.log("latitude:" + latitude);
-          console.log("longitude:" + longitude);
-          console.log("encryptedData:" + encryptedData);
-          console.log("iv:" + iv);        
-          wx.setStorageSync('latitude', latitude);
-          wx.setStorageSync('longitude', longitude);
+      var sosId = wx.getStorageSync("sosId");
+      
+      //如果sosId为空 上传sos记录
+      if(sosId == ''){
+        var encryptedData = e.detail.encryptedData;
+        var iv = e.detail.iv;
+        //1、获取当前位置坐标
+        wx.getLocation({
+          type: 'wgs84',
+          success: function (res) {
+            latitude = res.latitude;
+            longitude = res.longitude;
+            console.log("latitude:" + latitude);
+            console.log("longitude:" + longitude);
+            console.log("encryptedData:" + encryptedData);
+            console.log("iv:" + iv);
+            wx.setStorageSync('latitude', latitude);
+            wx.setStorageSync('longitude', longitude);
 
-          wx.request({
-            url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
-            data: {
-              session_key: session_key,
-              encryptedData: encryptedData,
-              iv: iv,
-              latitude: latitude,
-              longitude: longitude
-            },
-            header: {
-              'Content-Type': 'application/json'
-            },
-            success: function (res) {
-              console.log("一键呼救");
-              var query_clone = res.data[0];
-              console.log(query_clone);
-              if (query_clone.flg == 1) {
-                wx.setStorageSync('emergency_tel', query_clone.tel);
-                wx.setStorageSync('sosId', query_clone.sosid);
-                wx.showToast({
-                  title: "一键呼救成功!",
-                  icon: 'none',
-                  duration: 2000
-                })
-              } else {
-                wx.showToast({
-                  title: query_clone.msg,
-                  icon: 'none',
-                  duration: 2000
-                })
+            wx.request({
+              url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+              data: {
+                session_key: session_key,
+                encryptedData: encryptedData,
+                iv: iv,
+                latitude: latitude,
+                longitude: longitude
+              },
+              header: {
+                'Content-Type': 'application/json'
+              },
+              success: function (res) {
+                console.log("一键呼救");
+                var query_clone = res.data[0];
+                console.log(query_clone);
+                if (query_clone.flg == 1) {
+                  wx.setStorageSync('emergency_tel', query_clone.tel);
+                  wx.setStorageSync('sosId', query_clone.sosid);
+                  //设置过期时间为6个钟头
+                  var timestap = Date.parse(new Date());
+                  var expiration = timestap + 6*3600000;
+                  wx.setStorageSync('sos_expiration', expiration);
+                  wx.showToast({
+                    title: "一键呼救成功!",
+                    icon: 'none',
+                    duration: 2000
+                  })
+                } else {
+                  wx.showToast({
+                    title: query_clone.msg,
+                    icon: 'none',
+                    duration: 2000
+                  })
+                }
               }
-            }
-          });
-        }
-      })
+            });
+          }
+        })
 
-     
+      }
 
     
     } else{
