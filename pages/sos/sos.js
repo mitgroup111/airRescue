@@ -170,7 +170,7 @@ Page({
       var timestap = Date.parse(new Date());
       var expiration = wx.getStorageSync('sos_expiration');
       if (expiration > timestap) {
-        wx.setStorageSync(sosId, '');
+        wx.setStorageSync('sosId', '');
       }
     }
   },
