@@ -50,16 +50,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
     //页面初始时候 如果sosId有值 判断过期时间 到了清空sosId的值
-    var sosId = wx.getStorageSync("sosId");
-    if (sosId) {
-      var timestap = Date.parse(new Date());
-      var expiration = wx.getStorageSync('sos_expiration');
-      if (expiration>timestap){
-        wx.setStorageSync(sosId, '');
-      }
-    }
+
 
     // // 实例化腾讯地图API核心类
     // var qqmapsdk = new qqmap({
@@ -121,7 +113,7 @@ Page({
                   wx.setStorageSync('sosId', query_clone.sosid);
                   //设置过期时间为6个钟头
                   var timestap = Date.parse(new Date());
-                  var expiration = timestap + 6*3600000;
+                  var expiration = timestap + 10000;//6*3600000;
                   wx.setStorageSync('sos_expiration', expiration);
                   wx.showToast({
                     title: "一键呼救成功!",
@@ -173,7 +165,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    var sosId = wx.getStorageSync("sosId");
+    if (sosId != '') {
+      var timestap = Date.parse(new Date());
+      var expiration = wx.getStorageSync('sos_expiration');
+      if (expiration > timestap) {
+        wx.setStorageSync(sosId, '');
+      }
+    }
   },
 
   /**
