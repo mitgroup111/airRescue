@@ -24,7 +24,7 @@ Page({
             id: 1,
             latitude: latitude,
             longitude: longitude,
-            iconPath: '/images/hujiu.gif'
+            iconPath: '/images/hujiu.png'
           }],
           setInter: setInterval(function () {
             console.log("---timer----");

@@ -20,9 +20,19 @@ Page({
   },
   //创伤反馈
   fankui: function (e) {
-    wx.navigateTo({
-      url: '../chuangshangfankui/chuangshangfankui'
-    });
+    var sosId =  wx.getStorageSync("sosId");
+    console.log("sosId:" + sosId );
+    if (sosId == null || sosId == ''){
+      wx.showToast({
+        title: "反馈前先呼救",
+        icon: 'none',
+        duration: 2000
+      })
+    } else{
+      wx.navigateTo({
+        url: '../chuangshangfankui/chuangshangfankui'
+      });
+    }
   },
   //直升机实时追踪
   zhishengji: function (e) {
@@ -93,6 +103,7 @@ Page({
               console.log(query_clone);
               if (query_clone.flg == 1) {
                 wx.setStorageSync('emergency_tel', query_clone.tel);
+                wx.setStorageSync('sosId', query_clone.sosid);
                 wx.showToast({
                   title: "一键呼救成功!",
                   icon: 'none',

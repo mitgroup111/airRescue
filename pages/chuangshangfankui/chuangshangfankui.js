@@ -70,6 +70,73 @@ Page({
       }
     })
   },
+
+
+  upload: function (e) {
+    var pics = this.data.add_img;
+    var sosId = wx.getStorageSync("sosId");
+    if (sosId == null || sosId == ''){
+      wx.showToast({
+        title: "没有SOS报警记录",
+        icon: 'none',
+        duration: 2000
+      })
+    } else{
+      //调用上传图片的具体实现
+      this.uploadimg({
+        url: 'https://teach.hems999.com/weixinSmall!uploadSosPhoto',
+        path: pics,//这里是选取的图片的地址数组
+        id: sosId,
+      });
+    }
+  },
+
+  uploadimg: function (data) {
+    console.log("上传图片开始");
+    var that = this,
+      i = data.i ? data.i : 0,
+      success = data.success ? data.success : 0,
+      fail = data.fail ? data.fail : 0;
+    wx.uploadFile({
+      url: data.url,
+      filePath: data.path[i],
+      name: 'file',
+      formData: {
+        //此处可以传自定义参数……
+        sosid:data.id,
+        num:i
+      },
+      header: {
+        "Content-Type": "multipart/form-data",
+        //"sessionId": getApp().globalData.sessionId,
+      },
+      success: (resp) => {
+        success++;
+      },
+      fail: (res) => {
+        fail++;
+      },
+      complete: () => {
+        i++;
+        if (i == data.path.length) {   //当图片传完时，停止调用
+          wx.showToast({
+            title: '上传成功',
+            duration: 1500,
+            mask: 'false'
+          })
+          that.setData({
+            tempFilePaths: []
+          })
+        } else {//若图片还没有传完，则继续调用函数
+          data.i = i;
+          data.success = success;
+          data.fail = fail;
+          that.uploadimg(data);
+        }
+      }
+    });
+  },
+
   //删除视频
   delete_video: function (e) {
     console.log(1);

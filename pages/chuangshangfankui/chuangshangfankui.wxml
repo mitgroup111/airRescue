@@ -14,7 +14,7 @@
         </view>
       </view>
     <view class="loginBtnView">  
-      <button class="button" type="primary" formType="submit" disabled='{{disabled}}'>上传图片</button>
+      <button class="button" type="primary" bindtap='upload' formType="submit" disabled='{{disabled}}'>上传图片</button>
     </view> 
   </form>
   <form bindsubmit="formSubmit" bindreset="formReset">
