@@ -115,17 +115,24 @@ Page({
                   var timestap = Date.parse(new Date());
                   var expiration = timestap + 10000;//6*3600000;
                   wx.setStorageSync('sos_expiration', expiration);
-                  wx.showToast({
-                    title: "一键呼救成功!",
-                    icon: 'none',
-                    duration: 2000
+                  wx.showLoading({
+                    title: '一键呼救成功',
                   })
+
+                  setTimeout(function () {
+                    wx.hideLoading()
+                  }, 2000)
+                 
                 } else {
-                  wx.showToast({
+                  wx.showLoading({
                     title: query_clone.msg,
-                    icon: 'none',
-                    duration: 2000
                   })
+
+                  setTimeout(function () {
+                    wx.hideLoading()
+                  }, 2000)
+
+                 
                 }
               }
             });

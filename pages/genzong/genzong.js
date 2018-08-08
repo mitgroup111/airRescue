@@ -143,11 +143,14 @@ Page({
                 }]
               })
 
-              wx.showToast({
-                title: "飞机来了",
-                icon: 'none',
-                duration: 2000
+              wx.showLoading({
+                title: '飞机来了',
               })
+
+              setTimeout(function () {
+                wx.hideLoading()
+              }, 2000)
+             
 
               that.mapCtx = wx.createMapContext('myMap');
             }
@@ -155,11 +158,15 @@ Page({
 
           that.data.setInter;
         } else {
-          wx.showToast({
-            title: "飞机等待起飞",
-            icon: 'none',
-            duration: 2000
+
+          wx.showLoading({
+            title: '飞机等待起飞',
           })
+
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+
           that.data.setInter;
         }
 

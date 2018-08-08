@@ -139,11 +139,15 @@ Page({
       complete: () => {
         i++;
         if (i == data.path.length) {   //当图片传完时，停止调用
-          wx.showToast({
+          
+          wx.showLoading({
             title: '上传成功',
-            duration: 1500,
-            mask: 'false'
           })
+
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+
           that.setData({
             tempFilePaths: []
           })
