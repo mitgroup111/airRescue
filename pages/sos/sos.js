@@ -76,7 +76,7 @@ Page({
       var sosId = wx.getStorageSync("sosId");
       
       //如果sosId为空 上传sos记录
-      if(sosId == ''){
+      // if(sosId == ''){
         var encryptedData = e.detail.encryptedData;
         var iv = e.detail.iv;
         //1、获取当前位置坐标
@@ -139,7 +139,7 @@ Page({
           }
         })
 
-      }
+      // }
 
     
     } else{
@@ -172,14 +172,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    var sosId = wx.getStorageSync("sosId");
-    if (sosId != '') {
-      var timestap = Date.parse(new Date());
-      var expiration = wx.getStorageSync('sos_expiration');
-      if (expiration > timestap) {
-        wx.setStorageSync('sosId', '');
-      }
-    }
+    // var sosId = wx.getStorageSync("sosId");
+    // if (sosId != '') {
+    //   var timestap = Date.parse(new Date());
+    //   var expiration = wx.getStorageSync('sos_expiration');
+    //   if (expiration > timestap) {
+    //     wx.setStorageSync('sosId', '');
+    //   }
+    // }
   },
 
   /**
