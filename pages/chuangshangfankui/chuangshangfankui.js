@@ -13,6 +13,7 @@ Page({
     var that = this;
     wx.chooseImage({
       success: function (res) {
+        
         //console.log(res.tempFilePath)
         var src = res.tempFilePaths;
         var aa = that.data.add_img.concat(src)
@@ -69,6 +70,25 @@ Page({
         
       }
     })
+  },
+
+  uploadVideo: function (e) {
+    var pics = this.data.add_video;
+    var sosId = wx.getStorageSync("sosId");
+    if (sosId == null || sosId == '') {
+      wx.showToast({
+        title: "没有SOS报警记录",
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      //调用上传图片的具体实现
+      this.uploadimg({
+        url: 'https://teach.hems999.com/weixinSmall!uploadSosVideo',
+        path: pics,//这里是选取的图片的地址数组
+        id: sosId,
+      });
+    }
   },
 
 

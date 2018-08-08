@@ -31,7 +31,7 @@
         </view>
       </view>
     <view class="loginBtnView">  
-      <button class="button" type="primary" formType="submit" disabled='{{disabled}}'>上传视频</button>
+      <button class="button" type="primary" bindtap='uploadVideo' formType="submit" disabled='{{disabled}}'>上传视频</button>
     </view> 
   </form>
   </view>
