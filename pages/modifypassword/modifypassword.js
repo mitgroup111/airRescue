@@ -62,7 +62,7 @@ Page({
       var value = wx.getStorageSync('sessionId');
       //提交
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinRegisterMobile',
+        url: 'https://www.hems999.com/weixinSmall!modify_password',
         data: {
           old_password: e.detail.value.old_password,
           password: e.detail.value.password,
@@ -79,15 +79,17 @@ Page({
           // })
           var query_clone = res.data[0];
           console.log("query_clone:" + query_clone);
-          wx.setStorageSync('mobile', query_clone.username);//存手机号
           if (query_clone.flg == 1) {
             wx.showToast({
               title: query_clone.message,
               icon: 'success',
               duration: 2000
             })
-            wx.switchTab({
-              url: '../index/index',
+          } else {
+            wx.showToast({
+              title: query_clone.message,
+              icon: 'none',
+              duration: 2000
             })
           }
         },

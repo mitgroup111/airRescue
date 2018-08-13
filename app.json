@@ -1,12 +1,13 @@
 {
   "pages":[
-    "pages/modifypassword/modifypassword",
+   
     "pages/index/index",
     "pages/sos/sos",
     "pages/chuangshangfankui/chuangshangfankui",
     "pages/genzong/genzong",
     "pages/about/jieshao",
     "pages/about/about",
+    "pages/modifypassword/modifypassword",
     "pages/about/shebei",
     "pages/about/jidi",
     "pages/about/yiyuan",
