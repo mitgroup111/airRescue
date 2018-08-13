@@ -85,6 +85,9 @@ Page({
               icon: 'success',
               duration: 2000
             })
+            wx.navigateBack({
+              delta: 1
+            })
           } else {
             wx.showToast({
               title: query_clone.message,
