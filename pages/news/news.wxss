@@ -3,7 +3,7 @@ scroll-view {
 }
 
 .item {
-  border-bottom: 1px dotted #ddd;
+  border-bottom: 2rpx dotted #ddd;
   padding: 26rpx 0;
 }
 .item navigator{
@@ -36,7 +36,7 @@ scroll-view {
     display: block;
     margin:10rpx;
     font-size: 32rpx;
-    border-radius: 3px;
+    border-radius: 6rpx;
     color:#666;
     float: left;
     width:160rpx;

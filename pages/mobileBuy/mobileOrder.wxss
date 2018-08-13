@@ -1,10 +1,10 @@
 .orderId{
   color: #c20c0c;
-  line-height: 28px;
+  line-height: 56rpx;
   font-size: 34rpx;
-  margin-top: 10px;
+  margin-top: 20rpx;
   display: block;
 }
 .greenBtn{
-  margin-top: 40px;
+  margin-top: 80rpx;
 }

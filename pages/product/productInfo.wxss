@@ -1,6 +1,6 @@
 /* pages/product/productInfo.wxss */
 .product_money{
-  margin-bottom:10px;
+  margin-bottom:20rpx;
   font-size: 34rpx;
 }
 .table{

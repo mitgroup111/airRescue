@@ -3,7 +3,7 @@
   line-height: 50rpx;
   text-align: center;
   display: block;
-  margin-top:20px;
+  margin-top:40rpx;
 }
 .codeSuccess text.successInfo{
   color:#026a19;
@@ -14,8 +14,8 @@
 .code_img{
   width: 70%;
   display: block;
-  margin: 5px auto;
+  margin: 10rpx auto;
 }
 .greenBtn{
-  margin-top:50px;
+  margin-top:100rpx;
 }

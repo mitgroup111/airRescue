@@ -8,8 +8,8 @@
   color: #fff;
 }
 .modal-img{
-  width: 66px;
-  height: 66px;
+  width: 132rpx;
+  height: 132rpx;
   margin-top: 20rpx;
 }
 .modal-list view{
@@ -38,7 +38,7 @@
   width: 80%;
   border-radius: 43rpx;
   margin:60rpx auto;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
 }
 .index-tel image{
   width: 60rpx;

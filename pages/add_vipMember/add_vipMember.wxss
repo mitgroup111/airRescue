@@ -1,11 +1,11 @@
 
 .radio-group{
-  margin: 10px 0;
+  margin: 20rpx 0;
 }
 .radio-group .radio{
   display: inline-block;
   font-size: 34rpx;
-  margin-right: 5px;
+  margin-right: 10rpx;
   vertical-align: middle;
 }
 .city{
@@ -13,17 +13,17 @@
   line-height: 80rpx;
   background-color: #fff;
   font-size: 35rpx;
-  padding: 0 10px;
+  padding: 0 20rpx;
   overflow: hidden;
 }
 .supportTime{
   background: #026a19;
-  padding: 5px 0;
+  padding: 10rpx 0;
   text-align: center;
   color: #fff;
   display: block;
   font-size: 34rpx;
 }
 .loginBtnView {
-  margin-bottom:10px;
+  margin-bottom:20rpx;
 }

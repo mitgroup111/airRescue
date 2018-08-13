@@ -1,7 +1,7 @@
 .upload-pic{
-  width: 98px;
-  height: 100px;
-  margin: 3px 0 2px 2px;
+  width: 196rpx;
+  height: 200rpx;
+  margin: 6rpx 0 4rpx 4rpx;
 }
 /*画廊*/
 .img_box {
@@ -11,33 +11,33 @@
 }
 .have_img {    
   position: relative;    
-  margin: 2px;
+  margin: 4rpx;
   width: 32%;
-  height: 100px;
+  height: 200rpx;
 }
 .have_video {    
   position: relative;    
-  margin: 2px;
+  margin: 4rpx;
   width: 48%;
   height: 260rpx;
 }
 .have_img image{
   width: 100%;
   height: 100%;
-  border: 1px solid #ddd;
+  border: 2rpx solid #ddd;
 }
 .have_video video{
   width: 100%;
   height: 100%;
-  border: 1px solid #ddd;
+  border: 2rpx solid #ddd;
 }
 .have_img image.delete_img,
 .have_video image.delete_img {    
   position: absolute;    
-  width: 24px;    
-  height: 24px;
-  right: -2px;  
-  top: -2px;  
+  width: 48rpx;    
+  height: 48rpx;
+  right: -4rpx;  
+  top: -4rpx;  
   border: none;
 }
 .input-box{
@@ -45,10 +45,10 @@
 }
 .fiel-select{
   position: absolute;
-  right: 40px;
-  top: 8px;
-  width: 25px;
-  height: 25px;
+  right: 80rpx;
+  top: 16rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .loginBtnView{
   margin:40rpx 0;

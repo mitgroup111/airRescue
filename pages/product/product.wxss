@@ -1,5 +1,5 @@
 .news-list{
-  margin-bottom: 5px;
+  margin-bottom: 10rpx;
 }
 .news-img {
   height:112rpx;
@@ -11,10 +11,10 @@
 .pro-buy{
   position: absolute;
   right: 0;
-  top: 3px;
+  top: 6rpx;
   background: #e9480c;
-  border-radius: 2px;
-  padding: 3px 10px;
+  border-radius: 4rpx;
+  padding: 6rpx 20rpx;
   font-size: 32rpx;
   color: #fff;
 }

@@ -1,7 +1,7 @@
 /* pages/add_carInfo/add_carInfo.wxss */
 .carPic{
   width: 100%; 
-  height: 220px; 
+  height: 440rpx; 
   background:url(http://www.hems999.com/jsp/images/car.jpg) no-repeat;
-  background-size: 100% 220px;
+  background-size: 100% 440rpx;
 }

@@ -6,7 +6,7 @@
 .art-date{
   color: #888;
   font-size: 32rpx;
-  border-bottom: 1px dotted #eee;
+  border-bottom: 2rpx dotted #eee;
   text-align: center;
   padding: 0 0 6px 0;
 }

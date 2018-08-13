@@ -1,6 +1,6 @@
 {
   "pages":[
-    
+    "pages/modifypassword/modifypassword",
     "pages/index/index",
     "pages/sos/sos",
     "pages/chuangshangfankui/chuangshangfankui",
@@ -36,6 +36,7 @@
     "pages/add_jiankang/add_jiankang",
     "pages/add_jiaren/add_jiaren",
     "pages/add_carInfo/add_carInfo",
+    
     "pages/code/code"
 
   ],
