@@ -23,10 +23,12 @@
     <view>创伤反馈</view>
   </view>
 </view>
-<view bindtap='callme'>
+<view  bindtap='callme'  wx:if="{{hasTel}}" class="index-tel"> 
+  <image src="../../images/indexTel.png"></image>一键呼救 
+</view>  
+<view wx:else>
 <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="index-tel" >
   <image src="../../images/indexTel.png"></image>一键呼救 
 </button>
-  
 </view>
 

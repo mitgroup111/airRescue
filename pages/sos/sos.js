@@ -12,6 +12,7 @@ Page({
       { picUrl: '../../images/banner05.jpg' }
     ],
     swiperCurrent: 0,
+    hasTel:false,
   },
   swiperChange: function (e) {
     this.setData({
@@ -43,6 +44,90 @@ Page({
 
   //一键呼救
   callme: function (e) {
+    //拨打电话
+    wx.makePhoneCall({
+      phoneNumber: '4008591999' //仅为示例，并非真实的电话号码
+    })
+
+    var sosId = wx.getStorageSync("sosId");
+      if (sosId != '') {
+        var that  = this;
+        var timestap = Date.parse(new Date());
+        console.log("timestap:" + timestap);
+        var expiration = wx.getStorageSync('sos_expiration');
+        console.log("expiration:" + expiration);
+        
+        //判断一定时间之内不重复上传sos记录
+        if (expiration < timestap) {
+          console.log("刷新sosId");
+          var latitude = "";
+          var longitude = "";
+          //重新获取sosId
+          wx.getLocation({
+            type: 'wgs84',
+            success: function (res) {
+              latitude = res.latitude;
+              longitude = res.longitude;
+              console.log("latitude:" + latitude);
+              console.log("longitude:" + longitude);
+
+              wx.setStorageSync('latitude', latitude);
+              wx.setStorageSync('longitude', longitude);
+              var emergency_tel = wx.getStorageSync('emergency_tel');
+              console.log("emergency_tel:" + emergency_tel);
+              wx.request({
+                url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+                data: {
+                  latitude: latitude,
+                  longitude: longitude,
+                  tel: wx.getStorageSync('emergency_tel')
+                },
+                header: {
+                  'Content-Type': 'application/json'
+                },
+                success: function (res) {
+                  console.log("一键呼救");
+                  var query_clone = res.data[0];
+                  console.log(query_clone);
+                  if (query_clone.flg == 1) {
+                    wx.setStorageSync('emergency_tel', query_clone.tel);
+                    wx.setStorageSync('sosId', query_clone.sosid);
+               
+                    that.setData({
+                      hasTel: true
+                    })
+                    //设置过期时间为6个钟头
+                    var timestap = Date.parse(new Date());
+                    var expiration = timestap + 10000;//6*3600000;
+                    wx.setStorageSync('sos_expiration', expiration);
+                    wx.showLoading({
+                      title: '一键呼救成功',
+                    })
+
+                    setTimeout(function () {
+                      wx.hideLoading()
+                    }, 2000)
+
+                  } else {
+                    wx.showLoading({
+                      title: query_clone.msg,
+                    })
+
+                    setTimeout(function () {
+                      wx.hideLoading()
+                    }, 2000)
+
+
+                  }
+                }
+              });
+            }
+          })
+          
+        } else{
+
+        }
+      }
 
   },
   /**
@@ -74,11 +159,12 @@ Page({
       var longitude = "";
       var session_key = wx.getStorageSync("session_key");
       var sosId = wx.getStorageSync("sosId");
-      
+      console.log("encryptedData:" + encryptedData);
       //如果sosId为空 上传sos记录
-      // if(sosId == ''){
         var encryptedData = e.detail.encryptedData;
         var iv = e.detail.iv;
+        console.log("iv:" + iv);
+        
         //1、获取当前位置坐标
         wx.getLocation({
           type: 'wgs84',
@@ -87,8 +173,7 @@ Page({
             longitude = res.longitude;
             console.log("latitude:" + latitude);
             console.log("longitude:" + longitude);
-            console.log("encryptedData:" + encryptedData);
-            console.log("iv:" + iv);
+     
             wx.setStorageSync('latitude', latitude);
             wx.setStorageSync('longitude', longitude);
 
@@ -111,6 +196,9 @@ Page({
                 if (query_clone.flg == 1) {
                   wx.setStorageSync('emergency_tel', query_clone.tel);
                   wx.setStorageSync('sosId', query_clone.sosid);
+                  that.setData({
+                    hasTel: true
+                  })
                   //设置过期时间为6个钟头
                   var timestap = Date.parse(new Date());
                   var expiration = timestap + 10000;//6*3600000;
