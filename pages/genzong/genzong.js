@@ -12,7 +12,7 @@ Page({
     var that = this;
 
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       success: function (res) {
         var latitude = res.latitude
         var longitude = res.longitude
@@ -122,7 +122,7 @@ Page({
 
         if (query_clone.flg == 1) {
           wx.getLocation({
-            type: 'wgs84',
+            type: 'gcj02',
             success: function (res) {
               var latitude = res.latitude
               var longitude = res.longitude
