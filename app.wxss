@@ -53,7 +53,7 @@ page{
  position: relative;
 }
 .swiper-container .swiper{
- height: 300rpx;
+ height: 320rpx;
 }
 .swiper-container .swiper .img{
  width: 100%;
