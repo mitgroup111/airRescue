@@ -12,6 +12,14 @@ Page({
       { picUrl: '../../images/banner05.jpg' }
     ],
     swiperCurrent: 0,
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    circular: false,
+    interval: 2000,
+    duration: 500,
+    previousMargin: 0,
+    nextMargin: 0,
     hasTel:false,
   },
   swiperChange: function (e) {
