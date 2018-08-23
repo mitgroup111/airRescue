@@ -78,7 +78,7 @@ Page({
               var emergency_tel = wx.getStorageSync('emergency_tel');
               console.log("emergency_tel:" + emergency_tel);
               wx.request({
-                url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+                url: 'https://www.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
                 data: {
                   latitude: latitude,
                   longitude: longitude,
@@ -173,7 +173,7 @@ Page({
             wx.setStorageSync('longitude', longitude);
 
             wx.request({
-              url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+              url: 'https://www.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
               data: {
                 session_key: session_key,
                 encryptedData: encryptedData,
