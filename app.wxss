@@ -6,6 +6,7 @@
 }
 .fr{
 	float:right;
+  
 }
 .clear{
 	clear:both;
