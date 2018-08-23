@@ -22,6 +22,7 @@ Page({
     nextMargin: 0,
     hasTel:false,
   },
+  
   swiperChange: function (e) {
     this.setData({
       swiperCurrent: e.detail.current
