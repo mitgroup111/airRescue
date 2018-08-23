@@ -9,6 +9,7 @@
 }
 .clear{
 	clear:both;
+  
 }
 .clearfix:after { 
 	content:"\200B"; 
