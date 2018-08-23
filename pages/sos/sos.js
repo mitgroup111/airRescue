@@ -22,6 +22,7 @@ Page({
     nextMargin: 0,
     hasTel:false,
   },
+  
   swiperChange: function (e) {
     this.setData({
       swiperCurrent: e.detail.current
@@ -58,16 +59,10 @@ Page({
     })
 
     var sosId = wx.getStorageSync("sosId");
-      if (sosId != '') {
+
         var that  = this;
-        var timestap = Date.parse(new Date());
-        console.log("timestap:" + timestap);
-        var expiration = wx.getStorageSync('sos_expiration');
-        console.log("expiration:" + expiration);
         
         //判断一定时间之内不重复上传sos记录
-        if (expiration < timestap) {
-          console.log("刷新sosId");
           var latitude = "";
           var longitude = "";
           //重新获取sosId
@@ -84,7 +79,7 @@ Page({
               var emergency_tel = wx.getStorageSync('emergency_tel');
               console.log("emergency_tel:" + emergency_tel);
               wx.request({
-                url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+                url: 'https://www.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
                 data: {
                   latitude: latitude,
                   longitude: longitude,
@@ -104,10 +99,6 @@ Page({
                     that.setData({
                       hasTel: true
                     })
-                    //设置过期时间为6个钟头
-                    var timestap = Date.parse(new Date());
-                    var expiration = timestap + 10000;//6*3600000;
-                    wx.setStorageSync('sos_expiration', expiration);
                     wx.showLoading({
                       title: '一键呼救成功',
                     })
@@ -132,10 +123,6 @@ Page({
             }
           })
           
-        } else{
-
-        }
-      }
 
   },
   /**
@@ -167,9 +154,10 @@ Page({
       var longitude = "";
       var session_key = wx.getStorageSync("session_key");
       var sosId = wx.getStorageSync("sosId");
-      console.log("encryptedData:" + encryptedData);
+      
       //如果sosId为空 上传sos记录
         var encryptedData = e.detail.encryptedData;
+        console.log("encryptedData:" + encryptedData);
         var iv = e.detail.iv;
         console.log("iv:" + iv);
         
@@ -186,7 +174,7 @@ Page({
             wx.setStorageSync('longitude', longitude);
 
             wx.request({
-              url: 'https://teach.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
+              url: 'https://www.hems999.com/weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
               data: {
                 session_key: session_key,
                 encryptedData: encryptedData,
@@ -207,10 +195,6 @@ Page({
                   that.setData({
                     hasTel: true
                   })
-                  //设置过期时间为6个钟头
-                  var timestap = Date.parse(new Date());
-                  var expiration = timestap + 10000;//6*3600000;
-                  wx.setStorageSync('sos_expiration', expiration);
                   wx.showLoading({
                     title: '一键呼救成功',
                   })
