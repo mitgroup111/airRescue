@@ -1,0 +1,28 @@
+<view class="container">   
+  <view class="login-from"> 
+    <form bindsubmit="formSubmit" bindreset="formReset">  
+    <view class="inputView">  
+      <image class="location-img" src="../../images/location_add.png"></image>  
+      <label class="location-label">呼叫方位</label>   
+    </view>  
+    <view class="line"></view>  
+    <view class="inputView location-add">   
+      <view class="jingdu">经度：</view>
+      <view class="weidu">纬度：</view>
+    </view> 
+    <view class="inputView" style="margin-top:20rpx;">  
+      <image class="location-img" src="../../images/location_mphoe.png"></image>  
+      <label class="location-label">手机号</label>   
+    </view>  
+    <view class="line"></view>  
+    <view class="inputView">   
+      <input name="mobile" class="input_block" type="number" maxlength="11" placeholder="请输入手机号" />
+    </view>  
+    
+    <!--按钮-->  
+    <view class="loginBtnView">  
+      <button class="loginBtn" type="primary" formType="submit">提交位置并呼救</button>
+    </view> 
+    </form>
+  </view>  
+</view>  

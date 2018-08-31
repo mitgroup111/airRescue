@@ -1,0 +1,24 @@
+.location-img{
+  width:50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+.location-label{
+  font-size: 32rpx;
+  color: #333;
+}
+.location-add{
+  display: flex;
+  flex-direction:row;
+  font-size: 32rpx;
+  color: #777;
+}
+.jingdu,.weidu{
+  width: 50%;
+  text-align: center;
+}
+.jingdu{
+  border-right: 2rpx solid #ddd;
+}

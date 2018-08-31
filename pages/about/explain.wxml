@@ -1,0 +1,8 @@
+<view class='contentW'>
+  <view class="aboutTitle"><text class="aboutTitleSpan">操作说明：</text></view>
+  <view class="explain-text">1、点击“一键呼救”按钮，呼叫电话告知客服事发现场情况：患者情况、天气情况及周围净空条件（周围高压线、高大建筑物等）；</view>
+<view class="explain-text">2、结束通话返回小程序界面，点击“创伤反馈”按钮，拍摄现场照片、视频及时上传；</view>
+<view class="explain-text">3、后台工作人员根据各项反馈信息评估是否符合派飞条件，及时给予答复；</view>
+<view class="explain-text">4、符合派飞条件下点击“直升机实时追踪”按钮，了解直升机实时位置，等待救援。</view>
+</view>
+

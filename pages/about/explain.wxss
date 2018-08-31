@@ -1,0 +1,6 @@
+.explain-text{
+  color: #777;
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  line-height: 60rpx;
+}
