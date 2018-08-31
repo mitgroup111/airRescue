@@ -111,8 +111,8 @@ Page({
     var emergency_tel = wx.getStorageSync("emergency_tel");
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
-      data: { user_tel:'13181502180' },
+      url: 'https://teach.hems999.com/weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
+      data: { user_tel: emergency_tel },
       header: {
         'Content-Type': 'application/json'
       },
