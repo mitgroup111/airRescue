@@ -77,13 +77,13 @@ Page({
     var sosId = wx.getStorageSync("sosId");
     console.log("uploadVideo pics:" + pics);
     if (sosId == null || sosId == '') {
-      wx.showToast({
+      wx.showModal({
         title: "没有SOS报警记录",
         icon: 'none',
         duration: 2000
       })
     } else if (pics == null || pics == '') {
-      wx.showToast({
+      wx.showModal({
         title: "请选择上传的视频",
         icon: 'none',
         duration: 2000
@@ -105,13 +105,13 @@ Page({
     var sosId = wx.getStorageSync("sosId");
     console.log("uploadVideo pics:" + pics);
     if (sosId == null || sosId == ''){
-      wx.showToast({
+      wx.showModal({
         title: "没有SOS报警记录",
         icon: 'none',
         duration: 2000
       })
     } else if (pics == null || pics == '') {
-      wx.showToast({
+      wx.showModal({
         title: "请选择上传的照片",
         icon: 'none',
         duration: 2000
