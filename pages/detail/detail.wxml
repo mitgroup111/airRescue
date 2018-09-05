@@ -1,11 +1,14 @@
 <import src="../wxParse/wxParse.wxml"/>
 <!--detail.wxml-->
 <view class="contentW">
-  <view class="art-header">
-      <view class="art-title">{{news[0].title}}</view>
-      <view class="art-date">{{news[0].createTimeStr}}</view>
+  <view hidden='{{flag}}'>
+    <view class="art-header">
+        <view class="art-title">{{news[0].title}}</view>
+        <view class="art-date">{{news[0].createTimeStr}}</view>
+    </view>
+    <view class="art-content">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
   </view>
-  <view class="art-content">
-  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-  </view>
+  <view class="loading" hidden='{{!flag}}'>加载中....</view>
 </view> 

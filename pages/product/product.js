@@ -7,7 +7,8 @@ Page({
   data: {
     peaple_list: "",
     test_list: "",
-    family_lsit:""
+    family_lsit:"",
+    flag: true
   },
 
   /**
@@ -29,7 +30,8 @@ Page({
         that.setData({
           peaple_list: query_clone.people,
           test_list: query_clone.test,
-          family_lsit: query_clone.f
+          family_lsit: query_clone.f,
+          flag: false
         });
       }
     });

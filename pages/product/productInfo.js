@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product:""
+    product:"",
+    flag:true
   },
 
   /**
@@ -21,12 +22,14 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        
         console.log("获取产品详细信息");
         var query_clone = res.data[0];
         console.log(res.data[0]);
         console.log(query_clone.product);
         that.setData({
           product: query_clone.product,
+          flag:false
         });
       
       }

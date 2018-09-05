@@ -1,10 +1,12 @@
 <view class='contentW'>
-  <view wx:if="{{product.productName=='全年卡'}}" >
+  <view hidden='{{flag}}'>
+  <view wx:if="{{product.productName=='全年卡'}}"  >
       <image class="about-img" src="http://www.hems999.com/jsp/images/card05.jpg" mode='widthFix'/>
   </view>
   <view wx:else if="{{product.productName=='假日卡'}}">
       <image class="about-img" src="http://www.hems999.com/jsp/images/card06.jpg" mode='widthFix'/>
   </view>
+  
   <view class="product_money">会费：￥{{product.price}}元</view>
   <view class="table">
       <view class="tr">
@@ -28,4 +30,6 @@
       </view>
 
   </view>
+  </view>
+  <view class="loading" hidden='{{!flag}}'>加载中....</view>
 </view>

@@ -1,4 +1,6 @@
-<view class="contentW">
+
+<view hidden='{{flag}}'>
+<view class="contentW"> 
   <!--垂直滚动，这里必须设置高度-->
   <scroll-view  class="list">
   <view class="item"  wx:for="{{new_list}}" >
@@ -23,5 +25,6 @@
    <block wx:if="{{pageTotal == pageNo }}">
     <button type="primary" class="disabled" disabled="true">下一页</button>
   </block>
-
+  </view>
 </view>
+<view class="contentW loading" hidden='{{!flag}}'>加载中....</view>

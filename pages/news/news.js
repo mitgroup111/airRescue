@@ -12,7 +12,8 @@ Page({
     autoplay: true,
     interval: 3000,
     loading: false,
-    plain: false
+    plain: false,
+    flag: true
   },
   /**下一页 */
   loadNext(e) {
@@ -74,7 +75,8 @@ Page({
         that.setData({
           new_list: res.data.content,
           pageNo: res.data.pageNo,
-          pageTotal: res.data.pageTotal
+          pageTotal: res.data.pageTotal,
+          flag: false
         })
         console.log(res.data.pageNo   );
         console.log(res.data.pageTotal);

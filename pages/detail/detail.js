@@ -2,6 +2,7 @@ var WxParse = require('../wxParse/wxParse.js');
 Page({
   data: {
     news: "",
+    flag: true
   },
   onLoad (options) {
     console.log('newsDetail-onLoad')
@@ -13,10 +14,11 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        WxParse.wxParse('article', 'html', res.data[0].content, that, 5);
         that.setData({
           news: res.data,
+          flag: false
         })
-        WxParse.wxParse('article', 'html', res.data[0].content, that, 5);
         console.log(res.data[0].newsId);
       }
     });
