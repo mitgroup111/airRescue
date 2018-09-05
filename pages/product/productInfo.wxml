@@ -1,9 +1,14 @@
 <view class='contentW'>
-  <image class="about-img" src="../../images/card01-2.jpg" mode='widthFix'/>
+  <view wx:if="{{product.productName=='全年卡'}}" >
+      <image class="about-img" src="http://www.hems999.com/jsp/images/card05.jpg" mode='widthFix'/>
+  </view>
+  <view wx:else if="{{product.productName=='假日卡'}}">
+      <image class="about-img" src="http://www.hems999.com/jsp/images/card06.jpg" mode='widthFix'/>
+  </view>
   <view class="product_money">会费：￥{{product.price}}元</view>
   <view class="table">
       <view class="tr">
-          <view class="td textC productTdName">{{product.typeName}}（{{product.productName}}）会员专享权益</view>
+          <view class="td textC productTdName">{{product.productName}}会员专享权益</view>
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">免费服务</view>

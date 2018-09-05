@@ -1,12 +1,16 @@
 .news-list{
   margin-bottom: 10rpx;
 }
+.news-img-view{
+  float: left;
+}
 .news-img {
   height:112rpx;
   margin:0px 20rpx 0px 20rpx;
   width:200rpx;
   border:none;
   padding:0rpx;
+  float:none;
 }
 .pro-buy{
   position: absolute;

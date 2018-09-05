@@ -2,8 +2,14 @@
   <view  class="news-wrp" >
     <view class="news-list clearfix" wx:for="{{peaple_list}}">
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
-      <image class="news-img" src="../../images/card01-2.jpg"/>
-      <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
+      <view wx:if="{{item.productName=='全年卡'}}" class="news-img-view"  >
+          <image class="news-img" src="http://www.hems999.com/jsp/images/card05.jpg"/>
+      </view>
+      <view wx:else="{{item.productName=='假日卡'}}" class="news-img-view" >
+          <image class="news-img" src="http://www.hems999.com/jsp/images/card06.jpg"/>
+      </view>
+      
+      <view class="news-title" >{{item.productName}}</view>
       <view class="news-desc" >{{item.freeService}} </view>
       </navigator>
      <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
