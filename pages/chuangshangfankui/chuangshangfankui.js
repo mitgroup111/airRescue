@@ -129,6 +129,9 @@ Page({
 
   uploadimg: function (data) {
     console.log("上传图片开始");
+    wx.showLoading({
+      title: '上传中请稍后',
+    })
     var that = this,
       i = data.i ? data.i : 0,
       success = data.success ? data.success : 0,
@@ -157,9 +160,7 @@ Page({
         i++;
         if (i == data.path.length) {   //当图片传完时，停止调用
           
-          wx.showLoading({
-            title: '上传成功',
-          })
+         
 
           setTimeout(function () {
             wx.hideLoading()
@@ -176,7 +177,7 @@ Page({
               tempFilePaths: []
             })
           }
-          
+          wx.setStorageSync('sosState', 2);
         } else {//若图片还没有传完，则继续调用函数
           data.i = i;
           data.success = success;
