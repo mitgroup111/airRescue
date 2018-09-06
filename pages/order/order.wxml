@@ -1,4 +1,5 @@
 <view class="contentW">
+<view hidden='{{flag}}'>
 <scroll-view>
   <view class="orderItem" wx:for="{{order_list}}">
     <view class="orderID">订单编号：{{item.orderid}}</view>
@@ -35,4 +36,6 @@
     </view>
   </view>
 </scroll-view>
+</view>
+<view class="loading" hidden='{{!flag}}'>加载中....</view>
 </view>

@@ -5,7 +5,8 @@
    */
   data: {
     order_list:"",
-    sessionId:""
+    sessionId:"",
+    flag:true
   },
 
   /**
@@ -32,7 +33,8 @@
         }
         that.setData({
           flg: res.data[0].flg,
-          order_list: query_clone.orderInfoList
+          order_list: query_clone.orderInfoList,
+          flag: false
         });
       }
     });
