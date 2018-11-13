@@ -69,7 +69,7 @@ Page({
             })
          
               wx.navigateTo({
-                url: '../login/login'
+                url: '../user/user'
               })
           
           }
