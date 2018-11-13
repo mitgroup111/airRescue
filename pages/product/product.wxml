@@ -18,7 +18,7 @@
     </view>
     <view class="news-list clearfix" wx:for="{{family_lsit}}">
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
-      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-img-view" ><image class="news-img" src="../../images/card01-2.jpg"/></view>
       <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
       <view class="news-desc" >{{item.freeService}} </view>
       </navigator>
@@ -27,7 +27,7 @@
     </view>
     <view class="news-list clearfix" wx:for="{{test_list}}">
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
-      <image class="news-img" src="../../images/card01-2.jpg"/>
+      <view class="news-img-view" ><image class="news-img" src="../../images/card01-2.jpg"/></view>
       <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
       <view class="news-desc" >{{item.freeService}} </view>
       </navigator>
