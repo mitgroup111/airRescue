@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '机务（机械ME/电子AV）'
+      title: '急救医生/护士'
     })
   },
 
