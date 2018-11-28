@@ -79,7 +79,7 @@ Page({
       var value = wx.getStorageSync('sessionId');
       //提交
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinRegisterMobile',
+        url: appInstance.globalData.serverUrl +'weixinSmall!weixinRegisterMobile',
         data: {
           Mobile: e.detail.value.mobile,
           password: e.detail.value.password,
@@ -160,7 +160,7 @@ Page({
     var mobile = that.data.mobile;
     console.log("mobile:" + mobile);
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!getMobileCode',
+      url: appInstance.globalData.serverUrl +'weixinSmall!getMobileCode',
       data: {
         mobile: mobile,
       },

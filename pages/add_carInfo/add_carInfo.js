@@ -45,7 +45,7 @@ Page({
         var tempFilePaths = res.tempFilePaths
         console.info("tempFilePaths:" + tempFilePaths[0]);
         wx.uploadFile({
-          url: 'https://www.hems999.com/weixinSmallUpload', //仅为示例，非真实的接口地址  
+          url: appInstance.globalData.serverUrl +'weixinSmallUpload', //仅为示例，非真实的接口地址  
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -223,7 +223,7 @@ Page({
       console.log("保存个人信息orderId:" + orderId);
       console.log("JSON.stringify(formData):" + JSON.stringify(formData));
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!saveCar', //仅为示例，并非真实的接口地址
+        url: appInstance.globalData.serverUrl +'weixinSmall!saveCar', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,

@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
 
   /**
@@ -22,7 +23,7 @@ Page({
  
     console.log("下一页" + (Number(this.data.pageNo) + 1));
     wx.request({
-      url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) + 1),
+      url: app.globalData.serverUrl +'list_weixin?pageNo=' + (Number(this.data.pageNo) + 1),
       headers: {
         'Content-Type': 'application/json'
       },
@@ -43,7 +44,7 @@ Page({
  
     console.log("下一页" + (Number(this.data.pageNo) - 1));
     wx.request({
-      url: 'https://www.hems999.com/list_weixin?pageNo=' + (Number(this.data.pageNo) - 1),
+      url: app.globalData.serverUrl +'list_weixin?pageNo=' + (Number(this.data.pageNo) - 1),
       headers: {
         'Content-Type': 'application/json'
       },
@@ -65,7 +66,7 @@ Page({
     console.log('newsList-onLoad')
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/list_weixin?pageNo=' + options.pageNo, //仅为示例，并非真实的接口地址
+      url: app.globalData.serverUrl +'list_weixin?pageNo=' + options.pageNo, //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json;charset=utf-8',

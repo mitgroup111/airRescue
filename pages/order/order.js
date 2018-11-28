@@ -1,3 +1,4 @@
+var appInstance = getApp();
   Page({
 
   /**
@@ -17,7 +18,7 @@
     var sessionId = wx.getStorageSync("sessionId"); 
     console.log("sessionId:" + sessionId);
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!weixinOrderListNew', //仅为示例，并非真实的接口地址
       data: { sessionId: sessionId },
       header: {
         'Content-Type': 'application/json'

@@ -95,7 +95,7 @@ Page({
     });
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!toMember', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!toMember', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'
@@ -221,7 +221,7 @@ Page({
       var that = this;
       console.log("保存个人信息orderId:" + orderId);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!addMember', //仅为示例，并非真实的接口地址
+        url: appInstance.globalData.serverUrl +'weixinSmall!addMember', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,
@@ -236,7 +236,7 @@ Page({
           if (query_clone.flg == 1) {
             console.log("保存个人信息成功");
             wx.redirectTo({
-              url: '../add_jiankang/add_jiankang?orderId=' + orderId + '&vipNumberId=' + query_clone.vipMemberId
+              url: '../add_jiankang/add_jiankang?orderId=' + orderId + '&vipMemberId=' + query_clone.vipMemberId
             })
           } else {
             console.log("保存个人信息失败");

@@ -1,4 +1,4 @@
-// pages/myjiangli/myjiangli.js
+var appInstance = getApp();
 Page({
 
   /**
@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!jiangliList', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!jiangliList', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'Content-Type': 'application/json'

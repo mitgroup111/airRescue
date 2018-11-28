@@ -67,7 +67,7 @@ Page({
       console.log("password:" + e.detail.value.password);
       
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
+        url: appInstance.globalData.serverUrl +'weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile,
@@ -116,7 +116,7 @@ Page({
     var that = this;
     var sessionId = wx.getStorageSync('sessionId');
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!exit',
+      url: appInstance.globalData.serverUrl +'weixinSmall!exit',
       data: {
         sessionId: sessionId
       },
@@ -144,7 +144,7 @@ Page({
     var that=this;
     console.log("sessionId_transfer:" + sessionId);
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!weixinOrderList', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!weixinOrderList', //仅为示例，并非真实的接口地址
       data: { sessionId: sessionId },
       header: {
         'Content-Type': 'application/json'

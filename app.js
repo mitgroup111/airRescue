@@ -38,7 +38,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    openId:null
+    openId:null,
+    serverUrl: "https://www.hems999.com/"
   },
   //表单验证
   wxValidate: (rules, messages) => new wxValidate(rules, messages)

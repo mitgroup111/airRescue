@@ -1,4 +1,4 @@
-// pages/product/productInfo.js
+var appInstance = getApp();
 Page({
 
   /**
@@ -16,7 +16,7 @@ Page({
     var that = this;
     console.log("options.productId:" + options.productId);
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!toProductInfo', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!toProductInfo', //仅为示例，并非真实的接口地址
       data: { productId: options.productId},
       header: {
         'Content-Type': 'application/json'

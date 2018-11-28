@@ -1,4 +1,4 @@
-  // pages/code/code.js
+var appInstance = getApp();
 Page({
 
   /**
@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.hems999.com/weixinSmall!toCode', //仅为示例，并非真实的接口地址
+      url: appInstance.globalData.serverUrl +'weixinSmall!toCode', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
       header: {
         'Content-Type': 'application/json'

@@ -1,4 +1,4 @@
-// pages/chuangshangfankui/chuangshangfankui.js
+var appInstance = getApp();
 Page({
 
   /**
@@ -91,7 +91,7 @@ Page({
     } else {
       //调用上传图片的具体实现
       this.uploadimg({
-        url: 'https://www.hems999.com/weixinSmall!uploadSosVideo',
+        url: appInstance.globalData.serverUrl +'weixinSmall!uploadSosVideo',
         path: pics,//这里是选取的图片的地址数组
         id: sosId,
         inputType:"uploadVideo",
@@ -119,7 +119,7 @@ Page({
     } else{
       //调用上传图片的具体实现
       this.uploadimg({
-        url: 'https://www.hems999.com/weixinSmall!uploadSosPhoto',
+        url: appInstance.globalData.serverUrl +'weixinSmall!uploadSosPhoto',
         path: pics,//这里是选取的图片的地址数组
         id: sosId,
         inputType:"upload",

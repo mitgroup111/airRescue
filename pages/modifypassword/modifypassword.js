@@ -62,7 +62,7 @@ Page({
       var value = wx.getStorageSync('sessionId');
       //提交
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!modify_password',
+        url: appInstance.globalData.serverUrl +'weixinSmall!modify_password',
         data: {
           old_password: e.detail.value.old_password,
           password: e.detail.value.password,

@@ -56,7 +56,7 @@ Page({
       console.log("userName:" + e.detail.value.mobile);
       console.log("password:" + e.detail.value.password);
       wx.request({
-        url: 'https://www.hems999.com/weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
+        url: appInstance.globalData.serverUrl +'weixinSmall!weixinLogin', //仅为示例，并非真实的接口地址
         data: {
           "sessionId": value,
           "userName": e.detail.value.mobile
