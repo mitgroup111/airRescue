@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/sos/sos",
-    "pages/index/index",
     
+    "pages/index/index",
+    "pages/sos/sos",
     "pages/chuangshangfankui/chuangshangfankui",
     "pages/genzong/genzong",
     "pages/about/jieshao",
