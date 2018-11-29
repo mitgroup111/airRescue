@@ -7,8 +7,8 @@
     </view>  
     <view class="line"></view>  
     <view class="inputView location-add">   
-      <view class="jingdu">经度：</view>
-      <view class="weidu">纬度：</view>
+      <view class="jingdu">经度：{{longitude}}</view>
+      <view class="weidu">纬度：{{latitude}}</view>
     </view> 
     <view class="inputView" style="margin-top:20rpx;">  
       <image class="location-img" src="../../images/location_mphoe.png"></image>  
@@ -16,7 +16,7 @@
     </view>  
     <view class="line"></view>  
     <view class="inputView">   
-      <input name="mobile" class="input_block" type="number" maxlength="11" placeholder="请输入手机号" />
+      <input name="mobile" class="input_block" type="number" value='{{emergency_tel}}' maxlength="11" placeholder="请输入手机号" />
     </view>  
     
     <!--按钮-->  

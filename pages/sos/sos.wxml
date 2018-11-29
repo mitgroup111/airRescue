@@ -1,29 +1,16 @@
-<view class="swiper-container">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" class="swiper" indicator-color="#fff" indicator-active-color="#e9480c">
-        <block wx:for="{{slider}}" wx:key="*this">
-          <swiper-item>
-            <image src="{{item.picUrl}}" class="img"></image>
-          </swiper-item>
-        </block>
-      </swiper>
-</view>
-<view class="modal-list">
-  <view class="zhishengji" bindtap='zhishengji'>
-    <image src="../../images/sos01.png" class="modal-img"></image>
-    <view>直升机实时追踪</view>
-  </view>
-  <view class="fankui" bindtap='fankui'>
-    <image src="../../images/sos02.png" class="modal-img"></image>
-    <view>创伤反馈</view>
+<view class="container">  
+  <view class="genzong">
+    <map
+      id="myMap"
+      style="width: 100%; height: 100%;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      scale="{{scale}}"
+      controls='{{controls}}'
+      bindcontroltap="controltap"
+      show-location
+    ></map>
   </view>
 </view>
-<view  bindtap='callme'  wx:if="{{hasTel}}" class="index-tel"> 
-  <image src="../../images/indexTel.png"></image>一键呼救 
-</view>  
-<view wx:else>
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="index-tel" >
-  <image src="../../images/indexTel.png"></image>一键呼救 
-</button>
-</view>
-

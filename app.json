@@ -1,8 +1,8 @@
 {
   "pages":[
-    
-    "pages/index/index",
     "pages/sos/sos",
+    "pages/index/index",
+    
     "pages/chuangshangfankui/chuangshangfankui",
     "pages/genzong/genzong",
     "pages/about/jieshao",
@@ -37,7 +37,7 @@
     "pages/add_jiankang/add_jiankang",
     "pages/add_jiaren/add_jiaren",
     "pages/add_carInfo/add_carInfo",
-    "pages/location/location",
+    "pages/sosInfo/sosInfo",
     "pages/about/explain",
     "pages/code/code"
 

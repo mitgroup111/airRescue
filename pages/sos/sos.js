@@ -1,237 +1,118 @@
 var appInstance = getApp();
-var qqmap = require('../../utils/qqmap-wx-jssdk.min.js');
+var windowW, windowH;
 Page({
-  /**
-   * 页面的初始数据
-   */
+
   data: {
-    slider: [
-      { picUrl: '../../images/banner01.jpg' },
-      { picUrl: '../../images/banner02.jpg' },
-      { picUrl: '../../images/banner03.jpg' },
-      { picUrl: '../../images/banner04.jpg' },
-      { picUrl: '../../images/banner05.jpg' }
-    ],
-    swiperCurrent: 0,
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    circular: false,
-    interval: 2000,
-    duration: 500,
-    previousMargin: 0,
-    nextMargin: 0,
-    hasTel:false,
+    latitude: "",
+    longitude: "",
+    setInter: '',
   },
-  
-  swiperChange: function (e) {
-    this.setData({
-      swiperCurrent: e.detail.current
+
+  onLoad: function () {
+    console.log("----onLoad ----");
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        console.log("经纬度：" + longitude + " " + latitude)
+        that.setData({
+          latitude: latitude.toFixed(5),
+          longitude: longitude.toFixed(5),
+          scale: 12,
+          markers: [{
+            id: 1,
+            latitude: latitude,
+            longitude: longitude,
+            iconPath: '/images/hujiu.png'
+          }],
+          setInter: setInterval(function () {
+            console.log("---timer----");
+            that.getPlaneMarker();
+          }, 10000)
+        })
+
+        that.mapCtx = wx.createMapContext('myMap');
+        that.getPlaneMarker();
+        wx.setStorageSync('latitude', latitude.toFixed(5));
+        wx.setStorageSync('longitude', longitude.toFixed(5));
+      }
+    })
+    wx.getSystemInfo({
+      success: function (res) {
+        windowW = res.windowWidth;
+        windowH = res.windowHeight;
+        that.setData({
+          controls: [{
+            id: 1,
+            iconPath: '/images/location_hujiu.png',
+            position: {
+              left: (windowW - 280) / 2,
+              top: windowH - 200,
+              width: 140,
+              height: 140
+            },
+            clickable: true
+          }, {
+            id: 2,
+            iconPath: '/images/location_chuangshang.png',
+            position: {
+              left: (windowW - 280) / 2 + 140,
+              top: windowH - 200,
+              width: 140,
+              height: 140
+            },
+            clickable: true
+          }]
+        })
+      },
+    })
+    wx.getSystemInfo({
+      success: function (res) {
+        //设置map高度，根据当前设备宽高满屏显示
+        that.setData({
+          view: {
+            Height: res.windowHeight
+          }
+
+        })
+      }
     })
   },
   //创伤反馈
   fankui: function (e) {
-    var sosId =  wx.getStorageSync("sosId");
-    console.log("sosId:" + sosId );
-    if (sosId == null || sosId == ''){
+    var sosId = wx.getStorageSync("sosId");
+    console.log("sosId:" + sosId);
+    if (sosId == null || sosId == '') {
       wx.showToast({
         title: "反馈前先呼救",
         icon: 'none',
         duration: 2000
       })
-    } else{
+    } else {
       wx.navigateTo({
         url: '../chuangshangfankui/chuangshangfankui'
       });
     }
   },
-  //直升机实时追踪
-  zhishengji: function (e) {
-    wx.navigateTo({
-      url: '../genzong/genzong'
-    });
-  },
-
-  //一键呼救
-  callme: function (e) {
-    //拨打电话
-    wx.makePhoneCall({
-      phoneNumber: '4008591999' //仅为示例，并非真实的电话号码
-    })
-
-    var sosId = wx.getStorageSync("sosId");
-
-        var that  = this;
-        
-        //判断一定时间之内不重复上传sos记录
-          var latitude = "";
-          var longitude = "";
-          //重新获取sosId
-          wx.getLocation({
-            type: 'wgs84',
-            success: function (res) {
-              latitude = res.latitude;
-              longitude = res.longitude;
-              console.log("latitude:" + latitude);
-              console.log("longitude:" + longitude);
-
-              wx.setStorageSync('latitude', latitude);
-              wx.setStorageSync('longitude', longitude);
-              var emergency_tel = wx.getStorageSync('emergency_tel');
-              console.log("emergency_tel:" + emergency_tel);
-              wx.request({
-                url: appInstance.globalData.serverUrl +'weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
-                data: {
-                  latitude: latitude,
-                  longitude: longitude,
-                  tel: wx.getStorageSync('emergency_tel')
-                },
-                header: {
-                  'Content-Type': 'application/json'
-                },
-                success: function (res) {
-                  console.log("一键呼救");
-                  var query_clone = res.data[0];
-                  console.log(query_clone);
-                  if (query_clone.flg == 1) {
-                    wx.setStorageSync('emergency_tel', query_clone.tel);
-                    wx.setStorageSync('sosId', query_clone.sosid);
-               
-                    that.setData({
-                      hasTel: true
-                    })
-                    wx.showLoading({
-                      title: '一键呼救成功',
-                    })
-
-                    setTimeout(function () {
-                      wx.hideLoading()
-                    }, 2000)
-
-                  } else {
-                    wx.showLoading({
-                      title: query_clone.msg,
-                    })
-
-                    setTimeout(function () {
-                      wx.hideLoading()
-                    }, 2000)
-
-
-                  }
-                }
-              });
-            }
-          })
-          
-
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
-    //页面初始时候 如果sosId有值 判断过期时间 到了清空sosId的值
-
-
-    // // 实例化腾讯地图API核心类
-    // var qqmapsdk = new qqmap({
-    //   key: 'QK5BZ-D7LLO-MKOWG-SKJBE-Q6TD6-4NBTO' // 必填
-    // });
-   
-  },
-
-  getPhoneNumber: function (e) {
-    var that  = this;
-    console.log(e.detail.errMsg);
-    var errStr = e.detail.errMsg;
-    //同意获取用户信息进行呼叫
-    if (errStr =='getPhoneNumber:ok'){
-      //拨打电话
-      wx.makePhoneCall({
-        phoneNumber: '4008591999' //仅为示例，并非真实的电话号码
-      })
-      var latitude = "";
-      var longitude = "";
-      var session_key = wx.getStorageSync("session_key");
-      var sosId = wx.getStorageSync("sosId");
-      
-      //如果sosId为空 上传sos记录
-        var encryptedData = e.detail.encryptedData;
-        console.log("encryptedData:" + encryptedData);
-        var iv = e.detail.iv;
-        console.log("iv:" + iv);
-        
-        //1、获取当前位置坐标
-        wx.getLocation({
-          type: 'wgs84',
-          success: function (res) {
-            latitude = res.latitude;
-            longitude = res.longitude;
-            console.log("latitude:" + latitude);
-            console.log("longitude:" + longitude);
-     
-            wx.setStorageSync('latitude', latitude);
-            wx.setStorageSync('longitude', longitude);
-
-            wx.request({
-              url: appInstance.globalData.serverUrl +'weixinSmall!oneKeyNew', //仅为示例，并非真实的接口地址
-              data: {
-                session_key: session_key,
-                encryptedData: encryptedData,
-                iv: iv,
-                latitude: latitude,
-                longitude: longitude
-              },
-              header: {
-                'Content-Type': 'application/json'
-              },
-              success: function (res) {
-                console.log("一键呼救");
-                var query_clone = res.data[0];
-                console.log(query_clone);
-                if (query_clone.flg == 1) {
-                  wx.setStorageSync('emergency_tel', query_clone.tel);
-                  wx.setStorageSync('sosId', query_clone.sosid);
-                  that.setData({
-                    hasTel: true
-                  })
-                  wx.showLoading({
-                    title: '一键呼救成功',
-                  })
-
-                  setTimeout(function () {
-                    wx.hideLoading()
-                  }, 2000)
-                 
-                } else {
-                  wx.showLoading({
-                    title: query_clone.msg,
-                  })
-
-                  setTimeout(function () {
-                    wx.hideLoading()
-                  }, 2000)
-
-                 
-                }
-              }
-            });
-          }
-        })
-
-      // }
-
-    
-    } else{
-
-      wx.showToast({
-        title: '需要授权后实施救援',
-        icon: 'none',
-        duration: 2000
-      })
+  //事件的处理方法
+  controltap(e) {
+    switch (e.controlId) {
+      case 1:
+        wx.navigateTo({
+          url: '../sosInfo/sosInfo'
+        });
+        break;
+      case 2:
+        this.fankui();
+        break;
+      case 3:
+        this.scanCode();
+        break;
+      default: break;
     }
-  } ,
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -245,7 +126,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '九九九空中救护'
+      title: '直升机实时跟踪'
     })
   },
 
@@ -253,21 +134,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    // var sosId = wx.getStorageSync("sosId");
-    // if (sosId != '') {
-    //   var timestap = Date.parse(new Date());
-    //   var expiration = wx.getStorageSync('sos_expiration');
-    //   if (expiration > timestap) {
-    //     wx.setStorageSync('sosId', '');
-    //   }
-    // }
+    console.log("----onHide ----");
+    var that = this;
+    clearInterval(that.data.setInter)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log("----onUnload ----");
+    
   },
 
   /**
@@ -289,5 +166,74 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  //飞机定位
+  getPlaneMarker: function () {
+    var emergency_tel = wx.getStorageSync("emergency_tel");
+    var that = this;
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
+      data: { user_tel: emergency_tel },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取飞机定位信息");
+        var query_clone = res.data[0];
+
+        if (query_clone.flg == 1) {
+          wx.getLocation({
+            type: 'gcj02',
+            success: function (res) {
+              var latitude = res.latitude
+              var longitude = res.longitude
+              that.setData({
+                latitude: latitude,
+                longitude: longitude,
+                scale: 12,
+                markers: [{
+                  id: 1,
+                  latitude: latitude,
+                  longitude: longitude,
+                  iconPath: '/images/hujiu.png',
+                }, {
+                  id: 2,
+                  latitude: query_clone.puinfos.lat,
+                  longitude: query_clone.puinfos.lng,
+                  iconPath: '/images/plain.gif',
+                }]
+              })
+
+              wx.showLoading({
+                title: '飞机来了',
+              })
+
+              setTimeout(function () {
+                wx.hideLoading()
+              }, 2000)
+
+
+              that.mapCtx = wx.createMapContext('myMap');
+            }
+          });
+
+          that.data.setInter;
+        } else {
+
+          wx.showLoading({
+            title: '飞机等待起飞',
+          })
+
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 2000)
+
+          that.data.setInter;
+        }
+
+      }
+    });
   }
 })
+
