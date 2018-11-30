@@ -10,6 +10,56 @@ Page({
 
   onLoad: function () {
     console.log("----onLoad ----");
+    
+  },
+  //创伤反馈
+  fankui: function (e) {
+    var sosId = wx.getStorageSync("sosId");
+    console.log("sosId:" + sosId);
+    if (sosId == null || sosId == '') {
+      wx.showToast({
+        title: "反馈前先呼救",
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      wx.navigateTo({
+        url: '../chuangshangfankui/chuangshangfankui'
+      });
+    }
+  },
+  //事件的处理方法
+  controltap(e) {
+    switch (e.controlId) {
+      case 1:
+        wx.navigateTo({
+          url: '../sosInfo/sosInfo'
+        });
+        break;
+      case 2:
+        this.fankui();
+        break;
+      case 3:
+        this.scanCode();
+        break;
+      default: break;
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '直升机实时跟踪'
+    })
     var that = this;
     wx.getLocation({
       type: 'gcj02',
@@ -78,55 +128,6 @@ Page({
 
         })
       }
-    })
-  },
-  //创伤反馈
-  fankui: function (e) {
-    var sosId = wx.getStorageSync("sosId");
-    console.log("sosId:" + sosId);
-    if (sosId == null || sosId == '') {
-      wx.showToast({
-        title: "反馈前先呼救",
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-      wx.navigateTo({
-        url: '../chuangshangfankui/chuangshangfankui'
-      });
-    }
-  },
-  //事件的处理方法
-  controltap(e) {
-    switch (e.controlId) {
-      case 1:
-        wx.navigateTo({
-          url: '../sosInfo/sosInfo'
-        });
-        break;
-      case 2:
-        this.fankui();
-        break;
-      case 3:
-        this.scanCode();
-        break;
-      default: break;
-    }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '直升机实时跟踪'
     })
   },
 
