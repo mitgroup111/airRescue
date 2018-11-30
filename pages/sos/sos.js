@@ -173,68 +173,71 @@ Page({
   getPlaneMarker: function () {
     var emergency_tel = wx.getStorageSync("emergency_tel");
     var that = this;
-    wx.request({
-      url: appInstance.globalData.serverUrl + 'weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
-      data: { user_tel: emergency_tel },
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log("获取飞机定位信息");
-        var query_clone = res.data[0];
+    if (emergency_tel) {
+      wx.request({
+        url: appInstance.globalData.serverUrl + 'weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
+        data: { user_tel: emergency_tel },
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log("获取飞机定位信息");
+          var query_clone = res.data[0];
 
-        if (query_clone.flg == 1) {
-          wx.getLocation({
-            type: 'gcj02',
-            success: function (res) {
-              var latitude = res.latitude
-              var longitude = res.longitude
-              that.setData({
-                latitude: latitude,
-                longitude: longitude,
-                scale: 12,
-                markers: [{
-                  id: 1,
+          if (query_clone.flg == 1) {
+            wx.getLocation({
+              type: 'gcj02',
+              success: function (res) {
+                var latitude = res.latitude
+                var longitude = res.longitude
+                that.setData({
                   latitude: latitude,
                   longitude: longitude,
-                  iconPath: '/images/hujiu.png',
-                }, {
-                  id: 2,
-                  latitude: query_clone.puinfos.lat,
-                  longitude: query_clone.puinfos.lng,
-                  iconPath: '/images/plain.gif',
-                }]
-              })
+                  scale: 12,
+                  markers: [{
+                    id: 1,
+                    latitude: latitude,
+                    longitude: longitude,
+                    iconPath: '/images/hujiu.png',
+                  }, {
+                    id: 2,
+                    latitude: query_clone.puinfos.lat,
+                    longitude: query_clone.puinfos.lng,
+                    iconPath: '/images/plain.gif',
+                  }]
+                })
 
-              wx.showLoading({
-                title: '飞机来了',
-              })
+                wx.showLoading({
+                  title: '飞机来了',
+                })
 
-              setTimeout(function () {
-                wx.hideLoading()
-              }, 2000)
+                setTimeout(function () {
+                  wx.hideLoading()
+                }, 2000)
 
 
-              that.mapCtx = wx.createMapContext('myMap');
-            }
-          });
+                that.mapCtx = wx.createMapContext('myMap');
+              }
+            });
 
-          that.data.setInter;
-        } else {
+            that.data.setInter;
+          } else {
 
-          wx.showLoading({
-            title: '飞机等待起飞',
-          })
+            wx.showLoading({
+              title: '飞机等待起飞',
+            })
 
-          setTimeout(function () {
-            wx.hideLoading()
-          }, 2000)
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
 
-          that.data.setInter;
+            that.data.setInter;
+          }
+
         }
-
-      }
-    });
+      });
+  }
+   
   }
 })
 
