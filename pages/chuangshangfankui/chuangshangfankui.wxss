@@ -20,6 +20,7 @@
   margin: 4rpx;
   width: 48%;
   height: 260rpx;
+  overflow: hidden;
 }
 .have_img image{
   width: 100%;
