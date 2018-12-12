@@ -60,6 +60,16 @@ Page({
     wx.setNavigationBarTitle({
       title: '直升机实时跟踪'
     })
+    var sosId = wx.getStorageSync("sosId");
+    console.log("sosId:" + sosId);
+    if (sosId != '') {
+      var timestap = Date.parse(new Date());
+      var expiration = wx.getStorageSync("sos_expiration");
+      console.log("============:" + timestap + "++++" + expiration)
+      if (expiration < timestap) {
+        wx.setStorageSync("sosId", "")
+      }
+    }
     var that = this;
     wx.getLocation({
       type: 'gcj02',

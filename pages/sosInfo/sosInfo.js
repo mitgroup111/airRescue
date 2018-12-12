@@ -75,6 +75,9 @@ Page({
         },
         success: function (res) {
           console.log("一键呼救");
+          var timestap = Date.parse(new Date());
+          var expiration = timestap + 6*60*60*1000;//6*3600000; 
+          wx.setStorageSync('sos_expiration',expiration); 
           var query_clone = res.data[0];
           console.log(query_clone);
           if (query_clone.flg == 1) {
