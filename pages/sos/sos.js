@@ -10,6 +10,56 @@ Page({
 
   onLoad: function () {
     console.log("----onLoad ----");
+    
+  },
+  //创伤反馈
+  fankui: function (e) {
+    var sosId = wx.getStorageSync("sosId");
+    console.log("sosId:" + sosId);
+    if (sosId == null || sosId == '') {
+      wx.showToast({
+        title: "反馈前先呼救",
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      wx.navigateTo({
+        url: '../chuangshangfankui/chuangshangfankui'
+      });
+    }
+  },
+  //事件的处理方法
+  controltap(e) {
+    switch (e.controlId) {
+      case 1:
+        wx.navigateTo({
+          url: '../sosInfo/sosInfo'
+        });
+        break;
+      case 2:
+        this.fankui();
+        break;
+      case 3:
+        this.scanCode();
+        break;
+      default: break;
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '直升机实时跟踪'
+    })
     var that = this;
     wx.getLocation({
       type: 'gcj02',
@@ -80,55 +130,6 @@ Page({
       }
     })
   },
-  //创伤反馈
-  fankui: function (e) {
-    var sosId = wx.getStorageSync("sosId");
-    console.log("sosId:" + sosId);
-    if (sosId == null || sosId == '') {
-      wx.showToast({
-        title: "反馈前先呼救",
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-      wx.navigateTo({
-        url: '../chuangshangfankui/chuangshangfankui'
-      });
-    }
-  },
-  //事件的处理方法
-  controltap(e) {
-    switch (e.controlId) {
-      case 1:
-        wx.navigateTo({
-          url: '../sosInfo/sosInfo'
-        });
-        break;
-      case 2:
-        this.fankui();
-        break;
-      case 3:
-        this.scanCode();
-        break;
-      default: break;
-    }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '直升机实时跟踪'
-    })
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -172,68 +173,71 @@ Page({
   getPlaneMarker: function () {
     var emergency_tel = wx.getStorageSync("emergency_tel");
     var that = this;
-    wx.request({
-      url: appInstance.globalData.serverUrl + 'weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
-      data: { user_tel: emergency_tel },
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log("获取飞机定位信息");
-        var query_clone = res.data[0];
+    if (emergency_tel) {
+      wx.request({
+        url: appInstance.globalData.serverUrl + 'weixinSmall!getPlaneMarker', //仅为示例，并非真实的接口地址
+        data: { user_tel: emergency_tel },
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log("获取飞机定位信息");
+          var query_clone = res.data[0];
 
-        if (query_clone.flg == 1) {
-          wx.getLocation({
-            type: 'gcj02',
-            success: function (res) {
-              var latitude = res.latitude
-              var longitude = res.longitude
-              that.setData({
-                latitude: latitude,
-                longitude: longitude,
-                scale: 12,
-                markers: [{
-                  id: 1,
+          if (query_clone.flg == 1) {
+            wx.getLocation({
+              type: 'gcj02',
+              success: function (res) {
+                var latitude = res.latitude
+                var longitude = res.longitude
+                that.setData({
                   latitude: latitude,
                   longitude: longitude,
-                  iconPath: '/images/hujiu.png',
-                }, {
-                  id: 2,
-                  latitude: query_clone.puinfos.lat,
-                  longitude: query_clone.puinfos.lng,
-                  iconPath: '/images/plain.gif',
-                }]
-              })
+                  scale: 12,
+                  markers: [{
+                    id: 1,
+                    latitude: latitude,
+                    longitude: longitude,
+                    iconPath: '/images/hujiu.png',
+                  }, {
+                    id: 2,
+                    latitude: query_clone.puinfos.lat,
+                    longitude: query_clone.puinfos.lng,
+                    iconPath: '/images/plain.gif',
+                  }]
+                })
 
-              wx.showLoading({
-                title: '飞机来了',
-              })
+                wx.showLoading({
+                  title: '飞机来了',
+                })
 
-              setTimeout(function () {
-                wx.hideLoading()
-              }, 2000)
+                setTimeout(function () {
+                  wx.hideLoading()
+                }, 2000)
 
 
-              that.mapCtx = wx.createMapContext('myMap');
-            }
-          });
+                that.mapCtx = wx.createMapContext('myMap');
+              }
+            });
 
-          that.data.setInter;
-        } else {
+            that.data.setInter;
+          } else {
 
-          wx.showLoading({
-            title: '飞机等待起飞',
-          })
+            wx.showLoading({
+              title: '飞机等待起飞',
+            })
 
-          setTimeout(function () {
-            wx.hideLoading()
-          }, 2000)
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 2000)
 
-          that.data.setInter;
+            that.data.setInter;
+          }
+
         }
-
-      }
-    });
+      });
+  }
+   
   }
 })
 
