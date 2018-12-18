@@ -1,7 +1,7 @@
 <view class='contentW'>
   <text class='aboutInfo'>◆每个基地间隔距离在<text class="aboutInfoSpan">100-150</text>公里处；</text>
 <text class='aboutInfo'>◆设立近<text class="aboutInfoSpan">70</text>个救援基地，近<text class="aboutInfoSpan">70</text>架以空客H125/H130/H135为主流机型的直升机机队</text>
-<text class='aboutInfo'>每架直升机上配置除颤仪、呼吸机、吸引器、输液泵等急救医疗设备和担架，及多名急救医师护师等医疗机组成员；</text>
+<text class='aboutInfo'> 每架直升机上配置除颤仪、呼吸机、吸引器、输液泵等急救医疗设备和担架，及两名医护人员；</text>
 <image class="about-img" src="http://www.hems999.com/jsp/images/xm3.jpg" mode='widthFix'/>
 <image class="about-img" src="http://www.hems999.com/jsp/images/jd1.jpg" mode='widthFix'/>
 <image class="about-img" src="http://www.hems999.com/jsp/images/jd2.jpg" mode='widthFix'/>

@@ -36,7 +36,7 @@
   <view class="list-list">
     <navigator url="../about/yiyuan"   hover-class="hoverClass">
         <image class="list-img" src="http://www.hems999.com/mobile//images/list05.png"/>
-        <view  class="list-title" >  合作医院  </view>
+        <view  class="list-title" >  服务环境  </view>
     </navigator>
   </view>
   <view class="list-list">

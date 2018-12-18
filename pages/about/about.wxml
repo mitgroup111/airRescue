@@ -1,6 +1,6 @@
 <view class='contentW'>
   <view class="aboutTitle"><text class="aboutTitleSpan">空中救护定义</text></view>
-  <text class="aboutInfo">空中救护（Helicopter Emergency Medical Service）简称HEMS，也称为直升机紧急医疗服务，是指经过永久性专业的医疗改装后专门用于承运病情危重和受伤严重的病患的飞行器。空中救护车也被视为一个空中的抢救室或是飞行中的重症监护室，因此也常被称为空中ICU。（ICU：是英文Intensive Care Unit的缩写，意为重症加强护理病房。）</text>
+  <text class="aboutInfo">空中救护（Helicopter Emergency Medical Service）简称HEMS，也称为直升机紧急医疗服务，是指经过专业医疗改装后专门用于承运病情危重和受伤严重的病患的飞行器。空中救护车也被视为一个空中的抢救室或是飞行中的重症监护室，因此也常被称为空中ICU。（ICU：是英文Intensive Care Unit的缩写，意为重症加强护理病房。）</text>
   <text class="aboutInfo">空中救护车主要是用来在紧急情况下转运那些因地面急救车不能及时和安全运送的危重病患和地面急救车无法完成的医疗运送，以及转运那些因受当地医疗条件限制，医院或诊所（医疗机构）无法继续治疗或完全治愈的病患。同时，空中救护车不受地理条件的限制，不仅可以进行地区性的转运，而且可以进行国际间的空中医疗救护转运。</text>
 <image class="about-img" src="http://www.hems999.com/jsp/images/jh1.jpg" mode='widthFix'/>
 <view class="aboutTitle"><text class="aboutTitleSpan">空中救护运营模式</text></view>
