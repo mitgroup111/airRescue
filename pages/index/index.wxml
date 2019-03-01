@@ -40,12 +40,6 @@
     </navigator>
   </view>
   <view class="list-list">
-    <navigator url="../about/lingdao"  hover-class="hoverClass">
-        <image class="list-img" src="http://www.hems999.com/mobile//images/list06.png"/>
-        <view  class="list-title" >领导专家支持</view>
-    </navigator>
-  </view>
-  <view class="list-list">
     <navigator url="../about/liucheng"  hover-class="hoverClass">
         <image class="list-img" src="http://www.hems999.com/mobile//images/list07.png"/>
         <view  class="list-title" >服务流程</view>
