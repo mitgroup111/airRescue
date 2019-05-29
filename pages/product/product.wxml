@@ -6,8 +6,11 @@
       <view wx:if="{{item.productName=='全年卡'}}" class="news-img-view"  >
           <image class="news-img" src="http://www.hems999.com/jsp/images/card05.jpg"/>
       </view>
-      <view wx:else="{{item.productName=='假日卡'}}" class="news-img-view" >
+      <view wx:elif="{{item.productName=='假日卡'}}" class="news-img-view" >
           <image class="news-img" src="http://www.hems999.com/jsp/images/card06.jpg"/>
+      </view>
+      <view wx:else class="news-img-view" >
+          <image class="news-img" src="http://www.hems999.com/jsp/images/jxk.jpg"/>
       </view>
       
       <view class="news-title" >{{item.productName}}</view>
