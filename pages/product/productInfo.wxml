@@ -1,16 +1,7 @@
 <view class='contentW'>
   <view hidden='{{flag}}'>
-  <view wx:if="{{product.productName=='全年卡'}}"  >
-      <image class="about-img" src="http://www.hems999.com/jsp/images/card05.jpg" mode='widthFix'/>
-  </view>
-  <view wx:if="{{product.productName=='假日卡'}}">
-      <image class="about-img" src="http://www.hems999.com/jsp/images/card06.jpg" mode='widthFix'/>
-  </view>
-  <view wx:if="{{product.typeName=='测试产品'}}">
-      <image class="about-img" src="http://www.hems999.com/jsp/images/cscp.jpg" mode='widthFix'/>
-  </view>
-  <view wx:else>
-      <image class="about-img" src="http://www.hems999.com/jsp/images/jxk.jpg" mode='widthFix'/>
+  <view>
+      <image class="about-img" src="http://www.hems999.com{{product.imgPath}}" mode='widthFix'/>
   </view>
   <view class="product_money">会费：￥{{product.price}}元</view>
   <view class="table">
