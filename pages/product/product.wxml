@@ -1,5 +1,4 @@
 <view class='contentW'>
-  <view hidden='{{flag}}'>
   <view  class="news-wrp" >
     <view class="news-list clearfix" wx:for="{{peaple_list}}">
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
@@ -31,6 +30,4 @@
      <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
     </view>
   </view>
-  </view>
-  <view class="loading" hidden='{{!flag}}'>加载中....</view>
 </view>
