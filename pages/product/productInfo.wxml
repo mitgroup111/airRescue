@@ -1,3 +1,4 @@
+<import src="../wxParse/wxParse.wxml"/>
 <view class='contentW'>
   <view hidden='{{flag}}'>
   <view>
@@ -10,7 +11,7 @@
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">免费服务</view>
-          <view class="td textL">{{product.freeService}}</view>
+          <view class="td textL"> <template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">会员服务说明</view>

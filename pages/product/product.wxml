@@ -6,7 +6,7 @@
           <image class="news-img" src="http://www.hems999.com{{item.imgPath}}"/>
       </view>
       <view class="news-title" >{{item.productName}}</view>
-      <view class="news-desc" >{{item.freeService}} </view>
+      <view class="news-desc" >{{item.freeServiceWeixin}} </view>
       </navigator>
      <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
      <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
@@ -15,7 +15,7 @@
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
       <view class="news-img-view" ><image class="news-img" src="http://www.hems999.com/jsp/images/cscp.jpg"/></view>
       <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
-      <view class="news-desc" >{{item.freeService}} </view>
+      <view class="news-desc" >{{item.freeServiceWeixin}} </view>
       </navigator>
      <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
      <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
@@ -24,7 +24,7 @@
       <navigator url="productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
       <view class="news-img-view" ><image class="news-img" src="http://www.hems999.com/jsp/images/cscp.jpg"/></view>
       <view class="news-title" >{{item.typeName}} {{item.productName}}</view>
-      <view class="news-desc" >{{item.freeService}} </view>
+      <view class="news-desc" >{{item.freeServiceWeixin}} </view>
       </navigator>
      <!--<navigator class="pro-buy" url="../product/productList?productId={{item.productId}}">立即购买</navigator>-->
      <navigator class="pro-buy" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>

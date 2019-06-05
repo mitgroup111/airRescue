@@ -1,3 +1,4 @@
+var WxParse = require('../wxParse/wxParse.js');
 var appInstance = getApp();
 Page({
 
@@ -22,7 +23,7 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        
+        WxParse.wxParse('article', 'html', res.data[0].product.freeService, that, 5);
         console.log("获取产品详细信息");
         var query_clone = res.data[0];
         console.log(res.data[0]);
