@@ -24,6 +24,8 @@ Page({
       },
       success: function (res) {
         WxParse.wxParse('article', 'html', res.data[0].product.freeService, that, 5);
+        WxParse.wxParse('mem', 'html', res.data[0].product.memExplain, that, 5);
+        WxParse.wxParse('user', 'html', res.data[0].product.userEcplain, that, 5);
         console.log("获取产品详细信息");
         var query_clone = res.data[0];
         console.log(res.data[0]);

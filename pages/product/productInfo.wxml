@@ -15,15 +15,11 @@
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">会员服务说明</view>
-          <view class="td textL">①道路交通事故直升机紧急医疗救援覆盖除港、澳、台、新、青、藏以外的28省、市、区高速公路及国、省道；
-②会员出行过程中发生交通事故遭受伤害，或在出行过程中身体出现严重病症，如果伤病情严重需要直升机紧急空中救护，在满足派飞条件的前提下，九九九空中救护直升机、医疗设备、急救医护人员承诺在60分钟内到达事故现场进行院前救护； 
-③按照就近、就急、就症原则，安排对接的合作医院；
-④只限在昼间提供应急救护服务。</view>
+          <view class="td textL"><template is="wxParse" data="{{wxParseData:mem.nodes}}"/></view>
       </view>
       <view class="tr">
           <view class="td textL productTdTitle">非会员服务说明</view>
-          <view class="td textL">①非会员空中救护服务费用按3.5万元/小时计价；
-②飞行时间=直升机发动机启动离开基地到现场+现场救助及飞到医院+医院交接及回到基地直升机发动机关车的时间。</view>
+          <view class="td textL"><template is="wxParse" data="{{wxParseData:user.nodes}}"/></view>
       </view>
 
   </view>
