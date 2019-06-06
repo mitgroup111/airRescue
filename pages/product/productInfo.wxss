@@ -7,7 +7,8 @@
   width: 98%;
 }
 .table .td{
-  width: 70%
+  width: 70%;
+  line-height: 44rpx;
 }
 .table .td.productTdTitle{
   background: #eee;
@@ -19,4 +20,9 @@
   font-weight: bold;
   font-size: 36rpx;
   width: 100%;
+}
+.wxParse-span{
+  color:#c20c0c;
+  font-size: 36rpx;
+  font-weight: bold;
 }
