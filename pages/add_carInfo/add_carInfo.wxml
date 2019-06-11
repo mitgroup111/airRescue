@@ -60,6 +60,27 @@
         <view class="line"></view> 
         <input name="meleage" class='input_block' type="text" maxlength="50" placeholder="请输入里程数（公里）"/>
         <view class="line"></view> 
+        
+        <radio-group class="radio-group clearfix" bindchange="safeRadio">
+          是否选择保险公司代报案：<label class="radio"><view><radio value="否"/>否</view></label>
+          <label class="radio"><view><radio value="是"/>是</view></label>
+        </radio-group>
+        <input name="ifBaoxian" hidden="false" value='{{safeRadio}}' />
+        <view hidden="{{safeFlag}}">
+          <picker bindchange="bindsafeChange" value="{{safe}}" range="{{safeArray}}" mode = "selector">  
+            <view class="select picker">  
+              保险公司：
+              {{safeArray[safe]}}  
+            </view>  
+          </picker>
+          <input name="safeName" hidden="false" value='{{safeArray[safe]}}' />
+
+          <view class="line"></view>
+        </view>
+        <view hidden="{{othersafeFlag}}">
+          <input name="baoxianCom" class="input_block" type="text" placeholder="请输入其他保险公司" value='{{otherSafe}}' />
+        </view>
+
         <image src="{{src }}" mode="aspecFill" class="carPic"/>  
          <input name="pic" hidden="false" value='{{src}}' />
         <button style="margin:20rpx 0;" bindtap="test">上传图片</button>

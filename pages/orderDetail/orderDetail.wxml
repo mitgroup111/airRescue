@@ -194,6 +194,14 @@
             <view class="detailItemR fr">{{caru.meleage}}公里</view>
           </view>
           <view class="detailItemList clearfix">
+            <view class="detailItemL fl">是否保险公司代报案</view>
+            <view class="detailItemR fr">{{caru.ifBaoxian}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl">保险公司</view>
+            <view class="detailItemR fr">{{caru.baoxianCom}}</view>
+          </view>
+          <view class="detailItemList clearfix">
             <view class="detailItemL fl">车辆照片</view>
             <view class="detailItemR fr"><image class="carImg" src="{{caruPic}}"/></view>
           </view>

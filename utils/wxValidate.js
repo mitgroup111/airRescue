@@ -216,6 +216,38 @@ class wxValidate {
         }
       },
       /**
+			 * 验证是否选择保险公司，选中单选按钮“是”后，验证其属性
+			 */
+      equalToRadioYes(value, param) {
+        console.log(that.scope.detail.value[param]);
+        if (that.scope.detail.value[param].indexOf("是") == -1) {
+          return true;
+        } else {
+          if (typeof value === 'number') {
+            value = value.toString()
+          } else if (typeof value === 'boolean') {
+            return !0
+          }
+          return value.length > 0
+        }
+      },
+      /**
+			 * 验证选择保险公司为“其他”后，验证输入其他保险公司属性
+			 */
+      equalToSelectOther(value, param) {
+        console.log("---" + that.scope.detail.value[param]);
+        if (that.scope.detail.value[param] != "其他") {
+          return true;
+        } else {
+          if (typeof value === 'number') {
+            value = value.toString()
+          } else if (typeof value === 'boolean') {
+            return !0
+          }
+          return value.length > 0
+        }
+      },
+      /**
 			 * 车牌号
 			 */
       isCarCard(value) {

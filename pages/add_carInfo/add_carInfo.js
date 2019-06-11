@@ -18,6 +18,7 @@ var brandArray, brandName, brand = -1;
 var seriesArray, seriesName, series;
 var modelArray, modelName, model;
 var yearArray, yearName, year;
+var safeArray, safeName, safe = -1, safeArrayStr, otherSafe;
 Page({
 
   /**
@@ -34,7 +35,9 @@ Page({
     startYear: 2000,
     endYear: 2500,
     endTime: '2500-01-01',
-    tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg'
+    tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg',
+    safeFlag:true,
+    othersafeFlag:true
   },
 
   //将图片上传到服务器
@@ -85,7 +88,24 @@ Page({
         that.setData({ brandArray: brandArray });
       }
     });
-   
+    //加载保险公司
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'baoxianList',//仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        safeArrayStr = "";
+        
+        for (var i = 0; i < res.data.length;i++){
+          safeArrayStr += res.data[i]['name'] + ",";
+        }
+        safeArray = safeArrayStr.split(",");
+        that.setData({ safeArray: safeArray });
+        console.log(safeArray)
+      }
+    });
     this.WxValidate = appInstance.wxValidate(
       {
         card: {
@@ -99,6 +119,12 @@ Page({
         vin: {
           isVIN: true,
           rangelength: [17, 17]
+        },
+        safeName:{
+          equalToRadioYes: "ifBaoxian"
+        },
+        baoxianCom:{
+          equalToSelectOther:"safeName"
         }
       },
       {
@@ -113,10 +139,56 @@ Page({
         vin: {
           isVIN: "请输入正确的VIN码",
           rangelength: "输入的VIN码位数不正确"
+        },
+        safeName: {
+          equalToRadioYes: "请选择保险公司"
+        },
+        baoxianCom: {
+          equalToSelectOther: "请输入其他保险公司"
         }
 
       }
     )
+  },
+  //是否选择保险公司代报案
+  safeRadio: function (e) {
+    var that = this;
+    this.setData({ safeRadio: e.detail.value });
+    if (e.detail.value=="是") {
+      this.setData({ safeFlag: false });
+      if (safeName == "其他") {
+        this.setData({ 
+          othersafeFlag: false, 
+          otherSafe: "" 
+        });
+      }
+    } else {
+      this.setData({ 
+        safeFlag: true,
+        othersafeFlag: true,
+        otherSafe:""
+      });
+    }
+  },
+  //保险公司名称
+  bindsafeChange: function (e) {
+    this.setData({
+      safe: e.detail.value  //下标
+    })
+    safeName = safeArray[e.detail.value];
+    otherSafe=safeName;
+    this.setData({ otherSafe: safeName });
+    if(safeName=="其他"){
+      this.setData({ 
+        othersafeFlag: false,
+        otherSafe: "" 
+      });
+    }else{
+      this.setData({ 
+        othersafeFlag: true,
+        otherSafe: safeName
+      });
+    }
   },
   //车辆颜色
   bindColorChange: function (e) {
@@ -132,7 +204,6 @@ Page({
       brand: e.detail.value
     })
     brandName = brandArray[e.detail.value];
-    console.log("brandName:" + brandName);
     wx.request({
       url: 'https://www.arsauto.com.cn/car/getseriesWeiSmall.do?car_brand=' + escape(brandName), //仅为示例，并非真实的接口地址
       data: {},
@@ -141,7 +212,6 @@ Page({
       },
       success: function (res) {
         seriesArray = res.data;
-        console.log("车系：" + res.data);
         that.setData({ seriesArray: seriesArray });
       }
     });
