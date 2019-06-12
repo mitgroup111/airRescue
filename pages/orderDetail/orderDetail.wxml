@@ -9,7 +9,7 @@
     </view>
     <view class="detailItemList clearfix">
       <view class="detailItemL fl">免费服务</view>
-      <view class="detailItemR fr">{{prodProductInfo.freeService}}</view>
+      <view class="detailItemR fr">{{prodProductInfo.freeServiceWeixin}}</view>
     </view>
     <view class="detailItemList clearfix">
       <view class="detailItemL fl">生效时间</view>
@@ -33,11 +33,7 @@
       <view class="{{isShowFrom1 ? '' : 'tui-hide'}}">
         <view class="detailItemList clearfix">
           <view class="detailItemL fl">会费</view>
-          <view class="detailItemR fr">{{prodProductInfo.price}}</view>
-        </view>
-        <view class="detailItemList clearfix">
-          <view class="detailItemL fl">优惠服务</view>
-          <view class="detailItemR fr">{{prodProductInfo.discountService}}</view>
+          <view class="detailItemR fr">{{prodProductInfo.price}}元</view>
         </view>
         <view class="detailItemList clearfix">
           <view class="detailItemL fl">优先救护</view>
