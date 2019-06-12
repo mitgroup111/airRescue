@@ -236,7 +236,7 @@ class wxValidate {
 			 */
       equalToSelectOther(value, param) {
         console.log("---" + that.scope.detail.value[param]);
-        if (that.scope.detail.value[param] != "其他") {
+        if (that.scope.detail.value[param].indexOf("其他") == -1) {
           return true;
         } else {
           if (typeof value === 'number') {
