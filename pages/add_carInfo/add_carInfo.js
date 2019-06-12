@@ -18,7 +18,7 @@ var brandArray, brandName, brand = -1;
 var seriesArray, seriesName, series;
 var modelArray, modelName, model;
 var yearArray, yearName, year;
-var safeArray, safeName, safe = -1, safeArrayStr, otherSafe;
+var safeArray, safeName, safe = -1, safeArrayStr, otherSafe, safeName1;
 Page({
 
   /**
@@ -158,10 +158,11 @@ Page({
     this.setData({ safeRadio: e.detail.value });
     if (e.detail.value=="是") {
       this.setData({ safeFlag: false });
-      if (safeName == "其他") {
+      if (safeName1 == "其他") {
         this.setData({ 
           othersafeFlag: false, 
-          otherSafe: "" 
+          otherSafe: "",
+          safeName:"其他"
         });
       }
     } else {
@@ -178,7 +179,7 @@ Page({
     this.setData({
       safe: e.detail.value  //下标
     })
-    var safeName1 = safeArray[e.detail.value];
+    safeName1 = safeArray[e.detail.value];
     otherSafe=safeName1;
     this.setData({ 
       otherSafe: safeName,
