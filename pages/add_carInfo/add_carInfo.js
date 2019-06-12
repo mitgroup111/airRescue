@@ -124,7 +124,8 @@ Page({
           equalToRadioYes: "ifBaoxian"
         },
         baoxianCom:{
-          equalToSelectOther:"safeName"
+          equalToSelectOther:"safeName",
+          maxlength: 30
         }
       },
       {
@@ -144,7 +145,8 @@ Page({
           equalToRadioYes: "请选择保险公司"
         },
         baoxianCom: {
-          equalToSelectOther: "请输入其他保险公司"
+          equalToSelectOther: "请输入其他保险公司",
+          maxlength: "保险公司最长为30"
         }
 
       }
@@ -166,7 +168,8 @@ Page({
       this.setData({ 
         safeFlag: true,
         othersafeFlag: true,
-        otherSafe:""
+        otherSafe:"",
+        safeName:""
       });
     }
   },
@@ -175,10 +178,13 @@ Page({
     this.setData({
       safe: e.detail.value  //下标
     })
-    safeName = safeArray[e.detail.value];
-    otherSafe=safeName;
-    this.setData({ otherSafe: safeName });
-    if(safeName=="其他"){
+    var safeName1 = safeArray[e.detail.value];
+    otherSafe=safeName1;
+    this.setData({ 
+      otherSafe: safeName,
+      safeName: safeName1
+    });
+    if(safeName1=="其他"){
       this.setData({ 
         othersafeFlag: false,
         otherSafe: "" 
@@ -186,7 +192,7 @@ Page({
     }else{
       this.setData({ 
         othersafeFlag: true,
-        otherSafe: safeName
+        otherSafe: safeName1
       });
     }
   },

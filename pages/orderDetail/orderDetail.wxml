@@ -194,8 +194,8 @@
             <view class="detailItemR fr">{{caru.meleage}}公里</view>
           </view>
           <view class="detailItemList clearfix">
-            <view class="detailItemL fl">是否保险公司代报案</view>
-            <view class="detailItemR fr">{{caru.ifBaoxian}}</view>
+            <view class="detailItemL fl" style='width:340rpx;'>是否保险公司代报案</view>
+            <view class="detailItemR fr" style='width:100rpx;'>{{caru.ifBaoxian}}</view>
           </view>
           <view class="detailItemList clearfix">
             <view class="detailItemL fl">保险公司</view>

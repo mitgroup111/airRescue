@@ -62,9 +62,10 @@
         <view class="line"></view> 
         
         <radio-group class="radio-group clearfix" bindchange="safeRadio">
-          是否选择保险公司代报案：<label class="radio"><view><radio value="否"/>否</view></label>
+          是否选择保险公司代报案：<label class="radio"><view><radio value="否" checked/>否</view></label>
           <label class="radio"><view><radio value="是"/>是</view></label>
         </radio-group>
+
         <input name="ifBaoxian" hidden="false" value='{{safeRadio}}' />
         <view hidden="{{safeFlag}}">
           <picker bindchange="bindsafeChange" value="{{safe}}" range="{{safeArray}}" mode = "selector">  
@@ -73,8 +74,8 @@
               {{safeArray[safe]}}  
             </view>  
           </picker>
-          <input name="safeName" hidden="false" value='{{safeArray[safe]}}' />
-
+          <input name="safeArray" hidden="false" value='{{safeArray[safe]}}' />
+          <input name="safeName" hidden="false" value='{{safeName}}' />
           <view class="line"></view>
         </view>
         <view hidden="{{othersafeFlag}}">
