@@ -48,6 +48,11 @@
     "navigationBarTitleText": "九九九空中救护",
     "navigationBarTextStyle":"black"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "救护信息需要获取位置信息"
+    }
+  },
   "tabBar": {
     "color": "#888",
     "selectedColor": "#0b8027",
