@@ -1,6 +1,6 @@
 
-  <view class="clearfix">
-    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing01.jpg" mode='widthFix'/>
+  <view class="clearfix">   
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing01.jpg" mode='widthFix' bindtap='productUrl'/>
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing02.jpg" mode='widthFix'/>
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing03.jpg" mode='widthFix'/>
   </view>
