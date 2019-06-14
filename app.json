@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     
     "pages/index/index",
     "pages/sos/sos",
@@ -39,19 +39,19 @@
     "pages/add_carInfo/add_carInfo",
     "pages/sosInfo/sosInfo",
     "pages/about/explain",
+    "pages/about/jiuxing",
     "pages/code/code"
-
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "九九九空中救护",
-    "navigationBarTextStyle":"black"
-  },
   "permission": {
     "scope.userLocation": {
-      "desc": "SOS救护需要获取位置信息"
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "九九九空中救护",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#888",
@@ -84,5 +84,6 @@
         "selectedIconPath": "images/nav03A.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

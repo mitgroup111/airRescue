@@ -121,6 +121,25 @@ page{
   width:100%;
   margin: 10rpx auto;
 }
+.jiuxing-img{
+  width:100%;
+  float:left;
+}
+.jiuxing-title{
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  display: block;
+}
+.jiuxing-info{
+  font-size: 32rpx;
+  line-height: 60rpx;
+  margin: 0 40rpx 40rpx 40rpx;
+  width:92%;
+  display: block;
+}
 /*table*/
 .table {
   border:2rpx solid #dadada;

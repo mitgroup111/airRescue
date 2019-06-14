@@ -1,0 +1,34 @@
+
+  <view class="clearfix">
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing01.jpg" mode='widthFix'/>
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing02.jpg" mode='widthFix'/>
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing03.jpg" mode='widthFix'/>
+  </view>
+  <text class="jiuxing-title">九九九“救星”系统是什么？</text>
+  <text class="jiuxing-info">九九九“救星”系统是一套车辆碰撞自动识别及报警救援系统。在车辆发生碰撞时，可以由车载终端自动或驾乘人员手动上报事故信息，运控中心的值班坐席监测到报警信息后，马上启动救援流程，协调九九九基地、120、医院、交警、4S店等相关资源，对车主进行全方位的救援。</text>
+  <view class="clearfix">
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing04.jpg" mode='widthFix'/>
+  </view>
+  <text class="jiuxing-title">产品购买及使用方法</text>
+  <text class="jiuxing-info">1.登录九九九官网购买产品；
+    2.根据网站提示完成注册；
+    3.快递发货（包邮）；
+    4.客户收货；
+    5.将“救星”插入车辆点烟器插口；
+    6.扫描包装盒上的二维码，下载并安装手机客户端APP；
+    7.打开“救星”应用（确保开启手机移动网络），在应用中点击“运行”按钮（初次使用需输入手机号与密码进行设备绑定）；
+    8.“救星”设备光带蓝色常亮，完成设备连接。
+  </text>
+  <view class="clearfix">
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing05.jpg" mode='widthFix'/>
+  </view>
+  <text class="jiuxing-title">产品优势</text>
+  <view class="clearfix">
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing06.jpg" mode='widthFix'/>
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing07.jpg" mode='widthFix'/>
+  </view>
+  <text class="jiuxing-title">产品优势</text>
+  <view class="clearfix">
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing08.jpg" mode='widthFix'/>
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing09.jpg" mode='widthFix'/>
+  </view>

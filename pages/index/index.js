@@ -5,12 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    slider: [
-      { picUrl: '../../images/banner01.jpg' },
-      { picUrl: '../../images/banner02.jpg' },
-      { picUrl: '../../images/banner03.jpg' },
-      { picUrl: '../../images/banner04.jpg' },
-      { picUrl: '../../images/banner05.jpg' }
+    banner: [
+      {
+        url: '../../images/jiuxing_banner.jpg',
+        link: '../about/jiuxing'
+      },
+      {
+        url: '../../images/banner01.jpg',
+        link: '../about/about'
+      },
+      {
+        url: '../../images/banner02.jpg',
+        link: '../about/shebei'
+      },
+      {
+        url: '../../images/banner03.jpg',
+        link: '../about/yiyuan'
+      },
+      {
+        url: '../../images/banner04.jpg',
+        link: '../about/jidi'
+      },
+      {
+        url: '../../images/banner05.jpg',
+        link: '../about/liucheng'
+      }
     ],
     swiperCurrent: 0,
     indicatorDots: true,
@@ -25,6 +44,11 @@ Page({
   swiperChange: function (e) {
     this.setData({
       swiperCurrent: e.detail.current
+    })
+  },
+  bindViewTap: function (event) {
+    wx.navigateTo({
+      url: event.currentTarget.dataset.link // 页面跳转地址
     })
   },
   /**

@@ -1,9 +1,9 @@
 <view class="swiper-container">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
         interval="{{interval}}" duration="{{duration}}" class="swiper" indicator-color="#fff" indicator-active-color="#e9480c">
-        <block wx:for="{{slider}}" wx:key="*this">
+        <block wx:for="{{banner}}" wx:key="*this">
           <swiper-item>
-            <image src="{{item.picUrl}}" class="img"></image>
+              <image src="{{item.url}}" class="img" data-link="{{item.link}}" bindtap="bindViewTap" ></image>
           </swiper-item>
         </block>
       </swiper>
