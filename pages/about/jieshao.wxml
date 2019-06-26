@@ -2,7 +2,7 @@
   <view class="aboutTitle"><text class="aboutTitleSpan">救援介绍</text></view>
   <text class="aboutH">九九九全国道路交通空中救援网</text>
   <text class="aboutInfo">九九九空中救护有限公司成立于2015年4月，是一家覆盖全国的道路交通事故及应急救援空中医疗救护专业运营商，先后取得甲类医疗救护通用航空经营许可证、CCAR-91部运行合格审定和运行规范、CCAR-135部1-9座航空器载客及全货运运行合格审定和运行规范，成为一家拥有自己医疗团队及飞行机组的空中救护专业运营商。九九九空中救护采用世界著名空中客车公司的H125/H130/H135等救援专用机型作为救护直升机，是美国AAMS（空中医疗服务协会）会员。与交通运输部海上搜救中心和香港政府飞行服务队达成紧密战略合作关系，并与美国Helistream飞行学院、欧美台湾医疗救护运营商达成人才技术培训资源合作联盟；聘请了多名美国、台湾、香港及大陆的飞行、安全、医疗、运营专家担任项目顾问。</text>
-  <text class="aboutInfo">2018年开始在空客直升机（中国）公司的支持下，九九九空中救护联合全国近40家直升机运营商，以共享、共建、共赢理念，共同搭建与全国路网分布高度吻合的中国道路交通空中救援网，实现除香港、澳门、台湾、新疆、西藏、青海外几乎全国所有省、市、自治区的高速公路及国、省道全覆盖。</text>
+  <text class="aboutInfo">2018年开始在空客直升机（中国）公司的支持下，九九九空中救护联合全国近40家直升机运营商，以共享、共建、共赢理念，共同搭建与全国路网分布高度吻合的中国道路交通空中救援网，实现除香港、澳门、台湾、新疆、西藏、青海、福建外几乎全国所有省、市、自治区的高速公路及国、省道全覆盖。</text>
 <view class="aboutTitle"><text class="aboutTitleSpan">布局地图</text></view>
 <image class="about-img" src="http://www.hems999.com/jsp/images/jieshao01.jpg" mode='widthFix'/>
 <view class="aboutTitle"><text class="aboutTitleSpan">服务内容</text></view>
