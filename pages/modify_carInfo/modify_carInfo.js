@@ -3,7 +3,6 @@ var appInstance = getApp();
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 var timestamp = Date.parse(new Date());
 timestamp = timestamp / 1000;
-console.log("当前时间戳为：" + timestamp);
 var n = timestamp * 1000;
 var date1 = new Date(n);
 //年  
@@ -80,7 +79,6 @@ Page({
     var that = this;
     orderId = options.orderId;
     carId = options.carId;
-    console.log("aaaa:"+orderId + "    " + carId)
     wx.request({
       url: appInstance.globalData.serverUrl + 'weixinSmall!toEditCar', //仅为示例，并非真实的接口地址
       data: { 
@@ -92,10 +90,8 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function (res) {//caru/orderId
-        
+      success: function (res) {
         var query_clone = res.data[0].caru;
-        console.log(query_clone);
         carBrand = query_clone.carBrand;
         carSeries = query_clone.carSeries;
         carModel = query_clone.carModel;
@@ -122,7 +118,6 @@ Page({
           success: function (res) {
             console.log("获取品牌");
             brandArray = res.data;
-            console.log(res.data);
             that.setData({ brandArray: brandArray });
             
             for (var i = 0; i < brandArray.length; i++) {
@@ -219,15 +214,19 @@ Page({
               for (var i = 0; i < safeArray.length; i++) {
                 if (baoxianCom == safeArray[i]) {
                   that.setData({
-                    safe: i
-                  })
-                }else{
-                  that.setData({
-                    safe: safeArray.length-2,
-                    othersafeFlag: false,
-                    otherSafe: baoxianCom
+                    safe: i,
+                    safeName: baoxianCom
                   })
                 }
+
+              }
+              if (safeArrayStr.indexOf(baoxianCom)==-1){
+                that.setData({
+                  safe: safeArray.length - 2,
+                  othersafeFlag: false,
+                  otherSafe: baoxianCom,
+                  safeName: "其他"
+                })
               }
               
             } else {
@@ -350,7 +349,6 @@ Page({
   },
   //车辆颜色
   bindColorChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       color: e.detail.value
     })
@@ -462,7 +460,6 @@ Page({
   },
   //  点击日期组件确定事件  
   changeDate: function (e) {
-    console.log(e.detail.value)
     this.setData({
       shangpaiTime: e.detail.value
     })
@@ -487,8 +484,6 @@ Page({
       // 这里修改成跳转的页面  
       var value = wx.getStorageSync('sessionId');
       var that = this;
-      console.log("保存个人信息orderId:" + orderId);
-      console.log("保存个人信息orderId:" + carId);
       console.log("JSON.stringify(formData):" + JSON.stringify(formData));
       wx.request({
         url: appInstance.globalData.serverUrl +'weixinSmall!editCar', //仅为示例，并非真实的接口地址
@@ -503,9 +498,9 @@ Page({
         },
         success: function (res) {
           var query_clone = res.data[0];
-         
+         console.log("修改信息成功")
+          console.log(query_clone.flg)
           if (query_clone.flg==1){
-            console.log("保存个人信息成功");
             wx.navigateTo({
               url: '../order/order'
             })
