@@ -37,6 +37,7 @@
     "pages/add_jiankang/add_jiankang",
     "pages/add_jiaren/add_jiaren",
     "pages/add_carInfo/add_carInfo",
+    "pages/modify_carInfo/modify_carInfo",
     "pages/sosInfo/sosInfo",
     "pages/about/explain",
     "pages/about/jiuxing",

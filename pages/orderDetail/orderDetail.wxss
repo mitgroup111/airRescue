@@ -5,6 +5,17 @@
     font-size: 32rpx;
     border-bottom: 2rpx solid #ddd;
     margin-bottom: 20rpx;
+    position: relative;
+}
+.detailTitle navigator{
+	background:#026a19;
+	color:#fff;
+	padding:8rpx 30rpx;
+	border-radius:6rpx;
+	font-size:30rpx;
+  position: absolute;
+	right:0;
+	top:0px;
 }
 .tui-hide{
   display: none;
