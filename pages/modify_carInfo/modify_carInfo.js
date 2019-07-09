@@ -75,6 +75,20 @@ Page({
   onLoad: function (options) {
     var that = this;
     orderId = options.orderId;
+    carId = options.carId;
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!toEditCar', //仅为示例，并非真实的接口地址
+      data: { orderId: options.orderId, carId: options.carId },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取品牌");//caru/orderId
+        brandArray = res.data;
+        console.log(res.data);
+        that.setData({ brandArray: brandArray });
+      }
+    });
     wx.request({
       url: 'https://www.arsauto.com.cn/car/getBrandWeiSmall.do', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
@@ -300,7 +314,7 @@ Page({
       console.log("保存个人信息orderId:" + orderId);
       console.log("JSON.stringify(formData):" + JSON.stringify(formData));
       wx.request({
-        url: appInstance.globalData.serverUrl +'weixinSmall!saveCar', //仅为示例，并非真实的接口地址
+        url: appInstance.globalData.serverUrl +'weixinSmall!editCar', //仅为示例，并非真实的接口地址
         data: {
           formData: JSON.stringify(formData),
           orderId: orderId,
