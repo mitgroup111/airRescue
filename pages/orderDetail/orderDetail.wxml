@@ -140,7 +140,7 @@
   <!--健康信息结束-->
   <!--车辆信息开始-->
   <view class="detailTitle">车辆信息
-    <navigator url="../modify_carInfo/modify_carInfo?carId=${caru.id}&orderId=${order.orderid}">修改</navigator>
+    <navigator url="../modify_carInfo/modify_carInfo?carId={{caru.id}}&orderId={{order.orderid}}">修改</navigator>
   </view>
   <view wx:if="{{caru==''||caru==null}}" >
     <navigator url="../add_carInfo/add_carInfo?sessionId={{sessionId}}&orderId={{order.orderid}}" class="greenBtn">添加车辆信息</navigator>

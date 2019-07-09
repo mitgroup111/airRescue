@@ -46,6 +46,7 @@
         </picker>
         <input name="color" hidden="false" value='{{colorArray[color]}}' />
         <view class="line"></view>
+        <view class="input_text">上牌时间：</view> 
         <view class="tui-picker-content">
           <picker mode="date" value="{{beginDate}}" start="" end="{{endTime}}" bindchange="changeDate">
             <view class="tui-picker-detail">
@@ -54,19 +55,24 @@
           </picker>
         </view>
         <view class="line"></view> 
-        <input name="vin" class='input_block' type="text" maxlength="50" placeholder="请输入车辆VIN码"/>
+        <view class="input_text">VIN码：</view> 
+        <input name="vin" class='input_block' type="text" maxlength="50" placeholder="请输入车辆VIN码" value='{{vin}}'/>
         <view class="line"></view> 
-        <input name="card" class='input_block' type="text" maxlength="50" placeholder="请输入车牌号"/>
+        <view class="input_text">车牌号：</view> 
+        <input name="card" class='input_block' type="text" maxlength="50" placeholder="请输入车牌号" value="{{card}}"/>
         <view class="line"></view> 
-        <input name="meleage" class='input_block' type="text" maxlength="50" placeholder="请输入里程数（公里）"/>
+        <view class="input_text">里程数（公里）：</view> 
+        <input name="meleage" class='input_block' type="text" maxlength="50" placeholder="请输入里程数（公里）" value='{{meleage}}'/>
         <view class="line"></view> 
         
         <radio-group class="radio-group clearfix" bindchange="safeRadio">
-          是否选择保险公司代报案：<label class="radio"><view><radio value="否" checked/>否</view></label>
-          <label class="radio"><view><radio value="是"/>是</view></label>
+          是否选择保险公司代报案：
+          <label class="radio"><view><radio value="否" checked="{{safeRadio === '否' ? 'true' : ''}}"/>否</view></label>
+          <label class="radio"><view><radio value="是" checked="{{safeRadio === '是' ? 'true' : ''}}"/>是</view></label>
         </radio-group>
 
         <input name="ifBaoxian" hidden="false" value='{{safeRadio}}' />
+        
         <view hidden="{{safeFlag}}">
           <picker bindchange="bindsafeChange" value="{{safe}}" range="{{safeArray}}" mode = "selector">  
             <view class="select picker">  
@@ -80,7 +86,19 @@
         </view>
         <view hidden="{{othersafeFlag}}">
           <input name="baoxianCom" class="input_block" type="text" placeholder="请输入其他保险公司" value='{{otherSafe}}' />
+          <view class="line"></view>
         </view>
+        <view hidden="{{safeFlag}}">
+          <view class="tui-picker-content">
+            <picker mode="date" value="{{bxStartTime}}" start="{{stratTime}}" end="{{endTime}}" bindchange="changebxDate">
+              <view class="tui-picker-detail">
+                <input name="bxStartTime" class="input_block" type="text"  placeholder="请选择保险开始时间"  value='{{bxStartTime}}' />
+              </view>
+            </picker>
+          </view>
+          <input name="bxEndTime" hidden="false"  value='{{bxEndTime}}' />
+        </view>
+
 
         <image src="{{src }}" mode="aspecFill" class="carPic"/>  
          <input name="pic" hidden="false" value='{{src}}' />

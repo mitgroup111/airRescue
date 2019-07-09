@@ -18,7 +18,7 @@ var brandArray, brandName, brand = -1;
 var seriesArray, seriesName, series;
 var modelArray, modelName, model;
 var yearArray, yearName, year;
-var safeArray, safeName, safe = -1, safeArrayStr, otherSafe, safeName1;
+var safeArray, safeName, safe = -1, safeArrayStr, otherSafe, safeName1, bxStartTime;
 Page({
 
   /**
@@ -37,7 +37,9 @@ Page({
     endTime: '2500-01-01',
     tempFilePaths: 'http://www.hems999.com/jsp/images/car.jpg',
     safeFlag:true,
-    othersafeFlag:true
+    othersafeFlag: true,
+    bxStartTime: "",
+    bxEndTime: ""
   },
 
   //将图片上传到服务器
@@ -123,6 +125,9 @@ Page({
         safeName:{
           equalToRadioYes: "ifBaoxian"
         },
+        bxStartTime: {
+          equalToRadioYes: "ifBaoxian"
+        },
         baoxianCom:{
           equalToSelectOther:"safeName",
           maxlength: 30
@@ -143,6 +148,9 @@ Page({
         },
         safeName: {
           equalToRadioYes: "请选择保险公司"
+        },
+        bxStartTime: {
+          equalToRadioYes: "请选择保险开始时间"
         },
         baoxianCom: {
           equalToSelectOther: "请输入其他保险公司",
@@ -170,7 +178,10 @@ Page({
         safeFlag: true,
         othersafeFlag: true,
         otherSafe:"",
-        safeName:""
+        safeName: "",
+        bxStartTime: "",
+        bxEndTime: "",
+        safe: ""
       });
     }
   },
@@ -203,6 +214,33 @@ Page({
     this.setData({
       color: e.detail.value
     })
+  },
+  //保险开始时间
+  changebxDate(e) {
+    bxStartTime = e.detail.value;
+    this.setData({
+      bxStartTime: e.detail.value
+    });
+    bxStartTime = bxStartTime.replace(/-/g, "/");
+    bxStartTime = new Date(bxStartTime.valueOf());
+    var startYear = bxStartTime.getFullYear();
+    var startMonth = bxStartTime.getMonth();
+    var startDay = bxStartTime.getDate();
+    var bxEndTime = bxStartTime;
+    bxEndTime.setFullYear(bxEndTime.getFullYear() + parseInt(1));
+    bxEndTime.setDate(bxEndTime.getDate() - 1);
+    var month = bxEndTime.getMonth() + 1;
+    if (bxEndTime.getMonth() < 9) {
+      month = "0" + (bxEndTime.getMonth() + 1);
+    }
+    var date = bxEndTime.getDate()
+    if (bxEndTime.getDate() < 10) {
+      date = "0" + bxEndTime.getDate();
+    }
+    bxEndTime = bxEndTime.getFullYear() + '-' + month + '-' + date;
+    this.setData({
+      bxEndTime: bxEndTime
+    });
   },
   //根据品牌加载车系
   bindBrandChange: function (e) {

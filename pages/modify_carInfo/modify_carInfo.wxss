@@ -17,3 +17,12 @@
   vertical-align: middle;
 
 }
+.input_text{
+  background: #fff;
+  font-size: 34rpx;
+  padding-left:20rpx;
+  padding-top: 10rpx;
+}
+.input_block{
+  color: #888;
+}
