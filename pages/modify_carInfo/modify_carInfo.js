@@ -219,7 +219,7 @@ Page({
               for (var i = 0; i < safeArray.length; i++) {
                 
                 if (baoxianCom == safeArray[i]) {
-                  console.log(baoxianCom + "   " + safeArray[i])
+                  console.log("保险名称："+baoxianCom + "   " + safeArray[i])
                   console.log("i:" + i)
                   that.setData({
                     safe: i,
