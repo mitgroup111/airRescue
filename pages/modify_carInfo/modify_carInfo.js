@@ -40,7 +40,8 @@ Page({
     othersafeFlag:true,
     bxStartTime:"",
     bxEndTime:"",
-    safeRadio:""
+    safeRadio:"",
+    src:""
   },
 
   //将图片上传到服务器
@@ -82,8 +83,8 @@ Page({
     wx.request({
       url: appInstance.globalData.serverUrl + 'weixinSmall!toEditCar', //仅为示例，并非真实的接口地址
       data: { 
-        orderId: options.orderId, 
-        carId: options.carId 
+        orderId: options.orderId,
+        carId: options.carId
         //orderId: "0019062110193421",
         //carId: "762"
       },
@@ -92,13 +93,16 @@ Page({
       },
       success: function (res) {
         var query_clone = res.data[0].caru;
+        console.log(query_clone);
+        console.log(query_clone.pic)
         carBrand = query_clone.carBrand;
         carSeries = query_clone.carSeries;
         carModel = query_clone.carModel;
         carYear = query_clone.carYear;
         color = query_clone.color;
         baoxianCom = query_clone.baoxianCom;
-        ifBaoxian = query_clone.ifBaoxian
+        ifBaoxian = query_clone.ifBaoxian;
+        
         that.setData({    
           shangpaiTime: query_clone.shangpaiTime,
           vin: query_clone.vin,
@@ -106,7 +110,8 @@ Page({
           meleage: query_clone.meleage,
           safeRadio: query_clone.ifBaoxian,
           bxStartTime: res.data[0].bxStartTime,
-          bxEndTime: res.data[0].bxEndTime
+          bxEndTime: res.data[0].bxEndTime,
+          src: appInstance.globalData.serverUrl + query_clone.pic
         });
         //品牌赋值
         wx.request({
@@ -212,7 +217,10 @@ Page({
             if (ifBaoxian == "是") {
               that.setData({ safeFlag: false });
               for (var i = 0; i < safeArray.length; i++) {
+                
                 if (baoxianCom == safeArray[i]) {
+                  console.log(baoxianCom + "   " + safeArray[i])
+                  console.log("i:" + i)
                   that.setData({
                     safe: i,
                     safeName: baoxianCom
@@ -221,6 +229,7 @@ Page({
 
               }
               if (safeArrayStr.indexOf(baoxianCom)==-1){
+                console.log("其他")
                 that.setData({
                   safe: safeArray.length - 2,
                   othersafeFlag: false,
