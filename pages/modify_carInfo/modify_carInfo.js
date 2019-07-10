@@ -515,7 +515,8 @@ Page({
          console.log("修改信息成功")
           console.log(query_clone.flg)
           if (query_clone.flg==1){
-            wx.navigateTo({
+            console.log("跳转")
+            wx.redirectTo({
               url: '../order/order'
             })
           }
