@@ -41,7 +41,8 @@ Page({
     bxStartTime:"",
     bxEndTime:"",
     safeRadio:"",
-    src:""
+    src:"",
+    otherSafe:""
   },
 
   //将图片上传到服务器
@@ -111,7 +112,8 @@ Page({
           safeRadio: query_clone.ifBaoxian,
           bxStartTime: res.data[0].bxStartTime,
           bxEndTime: res.data[0].bxEndTime,
-          src: appInstance.globalData.serverUrl + query_clone.pic
+          src: appInstance.globalData.serverUrl + query_clone.pic,
+          otherSafe:query_clone.baoxianCom
         });
         //品牌赋值
         wx.request({
