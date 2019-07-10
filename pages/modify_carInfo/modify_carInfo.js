@@ -82,10 +82,10 @@ Page({
     wx.request({
       url: appInstance.globalData.serverUrl + 'weixinSmall!toEditCar', //仅为示例，并非真实的接口地址
       data: { 
-        //orderId: options.orderId, 
-        //carId: options.carId 
-        orderId: "0019062110193421",
-        carId: "762" 
+        orderId: options.orderId, 
+        carId: options.carId 
+        //orderId: "0019062110193421",
+        //carId: "762"
       },
       header: {
         'Content-Type': 'application/json'
@@ -397,6 +397,8 @@ Page({
         seriesArray = res.data;
         that.setData({ 
           seriesArray: seriesArray,
+          modelArray:"",
+          yearArray:"",
           series:"",
           model:"",
           year:""
@@ -422,6 +424,7 @@ Page({
         console.log("车型：" + res.data);
         that.setData({ 
           modelArray: modelArray,
+          yearArray: "",
           model: "",
           year: ""
         });
