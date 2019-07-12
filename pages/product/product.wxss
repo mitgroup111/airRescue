@@ -1,24 +1,40 @@
-.news-list{
-  margin-bottom: 10rpx;
+.free-WaterfallFlow{
+  width:100%;
+  column-count:2;/*column-count 属性规定元素应该被分隔的列数：*/
 }
-.news-img-view{
-  float: left;
+.free-WaterfallFlow .flex-wrap{
+  display: inline-block;
+  width:100%;
+  margin-bottom:20rpx;
+  border:1px solid #ccc;
+  padding:10rpx;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  text-align: left;
+  box-sizing: border-box;
 }
-.news-img {
-  height:112rpx;
-  margin:0px 20rpx 0px 20rpx;
-  width:200rpx;
-  border:none;
-  padding:0rpx;
-  float:none;
+.flex-wrap image{
+  width:100%;
+  margin:0 auto;
 }
-.pro-buy{
-  position: absolute;
-  right: 0;
-  top: 6rpx;
-  background: #e9480c;
+.product_name{
+  font-size: 34rpx;
+  color: #333;
+  font-weight: bold;
+}
+.product_info{
+  font-size: 31rpx;
+  color: #888;
+  text-align: left;
+  line-height: 46rpx;
+}
+.product_btn{
+  background: #ffbb3e;
   border-radius: 4rpx;
-  padding: 6rpx 20rpx;
-  font-size: 32rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 34rpx;
   color: #fff;
+  text-align: center;
 }
+
+

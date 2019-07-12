@@ -23,6 +23,7 @@
       </view>
 
   </view>
+  <navigator class="product_btn m-t-20" url="../mobileBuy/mobileBuy?productId={{item.productId}}">立即购买</navigator>
   </view>
   <view class="loading" hidden='{{!flag}}'>加载中....</view>
 </view>

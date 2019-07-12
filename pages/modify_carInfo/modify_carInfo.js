@@ -17,7 +17,7 @@ var brandArray, brandName, brand = -1;
 var seriesArray, seriesName, series;
 var modelArray, modelName, model;
 var yearArray, yearName, year;
-var safeArray, safeName, safe = -1, safeArrayStr, otherSafe, safeName1, bxStartTime, colorArray1;
+var safeArray, safeName, safe = -1, safeArrayStr, otherSafe, safeName1, bxStartTime;
 var colorArray1=['黑色', '白色', '红色', '蓝色', '黄色', '银色', '紫色', '金色', '其他']
 Page({
 
@@ -94,7 +94,7 @@ Page({
       },
       success: function (res) {
         var query_clone = res.data[0].caru;
-        console.log(query_clone);
+        console.log(res.data[0]);
         console.log(query_clone.pic)
         carBrand = query_clone.carBrand;
         carSeries = query_clone.carSeries;
@@ -112,7 +112,7 @@ Page({
           safeRadio: query_clone.ifBaoxian,
           bxStartTime: res.data[0].bxStartTime,
           bxEndTime: res.data[0].bxEndTime,
-          src: appInstance.globalData.serverUrl + query_clone.pic,
+          src: query_clone.pic,
           otherSafe:query_clone.baoxianCom
         });
         //品牌赋值
@@ -537,7 +537,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '车辆信息'
+      title: '修改车辆信息'
     }),
       this.setData({ disabled: false })
   },

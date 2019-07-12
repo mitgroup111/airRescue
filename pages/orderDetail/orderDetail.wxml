@@ -197,6 +197,14 @@
             <view class="detailItemR fr">{{caru.baoxianCom}}</view>
           </view>
           <view class="detailItemList clearfix">
+            <view class="detailItemL fl" style='width:210rpx;'>保险开始时间</view>
+            <view class="detailItemR fr" style='width:230rpx;'>{{bxStartTime}}</view>
+          </view>
+          <view class="detailItemList clearfix">
+            <view class="detailItemL fl" style='width:210rpx;'>保险结束时间</view>
+            <view class="detailItemR fr" style='width:230rpx;'>{{bxEndTime}}</view>
+          </view>
+          <view class="detailItemList clearfix">
             <view class="detailItemL fl">车辆照片</view>
             <view class="detailItemR fr"><image class="carImg" src="{{caruPic}}"/></view>
           </view>

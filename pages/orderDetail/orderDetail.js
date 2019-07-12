@@ -9,7 +9,9 @@ Page({
     isShowFrom2: false,
     isShowFrom3: false,
     isShowFrom4: false,
-    prodProductInfo: ""
+    prodProductInfo: "",
+    bxStartTime:"",
+    bxEndTime:""
   },
   showFrom(e) {
     var param = e.target.dataset.param;
@@ -40,7 +42,7 @@ Page({
       success: function (res) {
         console.log("获取订单详情");
         var query_clone = res.data[0];
-        console.log(query_clone.jiaren);
+        console.log(query_clone);
         if (query_clone.flg == 0) {
           wx.navigateTo({
             url: '../login/login'
@@ -56,7 +58,9 @@ Page({
           beginDateStr: query_clone.beginDateStr,
           endDateStr: query_clone.endDateStr,
           jiaren: query_clone.jiaren,
-          sessionId:value
+          sessionId:value,
+          bxStartTime: query_clone.bxStartTime,
+          bxEndTime: query_clone.bxEndTime,
         });
       }
     });
