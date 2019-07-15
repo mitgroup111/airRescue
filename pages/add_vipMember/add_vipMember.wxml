@@ -6,7 +6,7 @@
         <view class="line"></view> 
         <input name="userName" class="{{whoClass=='userName'?'placeholderClass':'input_block'}}" type="number" maxlength="11" placeholder="请输入手机号" bindblur="userNameBlurFocus" focus="{{whoFocus=='userName'?true:false}}" />
         <view class="line"></view> 
-        <input name="idcard" class="{{whoClass=='idcard'?'placeholderClass':'input_block'}}" type="number" maxlength="18" placeholder="请输入身份证号码" bindblur="idcardBlurFocus" focus="{{whoFocus=='idcard'?true:false}}" />
+        <input name="idcard" class="{{whoClass=='idcard'?'placeholderClass':'input_block'}}" type="idcard" maxlength="18" placeholder="请输入身份证号码" bindblur="idcardBlurFocus" focus="{{whoFocus=='idcard'?true:false}}" />
         <view class="line"></view> 
         <!--
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" mode = "selector">  
@@ -34,7 +34,7 @@
         <view class="tui-picker-content">
           <picker mode="date" value="{{beginDate}}" start="{{stratTime}}" end="{{endTime}}" bindchange="changeDate">
             <view class="tui-picker-detail">
-              <input name="beginDate" class="{{whoClass=='beginDate'?'placeholderClass':'input_block'}}" type="text"  placeholder="请选择服务生效时间" bindblur="beginDateBlurFocus" focus="{{whoFocus=='beginDate'?true:false}}" value='{{beginDate}}' />
+              <input name="beginDate" class="{{whoClass=='beginDate'?'placeholderClass':'input_block'}}" type="text"  placeholder="请选择服务生效时间" disabled bindblur="beginDateBlurFocus" focus="{{whoFocus=='beginDate'?true:false}}" value='{{beginDate}}' />
             </view>
           </picker>
         </view>

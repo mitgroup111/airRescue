@@ -92,7 +92,7 @@
           <view class="tui-picker-content">
             <picker mode="date" value="{{bxStartTime}}" start="{{stratTime}}" end="{{endTime}}" bindchange="changebxDate">
               <view class="tui-picker-detail">
-                <input name="bxStartTime" class="input_block" type="text"  placeholder="请选择保险开始时间"  value='{{bxStartTime}}' />
+                <input name="bxStartTime" class="input_block" disabled type="text"  placeholder="请选择保险开始时间"  value='{{bxStartTime}}' />
               </view>
             </picker>
           </view>
@@ -109,6 +109,7 @@
         </view> 
     </form>
     <view class="blank"></view>
+
   </view>
 </view>
 
