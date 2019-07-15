@@ -96,6 +96,7 @@
               </view>
             </picker>
           </view>
+          <view class="line"></view>
           <input name="bxEndTime" hidden="false"  value='{{bxEndTime}}' />
         </view>
 
@@ -107,9 +108,9 @@
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
         </view> 
     </form>
+    <view class="blank"></view>
   </view>
 </view>
-<view class="blank"></view>
 
 
 

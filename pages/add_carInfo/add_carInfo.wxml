@@ -90,8 +90,10 @@
               </view>
             </picker>
           </view>
+          <view class="line"></view>
           <input name="bxEndTime" hidden="false"  value='{{bxEndTime}}' />
         </view>
+        
         <image src="{{src }}" mode="aspecFill" class="carPic"/>  
          <input name="pic" hidden="false" value='{{src}}' />
         <button style="margin:20rpx 0;" bindtap="test">上传图片</button>
@@ -99,9 +101,10 @@
           <button class="loginBtn" type="primary" formType="submit" disabled='{{disabled}}'>提交</button>
         </view> 
     </form>
+    <view class="blank"></view>
   </view>
 </view>
-<view class="blank"></view>
+
 
 
 

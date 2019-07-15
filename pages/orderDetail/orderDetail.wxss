@@ -10,7 +10,7 @@
 .detailTitle navigator{
 	background:#026a19;
 	color:#fff;
-	padding:8rpx 30rpx;
+	padding:7rpx 30rpx;
 	border-radius:6rpx;
 	font-size:30rpx;
   position: absolute;

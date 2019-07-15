@@ -6,16 +6,16 @@
   background-size: 100% 440rpx;
 }
 .radio-group,.checkbox-group{
-  margin: 16rpx 0;
+  padding: 16rpx 0 16rpx 20rpx;
   font-size: 34rpx;
   line-height: 60rpx;
+  background: #fff;
 }
 .radio-group .radio,.checkbox-group .radio{
   display: inline-block;
   font-size: 34rpx;
   margin-right: 10rpx;
   vertical-align: middle;
-
 }
 .input_text{
   background: #fff;
