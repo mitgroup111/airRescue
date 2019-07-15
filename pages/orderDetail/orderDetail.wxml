@@ -192,6 +192,7 @@
             <view class="detailItemL fl" style='width:340rpx;'>是否保险公司代报案</view>
             <view class="detailItemR fr" style='width:100rpx;'>{{caru.ifBaoxian}}</view>
           </view>
+          <block wx:if="{{caru.ifBaoxian=='是'}}">
           <view class="detailItemList clearfix">
             <view class="detailItemL fl">保险公司</view>
             <view class="detailItemR fr">{{caru.baoxianCom}}</view>
@@ -204,6 +205,7 @@
             <view class="detailItemL fl" style='width:210rpx;'>保险结束时间</view>
             <view class="detailItemR fr" style='width:230rpx;'>{{bxEndTime}}</view>
           </view>
+          </block>
           <view class="detailItemList clearfix">
             <view class="detailItemL fl">车辆照片</view>
             <view class="detailItemR fr"><image class="carImg" src="{{caruPic}}"/></view>
