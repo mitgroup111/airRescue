@@ -81,6 +81,9 @@ Page({
     var that = this;
     orderId = options.orderId;
     carId = options.carId;
+    wx.showLoading({
+      title: '请求数据中',
+    })
     wx.request({
       url: appInstance.globalData.serverUrl + 'weixinSmall!toEditCar', //仅为示例，并非真实的接口地址
       data: { 
@@ -123,6 +126,7 @@ Page({
             'Content-Type': 'application/json'
           },
           success: function (res) {
+            wx.hideLoading();
             console.log("获取品牌");
             brandArray = res.data;
             that.setData({ brandArray: brandArray });
