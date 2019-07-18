@@ -33,4 +33,5 @@
     border-top: 2rpx solid #dddddd;
     color: #888;
     font-size: 34rpx;
+    overflow: hidden;
 }
