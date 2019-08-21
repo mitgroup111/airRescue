@@ -50,7 +50,7 @@ Page({
     flag: true,//协议
     serviceTimeFlag: true,//服务时间
     xieyi: [
-      { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
+      { name: '我已阅读并同意《九九九空中救护会员服务条款》', value: '0', checked: true }
     ],
     disabled: false
   },
@@ -195,7 +195,7 @@ Page({
           required: "请选择服务开通时间"
         },
         xieyibox: {
-          required: "请确认您已阅读并同意《九九九空中救护会员服务协议》"
+          required: "请确认您已阅读并同意《九九九空中救护会员服务条款》"
         }
       }
     )

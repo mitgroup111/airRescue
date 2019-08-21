@@ -45,8 +45,8 @@
         <input name="endDate" hidden="false"  value='{{serviceEndTime}}' />
         <view class="checkbox" hidden="{{xieyiFlag}}"> 
           <checkbox-group bindchange="checkboxChange" name="xieyibox">
-            <checkbox value="我已阅读并同意《九九九空中救护会员服务协议》" checked="{{checked}}"/>
-            我已阅读并同意《九九九空中救护会员服务协议》
+            <checkbox value="我已阅读并同意《九九九空中救护会员服务条款》" checked="{{checked}}"/>
+            我已阅读并同意《九九九空中救护会员服务条款》
           </checkbox-group>
         </view>
         <!--按钮-->  
@@ -58,8 +58,8 @@
 </view>
 <view class="modal-box" hidden="{{flag}}">
     <view class="modal-body">
-        <view class='xieyiTips'>注：会员协议底部有“我已阅读并同意《九九九空中救护会员服务协议》[关闭]”按钮。</view>
-        <view class="xieyiTitle">九九九空中救护会员服务协议</view>
+        <view class='xieyiTips'>注：会员协议底部有“我已阅读并同意《九九九空中救护会员服务条款》[关闭]”按钮。</view>
+        <view class="xieyiTitle">九九九空中救护会员服务条款</view>
         <text class="xieyiBox">甲方：九九九空中救护有限公司\n乙方：九九九空中救护会员
 为使九九九空中救护会员服务产品最大限度的救助道路交通事故伤患，降低死亡率和伤残度，提高伤者愈后的生存质量，挽救人民群众的生命安全，请您务必审慎阅读并遵守《九九九空中救护会员服务条款》内容。如您使用九九九空中救护会员的服务即视为您已阅读并同意本服务条款的约束。
 <text class="strong">第一条 会员定义</text>
@@ -184,7 +184,7 @@ H125直升机市场价按照3.5万元/小时计费，H130直升机市场价按�
 九九九空中救护有限公司
 紧急救援电话：4008-591-999
 </text>
-        <button class="knowBtn" bindtap="hide">我已阅读并同意《九九九空中救护会员服务协议》 [关闭]</button>
+        <button class="knowBtn" bindtap="hide">我已阅读并同意《九九九空中救护会员服务条款》 [关闭]</button>
     </view>
 </view>
 

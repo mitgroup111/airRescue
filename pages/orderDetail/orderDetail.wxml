@@ -232,10 +232,10 @@
   </view>
   <!--家人信息结束-->
   <!--服务协议开始-->
-  <view class="detailTitle">服务协议</view>
+  <view class="detailTitle">协议信息</view>
   <view class="detailItem">
    <view class="order-menu-list youjiantou">
-      <view><navigator url="../about/xieyi" hover-class="menu-navigator-hover">查看服务协议</navigator></view>
+      <view><navigator url="../about/xieyi" hover-class="menu-navigator-hover">查看服务条款</navigator></view>
    </view>
   </view>
   <!--服务协议结束-->

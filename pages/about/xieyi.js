@@ -26,7 +26,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '服务协议'
+      title: '服务条款'
     })
   },
 

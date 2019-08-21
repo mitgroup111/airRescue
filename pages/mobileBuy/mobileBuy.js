@@ -6,7 +6,7 @@ Page({
     xieyibox: '',
     flag: true,
     xieyi: [
-      { name: '我已阅读并同意《九九九空中救护会员服务协议》', value: '0', checked: true }
+      { name: '我已阅读并同意《九九九空中救护会员服务条款》', value: '0', checked: true }
     ],
     disabled: false
   },
@@ -60,7 +60,7 @@ Page({
           tel: '请输入正确的手机号'
         },
         xieyibox: {
-          required: '请确认您已阅读并同意《九九九空中救护会员服务协议》'
+          required: '请确认您已阅读并同意《九九九空中救护会员服务条款》'
         }
       }
     )

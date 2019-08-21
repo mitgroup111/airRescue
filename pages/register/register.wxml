@@ -27,6 +27,6 @@
         </view>  
     </form> 
     <!--<loading hidden="{{submitHidden}}">正在提交...</loading>-->
-    <view class="xieyiTips">点击“立即注册”，即表示您同意并愿意遵守 <navigator url="../about/xieyi" hover-class="text-navigator-hover">九九九空中救护会员服务协议</navigator></view>
+    <view class="xieyiTips">点击“立即注册”，即表示您同意并愿意遵守 <navigator url="../about/xieyi" hover-class="text-navigator-hover">九九九空中救护会员服务条款</navigator></view>
   </view>  
 </view> 
