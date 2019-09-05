@@ -1,0 +1,22 @@
+<view class='contentW'>
+  <text class="jobTitle">招聘岗位</text>
+  <text class="aboutInfo noindent">院前急救120护士</text>
+  <text class="jobTitle">招聘人数</text>
+  <text class="aboutInfo noindent">2名</text>
+  <text class="jobTitle">工作地点</text>
+  <text class="aboutInfo noindent">烟台</text>
+  <text class="jobTitle">岗位职责</text>
+  <text class="aboutInfo noindent">1、在医生带领下，认真执行院前各项规章制度，配合医生完成护理工作。 
+2、严格遵守公司值班制度，坚守岗位，服从指挥中心调度指挥，按时出诊。 
+3、具备良好的业务素质和较强的意识，对伤病员有高度的责任感，严格按照规章制度、操作流程工作，熟练掌握现场各项护理技术，掌握仪器设备、器械的性能和使用方法，严防差错事故的发生。 
+4、抢救后迅速清理现场，一切用弃药械及包装物经核对后带回，不得遗弃于现场，并及时做好记录。 
+5、协助搬运伤病员，做好转运途中伤病员的固定及护理工作，密切观察伤病员病情变化，协助医师采取有效措施。 
+6、抢救结束后，负责统计所有医疗物品消耗，并做好收费相关工作。 
+7、负责机组药品、仪器、设备、氧气等的保管、领取、查对、交接，负责直升机上毒麻药品管理；保证机载仪器设备性能良好、电量充足、氧气足量，药品齐备；严格执行消毒隔离制度，保持直升机内各种器械设备表面的清洁，定期消毒。</text>
+  <text class="jobTitle">任职要求</text>
+  <text class="aboutInfo noindent">1、具有护士资格证、执业证。 
+2、急诊科、ICU、外科三年以上工作经验。 
+3、优先考虑曾参加过院前急救工作的护士。 
+4、身体健康，爱岗敬业，求真务实。
+  </text>
+</view>

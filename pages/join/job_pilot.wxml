@@ -1,12 +1,19 @@
 <view class='contentW'>
   <text class="jobTitle">招聘岗位</text>
-  <text class="aboutInfo noindent">直升机飞行员</text>
+  <text class="aboutInfo noindent">通航资源整合专员</text>
   <text class="jobTitle">招聘人数</text>
-  <text class="aboutInfo noindent">6名</text>
+  <text class="aboutInfo noindent">1名</text>
   <text class="jobTitle">工作地点</text>
-  <text class="aboutInfo noindent">烟台、济宁、济南、青岛、潍坊、临沂驻地</text>
+  <text class="aboutInfo noindent">烟台</text>
   <text class="jobTitle">岗位职责</text>
-  <text class="aboutInfo noindent">根据公司的飞行计划，能够独立完成飞行任务；</text>
+  <text class="aboutInfo noindent">1、进行公司市场推广活动的前期情况收集。
+2、与其他运营商（其他通航企业）进行沟通交流，寻找合作空间。
+3、对全国通航企业进行筛选，根据可匹配机型，进行数据汇总。
+4、为公司领导决策提供建议。</text>
   <text class="jobTitle">任职要求</text>
-  <text class="aboutInfo noindent">持有中国民航局颁发的商用飞行员执照、体检合格证，无不良飞行记录，机长不低于2000小时飞行时间，副驾驶要求英语熟练。</text>
+  <text class="aboutInfo noindent">1、对91部、135部运行规范有深入了解。
+2、对航空器进行“航空医疗救护规范”有深入了解。
+3、对航空公司经营许可、运行许可有深入了解。
+4、对航空公司运行模式有深入了解。
+5、有通航企业运控背景优先。</text>
 </view>

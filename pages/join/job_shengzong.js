@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '通航资源整合专员'
+      title: '省区市场总监'
     })
   },
 

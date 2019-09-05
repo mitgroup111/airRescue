@@ -1,16 +1,17 @@
 <view class='contentW'>
   <text class="jobTitle">招聘岗位</text>
-  <text class="aboutInfo noindent">机务（机械ME/电子AV）</text>
+  <text class="aboutInfo noindent">医疗资源整合专员</text>
   <text class="jobTitle">招聘人数</text>
-  <text class="aboutInfo noindent">10名</text>
+  <text class="aboutInfo noindent">1名</text>
   <text class="jobTitle">工作地点</text>
-  <text class="aboutInfo noindent">烟台、济宁、济南、青岛、潍坊、临沂驻地</text>
+  <text class="aboutInfo noindent">烟台</text>
   <text class="jobTitle">岗位职责</text>
-  <text class="aboutInfo noindent">负责飞机日常维护及排除飞机各类机械故障，完成飞机在基地和外站的检查；</text>
+  <text class="aboutInfo noindent">1、负责全国医疗资源（停机坪医院、三甲医院等信息）、120急救中心资源的整合及维护。
+2、负责公司航空医疗救护合作项目的策划、沟通与跟进。
+3、全国航空医疗救护政策法规信息收集。
+3、领导安排的其他临时性工作。</text>
   <text class="jobTitle">任职要求</text>
-  <text class="aboutInfo noindent">1、民航类院校大专以上学历，机电类专业毕业； 
-2、持有CCAR-91部《民用航空器维修人员执照》（含机型签署）和《民用航空器维修管理人员资格证书》。（AV或ME） 
-3、从事直升机维修机械或电子类维修4年以上工作经验，有小松鼠机型相关维护经验者优先； 
-4、有一定读写航空专业英语能力；遵纪守法，无不良记录；
+  <text class="aboutInfo noindent">1、具备医药代表、医疗器械销售、学术推广等工作履历。
+2、对航空医疗救援行业感兴趣，认同企业文化，愿意与公司共同创业。
   </text>
 </view>

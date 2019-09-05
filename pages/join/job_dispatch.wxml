@@ -1,16 +1,18 @@
 <view class='contentW'>
   <text class="jobTitle">招聘岗位</text>
-  <text class="aboutInfo noindent">签派</text>
+  <text class="aboutInfo noindent">保险行业项目经理</text>
   <text class="jobTitle">招聘人数</text>
-  <text class="aboutInfo noindent">2名</text>
+  <text class="aboutInfo noindent">1名</text>
   <text class="jobTitle">工作地点</text>
-  <text class="aboutInfo noindent">烟台、济宁、济南、青岛、潍坊、临沂驻地</text>
+  <text class="aboutInfo noindent">烟台地</text>
   <text class="jobTitle">岗位职责</text>
-  <text class="aboutInfo noindent">根据运行条件，制作飞行计划；根据起飞、着陆、备降机场以及航路天气和保障设施、设备的情况，与机长共同正确作出放行决定，签发签派放行单；</text>
+  <text class="aboutInfo noindent">1、就空中救护服务产品开发，与合作保险工作完成对接。
+2、按公司要求积极配合保险公司进行市场宣传活动。
+3、针对空中救护服务产品及相应保险服务产品，制定有针对性的市场营销计划并达成销售目标。
+4、据需组建销售团队，完成市场开拓销售计划指标。</text>
   <text class="jobTitle">任职要求</text>
-  <text class="aboutInfo noindent">1、大专（含）以上学历；民航管制或签派相关专业，2年以上同岗位工作经验，持有签派执照；
-2、熟悉签派业务或者放行和飞行监控、飞机计划制作、航班计划申报等工作；
-3、熟悉空中交通管制程序和政策，熟悉航空气象知识；
-4、具有高水平的文字处理和语言表达能力；符合民航从业政审（背景调查）要求，无违法犯罪记录。
+  <text class="aboutInfo noindent">1、本科以上学历，经济或金融学相关专业。
+2、保险规划、项目管理工作经验8年以上。
+3、有一定的创业精神，积极主动，善于沟通，能够承受较强的工作压力。
   </text>
 </view>

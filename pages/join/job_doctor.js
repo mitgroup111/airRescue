@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '急救医生/护士'
+      title: '院前急救120医生'
     })
   },
 

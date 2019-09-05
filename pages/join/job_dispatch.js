@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '签派'
+      title: '保险行业项目经理'
     })
   },
 

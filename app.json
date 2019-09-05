@@ -20,6 +20,8 @@
     "pages/join/join",
     "pages/join/job_pilot",
     "pages/join/job_jiwu",
+    "pages/join/job_shengzong",
+    "pages/join/job_nurse",
     "pages/join/job_dispatch",
     "pages/join/job_doctor",
     "pages/register/register",
