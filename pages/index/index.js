@@ -7,10 +7,6 @@ Page({
   data: {
     banner: [
       {
-        url: 'http://hems999.com/mobile/images/jiuxingbannerm.jpg',
-        link: '../about/jiuxing'
-      },
-      {
         url: '../../images/banner01.jpg',
         link: '../about/about'
       },
