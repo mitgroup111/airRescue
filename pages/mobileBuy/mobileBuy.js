@@ -1,3 +1,4 @@
+var WxParse = require('../wxParse/wxParse.js');
 var appInstance = getApp();
 var productId = '';
 Page({
@@ -8,6 +9,7 @@ Page({
     xieyi: [
       { name: '我已阅读并同意《九九九空中救护会员服务条款》', value: '0', checked: true }
     ],
+    content:'',
     disabled: false
   },
 
@@ -42,8 +44,24 @@ Page({
     this.setData({ flag: true })
   },
   onLoad: function (options) {
-    this.setData({ mobile: wx.getStorageSync('mobile') })
+    var that = this;
+    that.setData({ mobile: wx.getStorageSync('mobile') })
     productId = options.productId;
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!getXieyi', //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取协议信息");
+        var query_clone = res.data[0];
+        console.log("content:" + query_clone.xieyi);
+        WxParse.wxParse('content', 'html', query_clone.xieyi, that, 5);
+      }
+    });
+
+
     this.WxValidate = appInstance.wxValidate(
       {
         mobile: {
