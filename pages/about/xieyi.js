@@ -1,17 +1,31 @@
+var WxParse = require('../wxParse/wxParse.js');
+var appInstance = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!getXieyi', //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取协议信息");
+        var query_clone = res.data[0];
+        WxParse.wxParse('content', 'html', query_clone.xieyi, that, 5);
+      }
+    });
   },
 
   /**

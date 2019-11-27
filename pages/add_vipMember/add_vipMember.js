@@ -1,4 +1,4 @@
-// pages/add_vipMember/add_vipMember.js
+var WxParse = require('../wxParse/wxParse.js');
 var appInstance = getApp();
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 var timestamp = Date.parse(new Date());
@@ -77,7 +77,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!getXieyi', //仅为示例，并非真实的接口地址
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log("获取协议信息");
+        var query_clone = res.data[0];
+        WxParse.wxParse('content', 'html', query_clone.xieyi, that, 5);
+      }
+    });
     // 获取完整的年月日 时分秒，以及默认显示的数组
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -93,7 +105,6 @@ Page({
       dateTime1: obj1.dateTime
 
     });
-    var that = this;
     wx.request({
       url: appInstance.globalData.serverUrl +'weixinSmall!toMember', //仅为示例，并非真实的接口地址
       data: { orderId: options.orderId },
