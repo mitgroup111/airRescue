@@ -30,6 +30,8 @@
     "pages/product/product",
     "pages/product/productInfo",
     "pages/user/user",
+    "pages/order/xufei",
+    "pages/order/payOkRenew",
     "pages/order/order",
     "pages/orderDetail/orderDetail",
     "pages/mobileBuy/mobileBuy",
@@ -43,7 +45,13 @@
     "pages/sosInfo/sosInfo",
     "pages/about/explain",
     "pages/about/jiuxing",
-    "pages/code/code"
+    "pages/code/code",
+    "pages/index1/index",
+    "pages/index1/index1",
+    "pages/logs/logs",
+
+    "pages/test/test"
+
   ],
   "permission": {
     "scope.userLocation": {

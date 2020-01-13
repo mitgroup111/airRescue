@@ -1,0 +1,6 @@
+<view class="contentW">
+<view>订单编号：</view>
+<view>原时间：</view>
+<view>续费后的时间：</view>
+<view bindtap="toPay" class="greenBtn" > 立即支付 </view>
+</view>

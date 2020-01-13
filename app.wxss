@@ -552,3 +552,39 @@ page{
 .blank{
   height:100rpx;
 }
+.btn{
+  background: #f0ad4e;
+  border: 1px solid #eea236;
+  border-radius: 6rpx;
+  color: #fff;
+  padding: 4rpx 16rpx;
+  display: inline-block;
+  margin-bottom: 20rpx;
+  margin-right: 10rpx;
+  font-size: 30rpx;
+
+}
+.btn.btn-primary{
+  background: #aaa !important;
+	border:1px solid #999 !important;
+}
+.btn.btn-default{
+  background: #f0ad4e !important;
+  border: 1px solid #eea236 !important;
+}
+.btn.btn-success{
+  background: #5cb85c !important;
+	border:1px solid #4cae4c !important;
+}
+.btn.btn-danger{
+  background: #d9534f !important;
+	border:1px solid #d43f3a !important;
+}
+.payOk {
+    background: url(https://www.hems999.com/mobile/images/success.png) no-repeat scroll center top;
+    color: #10940f;
+    font-size: 36rpx;
+    margin-top: 120rpx;
+    padding: 220rpx 0 0;
+    text-align: center;
+}
