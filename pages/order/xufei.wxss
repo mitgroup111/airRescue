@@ -1,1 +1,19 @@
-/* pages/order/xufei.wxss */
+.list{
+    line-height: 54rpx;
+    padding: 12rpx 0;
+    border-bottom: 2rpx dotted #d1d1d1;
+}
+.list text{
+  font-size: 32rpx;
+}
+.list view {
+    float: right;
+    width: 70%;
+    font-size: 32rpx;
+    text-align: right;
+    color: #888;
+}
+.list view text{
+  font-weight: bold;
+  color: #555;
+}

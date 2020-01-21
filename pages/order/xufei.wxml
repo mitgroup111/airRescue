@@ -1,6 +1,19 @@
 <view class="contentW">
-<view>订单编号：</view>
-<view>原时间：</view>
-<view>续费后的时间：</view>
-<view bindtap="toPay" class="greenBtn" > 立即支付 </view>
+<view class="list clearfix">
+  <text>产品名称</text>
+  <view>“救星”自动报警救援系统续费</view>
+</view>
+<view class="list clearfix">
+  <text>有效期</text>
+  <view><text>2021-01-20</text>到期，续费后有效期将顺延至<text>2022-01-20</text>到期</view>
+</view>
+<view class="list clearfix">
+  <text>付费模式</text>
+  <view>按年付费</view>
+</view>
+<view class="list clearfix">
+  <text>应付金额</text>
+  <view>￥199元</view>
+</view>
+<view bindtap="toPay" class="greenBtn m-t-20" > 立即支付 </view>
 </view>
