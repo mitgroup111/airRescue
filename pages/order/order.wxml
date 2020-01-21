@@ -2,40 +2,41 @@
 <view hidden='{{flag}}'>
 <scroll-view>
   <view class="orderItem" wx:for="{{order_list}}">
-    <view class="orderID">订单编号：{{item.orderid}}</view>
-    <view class="orderDate">订单金额：<text>￥{{item.totalMoney}}</text></view>
-    <view class="orderDate">下单时间：<text>{{item.createTimeStr}}</text></view>
-    <view wx:if="{{item.status=='0' && item.orderType=='3'}}"  class="marginBottom">
-        <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="btn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+    <view class="orderID">订单编号：{{item.order.orderid}}</view>
+    <view class="orderDate">订单金额：<text>￥{{item.order.totalMoney}}</text></view>
+    <view class="orderDate">开始时间：<text>{{item.order.beginDateStr}}</text></view>
+    <view class="orderDate">结束时间：<text>{{item.order.endDateStr}}</text></view>
+    <view wx:if="{{item.order.status=='0' && item.order.orderType=='3'}}"  class="marginBottom">
+        <navigator url="../add_vipMember/add_vipMember?orderId={{item.order.orderid}}" class="btn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
-    <view wx:if="{{item.status=='0' && item.orderType!='3'}}" >
-        <navigator url="../mobileBuy/mobileOrder?orderId={{item.orderid}}&orderMoney={{item.totalMoney}}" class="btn btn-success" hover-class="menu-navigator-hover">去支付</navigator>
+    <view wx:if="{{item.order.status=='0' && item.order.orderType!='3'}}" >
+        <navigator url="../mobileBuy/mobileOrder?orderId={{item.order.orderid}}&orderMoney={{item.order.totalMoney}}" class="btn btn-success" hover-class="menu-navigator-hover">去支付</navigator>
     </view>
-    <view wx:if="{{item.status=='1'}}" >
-        <navigator url="../add_vipMember/add_vipMember?orderId={{item.orderid}}" class="btn" hover-class="menu-navigator-hover">追加个人信息</navigator>
+    <view wx:if="{{item.order.status=='1'}}" >
+        <navigator url="../add_vipMember/add_vipMember?orderId={{item.order.orderid}}" class="btn" hover-class="menu-navigator-hover">追加个人信息</navigator>
     </view>
-    <view wx:if="{{item.status=='2'}}" >
-        <navigator url="../add_jiankang/add_jiankang?orderId={{item.orderid}}&vipMemberId={{item.memberid}}" class="btn btn-success" hover-class="menu-navigator-hover">追加健康信息</navigator>
+    <view wx:if="{{item.order.status=='2'}}" >
+        <navigator url="../add_jiankang/add_jiankang?orderId={{item.order.orderid}}&vipMemberId={{item.order.memberid}}" class="btn btn-success" hover-class="menu-navigator-hover">追加健康信息</navigator>
         <navigator url="" class="btn btn-danger" hover-class="menu-navigator-hover">续费</navigator>
     </view>
-    <view wx:if="{{item.status=='6'}}" >  
-        <navigator url="../add_jiaren/add_jiaren?orderId={{item.orderid}}&vipMemberId={{item.memberid}}" class="btn" hover-class="menu-navigator-hover">追加家人信息</navigator>
+    <view wx:if="{{item.order.status=='6'}}" >  
+        <navigator url="../add_jiaren/add_jiaren?orderId={{item.order.orderid}}&vipMemberId={{item.order.memberid}}" class="btn" hover-class="menu-navigator-hover">追加家人信息</navigator>
         <navigator url="" class="btn btn-danger" hover-class="menu-navigator-hover">续费</navigator>
     </view>
-    <view wx:if="{{item.status=='5' || item.status=='4'}}" >
-        <navigator url="../orderDetail/orderDetail?sessionId={{sessionId}}&orderId={{item.orderid}}" class="btn" hover-class="menu-navigator-hover">查看详情</navigator>
+    <view wx:if="{{item.order.status=='5' || item.order.status=='4'}}" >
+        <navigator url="../orderDetail/orderDetail?sessionId={{sessionId}}&orderId={{item.order.orderid}}" class="btn" hover-class="menu-navigator-hover">查看详情</navigator>
         <navigator url="" class="btn btn-danger" hover-class="menu-navigator-hover">续费</navigator>
     </view>
-    <view wx:if="{{item.status=='3' && item.vipNum == '1'}}" >
-        <navigator url="../add_carInfo/add_carInfo?sessionId={{sessionId}}&orderId={{item.orderid}}" class="btn" hover-class="menu-navigator-hover">追加车辆信息</navigator>
+    <view wx:if="{{item.order.status=='3' && item.order.vipNum == '1'}}" >
+        <navigator url="../add_carInfo/add_carInfo?sessionId={{sessionId}}&orderId={{item.order.orderid}}" class="btn" hover-class="menu-navigator-hover">追加车辆信息</navigator>
         <navigator url="" class="btn btn-danger" hover-class="menu-navigator-hover">续费</navigator>
     </view>
-     <view wx:if="{{item.status=='3' && item.vipNum != '1'}}" >
-        <navigator url="../add_jiaren/add_jiaren?orderId={{item.orderid}}&vipMemberId={{item.memberid}}" class="btn" hover-class="menu-navigator-hover">追加家人信息</navigator>
+     <view wx:if="{{item.order.status=='3' && item.order.vipNum != '1'}}" >
+        <navigator url="../add_jiaren/add_jiaren?orderId={{item.order.orderid}}&vipMemberId={{item.order.memberid}}" class="btn" hover-class="menu-navigator-hover">追加家人信息</navigator>
         <navigator url="" class="btn btn-danger" hover-class="menu-navigator-hover">续费</navigator>
     </view>
     <view class="orderInfo">
-      <navigator url="../product/productInfo?productId={{item.productId}}" hover-class="menu-navigator-hover">
+      <navigator url="../product/productInfo?productId={{item.order.productId}}" hover-class="menu-navigator-hover">
         <text>查看产品详情</text>
       </navigator>
     </view>
