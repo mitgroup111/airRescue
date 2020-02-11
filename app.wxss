@@ -564,6 +564,16 @@ page{
   font-size: 30rpx;
 
 }
+.btn.btn-link{
+  display: block;
+  width: 90%;
+  margin: 30rpx auto;
+  text-align: center;
+  padding: 0;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+}
 .btn.btn-primary{
   background: #aaa !important;
 	border:1px solid #999 !important;

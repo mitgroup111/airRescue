@@ -1,2 +1,2 @@
 <view class="payOk">恭喜您，支付成功！</view>
-<navigator url="../order/order">返回</navigator>
+<navigator url="../order/order" class="btn btn-link">返回</navigator>
