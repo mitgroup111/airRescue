@@ -26,7 +26,6 @@ var appInstance = getApp();
       success: function (res) {
         console.log("获取订单列表");
         var query_clone = res.data[0];
-
         if (query_clone.flg == 0) {
           wx.navigateTo({
             url: '../login/login'

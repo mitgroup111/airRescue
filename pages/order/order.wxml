@@ -4,7 +4,7 @@
   <view class="orderItem" wx:for="{{order_list}}">
     <view class="orderID">订单编号：{{item.order.orderid}}</view>
     <view class="orderDate">订单金额：<text>￥{{item.order.totalMoney}}</text></view>
-    <view class="orderDate">开始时间：<text>{{item.order.beginDateStr}}</text></view>
+    <view class="orderDate">开始时间：<text>{{item.order.begindateStr}}</text></view>
     <view class="orderDate">结束时间：<text>{{item.order.endDateStr}}</text></view>
     <view wx:if="{{item.order.status=='0' && item.order.orderType=='3'}}"  class="marginBottom">
         <navigator url="../add_vipMember/add_vipMember?orderId={{item.order.orderid}}" class="btn" hover-class="menu-navigator-hover">追加个人信息</navigator>
