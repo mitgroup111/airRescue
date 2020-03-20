@@ -14,7 +14,7 @@ Page({
   //轨迹
   guijiChange: function (e) {
     console.log(e.detail.value);
-    this.setData({ alowGuiji: e.detail.value });
+    this.setData({ guijiFlag : e.detail.value });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -39,13 +39,14 @@ Page({
           id: query_clone.vipMember.memberid,
           shebeiNum1: query_clone.vipMember.shebeiNum1,
           shebeiNum2: query_clone.vipMember.shebeiNum2,
-          alowGuiji: query_clone.vipMember.guijiFlag
+          guijiFlag: query_clone.vipMember.alowGuiji
         });
         memberid = query_clone.vipMember.memberid;
         var guijiList = that.data.guiji_items//获取Json数组
-        var alowGuiji = query_clone.vipMember.guijiFlag;
+        var guijiFlag = query_clone.vipMember.alowGuiji;
         for (var i = 0; i < guijiList.length; i++) {
-          if (guijiList[i].value == alowGuiji) {
+          console.log(guijiList[i].value + "       " + guijiFlag);
+          if (guijiList[i].value == guijiFlag) {
             guijiList[i].checked = true;
           }
           else {
@@ -65,7 +66,7 @@ Page({
         tel2: {
           tel: true
         },
-        alowGuiji: {
+        guijiFlag: {
           required: true
         }
       },
@@ -76,7 +77,7 @@ Page({
         tel2: {
           tel: '请输入正确的手机号'
         },
-        alowGuiji: {
+        guijiFlag: {
           required: '请选择是否上传轨迹'
         }
       }
@@ -85,7 +86,7 @@ Page({
   // 登录  
   formSubmit: function (e) {
     var that = this;
-    console.log(e.detail.value.alowGuiji);
+    console.log(e.detail.value.guijiFlag);
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       wx.showModal({
@@ -100,9 +101,9 @@ Page({
         url: appInstance.globalData.serverUrl + 'weixinSmall!saveVehicleSetting', //仅为示例，并非真实的接口地址
         data: {
           "id": memberid,
-          "shebeiNum1": e.detail.value.tel1,
-          "shebeiNum2": e.detail.value.tel2,
-          "guijiFlag": e.detail.value.alowGuiji
+          "tel1": e.detail.value.tel1,
+          "tel2": e.detail.value.tel2,
+          "guijiFlag": e.detail.value.guijiFlag
         },
         header: {
           'Content-Type': 'application/json'
@@ -122,8 +123,8 @@ Page({
               icon: 'success',
               duration: 2000
             })
-            wx.switchTab({
-              url: '../pages/jiuxingMsg/shebeiList'
+            wx.redirectTo({
+              url: '/pages/jiuxingMsg/shebeiList'
             })
           }
         }
