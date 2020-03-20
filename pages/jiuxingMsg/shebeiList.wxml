@@ -1,0 +1,23 @@
+<view class="contentW">
+  <block wx:if="{{shebei_list==''}}" >
+    <view>暂无信息</view>
+  </block>
+  <view wx:for="{{shebei_list}}">
+    <view class="orderItem">
+      <view class="orderID">设备编号：{{item.serial}}</view>
+      <view class="orderDate">会员姓名：<text>{{item.userName}}</text></view>
+      <view class="orderDate">开始时间：<text>{{item.beginDateStr}}</text></view>
+      <view class="orderDate">结束时间：<text>{{item.endDateStr}}</text></view>
+    </view>
+    <block wx:if="{{item.alowGuiji=='0'}}" >
+      <navigator url="../jiuxingMsg/setTelNum?id={{item.memberid}}" class="orangeBtn m-t-20" hover-class="menu-navigator-hover">设置</navigator>
+    </block>
+    <block wx:if="{{item.alowGuiji=='1'}}" >
+      <view class="shebeiList-btn">
+        <navigator url="../jiuxingMsg/setTelNum?id={{item.memberid}}" class="orangeBtn m-t-20" hover-class="menu-navigator-hover">设置</navigator>
+        <navigator url="../jiuxingMsg/jiuXingGpsOnMap?id={{item.serial}}" class="greenBtn m-t-20" hover-class="menu-navigator-hover">查看轨迹</navigator>
+      </view>
+    </block>
+    
+  </view>
+</view>

@@ -48,8 +48,11 @@
     "pages/code/code",
     "pages/index1/index",
     "pages/index1/index1",
+    "pages/jiuxingMsg/setTelNum",
+    "pages/jiuxingMsg/shebeiList",
+    "pages/jiuxingMsg/jiuXingGpsOnMap",
     "pages/logs/logs",
-
+    
     "pages/test/test"
 
   ],

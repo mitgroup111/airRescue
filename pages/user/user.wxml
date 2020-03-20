@@ -40,6 +40,11 @@
     </navigator>
   </view>
   <view class="userItem">
+    <navigator url="../jiuxingMsg/shebeiList" hover-class="menu-navigator-hover">
+    <image class="menu-img" src="http://www.hems999.com/mobile/images/myuser05.jpg"/><text>救星设备管理</text>
+    </navigator>
+  </view>
+  <view class="userItem">
     <navigator url="../myjiangli/myjiangli" hover-class="menu-navigator-hover">
     <image class="menu-img" src="http://www.hems999.com/mobile/images/myuser04.jpg"/><text>我的奖励</text>
     </navigator>

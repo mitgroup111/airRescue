@@ -1,0 +1,16 @@
+<view class="container">  
+  <view class="genzong">
+    <map
+      id="myMap"
+      style="width: 100%; height: 100%;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      scale="{{scale}}"
+      controls='{{controls}}'
+      bindcontroltap="controltap"
+      show-location
+    ></map>
+  </view>
+</view>

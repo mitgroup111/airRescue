@@ -1,0 +1,27 @@
+<view class="container">   
+  <view class="login-from"> 
+    <form bindsubmit="formSubmit" bindreset="formReset">  
+    <!--账号-->  
+    <view class="inputView">   
+      <label class="loginLab">手机号1</label>   
+      <input name="tel1" class="inputText" type="number" value="{{shebeiNum1}}" maxlength="11" placeholder="请输入手机号"/>
+    </view>  
+    <view class="line"></view>  
+    <view class="inputView">   
+      <label class="loginLab">手机号2</label>   
+      <input name="tel2" class="inputText" type="number" value="{{shebeiNum2}}" maxlength="11" placeholder="请输入手机号"/>
+    </view>  
+    <view class="line"></view>  
+    <radio-group class="radio-group clearfix" bindchange="guijiChange">
+          是否上传轨迹：<label class="radio" wx:for="{{guiji_items}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+          </label>
+        </radio-group>
+        <input name="guijiFlag" hidden="false" value='{{alowGuiji}}' />
+    <!--按钮-->  
+    <view class="loginBtnView">  
+      <button class="loginBtn" type="primary" formType="submit">提交</button>
+    </view> 
+    </form>
+  </view>  
+</view>  

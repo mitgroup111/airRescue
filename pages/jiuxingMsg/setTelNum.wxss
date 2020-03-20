@@ -10,9 +10,3 @@
   vertical-align: middle;
 
 }
-.nomarginTop{
-  margin:0;
-}
-.checkbox-group{
-  font-size: 34rpx;
-}

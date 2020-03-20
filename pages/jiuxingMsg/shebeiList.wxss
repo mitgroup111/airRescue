@@ -1,0 +1,23 @@
+.orderID{
+  color: #026a19;
+}
+.orderItem {
+    background: #fff;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 2rpx 2rpx 2rpx #e0e0e0;
+    padding: 16rpx;
+    border: 2px solid #e0e0e0;
+    position: relative;
+    line-height: 60rpx;
+}
+.orderDate text{
+  color:#888;
+}
+.shebeiList-btn{
+ display: flex
+}
+.shebeiList-btn navigator{
+ flex: 1;
+ margin: 0 10px 10px 10px;
+}
