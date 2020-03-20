@@ -39,11 +39,11 @@ Page({
           id: query_clone.vipMember.memberid,
           shebeiNum1: query_clone.vipMember.shebeiNum1,
           shebeiNum2: query_clone.vipMember.shebeiNum2,
-          alowGuiji: query_clone.vipMember.alowGuiji
+          alowGuiji: query_clone.vipMember.guijiFlag
         });
         memberid = query_clone.vipMember.memberid;
         var guijiList = that.data.guiji_items//获取Json数组
-        var alowGuiji = query_clone.vipMember.alowGuiji;
+        var alowGuiji = query_clone.vipMember.guijiFlag;
         for (var i = 0; i < guijiList.length; i++) {
           if (guijiList[i].value == alowGuiji) {
             guijiList[i].checked = true;
@@ -102,7 +102,7 @@ Page({
           "id": memberid,
           "shebeiNum1": e.detail.value.tel1,
           "shebeiNum2": e.detail.value.tel2,
-          "alowGuiji": e.detail.value.alowGuiji
+          "guijiFlag": e.detail.value.alowGuiji
         },
         header: {
           'Content-Type': 'application/json'
