@@ -65,7 +65,7 @@ Page({
         tel2: {
           tel: true
         },
-        guijiFlag: {
+        alowGuiji: {
           required: true
         }
       },
@@ -76,7 +76,7 @@ Page({
         tel2: {
           tel: '请输入正确的手机号'
         },
-        guijiFlag: {
+        alowGuiji: {
           required: '请选择是否上传轨迹'
         }
       }
@@ -85,6 +85,7 @@ Page({
   // 登录  
   formSubmit: function (e) {
     var that = this;
+    console.log(e.detail.value.alowGuiji);
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       wx.showModal({
@@ -107,6 +108,7 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
+          console.log(res);
           var query_clone = res.data[0];
           console.log(query_clone);
           if (query_clone.flg == '0') {
@@ -121,7 +123,7 @@ Page({
               duration: 2000
             })
             wx.switchTab({
-              url: '../jiuxingMsg/shebeiList'
+              url: '../pages/jiuxingMsg/shebeiList'
             })
           }
         }

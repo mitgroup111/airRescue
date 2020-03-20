@@ -17,7 +17,7 @@
           <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
           </label>
         </radio-group>
-        <input name="guijiFlag" hidden="false" value='{{alowGuiji}}' />
+        <input name="alowGuiji" hidden="false" value='{{alowGuiji}}' />
     <!--按钮-->  
     <view class="loginBtnView">  
       <button class="loginBtn" type="primary" formType="submit">提交</button>
