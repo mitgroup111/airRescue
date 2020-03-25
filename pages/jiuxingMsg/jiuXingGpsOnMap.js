@@ -44,8 +44,7 @@ Page({
     wx.request({
       url: appInstance.globalData.serverUrl + 'weixinSmall!viewGuiji', //仅为示例，并非真实的接口地址
       data: {
-        id: options.id,
-        beginDate: "2020-03-23"},
+        id: options.id},
       header: {
         'Content-Type': 'application/json'
       },
@@ -145,6 +144,72 @@ Page({
         scale: ++this.data.scale
       })
     }
+  },
+
+  changeDate(e) {
+    this.setData({
+      beginDate: e.detail.value
+    });
+  },
+
+  viewGuiji: function () {
+    var that = this;
+    console.log(that.data.beginDate);
+    console.log(that.data.serial);
+    wx.request({
+      url: appInstance.globalData.serverUrl + 'weixinSmall!viewGuiji', //仅为示例，并非真实的接口地址
+      data: {
+        id: that.data.serial,
+        beginDate: that.data.beginDate
+      },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        var query_clone = res.data[0];
+        if (query_clone.flg == 0) {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        }
+        console.log("query_clone:" + query_clone.jiuXingGpsList);
+        console.log("lng:" + query_clone.lng);
+        that.setData({
+          serial: query_clone.serial,
+          jiuXingGpsList: query_clone.jiuXingGpsList,
+          beginDate: query_clone.beginDate,
+          longitude: query_clone.lng,
+          latitude: query_clone.lat
+        });
+
+        if (query_clone.lng == "") {
+          console.log("lng==1");
+          wx.getLocation({
+            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+            success: (res) => {
+              that.setData({
+                markers: that.getSchoolMarkers(),
+                scale: 15,
+                longitude: res.longitude,
+                latitude: res.latitude
+              })
+            }
+          });
+        } else {
+          console.log("lng==2");
+          that.setData({
+            markers: that.getSchoolMarkers(),
+            polyline: [{
+              points: that.getP1(),
+              color: "#FF0000DD",
+              width: 2,
+              dottedLine: true
+            }],
+            scale: 15
+          });
+        }
+      }
+    });
   },
 
   /**
