@@ -10,22 +10,22 @@ Page({
     latitude: "",
     controls: [{
       id: 1,
-      iconPath: '/images/hujiu.png',
+      iconPath: '/images/fangda.jpg',
       position: {
-        left: 250,
-        top: 100,
-        width: 60,
-        height: 60
+        left: 10,
+        top: 10,
+        width: 28,
+        height: 28
       },
       clickable: true
     }, {
       id: 2,
-      iconPath: '/images/hujiu.png',
+        iconPath: '/images/suoxiao.jpg',
       position: {
-        left: 250,
-        top: 160,
-        width: 60,
-        height: 60
+        left: 10,
+        top:37,
+        width: 28,
+        height: 28
       },
       clickable: true
     }]
@@ -117,7 +117,7 @@ Page({
     let latitude = point.txlat;
     let longitude = point.txlng;
     let marker = {
-      iconPath: "/images/hujiu.png",
+      iconPath: "/images/location.png",
       id: point.infoId || 0,
       latitude: latitude,
       longitude: longitude,

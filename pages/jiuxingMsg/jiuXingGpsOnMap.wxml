@@ -1,4 +1,13 @@
 <view class="container">  
+  <view class="searchDate">
+    <picker mode="date" value="{{beginDate}}" start="{{stratTime}}" end="{{endTime}}">
+        <input name="beginDate" class="input_block" type="text"  placeholder="请选择查询日期" disabled value='{{beginDate}}' />
+    </picker>
+    <view class="searchBtn">  
+      <button type="primary" formType="submit" disabled='{{disabled}}'>查看轨迹</button>
+    </view>
+ </view>
+ <view class="line"></view>
   <view class="genzong">
     <map
       id="myMap"
