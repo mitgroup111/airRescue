@@ -1,1 +1,4 @@
-/* pages/jiuxingMsg/jiuXingGpsOnMap.wxss */
+.genzong{
+  width: 100%;
+  height: 100%;
+}
