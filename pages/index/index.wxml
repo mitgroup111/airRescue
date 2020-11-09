@@ -10,7 +10,7 @@
 </view>
 <view  class="list-wrp" >
   <view class="list-list">
-    <navigator url="../about/jieshao"  hover-class="hoverClass">
+    <navigator url="../about/jiuxing"  hover-class="hoverClass">
         <image class="list-img" src="http://www.hems999.com/mobile//images/list01.png"/>
         <view  class="list-title" >项目介绍</view>
     </navigator>
@@ -27,16 +27,12 @@
         <view  class="list-title" >空中救护设备</view>
     </navigator>
   </view>
+  
+  
   <view class="list-list">
-    <navigator url="../about/jidi"  hover-class="hoverClass">
-        <image class="list-img" src="http://www.hems999.com/mobile//images/list04.png"/>
-        <view  class="list-title" >  救援基地  </view>
-    </navigator>
-  </view>
-  <view class="list-list">
-    <navigator url="../about/yiyuan"   hover-class="hoverClass">
-        <image class="list-img" src="http://www.hems999.com/mobile//images/list05.png"/>
-        <view  class="list-title" >  服务环境  </view>
+    <navigator url="../join/join"  hover-class="hoverClass">
+        <image class="list-img" src="http://www.hems999.com/mobile//images/list09.png"/>
+        <view  class="list-title" >加入我们</view>
     </navigator>
   </view>
   <view class="list-list">
@@ -49,12 +45,6 @@
     <navigator url="../news/news?pageNo=1"   hover-class="hoverClass">
         <image class="list-img" src="http://www.hems999.com/mobile//images/list08.png"/>
         <view  class="list-title" >新闻速递  </view>
-    </navigator>
-  </view>
-  <view class="list-list">
-    <navigator url="../join/join"  hover-class="hoverClass">
-        <image class="list-img" src="http://www.hems999.com/mobile//images/list09.png"/>
-        <view  class="list-title" >加入我们</view>
     </navigator>
   </view>
 </view>

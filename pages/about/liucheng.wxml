@@ -1,4 +1,3 @@
 <view class='contentW'>
   <image class="about-img" src="http://www.hems999.com/mobile/images/fuwuliucheng01_01.jpg" mode='widthFix'/>
-  <image class="about-img" src="http://www.hems999.com/mobile/images/fuwuliucheng01_02.jpg" mode='widthFix'/>
 </view>

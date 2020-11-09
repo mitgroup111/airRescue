@@ -2,7 +2,7 @@
   <view class="clearfix">   
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing01.jpg" mode='widthFix'/>
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing02.jpg" mode='widthFix'/>
-    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing03.jpg" mode='widthFix'/>
+    <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing03_01.jpg" mode='widthFix'/>
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing04.jpg" mode='widthFix'/>
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing05.jpg" mode='widthFix' bindtap="productUrl"/>
   </view>
@@ -12,7 +12,7 @@
     <image class="jiuxing-img" src="http://www.hems999.com/mobile/images/jiuxing06.jpg" mode='widthFix'/>
   </view>
   <text class="jiuxing-title">产品购买及使用方法</text>
-  <text class="jiuxing-info">1.登录九九九官网根据网站提示完成注册；
+  <text class="jiuxing-info">1.登录九九九官网根据网站提示完成购买；
 2.快递发货（包邮）；
 3.客户收货；
 4.将“救星”插入车辆点烟器插口；
